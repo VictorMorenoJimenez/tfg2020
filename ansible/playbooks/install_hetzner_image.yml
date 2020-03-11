@@ -1,0 +1,7 @@
+---
+- hosts: "{{ target  }}"
+  # Gather_facts le dice a ansible que no recoja informaciond el servidor
+  gather_facts: false
+  remote_user: root
+  roles:
+      - install_image
