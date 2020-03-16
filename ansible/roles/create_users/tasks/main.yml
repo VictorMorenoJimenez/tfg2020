@@ -1,0 +1,17 @@
+---
+
+- name: Create user mario
+  user:
+    name: mario
+    password: "{{ user_passwords.mario }}"
+    groups:
+      - sudo
+    create_home: yes
+    shell: /bin/bash
+    comment: User mario, must be on every server
+    state: present
+
+- name: Change password to root
+  user:
+    name: root
+    password: "{{ user_passwords.root }}"
