@@ -2,26 +2,26 @@
 # http://wiki.hetzner.de/index.php/Robot_Webservice#Boot-Konfiguration
 # http://wiki.hetzner.de/index.php/Robot_Webservice#Reset
 
-- name: Comprobar que el servidor está en modo rescue 
+- name: Check that the server is on rescue mode 
   shell: hostname
   register: is_rescue_hostname
   failed_when: is_rescue_hostname.stdout.find('rescue') == -1
 
-- name: Creamos fichero temporal para alojar el script de instalación 
+- name: Create temp file to copy the installation script
   shell: mktemp --tmpdir tmp.XXXXXXXXXX.sh
   register: tmp_file
   when: is_rescue_hostname.stdout.find('rescue') != -1
 
-- name: Copiamos el script de instalación 
+- name: Copy installation script
   template:
     src: install.sh.j2
     dest: "{{tmp_file.stdout}}"
     mode: 0700
   when: is_rescue_hostname.stdout.find('rescue') != -1
 
-- name: Ejecutamos el script de instalación 
+- name: Execute installation script
   shell: "{{tmp_file.stdout}}"
   when: is_rescue_hostname.stdout.find('rescue') != -1
   
-- name: Reiniciar después de la instalación
+- name: Reboot after installation 
   reboot:
