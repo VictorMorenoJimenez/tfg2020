@@ -20,6 +20,7 @@
       - bzip2
       - unzip
       - net-tools
+      - python-pip
 
 - name: Install kms-control-daemon and zfsutils (Proxmox dependencies)
   apt:
@@ -27,3 +28,10 @@
       - ksm-control-daemon
       - zfsutils
 
+- name: Install proxmoxer required for Ansible proxmox module
+  pip:
+    name: proxmoxer
+
+- name: Install requests required for Ansible proxmox module
+  pip:
+    name: requests 
