@@ -1,3 +1,3 @@
 [hetzner]
-tfg.intelligenia.com ansible_ssh_user=root ansible_ssh_private_key_file=/home/victor/.ssh_work/id_rsa
+tfg.intelligenia.com ansible_ssh_user=root 
 
