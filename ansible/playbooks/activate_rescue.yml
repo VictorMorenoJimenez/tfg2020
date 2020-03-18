@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ target  }}"
+- hosts: localhost 
   gather_facts: false
   roles:
       - activate_rescue 
