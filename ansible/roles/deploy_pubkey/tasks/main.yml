@@ -16,9 +16,8 @@
   when: "'openssh-server' not in ansible_facts.packages"
 
 - proxmox:
-    api_user: " {{ proxmox.api_user }}" 
+    api_user: "{{ proxmox.api_user }}"
     api_password: "{{ proxmox.api_password }}"
-    api_host: tfg
-    password: "{{ proxmox.api_password }}"
+    api_host: "{{ proxmox.host }}"
     pubkey: "{{ public_keys.victor_home }}"
 
