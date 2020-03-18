@@ -2,4 +2,4 @@
 - hosts: "{{ target  }}"
   gather_facts: false
   roles:
-      - install_image
+      - activate_rescue 
