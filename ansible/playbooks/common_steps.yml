@@ -8,5 +8,4 @@
       - update_upgrade 
       - install_common_packages
       - create_users
-      - deploy_pubkey 
       - restart_server
