@@ -7,5 +7,6 @@
   roles:
       - update_upgrade 
       - install_common_packages
-      - create_users
+      - install_proxmox
+      - create_users 
       - restart_server
