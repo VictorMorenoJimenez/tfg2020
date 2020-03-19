@@ -1,4 +1,3 @@
-# Trabajo Fin de Grado Ingeniería Informática UGR 
-## Implementar sistema CI/CD para proyectos Django y Wordpress
-
-Como propuesta de TFG se ha propuesto a la empresa Intelligenia S.A la implementación del pipeline CI/CD para mejorar la experiencia de los desarrolladores así como para acercar a la empresa a la filosofía DevOps.
+# Part 1. Automatic server provisioning and deployment with Ansible Playbooks.
+# Part 2. Automatic VM provisioning and deployment with Ansible Playbooks.
+# Part 3. CI/CD pipeline for Django and Wordpress projects.
