@@ -15,8 +15,8 @@
   wait_for:
     timeout: 30
 
-- name: Activate Rescue mode if is not activated
-  uri:
+- name: Activate Rescue mode if is not activated 
+  uri: 
     url: "{{ hetzner.rescue_url }}"
     method: POST
     user: "{{ hetzner.user }}"
@@ -37,3 +37,10 @@
     body:
       type: hw
 
+- name: Wait for server to be ready
+  wait_for:
+    port: 22 
+    host: "{{ target }}" 
+    connect_timeout: 20
+    delay: 20
+    timeout: 500 
