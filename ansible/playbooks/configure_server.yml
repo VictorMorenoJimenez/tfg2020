@@ -1,0 +1,5 @@
+---
+
+- import_playbook: activate_rescue.yml
+- import_playbook: install_hetzner_image.yml
+  #- import_playbook: common_steps.yml
