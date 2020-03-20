@@ -9,4 +9,5 @@
       - install_common_packages
       - install_proxmox
       - create_users 
+      - upload_iso_proxmox
       - restart_server
