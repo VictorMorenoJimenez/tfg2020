@@ -1,0 +1,13 @@
+---
+# Upload new openvz template with all options and force overwrite
+
+- name: Upload iso to proxmox
+  proxmox_template:
+    node: "{{ proxmox.node }}" 
+    api_user: "{{ proxmox.user }}"
+    api_password: "{{ proxmox.password }}"
+    api_host: "{{ target }}" 
+    storage: "{{ proxmox.storage }}" 
+    content_type: iso 
+    src: "{{ proxmox.file }}" 
+    force: yes
