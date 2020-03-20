@@ -2,6 +2,14 @@
 # http://wiki.hetzner.de/index.php/Robot_Webservice#Boot-Konfiguration
 # http://wiki.hetzner.de/index.php/Robot_Webservice#Reset
 
+- name: Wait for server to be ready
+  wait_for:
+    port: 22 
+    host: "{{ target }}" 
+    connect_timeout: 3
+    delay: 3
+    timeout: 30
+
 - name: Check that the server is on rescue mode
   shell: hostname
   register: is_rescue_hostname
