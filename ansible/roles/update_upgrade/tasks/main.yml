@@ -1,4 +1,12 @@
 ---
+- name: Install python package
+  apt:
+    pkg:
+      - python-apt
+      - python3-apt
+      - python
+      - python3
+
 - name: Update apt cache
   apt:
     update_cache: yes

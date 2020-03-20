@@ -9,5 +9,5 @@
       - install_common_packages
       - install_proxmox
       - create_users 
-      - upload_iso_proxmox
+      - {role: upload_iso_proxmox, tags: upload}
       - restart_server

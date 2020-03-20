@@ -27,6 +27,14 @@
     mode: 0700
   when: is_rescue_hostname.stdout.find('rescue') != -1
 
+- name: Install python package
+  apt:
+    pkg:
+      - python-apt
+      - python3-apt
+      - python
+      - python3
+
 - name: Execute installation script
   shell: "{{tmp_file.stdout}}"
   when: is_rescue_hostname.stdout.find('rescue') != -1
