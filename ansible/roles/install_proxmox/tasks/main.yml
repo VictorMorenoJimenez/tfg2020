@@ -11,7 +11,7 @@
 - name: Remove Proxmox PVE entreprise repository
   apt_repository:
     repo: deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
-    absent: present
+    state: absent 
 
 - name: Upgrade all packages to the latest version
   apt:
