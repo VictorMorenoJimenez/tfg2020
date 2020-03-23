@@ -1,5 +1,5 @@
 ---
-# Upload new openvz template with all options and force overwrite
+
 - name: Download debian 10 iso
   get_url:
     url: https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.3.0-amd64-netinst.iso
