@@ -20,10 +20,10 @@ Summarizing these playbooks, configure a Hetzner server from scratch,
 installing the virtualization service proxmox. For more detail follow the links below.
 
 ### Playbooks:
-* [configure_server](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/configure_server.md)
-* [activate_rescue](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/activate_rescue.md)
-* [common_steps](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/common_steps.md)
-* [install_hetzner_image](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/install_hetzner_image.md)
+* [configure_server](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/configure_server.md)
+* [activate_rescue](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/activate_rescue.md)
+* [common_steps](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/common_steps.md)
+* [install_hetzner_image](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/install_hetzner_image.md)
 
 ## Part 2. Automatic VM provisioning and deployment with Ansible Playbooks.
 ## Part 3. CI/CD pipeline for Django and Wordpress projects.
