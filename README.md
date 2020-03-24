@@ -39,7 +39,9 @@ This second part includes:
 
 Ideally the infrastructure should look like:
 
-![infrastructure](https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/images/tfg-diagram.png)
+<div style="text-align:center">
+    <img src="https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/images/tfg-diagram.png" />
+</div>
 
 
 
