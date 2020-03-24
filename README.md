@@ -3,7 +3,7 @@ The purpose of this repository is to host the end of degree project in Computer 
 
 The main objective of this work can be divided into different parts.
 
-- Automate the everything related to infrastructure of a company using Ansible playbooks.
+- Automate everything related to infrastructure of a company using Ansible playbooks.
 
 - Implement CI/CD for a company that develops Django and Wordpress projects.
 
@@ -25,5 +25,22 @@ installing the virtualization service proxmox. For more detail follow the links 
 * [common_steps](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/common_steps.md)
 * [install_hetzner_image](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/install_hetzner_image.md)
 
-## Part 2. Automatic VM provisioning and deployment with Ansible Playbooks.
+## Part 2. Automatic VM provisioning and deployment with Ansible Playbooks
+
+If Part 1 is completed, we should have:
+
+* Hetzner Server provisioned with some packages and Debian 10 installed.
+* [Proxmox](https://www.proxmox.com/en/)
+
+This second part includes:
+
+* Creation and provisioning of different types of VM's.
+* Creation of infrastructure.
+
+Ideally the infrastructure should look like:
+
+![infrastructure](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/images/tg-diagram.png)
+
+
+
 ## Part 3. CI/CD pipeline for Django and Wordpress projects.
