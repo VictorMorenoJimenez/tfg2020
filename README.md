@@ -39,7 +39,7 @@ This second part includes:
 
 Ideally the infrastructure should look like:
 
-![infrastructure](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/images/tg-diagram.png)
+![infrastructure](https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/images/tfg-diagram.png)
 
 
 
