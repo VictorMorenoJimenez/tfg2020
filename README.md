@@ -39,10 +39,18 @@ This second part includes:
 
 Ideally the infrastructure should look like:
 
-<div style="text-align:center">
-    <img src="https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/images/tfg-diagram.png" />
-</div>
+[Redundant infrastructure](https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/images/tfg-diagram.png)
 
+Includes:
+* **Failover IP**: If master node goes down failover IP will change to the slave node.
+* **Redundant firewall**: Two pfSense firewall VM's. One in each node. In case that master goes down, the CARP virtual ip switches to the slave that takes the control till master comes back.
+* **Redundant proxy**: Nginx webserver acting as proxy. Ideally this would be built on a docker swarm to grant HA.
+* **Redundant webservers**: Final webservers.
 
+In our case, since we just have one server node we will build both pfSense master and slave on node 1, using different interfaces.
+
+Note that this is not the best solution, if we lose node 1 everything will go down. But unfortunately we just have 1 server for this project.
+
+Anyways the only difference is that instead of having a second server we will have an extra ip and extra interface on Node 1 that will act like the second redundant node.
 
 ## Part 3. CI/CD pipeline for Django and Wordpress projects.
