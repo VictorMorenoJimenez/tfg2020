@@ -1,2 +1,4 @@
 ---
 # handlers file for install_image
+- name: reboot
+  shell: shutdown -r now
