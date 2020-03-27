@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/VictorMorenoJimenez/tfg2020.svg?branch=master)](https://travis-ci.org/VictorMorenoJimenez/tfg2020)
 # Final Degree Project.
 The purpose of this repository is to host the end of degree project in Computer Engineering from the Higher School of Informatics and Telecommunications of Granada.
 
