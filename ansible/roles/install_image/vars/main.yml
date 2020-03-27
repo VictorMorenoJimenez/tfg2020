@@ -1,5 +1,5 @@
 ---
 # vars file for install_image
----
+
 binary: /root/.oldroot/nfs/install/installimage
 boot_loader: grub
