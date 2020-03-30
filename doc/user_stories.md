@@ -29,20 +29,23 @@ Continuous integration helps us with:
 
 ### Developers
 
-- Como desarrollador puedo pedir que se construya una infraestructura para el desarrollo del software bajo demanda o auto construida.
-- Como desarrollador puedo subir un cambio a cualquier rama del proyecto sin depender directamente del departamento de sistemas.
-- Como desarrollador tengo clara consciencia del entorno donde se despliega la aplicación.
-- Como desarrollador puede tener un entorno de prueba para un nuevo proyecto en menos de 1 hora.
-- Como desarrollador necesito retroalimentación después de cada subida de el resultado.
-- Como desarrollador puedo conocer el impacto que causa la aplicación en los sistemas. (Consumo de recursos).
-- Como desarrollador debo recibir reportes periódicos del uso de la aplicación.
-- Como desarrollador conozco los ficheros de configuración de los que depende la aplicación.
-- Como desarrollador al subir una nueva versión puedo ejecutar una serie de tests que me digan que todo sigue funcionando correctamente.
+- As a developer I can ask to build a infrastructure on demand for software development.
+- As a developer I can push any branch to the server without the Ops team.
+- As a developer I know exacly the environment in wich the app is deployed.
+- As a developer you can have a test environment for a new project in less than 1 hour.
+- As a developer I have feedback after every upload of the result.
+- As a developer I know the impact that the application has on the system.
+- As a developer I know the configuration files on which the application depends.
 
 
 ### Systems administrator
 
 The other side of the coin in the process is system administrators or sysadmins.
+
+## First part
+- As a system administrator I can activate the rescue system of a server at any time.
+- As a system administrator I can install desired packages to a desired server.
+- As a system administrator I can install proxmox to a desired server.
 
 - As a system administrator I can configure a new server (bare metal) automatically with an IaC configuration file.
 - As a system administrator I can deploy a virtualization system on a configured server through a configuration file.
