@@ -1,30 +1,36 @@
+.PHONY: help
+.DEFAULT_GOAL := help 
+
 ROLES_DIR=./roles
 SHELL= /bin/bash
 
-full_test_all: $(ROLES_DIR)/*
+help: ## This help.
+	@echo
+	@echo -e "\e[1;35m Makefile for ansible role development \e[0m"
+	@echo -e "\e[1;33m Test Framework: Molecule \e[0m"
+	@echo -e "\e[1;33m Ansible roles path: ./roles  \e[0m"
+	@echo -e "\e[1;33m Ansible playbooks path: ./playbooks \e[0m"
+	@echo
+	@echo
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+	@echo
+
+full_test_all: $(ROLES_DIR)/* ## Run full tests with molecular framework of all roles. Execute with make full_test.
 	for role in $^; do \
 		cd $${role} && molecule test && cd ../../; \
 	done
 
-test_all: $(ROLES_DIR)/*
+test_all: $(ROLES_DIR)/* ## Run syntax test for all roles. Execute with make test_all.
 	for role in $^; do \
 		ansible-playbook $${role}/tests/test.yml -i \
 										 $${role}/tests/inventory \
 										 --syntax-check; \
 	done
 
-test_create_bash_users:
-	ansible-playbook roles/create_bash_users/tests/test.yml -i \
-									 roles/create_bash_users/tests/inventory \
+test_role: ## Run syntax test for rolle specified in ROLE var. Execute with make ROLE=role test_role.
+	ansible-playbook roles/$(ROLE)/tests/test.yml -i \
+									 roles/$(ROLE)/tests/inventory \
 									 --syntax-check
 
-test_install_image:
-	ansible-playbook roles/install_image/tests/test.yml -i \
-									 roles/install_image/tests/inventory \
-									 --syntax-check
-
-full_test_create_bash_users:	
-	cd roles/create_bash_users && molecule test && cd ../../
-full_test_install_image:
-	cd roles/install_image && molecule test && cd ../../
-
+create_role: ## Create role, need NEW_ROLE var. Execute with make NEW_ROLE=role create_role.
+	molecule init role $(NEW_ROLE) -d docker
