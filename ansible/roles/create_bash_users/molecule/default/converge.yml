@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include create_bash_users"
+      include_role:
+        name: "create_bash_users"
