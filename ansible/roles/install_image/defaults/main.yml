@@ -19,3 +19,4 @@ logical_volumes:
   - vg00:var:/var:ext4:6G
 format_second: 'no'
 hostname: tfg.intelligenia.com
+target: tfg.intelligenia.com

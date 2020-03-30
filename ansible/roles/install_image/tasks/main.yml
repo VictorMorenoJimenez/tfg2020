@@ -11,7 +11,10 @@
 - name: Check that the server is on rescue mode
   shell: hostname
   register: is_rescue_hostname
-  failed_when: is_rescue_hostname.stdout.find('rescue') == -1
+  #failed_when: is_rescue_hostname.stdout.find('rescue') == -1
+
+- meta: end_play
+  when: is_rescue_hostname.stdout.find('rescue') == -1
 
 - name: Create temp file to copy the installation script
   shell: mktemp --tmpdir tmp.XXXXXXXXXX.sh
