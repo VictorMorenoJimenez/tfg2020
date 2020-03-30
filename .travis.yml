@@ -22,8 +22,8 @@ install:
   - printf '[defaults]\nroles_path=ansible/roles' >ansible.cfg
 
 script:
-  # Basic role syntax check
-  - ansible-playbook ansible/roles/install_image/tests/test.yml -i ansible/roles/install_image/tests/inventory --syntax-check
+  # Syntax check roles.
+  - cd ansible && make test_all 
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
