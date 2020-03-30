@@ -7,9 +7,10 @@ if [ $# -eq 0 ]; then
 fi
 
 # First go to the roles directory
-cd ansible/roles
+cd ../ansible/roles
 
 # Iterate arguments and create all roles
 for role in "$@"; do
-  ansible-galaxy init $role
+  #ansible-galaxy init $role
+  molecule init role $role -d docker
 done
