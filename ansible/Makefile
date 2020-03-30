@@ -33,4 +33,4 @@ test_role: ## Run syntax test for rolle specified in ROLE var. Execute with make
 									 --syntax-check
 
 create_role: ## Create role, need NEW_ROLE var. Execute with make NEW_ROLE=role create_role.
-	molecule init role $(NEW_ROLE) -d docker
+	cd $(ROLES_DIR) && molecule init role $(NEW_ROLE) -d docker
