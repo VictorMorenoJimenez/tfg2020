@@ -1,7 +1,0 @@
----
-# vars file for configure_hetzner_server
-- name: Include vars 
-  include_vars:
-    dir: .
-    extensions: [yaml]
-
