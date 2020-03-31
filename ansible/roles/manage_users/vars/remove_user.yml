@@ -1,0 +1,7 @@
+---
+
+# Remove_users format 
+# remove_users:
+#   - name: remove_user1
+#   - name: remove_user2
+#   - name: remove_user3

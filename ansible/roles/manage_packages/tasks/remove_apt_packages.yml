@@ -1,0 +1,6 @@
+---
+
+- name: Remove apt packages defined on vars/remove_apt_packages_vars.yml
+  apt:
+    name: "{{ remove_apt_packages }}"
+    state: absent

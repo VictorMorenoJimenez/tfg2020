@@ -1,0 +1,7 @@
+---
+# tasks file for install_apt_packages
+- name: Install apt packages defined on vars/install_apt_packages_vars.yml file
+  apt:
+    name: "{{ apt_package_list }}"
+    state: present
+    update_cache: yes

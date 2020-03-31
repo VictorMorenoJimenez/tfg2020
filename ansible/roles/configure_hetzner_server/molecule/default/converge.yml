@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include configure_hetzner_server"
+      include_role:
+        name: "configure_hetzner_server"

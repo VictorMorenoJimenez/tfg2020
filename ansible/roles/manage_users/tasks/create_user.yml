@@ -1,0 +1,24 @@
+--- 
+
+- name: First create the groups of the user
+  group:
+    name: "{{ item.groups }}"
+    state: present
+  with_items: "{{ users }}"
+
+- name: Create user on system defined on vars/users.yml or defaults/main.yml file
+  user:
+    name: "{{ item.name }}" 
+    password: "{{ user_passwords.{{ item.name }} }}"
+    uid: " {{ item.uid | default(omit) }}"
+    comment: "{{ item.coment | default(omit) }}" 
+    append: no
+    create_home: "{{ item.home | default(omit) }}"
+    force: no
+    generate_ssh_key: "{{ item.generate_ssh_key | default(omit) }}"
+    shell: "{{ item.shell }}" 
+    ssh_key: "{{ item.ssh_key | default(omit) }}"
+    state: present
+    groups: "{{ item.groups }}"
+    expires: "{{ item.expires | default(omit) }}"
+  with_items: "{{ users }}"

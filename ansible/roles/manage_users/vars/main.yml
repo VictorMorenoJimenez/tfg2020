@@ -1,0 +1,5 @@
+---
+# vars file for manage_users
+
+- include_vars: secrets.yml
+- include_vars: users.yml

@@ -1,0 +1,5 @@
+---
+
+pip_package_list:
+  - proxmoxer
+  - requests

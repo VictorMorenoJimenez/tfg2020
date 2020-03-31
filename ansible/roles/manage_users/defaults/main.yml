@@ -1,0 +1,20 @@
+---
+
+# defaults file for manage_users
+# Example
+# users:
+#   - name: mario
+#     uid: 1100
+#     password: 
+#     comment: User mario must be on every server.
+#     home: yes
+#     update_password: on_create
+#     generate_ssh_key: yes
+#     shell: /bin/bash
+#     groups: 
+#       - sudo
+#       - www-data 
+#     user_state: present
+
+users: []
+remove_users: []

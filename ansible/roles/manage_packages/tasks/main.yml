@@ -1,0 +1,26 @@
+---
+# tasks file for manage_packages
+- import_tasks: update_apt_cache.yml
+  tags:
+    - system
+    - update-cache 
+    - apt 
+
+- import_tasks: upgrade_all_packages.yml
+  tags:
+    - system
+    - upgrade-packages 
+    - apt 
+
+- import_tasks: install_apt_packages.yml
+  tags:
+    - system
+    - install-packages 
+    - apt 
+
+- import_tasks: install_pip_packages.yml
+  tags:
+    - system
+    - install-packages
+    - pip 
+

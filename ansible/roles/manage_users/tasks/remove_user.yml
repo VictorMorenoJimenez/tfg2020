@@ -1,0 +1,8 @@
+---
+
+- name: Remove the user in vars/remove_user.yml file
+  user:
+    name: "{{ item.name }}"
+    state: absent
+    remove: yes
+  with_items: " {{ remove_users }}"
