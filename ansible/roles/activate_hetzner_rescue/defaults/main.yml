@@ -1,2 +1,21 @@
 ---
 # defaults file for activate_hetzner_rescue
+# This role needs a var structure like this:
+
+# In our case this file is encrypted with ansible-vault
+# You can create your own vault with:
+#
+# ansible-vault create vars.yml --vault-password=/route/to/vault-password-file
+# 
+# The password file must only contain the string with the password.
+#
+
+server_ip: 
+hetzner:
+  user: "Hetzner Robot user for server"
+  password: "Hetzner Robot password for server"
+  rescue_url: "https://robot-ws.your-server.de/boot/{{ server_ip }}/rescue"
+  fingerprint: "Finger print of rsa key in Hetzner control panel"
+  hardware_reset_url: "https://robot-ws.your-server.de/reset/{{ server_ip }}"
+
+
