@@ -1,0 +1,44 @@
+---
+# tasks file for install_image
+- name: Wait for server to be ready
+  wait_for:
+    port: 22 
+    host: "{{ target }}" 
+    connect_timeout: 3
+    delay: 3
+    timeout: 30
+
+- name: Check that the server is on rescue mode
+  shell: hostname
+  register: is_rescue_hostname
+  #failed_when: is_rescue_hostname.stdout.find('rescue') == -1
+
+- meta: end_play
+  when: is_rescue_hostname.stdout.find('rescue') == -1
+
+- name: Create temp file to copy the installation script
+  shell: mktemp --tmpdir tmp.XXXXXXXXXX.sh
+  register: tmp_file
+  when: is_rescue_hostname.stdout.find('rescue') != -1
+
+- name: Copy installation script
+  template:
+    src: install.sh.j2
+    dest: "{{tmp_file.stdout}}"
+    mode: 0700
+  when: is_rescue_hostname.stdout.find('rescue') != -1
+
+- name: Install python package
+  apt:
+    pkg:
+      - python-apt
+      - python3-apt
+      - python
+      - python3
+
+- name: Execute installation script
+  shell: "{{tmp_file.stdout}}"
+  when: is_rescue_hostname.stdout.find('rescue') != -1
+
+- name: Reboot after installation
+  reboot:

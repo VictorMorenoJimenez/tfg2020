@@ -1,0 +1,11 @@
+---
+# tasks file for configure_hetzner_server
+
+- include_vars: install_image_vars.yml 
+
+- import_tasks: install_image.yml
+  tags:
+    - system
+    - image 
+    - install
+    - hetzner
