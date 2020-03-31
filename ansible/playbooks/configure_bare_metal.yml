@@ -1,0 +1,13 @@
+---
+
+- hosts: localhost 
+  gather_facts: false
+
+  roles:
+    - activate_hetzner_rescue
+
+- hosts: tfg.intelligenia.com
+  gather_facts: false
+
+  roles:
+    - install_hetzner_image

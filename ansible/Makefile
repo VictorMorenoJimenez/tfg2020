@@ -34,3 +34,7 @@ test_role: ## Run syntax test for rolle specified in ROLE var. Execute with make
 
 create_role: ## Create role, need NEW_ROLE var. Execute with make NEW_ROLE=role create_role.
 	cd $(ROLES_DIR) && molecule init role $(NEW_ROLE) -d docker
+
+playbook: ## Execute playbook, need PLAYBOOK var. Execute with make PLAYBOOK=playbook playbook
+	ansible-playbook playbooks/$(PLAYBOOK).yml -i inventories/staging/hosts
+	
