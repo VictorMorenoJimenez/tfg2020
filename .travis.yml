@@ -29,7 +29,7 @@ install:
 
 script:
   # Syntax check roles.
-  - cd ansible && make full_test_all 
+  - cd ansible && make test_all 
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
