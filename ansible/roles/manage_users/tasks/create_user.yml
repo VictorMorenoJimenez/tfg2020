@@ -1,5 +1,8 @@
 --- 
 
+- include_vars: users.yml
+- include_vars: secrets.yml
+
 - name: First create the groups of the user
   group:
     name: "{{ item.groups }}"

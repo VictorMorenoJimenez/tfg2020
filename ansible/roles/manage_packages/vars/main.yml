@@ -1,4 +1,0 @@
----
-# vars file for manage_packages
-- include_vars: apt_package_list.yml
-- include_vars: pip_package_list.yml

@@ -1,5 +1,7 @@
 ---
 
+- include_vars: remove_users.yml
+
 - name: Remove the user in vars/remove_user.yml file
   user:
     name: "{{ item.name }}"

@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - configure_hetzner_server
+    - install_hetzner_image

@@ -1,6 +1,8 @@
 ---
 # tasks file for install_pip_packages
 
+- include_vars: pip_package_list.yml
+
 - name: Install pip packages defined on vars/install_pip_packages_vars.yml
   pip:
     name: "{{ pip_package_list }}"
