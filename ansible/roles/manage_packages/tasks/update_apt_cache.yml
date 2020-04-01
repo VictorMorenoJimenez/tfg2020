@@ -1,4 +1,4 @@
 ---
 - name: Update repositories cache
   apt:
-    udpate_cache: yes
+    update_cache: yes

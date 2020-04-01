@@ -1,2 +1,7 @@
+[local]
 localhost
 
+[local:vars]
+ansible_ssh_user=root
+ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+ansible_python_interpreter=/usr/bin/python3

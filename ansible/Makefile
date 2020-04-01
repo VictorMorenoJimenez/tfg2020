@@ -3,7 +3,6 @@
 
 ROLES_DIR=./roles
 SHELL= /bin/bash
-
 help: ## This help.
 	@echo
 	@echo -e "\e[1;35m Makefile for ansible role development \e[0m"
@@ -17,7 +16,10 @@ help: ## This help.
 
 full_test_all: $(ROLES_DIR)/* ## Run full tests with molecular framework of all roles. Execute with make full_test.
 	for role in $^; do \
-		cd $${role} && molecule test && cd ../../; \
+		if [ $${role} != "roles/activate_hetzner_rescue" ] && [ $${role} != "roles/install_hetzner_image" ]; \
+		then \
+			cd $${role} && ANSIBLE_VAULT_PASSWORD_FILE=/home/victor/.vault-password molecule test && cd ../../; \
+		fi \
 	done
 
 test_all: $(ROLES_DIR)/* ## Run syntax test for all roles. Execute with make test_all.
