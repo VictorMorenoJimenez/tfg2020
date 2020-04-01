@@ -17,6 +17,9 @@ install:
 
   # Install molecule
   - pip install molecule
+  
+    # Install molecule
+  - pip install docker
 
   # Check ansible version
   - ansible --version
