@@ -25,7 +25,7 @@ Here we will describe the user stories of each part of the project:
 
 ### First part :: Configure new server from bare metal.
 
-1. [X] 1. As a **system administrator** I can configure a new server (bare metal) automatically with an IaC configuration file.
+1. [X] As a **system administrator** I can configure a new server (bare metal) automatically with an IaC configuration file.
 2. [X] As a **system administrator** I can activate the rescue system of a server at any time with an automated task.
 3. [X] As a **system administrator** I can install desired packages to a desired server with an automated task.
 4. [X] As a **system administrator** I can install proxmox to a desired server with an automated task.
