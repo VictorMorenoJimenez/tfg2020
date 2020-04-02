@@ -1,0 +1,7 @@
+---
+
+- hosts: tfg.intelligenia.com 
+  gather_facts: false
+
+  roles:
+    - install_proxmox 

@@ -1,5 +1,7 @@
 ---
 # defaults file for install_hetzner_image
+# All this variables need to be defined properly for the install_image role
+
 raid:
   active: 'yes'
   level: 1
