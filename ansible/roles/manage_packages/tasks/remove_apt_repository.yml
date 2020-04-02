@@ -1,0 +1,7 @@
+---
+
+- name: Remove apt repository
+  apt_repository:
+    repo: "{{ remove_apt_repo }}"
+    state: absent
+  when: remove_apt_repo is defined

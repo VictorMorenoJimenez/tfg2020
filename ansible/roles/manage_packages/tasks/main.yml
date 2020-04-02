@@ -1,5 +1,18 @@
 ---
 # tasks file for manage_packages
+
+- import_tasks: add_apt_repository.yml
+  tags:
+    - system
+    - apt
+    - add-repo
+
+- import_tasks: remove_apt_repository.yml
+  tags:
+    - system
+    - apt
+    - remove-repo
+
 - import_tasks: update_apt_cache.yml
   tags:
     - system

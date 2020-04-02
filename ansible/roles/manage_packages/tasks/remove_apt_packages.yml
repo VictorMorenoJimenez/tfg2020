@@ -4,5 +4,7 @@
 
 - name: Remove apt packages defined on vars/remove_apt_packages_vars.yml
   apt:
-    name: "{{ remove_apt_packages }}"
+    name: "{{ items }}"
     state: absent
+  with_items: "{{ remove_apt_packages }}"
+  when: remove_apt_packages is defined

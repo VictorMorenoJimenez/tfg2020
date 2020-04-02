@@ -1,2 +1,12 @@
 ---
 # defaults file for manage_packages
+#
+# You can define this variables if needed, they are all lists
+#
+# apt_package_list:
+# pip_package_list:
+# remove_apt_packages:
+# remove_apt_repo_list:
+# remove_apt_packages:
+# add_repo_list:
+# key_url_list:

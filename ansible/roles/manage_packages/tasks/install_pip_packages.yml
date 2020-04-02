@@ -6,3 +6,5 @@
 - name: Install pip packages defined on vars/install_pip_packages_vars.yml
   pip:
     name: "{{ pip_package_list }}"
+  when: pip_package_list is defined
+
