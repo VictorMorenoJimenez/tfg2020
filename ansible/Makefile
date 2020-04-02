@@ -18,7 +18,7 @@ full_test_all: $(ROLES_DIR)/* ## Run full tests with molecular framework of all 
 	for role in $^; do \
 		if [ $${role} != "roles/activate_hetzner_rescue" ] && [ $${role} != "roles/install_hetzner_image" ]; \
 		then \
-			cd $${role} && ANSIBLE_VAULT_PASSWORD_FILE=/home/victor/.vault-password molecule test && cd ../../; \
+			cd $${role} && ANSIBLE_VAULT_PASSWORD_FILE=${ANSIBLE_VAULT_PASSWORD_FILE} molecule test && cd ../../; \
 		fi \
 	done
 
