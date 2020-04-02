@@ -4,4 +4,5 @@
   gather_facts: false
 
   roles:
+    - manage_users
     - install_proxmox 
