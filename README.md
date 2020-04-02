@@ -8,23 +8,15 @@ The main objective of this work can be divided into different parts.
 
 - Implement CI/CD for a company that develops Django and Wordpress projects.
 
-
 Anyway, to make this repository more readable, it will be divided into three blocks that are explained below.
-
 
 ## Part 1. Automatic server provisioning and deployment with Ansible Playbooks.
 
-This first part consists of a series of playbooks with their associated roles.
-Each playbook is explained with their roles in each link.
-
-Summarizing these playbooks, configure a Hetzner server from scratch, 
+Summarizing this part, configure a Hetzner server from scratch, 
 installing the virtualization service proxmox. For more detail follow the links below.
 
 ### Playbooks:
-* [configure_server](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/configure_server.md)
-* [activate_rescue](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/activate_rescue.md)
-* [common_steps](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/common_steps.md)
-* [install_hetzner_image](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/install_hetzner_image.md)
+* [configure_bare_metal](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/configure_bare_metal.md)
 
 ## Part 2. Automatic VM provisioning and deployment with Ansible Playbooks
 
