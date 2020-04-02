@@ -4,9 +4,7 @@
 ROLES_DIR=./roles
 SHELL= /bin/bash
 help: ## This help.
-	@echo
-	@echo -e "\e[1;35m Makefile for ansible role development \e[0m"
-	@echo -e "\e[1;33m Test Framework: Molecule \e[0m"
+	@echo @echo -e "\e[1;35m Makefile for ansible role development \e[0m" @echo -e "\e[1;33m Test Framework: Molecule \e[0m"
 	@echo -e "\e[1;33m Ansible roles path: ./roles  \e[0m"
 	@echo -e "\e[1;33m Ansible playbooks path: ./playbooks \e[0m"
 	@echo
@@ -38,5 +36,5 @@ create_role: ## Create role, need NEW_ROLE var. Execute with make NEW_ROLE=role 
 	cd $(ROLES_DIR) && molecule init role $(NEW_ROLE) -d docker
 
 playbook: ## Execute playbook, need PLAYBOOK var. Execute with make PLAYBOOK=playbook playbook
-	ansible-playbook playbooks/$(PLAYBOOK).yml -i inventories/staging/hosts
+	ansible-playbook playbooks/$(PLAYBOOK).yml -i inventories/staging/hosts --vault-password-file .pass
 	
