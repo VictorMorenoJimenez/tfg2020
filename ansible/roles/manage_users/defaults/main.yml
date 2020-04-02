@@ -16,5 +16,5 @@
 #       - www-data 
 #     user_state: present
 
-users: []
-remove_users: []
+# users: 
+# remove_users:

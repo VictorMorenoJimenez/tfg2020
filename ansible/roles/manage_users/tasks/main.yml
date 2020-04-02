@@ -1,0 +1,13 @@
+---
+
+- import_tasks: create_user.yml
+  tags:
+    - create-user
+    - system
+    - bash-user
+
+- import_tasks: remove_user.yml
+  tags:
+    - remove-user
+    - system
+    - bash-user

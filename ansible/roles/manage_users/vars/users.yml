@@ -1,27 +1,31 @@
 ---
 
+create_groups:
+  - name: sudo
+    group_name: sudo
+  - name: www-data
+    group_name: www-data
 users:
   - name: mario
+    username: mario
     uid: 1100
-    password: 
+    password: "{{ mario_password }}"
     comment: User mario must be on every server.
     home: yes
     update_password: on_create
     generate_ssh_key: yes
     shell: /bin/bash
-    groups: 
-      - sudo
-      - www-data 
+    groups: [sudo,www-data]
     user_state: present
   
   - name: victor
+    username: victor
     uid: 1101
-    password:
+    password: "{{ victor_password }}"
     comment: User victor
     home: yes
     update_password: on_create
     generate_ssh_key: yes
     shell: /bin/bash
-    groups:
-      - sudo
+    groups: [sudo,www-data]
     user_state: present

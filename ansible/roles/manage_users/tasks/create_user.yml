@@ -5,14 +5,15 @@
 
 - name: First create the groups of the user
   group:
-    name: "{{ item.groups }}"
+    name: "{{ item.group_name }}"
     state: present
-  with_items: "{{ users }}"
+  with_items: "{{ create_groups }}"
+  when: create_groups is defined
 
 - name: Create user on system defined on vars/users.yml or defaults/main.yml file
   user:
-    name: "{{ item.name }}" 
-    password: "{{ user_passwords.{{ item.name }} }}"
+    name: "{{ item.username }}" 
+    password: "{{ item.password }}"
     uid: " {{ item.uid | default(omit) }}"
     comment: "{{ item.coment | default(omit) }}" 
     append: no
@@ -22,6 +23,7 @@
     shell: "{{ item.shell }}" 
     ssh_key: "{{ item.ssh_key | default(omit) }}"
     state: present
-    groups: "{{ item.groups }}"
+    groups: "{{ item.groups | join(',') if 'groups' in item else '' }}"
     expires: "{{ item.expires | default(omit) }}"
   with_items: "{{ users }}"
+  when: users is defined

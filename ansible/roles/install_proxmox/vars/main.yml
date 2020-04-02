@@ -10,5 +10,5 @@ key_url_list: http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg
 add_repo_list:
   - deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 
-    #remove_apt_repo: https://enterprise.proxmox.com/debian/pve buster InRelease
+remove_apt_repo: deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
     

@@ -1,6 +1,6 @@
 ---
 
-- include_vars: remove_users.yml
+- include_vars: remove_user.yml
 
 - name: Remove the user in vars/remove_user.yml file
   user:
@@ -8,3 +8,4 @@
     state: absent
     remove: yes
   with_items: " {{ remove_users }}"
+  when: remove_users is defined
