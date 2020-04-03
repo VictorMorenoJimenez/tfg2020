@@ -1,31 +1,69 @@
-Role Name
+Manage users
 =========
 
-A brief description of the role goes here.
+Role for managing Linux and Proxmox VE users.
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+A server with a Debian distro installed.
+If you want to use the Proxmox ad users tasks Proxmox installed is required. See [install proxmox](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/install_proxmox) role.
 
 Role Variables
 --------------
+Each task depends on its variables to be executed.
+If the vars are not defined, the task will not run.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- Task: create_user
+- Vars:
+    - **users**: List to users to add.
+      - Example:
+    ```yml
+    users:
+    - name: foo
+        username: foo
+        uid: 1100
+        password: "{{ foo_password }}"
+        comment: foo
+        home: yes
+        update_password: on_create
+        generate_ssh_key: yes
+        shell: /bin/bash
+        groups: [sudo,www-data]
+        user_state: present
+      ```
+    - **foo_password**: On a encrypted vault, you need to define
+    the password of the user encrypted with SHA-512.
+    You can generate a password with: ``` mkpasswd --method=SHA-512```
+    - **create_groups**: List of groups to create.
+    - **pve_users**: List of PVE users to create. You will need to create an encrypted vault again because it contains passwords.
+    You can create a vault with: ```ansible-vault create secrets.yml```
+      - Example:
+        ```yml
+           pve_users:
+            - name: root@pam
+              username: root
+              password: foo
+            - name: foo@pam
+              username: foo
+              password: foopassword
+            - name: foo2@pam
+              username: foo2
+              password: foo2password
+        ```
+- Task: remove_user
+- Vars:
+    - **remove_users**: List of users to remove (Not working for PVE users)
 
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+If the vars above are defined, you just need to call the role to execute all the tasks. It will only run the tasks with the defined vars.
+```yml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - manage_users
+```
 
 License
 -------
@@ -35,4 +73,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Víctor Moreno Jiménez. victormoreno@correo.ugr.es
