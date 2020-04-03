@@ -30,6 +30,7 @@ Here we will describe the user stories of each part of the project:
 3. [X] As a **system administrator** I can install desired packages to a desired server with an automated task.
 4. [X] As a **system administrator** I can install proxmox to a desired server with an automated task.
 5. [ ] As a **system administrator** I can add a new server to the cluster with an automated task.
+6. [X] As a **system administrator** I can add/remove a new user to a configured sever with an automated task.
 
 
 ### Second part :: Provisioning and deployment of VM
