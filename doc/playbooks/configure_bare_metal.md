@@ -30,4 +30,4 @@ rescue mode.
 ## Install Hetzner image
 With the rescue mode activated on a Hetzner server, executes the **installimage** script inside the server to install an iso image.
 
-[Learn more about install_hetzner_image role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/role/install_hetzner_image.md)
+[Learn more about install_hetzner_image role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/activate_hetzner_rescue)

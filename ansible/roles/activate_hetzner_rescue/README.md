@@ -1,32 +1,43 @@
-Role Name
+Activate Hetzner Rescue
 =========
 
-A brief description of the role goes here.
+This role activates the rescue mode of a Hetzner server.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+To run this Role you need:
+- Hetzner Server
+- Hetzner API user and password for the server
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+There is no need to change rescue_url or hardware_reset_url.
 
-Dependencies
-------------
+- **server_ip**: server ip
+- hetzner:
+    - **user**: API user
+    - **password**: API password
+    - **rescue_url**: "https://robot-ws.your-server.de/boot/{{ server_ip }}/- rescue"
+    - **fingerprint**: Fingerprint on Hetzner control panel. For the public key you want to deploy to the server.
+    - **hardware_reset_url**: "https://robot-ws.your-server.de/reset/{{ server_ip }}"
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
+You can run this role with a simple playbook.
+Remember to fill the vars/main.yml with the role variables.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+It's recommended to run this playbook on localhost since it will make son POST requests to the Hetzner API. No need to run on remote server.
 
-    - hosts: servers
+```yml
+    - hosts: 127.0.0.1
+      connection: local
+      gather_facts: false
       roles:
-         - { role: username.rolename, x: 42 }
-
+         - activate_hetzner_rescue
+```
 License
 -------
 
@@ -35,4 +46,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Víctor Moreno Jiménez. victormoreno@correo.ugr.es
