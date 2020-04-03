@@ -24,10 +24,10 @@ There are two different parts here:
 Runs a bunch of POST request to the Hetzner API in order to activate the
 rescue mode.
 
-[Learn more about activate_hetzner_rescue role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/role/activate_hetzner_rescue.md)
+[Learn more about activate_hetzner_rescue role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/activate_hetzner_rescue))
 
 
 ## Install Hetzner image
 With the rescue mode activated on a Hetzner server, executes the **installimage** script inside the server to install an iso image.
 
-[Learn more about install_hetzner_image role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/activate_hetzner_rescue)
+[Learn more about install_hetzner_image role](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/install_hetzner_image))
