@@ -1,4 +1,4 @@
-Role Name
+Manage packages
 =========
 
 Role to manage pip or apt packages.
