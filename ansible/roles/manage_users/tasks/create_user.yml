@@ -2,6 +2,7 @@
 
 - include_vars: users.yml
 - include_vars: secrets.yml
+- include_vars: pve_users.yml
 
 - name: First create the groups of the user
   group:
@@ -27,3 +28,14 @@
     expires: "{{ item.expires | default(omit) }}"
   with_items: "{{ users }}"
   when: users is defined
+
+- name: Check if PVE users alredy exists and skip task
+  shell: 'pvesh get /access/users --noborder --noheader | grep {{ item.username }}'
+  register: user_exists
+  with_items: "{{ pve_users }}"
+  when: pve_users is defined
+
+- name: Create PVE user {{ item.username }}
+  command: 'pveum useradd {{ item.username }}@pam'
+  with_items: "{{ pve_users }}"
+  when: (pve_users is defined) and (user_exists|length==0)

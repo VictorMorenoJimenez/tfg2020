@@ -15,6 +15,24 @@
 #       - sudo
 #       - www-data 
 #     user_state: present
-
-# users: 
+#
+# 
 # remove_users:
+#
+#
+# Example of pve_users
+#
+# pve_users:
+#   - name: root@pam
+#     email: victor.moreno@intelligenia.com
+#     password: password
+#   - name: mario@pam
+#     email: mario@intelligenia.com
+#     firstname: Mario
+#     lastname: Barchein
+#     groups: [ "Admins" ]
+#   - name: victor@pam
+#     groups: [ "Admins" ]
+#     email: victor.moreno@intelligenia.com
+#     firstname: Victor 
+#     lastname: Moreno
