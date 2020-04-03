@@ -1,2 +1,10 @@
 ---
 # handlers file for manage_users
+#
+- name: restart server
+  reboot:
+
+- name: restart pve gui 
+  service:
+    name: pvestatd
+    state: restarted
