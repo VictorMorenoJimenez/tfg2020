@@ -1,0 +1,2 @@
+# Activate Hetzner Rescue Role
+
