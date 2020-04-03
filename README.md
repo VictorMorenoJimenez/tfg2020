@@ -17,6 +17,7 @@ installing the virtualization service proxmox. For more detail follow the links 
 
 ### Playbooks:
 * [configure_bare_metal](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/configure_bare_metal.md)
+* [install_proxmox_server](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/doc/playbooks/install_proxmox_server.md)
 
 ## Part 2. Automatic VM provisioning and deployment with Ansible Playbooks
 
