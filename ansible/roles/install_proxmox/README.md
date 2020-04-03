@@ -1,31 +1,49 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Installs Proxmox VE 6.0 on Debian system.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+The server must have debian distro installed.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Variables are defined on vars/main.yml.
+There is no need to override any variable if deploying on Debian 10 buster.
+
+Just change debian version on variables to run on stretch or similar.
+
+- **apt_package_list**:
+  - proxmox-ve
+  - postfix
+  - open-iscsi
+
+- **key_url_list**: http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg
+
+- **add_repo_list**:
+  - deb http://download.proxmox.com/debian/pve buster pve-no-subscription
+
+**remove_apt_repo**: deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+
+The enterprise repo is not signed, that's why we remove it.
 
 Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+--------------
+This role depends on the [manage_packages](https://github.com/VictorMorenoJimenez/tfg2020/tree/master/ansible/roles/manage_packages) role. Override the default vars from manage_packages.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+```yml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - install_proxmox
+```
 
 License
 -------
@@ -35,4 +53,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Víctor Moreno Jiménez. victormoreno@correo.ugr.es
