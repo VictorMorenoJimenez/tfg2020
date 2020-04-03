@@ -1,32 +1,52 @@
-Role Name
+Install Hetzner Image
 =========
 
-A brief description of the role goes here.
+Install an ISO image on a Hetzner server on rescue mode.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Hetzner server with rescue mode activated.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The roles define wich ISO install, type of partitions etc.
+The variables are self explanatory.
 
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```yml
+raid:
+  active: 'yes'
+  level: 1
+disks:
+  - nvme1n1 
+  - nvme0n1
+image: /root/.oldroot/nfs/images/Debian-103-buster-64-minimal.tar.gz
+partitions:
+  - /boot:ext4:512M
+  - lvm:vg00:50G
+  - lvm:vgsas:all
+logical_volumes:
+  - vg00:root:/:ext4:30G
+  - vg00:swap:swap:swap:4G
+  - vg00:tmp:/tmp:xfs:5G
+  - vg00:home:/home:ext4:5G
+  - vg00:var:/var:ext4:6G
+format_second: 'no'
+hostname: server
+target: server
+binary: 
+boot_loader: grub
+```
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```yml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
-
+         - install_hetzner_image
+```
 License
 -------
 
@@ -35,4 +55,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Víctor Moreno Jiménez. victormoreno@correo.ugr.es
