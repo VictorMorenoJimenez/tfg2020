@@ -38,7 +38,9 @@ Here we will describe the user stories of each part of the project:
 1. [ ] As a **system administrator** I can deploy a virtualization system on a configured server through a configuration file.
 2. [ ] As a **system administrator** I can deploy a basic firewall-proxy-webserver infrastructure on a given virtualization system through a configuration file.
 3. [ ] As a **system administrator** I can deploy virtual machines on the infrastructure through a configuration file.
-4. [ ] As a **system administrator** I can provision virtual machines through a configuration file so that updating them is relatively easy.
+4. [ ] As a **system administrator** I can upload an iso file to the server as a template to create VM's.
+5. [ ] As a **system administrator** I can provision virtual machines through a configuration file so that updating them is relatively easy.
+
 
 ### 3rd part :: Continuous integration
 
