@@ -1,0 +1,36 @@
+---
+# tasks file for proxmox
+
+- import_tasks: install_proxmox.yml
+  tags:
+    - install
+    - proxmox
+    - system
+  when: install_proxmox_opt == 'yes'
+
+- import_tasks: configure_node.yml
+  tags:
+    - proxmox
+    - network
+    - config
+    - system
+    - interfaces
+  when: pfsense_conf_opt == 'yes'
+
+- import_tasks: upload_iso.yml
+  tags:
+    - upload
+    - iso
+    - proxmox
+    - system
+  when: upload_iso_opt == 'yes'
+
+
+- import_tasks: create_vm.yml
+  tags:
+    - vm
+    - create
+    - proxmox
+    - system
+  when: create_vm_opt == 'yes'
+

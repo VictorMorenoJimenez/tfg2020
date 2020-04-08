@@ -1,0 +1,23 @@
+---
+# defaults file for proxmox
+
+# Upload iso role defauls
+proxmox:
+  user: foo
+  password: foopw
+
+node: tfg
+storage: local
+iso_url: foo
+iso_name: debian
+upload_iso: 'no'
+
+# Defaults for create_vm role
+create_vm:
+  vmid: 100
+  host: tfg.intelligenia.com
+  password: "{{ proxmox.password }}"
+  hostname: intelligenia.test
+  ostemplate: 'local:_22pfSense-CE-2.4.5_22.iso'
+
+create_vm_opt: 'no'

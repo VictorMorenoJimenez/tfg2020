@@ -1,0 +1,27 @@
+---
+# Uploads iso image to a proxmox storage.
+
+- include_vars: secrets.yml
+
+- name: Check if iso file alredy exists
+  stat:
+    path: "/var/lib/vz/template/iso/{{ iso_name }}.iso"
+  register: stat_result
+
+- name: First download iso file
+  get_url:
+    url: "{{ iso_url }}"
+    dest: "/tmp/{{ iso_name }}.iso"
+  when: not stat_result.stat.exists
+
+- name: Upload iso to proxmox
+  proxmox_template:
+    node: "{{ node }}" 
+    api_user: "{{ proxmox.user }}"
+    api_password: "{{ proxmox.password }}"
+    api_host: "{{ host }}" 
+    storage: "{{ storage }}" 
+    content_type: iso 
+    src: "/tmp/{{ iso_name }}.iso" 
+    force: yes
+  when: not stat_result.stat.exists

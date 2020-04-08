@@ -1,0 +1,11 @@
+
+---
+# This role is responsible for:
+# # 1. Configure /etc/network/interfaces
+
+- include_vars: configure_node.yml
+
+- name: Change /etc/network/interfaces using template
+  template:
+    src: interfaces.sh.j2
+    dest: /etc/network/interfaces

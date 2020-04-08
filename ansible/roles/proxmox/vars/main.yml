@@ -1,0 +1,6 @@
+---
+# vars file for proxmox
+
+# node: tfg
+# storage: local
+# iso_url: htpps://urlfoo.com/download

@@ -1,0 +1,90 @@
+# {{ ansible_managed }}
+
+# Hetzner vars can be found on hetzner control panel.
+
+# Vars needed:
+# ppal_iface: Name of the ppal interface
+# hetzner_ip: public ip address
+# hetzner_gateway:
+# hetzner broadcast:
+# pfsense_ip_node1: Extra ip of host, that will go for firewall node 1.
+# pfsense_ip_node2: Extra ip of host, that will go for firewall node 2.
+# # Note that pfsense_ip_node2 should be an other server in order to provide HA.
+# # In our case it will be the same server, just different VM.
+# failover_ip: Extra special ip ordered from hetzner. Failover
+# It can switch between hosts with an API call.
+
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+iface lo inet6 loopback
+
+# Primary iface 
+iface {{ ppal_iface }} inet manual
+        offload-tx off
+        offload-rx off
+
+# VSWITCH LAN
+iface {{ ppal_iface }}.4011 inet manual
+
+# VSWITCH PFSYNC
+{% if pfsense_conf == 'yes' %}
+  iface {{ ppal_iface }}.4012 inet manual
+{% endif %}
+
+# WAN IP
+auto vmbr0
+iface vmbr0 inet static
+        # Hetzner primary WAN IP
+        address {{ hetzner_ip }} 
+
+        # Hetzner primary WAN IP netmask all bits 1 
+        netmask 255.255.255.255
+
+        # Hetzner primary WAN IP broadcast address
+        broadcast {{ hetzner_broadcast }}
+
+        # Gateway is reachable via Point-to-Point tunneling
+        gateway  {{ hetzner_gateway }}
+        pointopoint {{ hetzner_gateway }} 
+
+        # Virtual bridge settings
+        # this one is bridging physical interface
+        bridge-ports {{ ppal_iface }}
+        bridge-stp off
+        bridge-fd 0
+
+        {% if pfsense_conf == 'yes' %}
+          # Add route for pfSense 1 (pfSense node 1)
+          up ip route add {{ pfsense_ip_node1}}/32 dev vmbr0
+
+          # Failover route 
+          up ip route add {{ failover_ip }}/32 dev vmbr0
+        {% endif %}
+
+        # Set host system to not send any "icmp redirect" messages
+        up sysctl -w net.ipv4.conf.vmbr0.send_redirects=0
+
+
+# PROXMOX NODES
+auto vmbr1
+iface vmbr1 inet static
+        # Node proxmox IP
+        address  {{ node_proxmox_ip }} 
+
+        netmask  255.255.255.0
+        bridge-ports {{ ppal_iface }}.4010
+        bridge-stp off
+        bridge-fd 0
+        mtu 1400
+        vlan-raw-device {{ ppal_iface }}
+
+# LAN
+auto vmbr2
+iface vmbr2 inet manual
+        bridge-ports {{ ppal_iface }}.4011
+        bridge-stp off
+        bridge-fd 0
+        mtu 1400
+        vlan-raw-device {{ ppal_iface }}

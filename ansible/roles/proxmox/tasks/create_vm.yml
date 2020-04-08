@@ -1,0 +1,36 @@
+---
+
+# Create VM on Proxmox VE
+# Vars:
+# create_vm.name
+# create_vm.vmid
+# create_vm.memory
+# create_vm.sockets
+# create_vm.cores
+# create_vm.template
+# create_vm.bridge
+
+- include_vars: create_vm.yml
+- include_vars: secrets.yml
+
+- name: Check if VM alredy exists with same ID
+  stat:
+    path: "/var/lib/vz/images/{{ create_vm.vmid }}"
+  register: vm_exists
+
+- name: Debug
+  debug:
+    msg: "Alredy exists on VM with that ID"
+  when: vm_exists.stat.exists
+
+- name: Create VM on proxmox with pvesh cli
+  shell:
+    cmd: "pvesh create /nodes/{{ node }}/qemu 
+          -name {{ create_vm.name }} 
+          -vmid {{ create_vm.vmid }}
+          -memory {{ create_vm.memory }}
+          -cpu host
+          -socket {{ create_vm.sockets }}
+          -cores {{ create_vm.cores }}
+          -cdrom {{ create_vm.template }}
+          -net0 virtio,bridge={{ create_vm.bridge }}"
