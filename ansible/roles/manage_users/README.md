@@ -30,7 +30,7 @@ If the vars are not defined, the task will not run.
         shell: /bin/bash
         groups: [sudo,www-data]
         user_state: present
-      ```
+     ```
     - **foo_password**: On a encrypted vault, you need to define
     the password of the user encrypted with SHA-512.
     You can generate a password with: ``` mkpasswd --method=SHA-512```
