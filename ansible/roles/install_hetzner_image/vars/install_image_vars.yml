@@ -1,6 +1,7 @@
 ---
 # vars file for install_image
 
-binary: /root/.oldroot/nfs/install/installimage
-boot_loader: grub
-target: tfg.intelligenia.com
+# binary: /root/.oldroot/nfs/install/installimage
+# boot_loader: grub
+# target: tfg2.intelligenia.com
+# hostname: tfg2.intelligenia.com

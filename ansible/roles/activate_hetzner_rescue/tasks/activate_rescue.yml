@@ -25,7 +25,7 @@
     body:
       os: linux
       arch: 64
-      authorized_key: "{{ hetzner.fingerprint }}" 
+      authorized_key: "{{ hetzner.fingerprint }}"
  
 - name: Reboot server after Rescue Mode activation
   uri:

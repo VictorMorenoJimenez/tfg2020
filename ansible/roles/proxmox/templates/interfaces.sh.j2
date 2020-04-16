@@ -29,7 +29,7 @@ iface {{ ppal_iface }} inet manual
 iface {{ ppal_iface }}.4011 inet manual
 
 # VSWITCH PFSYNC
-{% if pfsense_conf == 'yes' %}
+{% if pfsense_conf_opt == 'yes' %}
   iface {{ ppal_iface }}.4012 inet manual
 {% endif %}
 
@@ -55,7 +55,7 @@ iface vmbr0 inet static
         bridge-stp off
         bridge-fd 0
 
-        {% if pfsense_conf == 'yes' %}
+        {% if pfsense_conf_opt == 'yes' %}
           # Add route for pfSense 1 (pfSense node 1)
           up ip route add {{ pfsense_ip_node1}}/32 dev vmbr0
 

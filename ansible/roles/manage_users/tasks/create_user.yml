@@ -29,23 +29,27 @@
   with_items: "{{ users }}"
   when: users is defined
 
-- name: Check if PVE users alredy exists and skip task
-  shell: 'pvesh get /access/users --noborder --noheader | grep {{ item.username }}'
-  no_log: true
-  register: user_exists
-  with_items: "{{ pve_users }}"
-  when: pve_users is defined
+- name: Create users block
+  block:
+  - name: Check if PVE users alredy exists and skip task
+    shell: 'pvesh get /access/users --noborder --noheader | grep {{ item.username }}'
+    no_log: true
+    register: user_exists
+    #ignore_errors: yes
+    with_items: "{{ pve_users }}"
+    when: pve_users is defined
 
-- name: Create PVE user {{ item.username }}
-  command: 'pveum useradd {{ item.username }}@pam'
-  no_log: true
-  with_items: "{{ pve_users }}"
-  when: (pve_users is defined) and (user_exists|length==0)
-
-- name: Change the password to PVE user {{ item.username }}
-  command: 'pvesh set /access/password --userid "{{ item.username }}@pam" --password "{{ item.password }}"'
-  no_log: true
-  notify:
-    - restart pve gui
-  with_items: "{{ pve_users }}"
-  when: (pve_users is defined)
+  rescue:
+  - name: Create PVE user {{ item.username }}
+    command: 'pveum useradd {{ item.username }}@pam'
+    no_log: true
+    with_items: "{{ pve_users }}"
+    when: (pve_users is defined) 
+  
+  - name: Change the password to PVE user {{ item.username }}
+    command: 'pvesh set /access/password --userid "{{ item.username }}@pam" --password "{{ item.password }}"'
+    #no_log: true
+    notify:
+      - restart pve gui
+    with_items: "{{ pve_users }}"
+    when: (pve_users is defined)

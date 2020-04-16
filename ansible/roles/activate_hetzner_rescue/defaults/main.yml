@@ -4,12 +4,6 @@
 
 # In our case this file is encrypted with ansible-vault
 # You can create your own vault with:
-#
-# ansible-vault create vars.yml --vault-password=/route/to/vault-password-file
-# 
-# The password file must only contain the string with the password.
-#
-
 server_ip: 
 hetzner:
   user: "Hetzner Robot user for server"

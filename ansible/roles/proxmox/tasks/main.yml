@@ -8,6 +8,13 @@
     - system
   when: install_proxmox_opt == 'yes'
 
+- import_tasks: create_cluster.yml
+  tags:
+    - proxmox
+    - cluster
+    - create
+  when: create_cluster_opt == 'yes'
+
 - import_tasks: configure_node.yml
   tags:
     - proxmox

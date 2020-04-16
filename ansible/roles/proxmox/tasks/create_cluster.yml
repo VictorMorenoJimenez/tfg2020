@@ -1,0 +1,14 @@
+---
+
+# Create a Proxmox cluster
+- name: Create cluster
+  block:
+    - name: Check if cluster exists
+      shell:
+        cmd: "pvecm status"
+      register: pvecm_status
+  rescue:
+    - name: If there is no cluster, create one
+      shell:
+        cmd: "pvecm create {{ clustername }}"
+

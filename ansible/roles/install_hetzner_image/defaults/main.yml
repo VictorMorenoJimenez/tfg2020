@@ -22,5 +22,5 @@ logical_volumes:
 format_second: 'no'
 hostname: tfg.intelligenia.com
 target: tfg.intelligenia.com
-binary: 
+binary: /root/.oldroot/nfs/install/installimage
 boot_loader: grub

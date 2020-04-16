@@ -1,5 +1,5 @@
 ---
 
-pip_package_list:
-  - proxmoxer
-  - requests
+#pip_package_list:
+#  - proxmoxer
+#  - requests
