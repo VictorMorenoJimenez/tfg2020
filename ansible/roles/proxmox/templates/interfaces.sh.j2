@@ -7,12 +7,14 @@
 # hetzner_ip: public ip address
 # hetzner_gateway:
 # hetzner broadcast:
-# pfsense_ip_node1: Extra ip of host, that will go for firewall node 1.
-# pfsense_ip_node2: Extra ip of host, that will go for firewall node 2.
-# # Note that pfsense_ip_node2 should be an other server in order to provide HA.
-# # In our case it will be the same server, just different VM.
+# pfsense_ip_node: Extra ip of host, that will go for firewall node.
 # failover_ip: Extra special ip ordered from hetzner. Failover
 # It can switch between hosts with an API call.
+#
+# VSWITCH
+# vlan_nodes_id
+# vlan_lan_id
+# vlan_pfsync_id
 
 source /etc/network/interfaces.d/*
 
@@ -26,11 +28,11 @@ iface {{ ppal_iface }} inet manual
         offload-rx off
 
 # VSWITCH LAN
-iface {{ ppal_iface }}.4011 inet manual
+iface {{ ppal_iface }}.{{ vlan_lan_id }} inet manual
 
 # VSWITCH PFSYNC
 {% if pfsense_conf_opt == 'yes' %}
-  iface {{ ppal_iface }}.4012 inet manual
+  iface {{ ppal_iface }}.{{ vlan_pfsync_id }} inet manual
 {% endif %}
 
 # WAN IP
@@ -57,7 +59,7 @@ iface vmbr0 inet static
 
         {% if pfsense_conf_opt == 'yes' %}
           # Add route for pfSense 1 (pfSense node 1)
-          up ip route add {{ pfsense_ip_node1}}/32 dev vmbr0
+          up ip route add {{ pfsense_ip_node}}/32 dev vmbr0
 
           # Failover route 
           up ip route add {{ failover_ip }}/32 dev vmbr0
@@ -74,7 +76,7 @@ iface vmbr1 inet static
         address  {{ node_proxmox_ip }} 
 
         netmask  255.255.255.0
-        bridge-ports {{ ppal_iface }}.4010
+        bridge-ports {{ ppal_iface }}.{{ vlan_nodes_id }}
         bridge-stp off
         bridge-fd 0
         mtu 1400
@@ -83,7 +85,7 @@ iface vmbr1 inet static
 # LAN
 auto vmbr2
 iface vmbr2 inet manual
-        bridge-ports {{ ppal_iface }}.4011
+        bridge-ports {{ ppal_iface }}.{{ vlan_lan_id }}
         bridge-stp off
         bridge-fd 0
         mtu 1400
