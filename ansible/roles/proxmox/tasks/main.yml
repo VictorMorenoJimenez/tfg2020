@@ -1,6 +1,15 @@
 ---
 # tasks file for proxmox
 
+- import_tasks: configure_node.yml
+  tags:
+    - proxmox
+    - network
+    - config
+    - system
+    - interfaces
+  when: pfsense_conf_opt == 'yes'
+
 - import_tasks: install_proxmox.yml
   tags:
     - install
@@ -15,15 +24,6 @@
     - create
   when: create_cluster_opt == 'yes'
 
-- import_tasks: configure_node.yml
-  tags:
-    - proxmox
-    - network
-    - config
-    - system
-    - interfaces
-  when: pfsense_conf_opt == 'yes'
-
 - import_tasks: upload_iso.yml
   tags:
     - upload
@@ -31,7 +31,6 @@
     - proxmox
     - system
   when: upload_iso_opt == 'yes'
-
 
 - import_tasks: create_vm.yml
   tags:
@@ -41,3 +40,9 @@
     - system
   when: create_vm_opt == 'yes'
 
+- import_tasks: add_to_cluster.yml
+  tags:
+    - proxmox
+    - add-node-cluster
+    - system
+  when: add_to_cluster_opt == 'yes'
