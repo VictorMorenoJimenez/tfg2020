@@ -58,11 +58,11 @@ iface vmbr0 inet static
         bridge-fd 0
 
         {% if pfsense_conf_opt == 'yes' %}
-          # Add route for pfSense 1 (pfSense node 1)
-          up ip route add {{ pfsense_ip_node}}/32 dev vmbr0
+        # Add route for pfSense 1 (pfSense node 1)
+        up ip route add {{ pfsense_ip_node}}/32 dev vmbr0
 
-          # Failover route 
-          up ip route add {{ failover_ip }}/32 dev vmbr0
+        # Failover route 
+        up ip route add {{ failover_ip }}/32 dev vmbr0
         {% endif %}
 
         # Set host system to not send any "icmp redirect" messages
@@ -86,6 +86,15 @@ iface vmbr1 inet static
 auto vmbr2
 iface vmbr2 inet manual
         bridge-ports {{ ppal_iface }}.{{ vlan_lan_id }}
+        bridge-stp off
+        bridge-fd 0
+        mtu 1400
+        vlan-raw-device {{ ppal_iface }}
+
+# PROXMOX redundant ring
+auto vmbr3
+iface vmbr3 inet manual
+        bridge-ports {{ ppal_iface }}.{{ vlan_nodes2_id }}
         bridge-stp off
         bridge-fd 0
         mtu 1400
