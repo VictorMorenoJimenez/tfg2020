@@ -1,5 +1,6 @@
 [hetzner]
 tfg.intelligenia.com 
+tfg2.intelligenia.com
                      
 [hetzner:vars]
 ansible_ssh_user=root
