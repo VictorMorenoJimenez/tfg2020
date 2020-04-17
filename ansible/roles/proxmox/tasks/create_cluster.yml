@@ -1,5 +1,7 @@
 ---
 
+- include_vars: create_cluster.yml
+
 # Create a Proxmox cluster
 - name: Create cluster
   block:
@@ -9,6 +11,12 @@
       register: pvecm_status
   rescue:
     - name: If there is no cluster, create one
-      shell:
-        cmd: "pvecm create {{ clustername }}"
+      command: >- 
+        pvecm create {{ clustername }}
+        {% if link0 is defined %}
+        {{ link0_flag }} {{ link0 }}
+        {% endif %}
+        {% if link1 is defined %}
+        {{ link1_flag }} {{ link1 }}
+        {% endif %}
 
