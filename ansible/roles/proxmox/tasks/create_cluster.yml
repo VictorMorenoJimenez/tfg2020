@@ -1,22 +1,42 @@
 ---
 
+# This task creates a proxmox cluster.
+# If you want to run it on a existing cluster and want to delete it add 
+# remove_cluster_opt: yes
+#
+#
+# You need this vars on vars/create_cluster or in the playbook
+#
+# clustername:
+# link0:
+# link1:
+#
+#
 - include_vars: create_cluster.yml
 
-# Create a Proxmox cluster
-- name: Create cluster
-  block:
-    - name: Check if cluster exists
-      shell:
-        cmd: "pvecm status"
-      register: pvecm_status
-  rescue:
-    - name: If there is no cluster, create one
-      command: >- 
-        pvecm create {{ clustername }}
-        {% if link0 is defined %}
-        {{ link0_flag }} {{ link0 }}
-        {% endif %}
-        {% if link1 is defined %}
-        {{ link1_flag }} {{ link1 }}
-        {% endif %}
+- name: Check if cluster exists
+  stat:
+    path: /etc/pve/corosync.conf
+  register: stat_result
 
+- name: Display if corosync file exists 
+  debug:
+    msg: "A corosync config file exists on /etc/pve/corosync.conf, delete it and try again."
+  when: stat_result.stat.exists
+
+- name: Remove old cluster
+  file:
+    path: /etc/pve/corosync.conf
+    state: absent
+  when: remove_cluster_opt == 'yes'
+
+- name: If there is no cluster, create one
+  command: >- 
+    pvecm create {{ clustername }}
+    {% if link0 is defined %}
+    {{ link0_flag }} {{ link0 }}
+    {% endif %}
+    {% if link1 is defined %}
+    {{ link1_flag }} {{ link1 }}
+    {% endif %}
+  when: not stat_result.stat.exists
