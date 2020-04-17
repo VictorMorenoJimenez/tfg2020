@@ -1,5 +1,5 @@
-
 ---
+
 # This role is responsible for:
 # # 1. Configure /etc/network/interfaces
 
@@ -9,3 +9,4 @@
   template:
     src: interfaces.sh.j2
     dest: /etc/network/interfaces
+  notify: Reboot
