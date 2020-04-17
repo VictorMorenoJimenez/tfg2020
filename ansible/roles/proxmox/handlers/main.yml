@@ -1,6 +1,6 @@
 ---
 # handlers file for proxmox
-- name: Reboot host and wait for it to restart
+- name: Reboot
   reboot:
     msg: "Reboot initiated by Ansible"
     connect_timeout: 5
