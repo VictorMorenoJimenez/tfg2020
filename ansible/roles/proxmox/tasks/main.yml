@@ -24,6 +24,18 @@
     - create
   when: create_cluster_opt == 'yes'
 
+- import_tasks: manage_groups.yml
+  tags:
+    - proxmox
+    - create-groups
+  when: manage_groups_opt == 'yes'
+
+- import_tasks: manage_users.yml
+  tags:
+    - proxmox
+    - create-user
+  when: manage_users_opt == 'yes'
+
 - import_tasks: upload_iso.yml
   tags:
     - upload
