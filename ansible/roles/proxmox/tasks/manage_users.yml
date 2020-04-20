@@ -29,15 +29,11 @@
     pvesh get /access/users
   register: existing_users
 
-  # - name: Debug
-  #   debug:
-  #     msg: La variable tiene "{{ existing_users.stdout }}"
-
 - name: Create PVE user 
   command: >-
     pveum user add "{{ item.username }}@pam"
   with_items: "{{ pve_users }}"
-  #no_log: true
+  no_log: true
   when: (pve_users is defined) and item.username not in existing_users.stdout
 
 - name: Change password for users
@@ -45,11 +41,12 @@
     pvesh set /access/password --userid "{{ item.username }}@pam"
       --password "{{ item.password }}"
   with_items: "{{ pve_users }}"
-  #no_log: true
+  no_log: true
   when: (pve_users is defined) and item.username not in existing_users.stdout
 
 - name: Add users to its groups
   command: >-
     pveum usermod "{{ item.username }}@pam" -group "{{ item.group }}"
   with_items: "{{ pve_users }}"
+  no_log: true
   when: (pve_users is defined) and item.username not in existing_users.stdout
