@@ -15,11 +15,13 @@
 #   email: optional
 #   expire: optional
 #   group: 
+#   realm: pve or pam
 #  
 # - name: foo2
 #   username: foo2
 #   password: foo_password2
 #   group:
+#   realm: pve or pam
 #
 
 - include_vars: secrets.yml
@@ -31,14 +33,14 @@
 
 - name: Create PVE user 
   command: >-
-    pveum user add "{{ item.username }}@pam"
+    pveum user add "{{ item.username }}@{{ item.realm }}"
   with_items: "{{ pve_users }}"
   no_log: true
   when: (pve_users is defined) and item.username not in existing_users.stdout
 
 - name: Change password for users
   command: >-
-    pvesh set /access/password --userid "{{ item.username }}@pam"
+    pvesh set /access/password --userid "{{ item.username }}@{{ item.realm }}"
       --password "{{ item.password }}"
   with_items: "{{ pve_users }}"
   no_log: true
@@ -46,7 +48,7 @@
 
 - name: Add users to its groups
   command: >-
-    pveum usermod "{{ item.username }}@pam" -group "{{ item.group }}"
+    pveum usermod "{{ item.username }}@{{ item.realm }}" -group "{{ item.group }}"
   with_items: "{{ pve_users }}"
   no_log: true
   when: (pve_users is defined) and item.username not in existing_users.stdout
