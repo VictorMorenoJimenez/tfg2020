@@ -9,3 +9,9 @@
     - image 
     - install
     - hetzner
+
+- name: Wait for port 22 to become open on the host, delay it 10s
+  wait_for:
+    port: 22
+    delay: 10
+
