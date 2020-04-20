@@ -52,3 +52,7 @@ vlan_nodes2_id: 1
 
 # Defaults for create_cluster
 clustername: tfgcluster
+
+
+# Defaults for task deploy_pub_key
+master_ip: tfg.intelligenia.com
