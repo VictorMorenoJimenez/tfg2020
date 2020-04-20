@@ -1,0 +1,55 @@
+---
+
+# Add users to Proxmox.
+# You need to define a list of users  named pve_users
+
+# See https://pve.proxmox.com/pve-docs/api-viewer/#/access/users Create it on vars/secrets.yml
+#
+# Or in the playbook.
+#
+# pve_users:
+# - name: foo
+#   username: foo
+#   password: foo_password
+#   comment: optional
+#   email: optional
+#   expire: optional
+#   group: 
+#  
+# - name: foo2
+#   username: foo2
+#   password: foo_password2
+#   group:
+#
+
+- include_vars: secrets.yml
+
+- name: Check if PVE users alredy exist
+  command: >-
+    pvesh get /access/users
+  register: existing_users
+
+  # - name: Debug
+  #   debug:
+  #     msg: La variable tiene "{{ existing_users.stdout }}"
+
+- name: Create PVE user 
+  command: >-
+    pveum user add "{{ item.username }}@pam"
+  with_items: "{{ pve_users }}"
+  #no_log: true
+  when: (pve_users is defined) and item.username not in existing_users.stdout
+
+- name: Change password for users
+  command: >-
+    pvesh set /access/password --userid "{{ item.username }}@pam"
+      --password "{{ item.password }}"
+  with_items: "{{ pve_users }}"
+  #no_log: true
+  when: (pve_users is defined) and item.username not in existing_users.stdout
+
+- name: Add users to its groups
+  command: >-
+    pveum usermod "{{ item.username }}@pam" -group "{{ item.group }}"
+  with_items: "{{ pve_users }}"
+  when: (pve_users is defined) and item.username not in existing_users.stdout
