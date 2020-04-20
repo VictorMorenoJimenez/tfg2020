@@ -8,6 +8,9 @@ upload_iso_opt: 'no'
 pfsense_conf_opt: 'no'
 create_cluster_opt: 'no'
 add_to_cluster_opt: 'no'
+manage_users_opt: 'no'
+remove_cluster_opt: 'no'
+manage_groups_opt: 'no'
 
 
 # Upload iso role defauls
