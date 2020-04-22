@@ -74,7 +74,6 @@ auto vmbr1
 iface vmbr1 inet static
         # Node proxmox IP
         address  {{ node_proxmox_ip }} 
-
         netmask  255.255.255.0
         bridge-ports {{ ppal_iface }}.{{ vlan_nodes_id }}
         bridge-stp off
@@ -91,9 +90,21 @@ iface vmbr2 inet manual
         mtu 1400
         vlan-raw-device {{ ppal_iface }}
 
-# PROXMOX redundant ring
+
+{% if  pfsense_conf_opt == 'yes' %}
+# PFSYNC
 auto vmbr3
 iface vmbr3 inet manual
+        bridge-ports {{ ppal_iface }}.{{ vlan_pfsync_id }}
+        bridge-spt off
+        bridge-fd 0
+        mtu 1400
+        vlan-raw-device {{ ppal_iface }}
+{% endif %}
+
+# PROXMOX redundant ring
+auto vmbr4
+iface vmbr4 inet manual
         bridge-ports {{ ppal_iface }}.{{ vlan_nodes2_id }}
         bridge-stp off
         bridge-fd 0
