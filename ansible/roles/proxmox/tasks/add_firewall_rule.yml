@@ -1,0 +1,27 @@
+--- 
+#  Task for adding new firewall rule to proxmox cluster 
+
+# For adding a rule you need:
+# add_rule:
+#   action: 'ACCEPT', 'DROP', 'REJECT' 
+#   type: 'in','out','group'
+#   dport: destionation port, can be a list or range 80:85 or 80,81,82,83,84,85
+#   proto: udp or tcp
+# comment: optional comentary
+
+- name: Add firewall rule to proxmox PVE cluster
+  command: >-
+    pvesh create /nodes/{{ item.node }}/firewall/rules
+      --action "{{ item.action }}"
+      --type "{{ item.type }}"
+      {% if item.dport is defined %}
+      --dport "{{ item.dport }}"
+      {% endif %}
+      {% if item.proto is defined %}
+      --proto "{{ item.proto }}"
+      {% endif %}
+      {% if item.interface is defined %}
+      --iface "{{ item.interface }}"
+      {% endif %}
+  with_items: "{{ add_rule }}"
+  when: add_rule is defined

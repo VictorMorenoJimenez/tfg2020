@@ -11,6 +11,7 @@ add_to_cluster_opt: 'no'
 manage_users_opt: 'no'
 remove_cluster_opt: 'no'
 manage_groups_opt: 'no'
+add_firewall_rule_opt: 'no'
 
 
 # Upload iso role defauls
@@ -25,13 +26,22 @@ proxmox:
   host: tfg.intelligenia.com
 
 # Defaults for create_vm role
-create_vm:
-  vmid: 100
-  host: tfg.intelligenia.com
-  password: "{{ proxmox.password }}"
-  hostname: intelligenia.test
-  ostemplate: 'local:_22pfSense-CE-2.4.5_22.iso'
 
+node: tfg
+
+create_vm:
+  name: name
+  vmid: 100
+  memory: 2048
+  sockets: 2
+  cores: 2
+  template: 
+  bridge: vmbr0
+  bridge1: vmbr1
+  bridge2: vmbr2
+  bridge3: vmbr3
+
+iso_name: pfsense
 
 # Defaults for pfsense_conf_opt
 ppal_iface: enp0s31f6
@@ -56,3 +66,23 @@ clustername: tfgcluster
 
 # Defaults for task deploy_pub_key
 master_ip: tfg.intelligenia.com
+
+
+# Defaults for add_firewall_rule
+add_rule:
+  - name: Port mapper block
+    node: tfg
+    action: DROP
+    type: in
+    dport: 111
+    proto: tcp
+  - name: Accept all traffic on LAN
+    node: tfg
+    type: group
+    action: allowall
+    interface: vbmr2
+  - name: Accept all traffic on Proxmox nodes
+    node: tfg
+    type: group
+    action: allowall
+    interface: vbmr1
