@@ -12,7 +12,18 @@
   get_url:
     url: "{{ iso_url }}"
     dest: "/tmp/{{ iso_name }}.iso"
-  when: not stat_result.stat.exists
+  when: not stat_result.stat.exists and not pfsense == 'yes'
+
+- name: Download pfsense iso file
+  get_url:
+    url: "{{ iso_url }}"
+    dest: "/tmp/pfsense.iso.gz"
+  when: pfsense == 'yes'
+
+- name: Untar file
+  command: >-
+    gzip -d /tmp/pfsense.iso.gz
+  when: pfsense == 'yes'
 
 - name: Upload iso to proxmox
   proxmox_template:
@@ -24,4 +35,16 @@
     content_type: iso 
     src: "/tmp/{{ iso_name }}.iso" 
     force: yes
-  when: not stat_result.stat.exists
+  when: not stat_result.stat.exists and not pfsense == 'yes'
+  
+- name: Upload pfsense iso to proxmox
+  proxmox_template:
+    node: "{{ node }}"
+    api_user: "{{ proxmox.user }}"
+    api_password: "{{ proxmox.password }}"
+    api_host: "{{ host }}" 
+    storage: "{{ storage }}" 
+    content_type: iso 
+    src: "/tmp/pfsense.iso"
+    force: yes
+  when: pfsense == 'yes' and not stat_result.stat.exists

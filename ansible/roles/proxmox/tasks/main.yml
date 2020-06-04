@@ -58,3 +58,9 @@
     - add-node-cluster
     - system
   when: add_to_cluster_opt == 'yes'
+
+- import_tasks: add_firewall_rule.yml
+  tags:
+    - proxmox
+    - firewall
+  when: add_firewall_rule_opt == 'yes'
