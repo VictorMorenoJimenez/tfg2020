@@ -2,16 +2,4 @@
 
 # Var file for create_vm task
 
-node: tfg
-
-create_vm:
-  vmid: 100
-  host: tfg.intelligenia.com
-  name: test
-  memory: 4096
-  sockets: 2
-  cores: 2
-  password: "{{ proxmox.password }}"
-  hostname: intelligenia.test
-  template: "local:iso/{{ iso_name }}.iso"
-  bridge: vmbr0
+template: "local:iso/{{ create_vm.iso_name }}.iso"
