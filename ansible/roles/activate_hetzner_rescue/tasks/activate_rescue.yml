@@ -41,6 +41,4 @@
   wait_for:
     port: 22 
     host: "{{ server_ip }}" 
-    connect_timeout: 20
-    delay: 20
     timeout: 500
