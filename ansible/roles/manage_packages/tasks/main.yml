@@ -1,6 +1,10 @@
 ---
 # tasks file for manage_packages
 
+- name: First, check if any package needs to be reconfigured
+  command: >-
+    dpkg --configure -a
+
 - import_tasks: add_apt_repository.yml
   tags:
     - system
@@ -13,11 +17,11 @@
     - apt
     - remove-repo
 
-- import_tasks: update_apt_cache.yml
-  tags:
-    - system
-    - update-cache 
-    - apt 
+      #- import_tasks: update_apt_cache.yml
+      #  tags:
+      #    - system
+      #    - update-cache 
+      #    - apt 
 
 - import_tasks: upgrade_all_packages.yml
   tags:

@@ -10,7 +10,8 @@
 
 - name: Install apt packages defined on vars/install_apt_packages_vars.yml file
   apt:
-    pkg: "{{ apt_package_list }}"
-    #state: present
-    #update_cache: yes
+    name: "{{ apt_package_list }}"
+    #pkg: "{{ apt_package_list }}"
+    state: present
+    update_cache: yes
   when: apt_package_list is defined
