@@ -7,8 +7,14 @@
 # create_vm.memory
 # create_vm.sockets
 # create_vm.cores
-# create_vm.template
-# create_vm.bridge
+# create_vm.bridge{n}
+# create_vm.iso_name
+# create_vm.disk_size
+#
+# node:
+#
+# OPT: create_vm_opt: 'yes'
+#
 
 - include_vars: create_vm.yml
 - include_vars: secrets.yml
@@ -32,5 +38,15 @@
           -cpu host
           -socket {{ create_vm.sockets }}
           -cores {{ create_vm.cores }}
-          -cdrom {{ create_vm.template }}
-          -net0 virtio,bridge={{ create_vm.bridge }}"
+          -cdrom {{ template }}
+          -scsi0 local-lvm:{{ create_vm.disk_size }}
+          -net0 virtio,bridge={{ create_vm.bridge }}
+          {% if create_vm.bridge1 is defined %}
+          -net1 virtio,bridge={{ create_vm.bridge1 }}
+          {% endif %}
+          {% if create_vm.bridge2 is defined %}
+          -net2 virtio,bridge={{ create_vm.bridge2 }}
+          {% endif %}
+          {% if create_vm.bridge3 is defined %}
+          -net3 virtio,bridge={{ create_vm.bridge3 }}
+          {% endif %}"
