@@ -11,8 +11,8 @@ disks:
 image: /root/.oldroot/nfs/images/Debian-103-buster-64-minimal.tar.gz
 partitions:
   - /boot:ext4:512M
-  - lvm:vg00:50G
-  - lvm:vgsas:all
+  - lvm:vg00:all
+    #- lvm:vgsas:all
 logical_volumes:
   - vg00:root:/:ext4:30G
   - vg00:swap:swap:swap:4G
