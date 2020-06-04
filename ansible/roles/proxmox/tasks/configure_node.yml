@@ -10,3 +10,40 @@
     src: interfaces.sh.j2
     dest: /etc/network/interfaces
   notify: Reboot
+
+- name: Create thin lvm storage
+  lvol:
+    vg: vg00
+    thinpool: thin
+    size: "{{ thinsize }}" 
+  when: thinsize is defined
+
+- name: Extend meta data size of thin
+  command: >-
+    lvextend --poolmetadatasize 6G vg00/thin
+  when: thinsize is defined
+
+  #- name: Create thin lvm storage
+  #  command: >-
+  #    lvcreate -L "{{ thinsize }}" --thinpool vg00/thin
+  #  when: thinsize is defined
+  #
+  #- name: Extend meta data size of thin
+  #  command: >-
+  #    lvextend --poolmetadatasize 6G vg00/thin
+  #  when: thinsize is defined
+
+  #- name: Add thin to datacenter
+  #  command: >-
+  #    pvesm add lvmthin
+
+  #- name: Restart server after network configuration
+  #  reboot:
+  #    msg: "Reboot by Ansible"
+  #
+  #- name: Wait till server up
+  #  wait_for:
+  #    port: 22 
+  #    delay: 10
+
+
