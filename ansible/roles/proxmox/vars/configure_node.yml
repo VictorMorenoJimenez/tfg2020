@@ -8,3 +8,4 @@
 # pfsense_ip_node2: 255.255.255.255
 # failover_ip: 255.255.255.255
 # node_proxmox_ip: 192.168.100.1
+thinsize: 300G
