@@ -1,12 +1,12 @@
 ---
 # tasks file for install_image
-- name: Wait for server to be ready
-  wait_for:
-    port: 22 
-    host: "{{ target }}" 
-    connect_timeout: 3
-    delay: 3
-    timeout: 30
+# - name: Wait for server to be ready
+#   wait_for:
+#     port: 22 
+#     host: "{{ target }}" 
+#     connect_timeout: 3
+#     delay: 3
+#     timeout: 30
 
 #- name: Check that the server is on rescue mode
 #  shell: hostname
