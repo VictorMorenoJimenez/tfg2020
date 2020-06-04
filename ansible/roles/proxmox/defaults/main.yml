@@ -12,6 +12,7 @@ manage_users_opt: 'no'
 remove_cluster_opt: 'no'
 manage_groups_opt: 'no'
 add_firewall_rule_opt: 'no'
+pfsense: 'no'
 
 
 # Upload iso role defauls
@@ -67,6 +68,8 @@ clustername: tfgcluster
 # Defaults for task deploy_pub_key
 master_ip: tfg.intelligenia.com
 
+#Configure_node 
+thinsize: 300g
 
 # Defaults for add_firewall_rule
 add_rule:
