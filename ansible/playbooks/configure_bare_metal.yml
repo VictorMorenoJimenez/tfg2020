@@ -1,12 +1,5 @@
 ---
 
-- hosts: 127.0.0.1
-  connection: local
-  gather_facts: false
-
-  roles:
-    - activate_hetzner_rescue
-
 - hosts: tfg.intelligenia.com
   gather_facts: false
 
