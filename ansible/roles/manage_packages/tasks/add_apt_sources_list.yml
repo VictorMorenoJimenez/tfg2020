@@ -1,0 +1,5 @@
+
+- name: Reemplace sources.list with official mirrors
+  template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
