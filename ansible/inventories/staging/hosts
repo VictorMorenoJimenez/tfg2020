@@ -1,7 +1,10 @@
 [hetzner]
 tfg.intelligenia.com 
 tfg2.intelligenia.com
-                     
+
+[pruebavm]
+192.168.56.101
+
 [hetzner:vars]
 ansible_ssh_user=root
 ansible_ssh_extra_args='-o StrictHostKeyChecking=no'

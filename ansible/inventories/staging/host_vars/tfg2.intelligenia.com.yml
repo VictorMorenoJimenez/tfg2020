@@ -1,0 +1,48 @@
+---
+
+host: tfg2.intelligenia.com
+
+# install_image vars
+disks:
+  - sda
+  - sdb 
+
+
+# node tfg2 values, for role proxmox task configure_node.
+ppal_iface: enp3s0
+hetzner_ip: 144.76.2.146 #tfg1 138.201.205.158
+hetzner_gateway: 144.76.2.129 #tfg 138.201.205.129
+hetzner_broadcast: 144.76.2.159 # tfg 138.201.205.191
+pfsense_ip_node: 144.76.2.118 # tfg 138.201.229.85
+failover_ip: 144.76.47.196 # tfg2 144.76.47.196
+node_proxmox_ip: 192.168.100.2
+
+
+# Proxmox vars
+create_cluster_opt: 'no'
+add_to_cluster_opt: 'yes'
+node: tfg2
+
+master_ip: tfg.intelligenia.com
+
+# Firewall rules to add
+add_rule:
+  - name: Port mapper block
+    node: tfg2
+    action: DROP
+    type: in
+    dport: 111
+    proto: tcp
+  - name: Accept all traffic on LAN
+    node: tfg2
+    type: group
+    action: allowall
+    interface: vbmr2
+  - name: Accept all traffic on Proxmox nodes
+    node: tfg2
+    type: group
+    action: allowall
+    interface: vbmr1
+
+target: tfg2.intelligenia.com
+hostname: tfg2.intelligenia.com

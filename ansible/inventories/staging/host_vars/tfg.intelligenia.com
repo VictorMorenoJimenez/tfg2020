@@ -1,3 +1,0 @@
----
-
-host: tfg.intelligenia.com
