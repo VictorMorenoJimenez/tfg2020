@@ -17,11 +17,13 @@
     thinpool: thin
     size: "{{ thinsize }}" 
   when: thinsize is defined
+  ignore_errors: yes
 
 - name: Extend meta data size of thin
   command: >-
     lvextend --poolmetadatasize 6G vg00/thin
   when: thinsize is defined
+  ignore_errors: yes
 
   #- name: Create thin lvm storage
   #  command: >-

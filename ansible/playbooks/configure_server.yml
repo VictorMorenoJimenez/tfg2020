@@ -8,8 +8,6 @@
 
 - hosts: tfg.intelligenia.com
   gather_facts: false
-  become: yes
-
 
   vars:
     # Vars for manage_package 

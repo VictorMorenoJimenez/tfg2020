@@ -1,8 +1,18 @@
 ---
 
-- hosts: tfg.intelligenia.com 
+- hosts: tfg2.intelligenia.com
   gather_facts: false
 
+  vars:
+    # Proxmox role add task or not.
+    pfsense_conf_opt: 'yes'
+    manage_groups_opt: 'yes'
+    manage_users_opt: 'yes'
+    add_firewall_rule_opt: 'yes'
+
+    # Proxmox users / groups
+    create_groups_opt: 'yes'
+
   roles:
-    - manage_users
-    - install_proxmox 
+    #- install_proxmox
+    - proxmox

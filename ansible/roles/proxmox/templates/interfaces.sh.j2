@@ -104,7 +104,10 @@ iface vmbr3 inet manual
 
 # PROXMOX redundant ring
 auto vmbr4
-iface vmbr4 inet manual
+iface vmbr4 inet static
+        # Node redundant corosync IP
+        address  {{ node_redundant_corosync_ip }} 
+        netmask  255.255.255.0
         bridge-ports {{ ppal_iface }}.{{ vlan_nodes2_id }}
         bridge-stp off
         bridge-fd 0

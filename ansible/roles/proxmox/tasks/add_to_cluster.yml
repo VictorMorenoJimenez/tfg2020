@@ -11,5 +11,11 @@
 
 - name: Add node to the cluster
   shell:
-    cmd: "pvecm add {{ master_ip }} -use_ssh"
+    cmd: "pvecm add {{ master_ip }}
+    {% if link0 is defined %}
+    {{ link0_flag }} {{ link0 }}
+    {% endif %}
+    {% if link1 is defined %}
+    {{ link1_flag }} {{ link1 }}
+    {% endif %} -use_ssh"
   when: not stat_result.stat.exists

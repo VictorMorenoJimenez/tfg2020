@@ -1,3 +1,8 @@
 ---
 
 dummy:
+
+vlan_nodes_id: 4020
+vlan_lan_id: 4021
+vlan_pfsync_id: 4022
+vlan_nodes2_id: 4023

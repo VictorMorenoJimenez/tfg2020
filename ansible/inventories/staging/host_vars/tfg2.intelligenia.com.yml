@@ -16,6 +16,13 @@ hetzner_broadcast: 144.76.2.159 # tfg 138.201.205.191
 pfsense_ip_node: 144.76.2.118 # tfg 138.201.229.85
 failover_ip: 144.76.47.196 # tfg2 144.76.47.196
 node_proxmox_ip: 192.168.100.2
+node_redundant_corosync_ip: 192.168.200.2
+
+# Links corosync
+link0_flag: "--link0"
+link1_flag: "--link1"
+link0: 192.168.100.2
+link1: 192.168.200.2
 
 
 # Proxmox vars

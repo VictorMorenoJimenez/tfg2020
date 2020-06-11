@@ -23,6 +23,12 @@
       #    - update-cache 
       #    - apt 
 
+- import_tasks: add_apt_sources_list.yml
+  tags:
+    - system
+    - apt
+    - mirror
+    
 - import_tasks: upgrade_all_packages.yml
   tags:
     - system

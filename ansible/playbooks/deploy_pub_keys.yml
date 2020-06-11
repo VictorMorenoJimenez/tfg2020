@@ -1,0 +1,56 @@
+---
+
+- hosts: tfg.intelligenia.com
+  gather_facts: false
+
+  tasks:
+    - name: Generate ssh_keys
+      openssh_keypair:
+        path: /root/.ssh/id_rsa
+
+    - name: Download master pub key
+      fetch:
+        src: /root/.ssh/id_rsa.pub
+        dest: /tmp/
+        flat: yes
+
+- hosts: tfg2.intelligenia.com
+  gather_facts: false
+
+  tasks:
+    - name: Generate ssh_keys
+      openssh_keypair:
+        path: /root/.ssh/id_rsa
+    - name: Add tfg key to authorized_keys
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '/tmp/id_rsa.pub') }}"
+    
+    - name: Delete id_rsa.pub
+      file:
+        path: /tmp/id_rsa.pub
+        state: absent
+      delegate_to: 127.0.0.1
+
+    - name: Download tfg2 pub key
+      fetch:
+        src: /root/.ssh/id_rsa.pub
+        dest: /tmp/
+        flat: yes
+
+- hosts: tfg.intelligenia.com
+  gather_facts: no
+
+  tasks:
+    - name: Add tfg2 ssh key 
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '/tmp/id_rsa.pub') }}"
+
+    - name: Delete id_rsa.pub
+      file:
+        path: /tmp/id_rsa.pub
+        state: absent
+      delegate_to: 127.0.0.1
