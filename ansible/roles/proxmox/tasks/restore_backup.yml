@@ -1,0 +1,15 @@
+---
+
+    # Restore backup on Proxmox VE
+    # Vars:
+    #
+    
+- name: Copy the backup file to the server.
+    copy:
+    src: "{{ backup_location }}"
+    dest: "{{ backup_destination }}"
+
+- name: Restore backup on Proxmox
+  command: >-
+    qmrestore "{{ backup_location }}" "{{ new_id }}"
+    
