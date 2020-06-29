@@ -29,11 +29,11 @@
     - apt
     - mirror
     
-- import_tasks: upgrade_all_packages.yml
-  tags:
-    - system
-    - upgrade-packages 
-    - apt 
+#- import_tasks: upgrade_all_packages.yml
+#  tags:
+#    - system
+#    - upgrade-packages 
+#    - apt 
 
 - import_tasks: install_apt_packages.yml
   tags:
