@@ -46,3 +46,37 @@ add_rule:
 
 target: tfg.intelligenia.com
 hostname: tfg.intelligenia.com
+
+downloads:
+  - name: Debian 10 Template
+    download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    backup_destination: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+
+  - name: PfSense-01 Backup
+    download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+    backup_destination: /var/lib/vz/dump/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+
+create_vms:
+  - name: PfSense-01
+    backup_location: /var/lib/vz/dump/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+    new_id: 999
+
+  - name: GitLab
+    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    new_id: 101
+
+  - name: WebProxy
+    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    new_id: 102
+
+  - name: Docker Swarm 01
+    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    new_id: 103
+
+  - name: Ceph Admin
+    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    new_id: 106
+
+  - name: Ceph Node 03
+    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
+    new_id: 109
