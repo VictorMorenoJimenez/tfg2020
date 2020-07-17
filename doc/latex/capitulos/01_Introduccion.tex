@@ -18,22 +18,121 @@
 		\end{paragraph}
 	\subsection{DevOps}
 		\begin{paragraph}
-			contenidos...
+			El término DevOps es una fusión de las dos palabras Desarrollo y Operaciones. DevOps es una filosofía, una forma de abordar el desarrollo de software. El objetivo de DevOps es fusionar los departamentos Desarollo y Operaciones de forma que sea más fácil y rápida la creación de software. La siguiente imagen define el término:
+			
+			\begin{figure}[!hbt]
+				\centering
+				\includegraphics[scale=0.75]{imagenes/Introduccion/Conceptos_Basicos/devops.jpg}
+				\caption[¿Qué es DevOps?]{¿Qué es DevOps? \cite{WhatIsDe1:online}}
+				\label{termino_devops}
+			\end{figure}
+			 
 		\end{paragraph}
 	\subsection{Integración Contínua (CI)}
 		\begin{paragraph}
-			contenidos...
+			La Integración Contínua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración contínua se basa en haer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. La Integración Contínua consta de dos partes: compilación y ejecución de tests de un proyecto.
+			
+			\begin{figure}[!hbt]
+				\centering
+				\includegraphics[scale=0.45]{imagenes/Introduccion/Conceptos_Basicos/ci.png}
+				\caption[Integración Contínua]{Integración Contínua \cite{Alcanzan90:online} }
+				\label{integracion_continua} 
+			\end{figure}
 		\end{paragraph}
 	\subsection{Despliegue contínuo (CD)}
 		\begin{paragraph}
-			contenidos...
+			El Despligue Contínuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración contínua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración contínua. Gracias a CD podemos garantizar entregas rápidas y seguras de software.
+			
+			\begin{figure}[!hbt]
+				\centering
+				\includegraphics[scale=0.35]{imagenes/Introduccion/Conceptos_Basicos/CD.png}
+				\caption[Despliegue Contínuo]{Despliegue Contínuo \cite{continuo84:online}}
+				\label{despligue_continuo} 
+			\end{figure}
 		\end{paragraph}
 	\subsection{Infraestructura como Código (IaaC)}
 		\begin{paragraph}
+			La infraestructura cómo código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. IaaC acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
+			De esta manera no únicamente se testea el software antes de ser lanzado, si no también la infraestructura. A continuación se muestra como sería el cauce de trabajo siguiendo los principios de IaaC.
+			
+			\begin{figure}[!hbt]
+				\centering
+				\includegraphics[scale=0.45]{imagenes/Introduccion/Conceptos_Basicos/IaaC.png}
+				\caption[Infraestructura como Código]{Infraestructura como Código \cite{WhatIsIaaC:online}}
+				\label{infraestructura_como_codigo} 
+			\end{figure}
+		\end{paragraph}
+	
+\section{Estado del arte}
+	\begin{paragraph}
+		En esta sección se va a comentar el estado actual de proyectos parecidos al que se describe en este documento. Sin embargo, antes de abordar esta cuestión me gustaría hacer un pequeño análisis de cómo ha evolucionado el mercado laboral de este tipo de puestos de trabajo para hacer énfasis en la importancia de todo lo mencionado anteriormente.
+	\end{paragraph}
+
+	\subsection{Introducción}
+		\begin{paragraph}
+			Es una realidad que cada día más las empresas optan por soluciones Cloud y es bastante sencillo para un programador medio crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores Cloud y convertirse en todo un auténtico DevOps. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
+			Sin embargo, no todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener. \\
+			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
+		\end{paragraph}
+	
+	\subsection{Proveedores Cloud}
+		\begin{paragraph}
+			A continuación se va a hacer un análisis de los principales proveedores Cloud, ya que no se ha encontrado nada similar a lo que pretende este proyecto. Sin embargo los proveedores Cloud sí ofrecen dichas soluciones, contratando sus servicios. \\
+			En estudio vamos a comparar los servicios Cloud y su coste con los servicios contratados para este proyecto (Servidores Bare metal) \\
+		\end{paragraph}
+	
+		\subsubsection{Servidores Bare Metal}
+			\begin{paragraph}
+				Se han contratado dos servidores en el proveedor Hetzner. Éstos son dos servidores físicos que cuentan con las siguientes características hardware:
+				
+				\begin{itemize}
+					\item \textbf{tfg.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
+					
+					\begin{itemize}
+						\item \textbf{CPU}: 8 cores.
+						\item \textbf{RAM}: 64GB 
+						\item \textbf{Almacenamiento}: 2 NvMe 500GB Raid 1.
+						\item \textbf{Red}: 1000Mb/s
+						\item \textbf{Tráfico}: Ilimitado
+						\item \textbf{Coste mes}: 38,6555 euros
+						\item \textbf{Coste anual}: 502,521 euros
+					\end{itemize}
+				
+					\item \textbf{tfg2.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
+					
+					\begin{itemize}
+						\item \textbf{CPU}: 8 cores.
+						\item \textbf{RAM}: 16GB 
+						\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
+						\item \textbf{Red}: 1000Mb/s
+						\item \textbf{Tráfico}: Ilimitado
+						\item \textbf{Coste mes}: 22.6891 euros
+						\item \textbf{Coste anual}: 272,9692 euros
+					\end{itemize}
+				\end{itemize}
+			
+			Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{774,7902} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
+			
+			\end{paragraph}
+		\subsubsection{AWS}
+			\begin{paragraph}
+				contenidos...
+			\end{paragraph}
+		
+		\subsubsection{Azure}
+			\begin{paragraph}
+				contenidos...
+			\end{paragraph}
+		
+		\subsubsection{Google Cloud}
+			\begin{paragraph}
+				contenidos...
+			\end{paragraph}	
+	\subsection{Proveedores Cloud}
+		\begin{paragraph}
 			contenidos...
 		\end{paragraph}
-\section{Antecedentes}
-\section{Estado del arte}
+	
 \section{Objetivos del TFG}
 	\subsection{Incluir los objetivos de la propuesta del TFG}
 	\subsection{Grado de cumplimiento de los objetivos propuestos}
