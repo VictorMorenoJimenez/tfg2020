@@ -1,0 +1,23 @@
+---
+
+- hosts: "{{ target_host }}"
+  gather_facts: no
+  
+  vars:
+    # Options
+    restore_backup_opt: 'yes'
+
+  tasks:
+    - name: Download templates
+      get_url:
+        url: "{{ item.download_url }}"
+        dest: "{{ item.backup_destination }}"
+      with_items: "{{ downloads }}"
+      when: restore_backup_opt == 'yes'
+  
+    - name: Restore backups on Proxmox
+      command: >-
+          qmrestore "{{ item.backup_location }}" "{{ item.new_id }}"
+      with_items: "{{ create_vms }}"
+      when: restore_backup_opt == 'yes'
+    
