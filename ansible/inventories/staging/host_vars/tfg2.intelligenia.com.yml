@@ -29,6 +29,7 @@ link1: 192.168.200.2
 create_cluster_opt: 'no'
 add_to_cluster_opt: 'no'
 node: tfg2
+master: 'no'
 
 master_ip: tfg.intelligenia.com
 

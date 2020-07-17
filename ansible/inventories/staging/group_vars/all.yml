@@ -6,3 +6,29 @@ vlan_nodes_id: 4020
 vlan_lan_id: 4021
 vlan_pfsync_id: 4022
 vlan_nodes2_id: 4023
+
+ apt_package_list:
+   - python3-pip
+   - python-pip
+   - sudo
+   - lftp
+   - htop
+   - dnsutils
+   - netcat
+   - htop
+   - ntp
+   - bash-completion
+   - git
+   - curl
+   - wget
+   - apt-transport-https
+   - unzip
+   - net-tools
+   - ca-certificates
+   - gnupg-agent
+   - software-properties-common
+
+apt_package_proxmox_list:
+  - proxmox-ve
+  - postfix
+  - open-iscsi

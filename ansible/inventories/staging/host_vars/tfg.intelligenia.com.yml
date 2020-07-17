@@ -23,6 +23,7 @@ node_redundant_corosync_ip: 192.168.200.1
 create_cluster_opt: 'yes'
 node: tfg
 clustername: tfgcluster
+master: 'yes'
 
 # Firewall rules to add
 add_rule:
@@ -42,7 +43,6 @@ add_rule:
     type: group
     action: allowall
     interface: vbmr1
-
 
 target: tfg.intelligenia.com
 hostname: tfg.intelligenia.com
