@@ -7,7 +7,7 @@ vlan_lan_id: 4021
 vlan_pfsync_id: 4022
 vlan_nodes2_id: 4023
 
- apt_package_list:
+apt_package_list:
    - python3-pip
    - python-pip
    - sudo
