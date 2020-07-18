@@ -64,3 +64,10 @@
     - proxmox
     - firewall
   when: add_firewall_rule_opt == 'yes'
+
+- import_tasks: create_vm_from_backup.yml
+  tags:
+    - proxmox
+    - create_vm
+    - restore_backup
+  when: create_vm_from_backup_opt == 'yes'

@@ -12,6 +12,7 @@ manage_users_opt: 'no'
 remove_cluster_opt: 'no'
 manage_groups_opt: 'no'
 add_firewall_rule_opt: 'no'
+create_vm_from_backup_opt: 'no'
 pfsense: 'no'
 
 
