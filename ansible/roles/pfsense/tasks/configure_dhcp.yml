@@ -1,0 +1,77 @@
+---
+
+# This tasks will add a new DHCP block on file config.xml
+
+
+# Before this role work you must have non password access with user root to pfsense
+
+# ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+
+# Vars
+
+# pfsense_ssh_port
+# pfsense_config_path
+
+# vms_to_configure:
+#   - name: vm1
+#     vm_mac: MANDATORY
+#     vm_id: MANDATORY
+#     vm_ip: MANDATORY
+#     vm_hostname: MANDATORY
+#     vm_gateway: OPTIONAL
+#     vm_domain: OPTIONAL
+#     dns_domain: OPTIONAL
+#     dns_primary: OPTIONAL
+
+# pfsense_configure_dhcp_opt: must be yes to execute task.
+
+
+
+- name: Change ssh port to {{ pfsense_ssh_port }}
+  set_fact:
+    ansible_port: "{{ pfsense_ssh_port }}"
+
+- name: Insert DHCP block on pfSense config.xml
+  blockinfile:
+    path: "{{ pfsense_config_path }}"
+    marker: "blockinlinemarker-remove"
+    insertafter: "</staticmap>"
+    block: |2
+                              <staticmap>
+                                        <mac>{{ item.vm_mac }}</mac>
+                                        <cid>{{ item.vm_id }}</cid>
+                                        <ipaddr>{{ item.vm_ip }}</ipaddr>
+                                        <hostname>{{ item.vm_hostname }}</hostname>
+                                        <descr></descr>
+                                        <filename></filename>
+                                        <rootpath></rootpath>
+                                        <defaultleasetime></defaultleasetime>
+                                        <maxleasetime></maxleasetime>
+                                        <gateway>{{ item.vm_gatewawy | default(omit) }}</gateway>
+                                        <domain>{{ item.vm_domain | default(omit) }}</domain>
+                                        <domainsearchlist></domainsearchlist>
+                                        <ddnsdomain>{{ item.dns_domain | default(omit) }}</ddnsdomain>
+                                        <ddnsdomainprimary>{{ item.dns_primary | default(omit) }}</ddnsdomainprimary>
+                                        <ddnsdomainkeyname></ddnsdomainkeyname>
+                                        <ddnsdomainkey></ddnsdomainkey>
+                                        <tftp></tftp>
+                                        <ldap></ldap>
+                              </staticmap>
+  with_items: "{{ vms_to_configure }}"
+  when: vms_to_configure is defined and pfsense_configure_dhcp_opt == 'yes'
+
+- name: Remove marks blockinline put in
+  lineinfile:
+    path: "{{ pfsense_config_path }}"
+    state: absent
+    regexp: '^blockinlinemarker-remove'
+
+- name: Delete cache file in order to make changes persistent
+  file:
+    state: absent
+    path: /tmp/config.cache
+
+- name: Delete config lock file
+  file:
+    state: absent
+    path: /tmp/config.lock

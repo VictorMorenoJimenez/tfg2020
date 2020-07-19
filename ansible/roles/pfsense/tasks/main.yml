@@ -1,0 +1,10 @@
+---
+# tasks file for pfsense
+
+- import_tasks: configure_dhcp.yml
+  tags:
+    - pfsense
+    - network
+    - config
+    - dhcp
+  when: pfsense_configure_dhcp_opt == 'yes'
