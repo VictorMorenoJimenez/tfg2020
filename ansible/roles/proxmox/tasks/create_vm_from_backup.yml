@@ -43,7 +43,7 @@
 
 - name: Configure KVM MAC
   lineinfile:
-    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+    path: "/etc/pve/qemu-server/{{ item.new_id }}.conf"
     regexp: 'net0:*'
     line: "net0: virtio={{ item.kvm_mac }},bridge=vmbr2"
   with_items: "{{ create_vms }}"
@@ -67,7 +67,7 @@
     path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
     regexp: 'sockets:*'
     line: "sockets: {{ item.kvm_sockets }}"
-  with_items: "{{ create_vms }}"  
+  with_items: "{{ create_vms }}"
 
 - name: Start all Vms after creation
   command: >-
@@ -75,6 +75,12 @@
   when: item.start_at_boot == "yes"
   with_items: "{{ create_vms }}"
 
-# Meter en pfSense la configuración nueva de DHCP con las nuevas MACS e IPS.
+- name: Wait for 60 seconds for DHCP server 
+  wait_for:
+    timeout: 60
 
-# Para ello habrá que ejecutar ansible yn openbsd
+- name: Restart all Vms for DHCP server
+  command: >-
+    qm reboot "{{ item.new_id }}"
+  with_items: "{{ create_vms }}"
+
