@@ -81,7 +81,7 @@
     - name: Change root password
       user:
         name: root
-        password: 
+        password: "{{ root_password }}"
         state: present
       when: root_password is defined
 
