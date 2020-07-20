@@ -3,11 +3,16 @@ tfg.intelligenia.com
 tfg2.intelligenia.com
 
 [pfsense]
-pfsense-01.tfg.vps ansible_host=10.7.0.1 ansible_ssh_ansible_port=11000 ansible_user=pfsense_ansible
-pfsense-02.tfg.vps ansible_host=10.7.0.1
+pfsense-01.tfg.vps ansible_host=138.201.229.85 ansible_user=root
+pfsense-02.tfg.vps ansible_host=144.76.2.118 ansible_user=pfsense_ansible
 
-[pruebavm]
-192.168.56.101
+[k8_master]
+k8-master ansible_host=10.6.100.20 ansible_user=mario
+
+[k8_workers]
+k8-node-01 ansible_host=10.6.100.21 ansible_user=mario
+k8-node-02 ansible_host=10.6.100.22 ansible_user=mario
+k8-node-03 ansible_host=10.6.100.23 ansible_user=mario
 
 [hetzner:vars]
 ansible_ssh_user=root
