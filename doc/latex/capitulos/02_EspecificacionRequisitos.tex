@@ -1,6 +1,39 @@
 \chapter {Análisis del sistema}
 
-\subsection{Definición del problema}
-\subsection{Que se pretende resolver}
-\subsection{Casuísticas que se dan y como se resuelve cada una}
-\subsection{Tipos de usuario}
+\section{Definición del problema}
+\begin{paragraph}
+	Hoy en día, aún hay muchas compañías que siguen teniendo dos equipos diferenciados dentro el departamento de IT. Systemas o Operaciones y Desarrolladores. Ya hemos visto en la introducción que esto a la larga causa problemas y no es la forma más rápida y eficiente de desarrollar software. \\
+	Trabajo como Administrador de Sistemas en una empresa pequeña y contínuamente aparecen problemas. Es por eso que se ha decidido adoptar un enfoque DevOps par el desarrollo del software. En este cambio están implicados ambos departamentos ya que es responsabilidad de ambos que los cauces de desarrollo y despliegue funcionen correctamente. \\
+	En mi compañía la Infraestructura donde se alojan los proyectos, se configura manualmente haciendo prácticamente imposible una replicación de ésta en caso de que sea necesario. También las subidas de proyectos y ejecución de tests no están automatizados y cada desarrollador se encarga de ejecutar los tests en local. Ésto implica discrepancias varias entre el equipo de operaciones y el de desarrolladores. Es por esto que se hace necesario la adoptación de técnicas DevOps como IaaC, CI y CD en la empresa.
+\end{paragraph}
+\section{Que se pretende resolver}
+		\begin{itemize}
+			\item Todos los problemas que involucra la configuración manual de infraestructura.
+			\item Ralentización de desarrollo de software, al no tener los cauces automatizados.
+		\end{itemize}
+\section{Casuísticas que se dan y como se resuelve cada una}
+		\begin{itemize}
+			\item \textbf{Problema 1}: \textit{Recreación ante fallo total o réplica de infraestructura}. Ante un fallo total de la infraestructura o replicación para propósitos de testing, con los sistemas actuales sería imposible, ya que dada la configuración manual de cada uno de los servidores, sería imposible replicar al 100% el estado de los servidores. 
+			\item  \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estaŕá codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
+			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Ésto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcioanar en local con una configuración dada pero no en producción. 
+			\item \textbf {Solución 2}: Al estar la infraestructura de cada aplicación codificada y bajo control de versiones, será sencillo replicar el entorno de producción en un entorno test para el desarrollo de aplicaciones.
+			\item \textbf{Problema 3}: \textit{Petición de subidas a producción}. Al no existir cauces de integración o despliegue, no se tiene un conocimiento exacto de qué comportamiento va a tener la aplicación en producción. Ésto y la necesidad de hacer peticiones al equipo de sistemas para subir nuevas versiones a producción ralentizan el desarrollo del software.
+			\item \textbf{Solución 3:} Al tener el desarrollador un servidor réplica de producción para desplegar las aplicaciones, sabe perfectamente el comportamiento que va a tener en producción, puesto que son entornos idénticos. Ésto y los cauces CI-CD solucionan el problema.
+		\end{itemize}
+
+\section{Tipos de usuario}
+	\begin{paragraph}
+		Adoptando la filosofía DevOps, tanto desarrolladores como sysadmins debería adoptar el mismo rol. Sin embargo, en una empresa en la cual crean y configuran sus propios servidores sin contratar servicios externos (como Azure DevOps, AWS...) se crea la necesidad de crear y configurar la infraestructura que va a alojar toda la infraestructura necesaria para el desarrollo cada aplicación. Es por esto que se distinguen entre dos tipos de usuarios: \textbf{Desarrolladores} + \textbf{Sistemas + Desarrolladores}.  
+		
+		\begin{itemize}
+			\item \textbf{Desarrolladores}. Este tipo usuario tiene las siguientes necesidades:
+				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda.
+				\item Poder integrar cambios a las aplicaciones.
+				\item Poder tener feedback de el estado de la aplicación tras el despliegue.
+				\item Conocer la configuración del servidor donde se aloja la aplicación web.
+			\item \textbf{Desarrolladores + Sistemas}
+				\item Todo lo anterior
+				\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones.
+				\item Poder conocer la configuración de la infraestructura.
+		\end{itemize}
+	\end{paragraph}
