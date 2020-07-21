@@ -165,7 +165,7 @@
     - name: Create thin storage
       command: >-
         pvesh create /storage --storage thin --type lvmthin --vgname vg00 --thinpool thin
-#      when: master == 'yes'
+      when: master == 'yes'
 
     - name: Create backup LV 
       lvol:
