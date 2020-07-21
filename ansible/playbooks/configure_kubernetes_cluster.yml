@@ -1,0 +1,227 @@
+- hosts: k8_master:k8_workers
+  become: yes
+
+  vars:
+    # User to take id_rsa.pub
+    id_rsa_user: victor
+
+    # Host user to execute playbooks
+    host_user: mario
+
+    # User to create on k8 hosts
+    k8_ansible_user: k8_ansible
+
+  tasks:
+    - name: Remove old SSH keys
+      file:
+        path: "/home/{{ host_user }}/.ssh/{{item }}"
+        state: absent
+      with_items:
+        - id_rsa
+        - id_rsa.pub
+
+    - name: Create SSH keys
+      openssh_keypair:
+        path: "/home/{{ host_user }}/.ssh/id_rsa"
+        force: True
+
+    - name: Set authorized keys, removing all previous 
+      authorized_key:
+        user: "{{ host_user }}"
+        state: present
+        exclusive: True
+        key: "{{ item }}"
+      with_file:
+        - public_keys/mario
+        - public_keys/victor-oficina
+        - public_keys/victor-pc
+        - public_keys/victor-portatil
+
+    - name: Set hostname
+      hostname:
+        name: "{{ k8_hostname }}"
+      when: k8_hostname is defined
+
+    - name: Create privileged user k8_ansible
+      user:
+        name: "{{ k8_ansible_user }}"
+        append: yes
+        state: present
+        create_home: yes
+        shell: /bin/bash
+
+    - name: Allow k8_ansible to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: '"{{ k8_ansible_user }}" ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+    
+    - name: Set up authorized key for user k8_ansible copying it from current user
+      authorized_key:
+        user: "{{ k8_ansible_user }}"
+        state: present
+        key: "{{ lookup('file', '/home/{{ id_rsa_user }}/.ssh/id_rsa.pub') }}"
+        
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: true
+   
+    - name: Install APT Transport HTTPS
+      apt:
+        name: apt-transport-https
+        state: present
+
+    - name: Add Kubernetes apt-key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+
+    - name: Add Kubernetes' APT repository
+      apt_repository:
+        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+        filename: 'kubernetes'
+
+    - name: Install kubelet
+      apt:
+        name: kubelet=1.18.6-00
+        state: present
+        install_recommends: yes
+        update_cache: true
+
+    - name: Install kubeadm
+      apt:
+        name: kubeadm=1.18.6-00
+        install_recommends: yes
+        state: present
+    
+- hosts: k8-master
+  become: yes
+
+  vars:
+    k8_ansible_user: k8_ansible
+
+  tasks:
+    - name: Install kubectl
+      apt:
+        name: kubectl=1.18.6-00
+        state: present
+        force: yes
+
+    - name: Disable SWAP, kubernetes can't work with SWAP enabled
+      become_user: "{{ k8_ansible_user }}"
+      shell: |
+        swapoff -a
+      
+    - name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+      replace:
+          path: /etc/fstab
+          regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+          replace: '# \1'
+
+    - name: Initialize the cluster
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
+      args:
+        chdir: /home/k8_ansible
+        creates: cluster_initialized.txt
+      ignore_errors: yes
+
+    - name: Create .kube directory
+      become_user: "{{ k8_ansible_user }}"
+      file:
+        path: $HOME/.kube
+        state: directory
+        mode: 0755
+
+    - name: Change permissions to admin.conf
+      file:
+        path: /etc/kubernetes/admin.conf
+        state: touch
+        mode: u=rw,g=r,o=r
+
+    - name: Copy admin config to user's kube config
+      become_user: "{{ k8_ansible_user }}"
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: $HOME/.kube/config
+        remote_src: yes
+        owner: "{{ k8_ansible_user }}"
+
+    - name: Change user and group
+      become_user: "{{ k8_ansible_user }}"
+      become: yes
+      shell: |
+        chown $(id -u):$(id -g) $HOME/.kube/config
+
+    - name: Export KUBECONFIG environment var
+      lineinfile:
+        dest: /home/k8_ansible/.bashrc
+        line: 'export KUBECONFIG=/home/k8_ansible/.kube/config'
+
+    - name: Apply changes on .bashrc
+      shell: . /home/k8_ansible/.bashrc
+
+    - name: Install Pod network
+      become_user: "{{ k8_ansible_user }}"
+      shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
+      args:
+        chdir: $HOME
+        creates: pod_network_setup.txt
+
+    - name: Disable SWAP, kubernetes can't work with SWAP enabled
+      shell: |
+        swapoff -a
+    
+    - name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+      replace:
+          path: /etc/fstab
+          regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+          replace: '# \1'
+
+    # Enable SWAP at the end.
+    #- name: Reenable SWAP in fstab (1/2)
+    #  replace:
+    #    path: /etc/fstab
+    #    regexp: '^# (.+?\sswap\s+sw\s+.*)$'
+    #    replace: '\1'
+    #
+    #- name: Enable SWAP (2/2)
+    #  shell: |
+    #    swapon -a
+
+    - name: Get join command for k8_workers
+      shell: kubeadm token create --print-join-command
+      register: join_command_raw
+
+    - name: Set join command
+      set_fact:
+        join_command: "{{ join_command_raw.stdout_lines[0] }}"
+
+- hosts: k8_workers
+  become: yes
+
+  vars:
+    k8_ansible_user: k8_ansible
+
+  tasks:
+    - name: Disable SWAP, kubernetes can't work with SWAP enabled
+      shell: |
+        swapoff -a
+  
+    - name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+      replace:
+          path: /etc/fstab
+          regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+          replace: '# \1'
+
+    - name: Debug var
+      debug: msg="{{ hostvars['k8-master'].join_command }}"
+      
+    - name: Join the cluster
+      become_user: root
+      shell: "{{ hostvars['k8-master'].join_command }} >> node_joined.txt"
+      args:
+        chdir: "/home/{{ k8_ansible_user }}"
+        creates: node_joined.txt
