@@ -47,11 +47,11 @@
                                         <rootpath></rootpath>
                                         <defaultleasetime></defaultleasetime>
                                         <maxleasetime></maxleasetime>
-                                        <gateway>{{ item.vm_gatewawy | default(omit) }}</gateway>
-                                        <domain>{{ item.vm_domain | default(omit) }}</domain>
+                                        <gateway></gateway>
+                                        <domain></domain>
                                         <domainsearchlist></domainsearchlist>
-                                        <ddnsdomain>{{ item.dns_domain | default(omit) }}</ddnsdomain>
-                                        <ddnsdomainprimary>{{ item.dns_primary | default(omit) }}</ddnsdomainprimary>
+                                        <ddnsdomain></ddnsdomain>
+                                        <ddnsdomainprimary></ddnsdomainprimary>
                                         <ddnsdomainkeyname></ddnsdomainkeyname>
                                         <ddnsdomainkey></ddnsdomainkey>
                                         <tftp></tftp>
