@@ -46,6 +46,15 @@
     path: "/etc/pve/qemu-server/{{ item.new_id }}.conf"
     regexp: 'net0:*'
     line: "net0: virtio={{ item.kvm_mac }},bridge=vmbr2"
+  when: firewall_pfsense_conf == 'no'
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM MAC
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id }}.conf"
+    regexp: 'net0:*'
+    line: "net0: virtio={{ item.kvm_mac }},bridge=vmbr0"
+  when: firewall_pfsense_conf == 'yes'
   with_items: "{{ create_vms }}"
 
 - name: Configure KVM RAM

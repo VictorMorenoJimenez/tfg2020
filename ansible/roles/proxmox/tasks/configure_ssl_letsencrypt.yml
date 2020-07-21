@@ -1,0 +1,46 @@
+---
+
+# Vars
+# certbot_admin_email:
+# servername:
+
+- name: Download certbot-auto
+  get_url:
+    url: https://downloads-tfg.intelligenia.com/certbot-auto
+    dest: /usr/local/sbin
+    mode: '0755'
+
+- name: Create SSL cert with certbot-auto
+  shell: "certbot-auto certonly --standalone --noninteractive --agree-tos --email {{ certbot_admin_email }} -d {{ servername }}"
+  register: create_ssl_status
+
+- name: Delete old certificates
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/pve/local/pve-ssl.pem
+    - /etc/pve/local/pve-ssl.key
+    - /etc/pve/pve-root-ca.pem
+
+- name: Copy fullchain.pem to proxmox folder
+  shell: |
+    cp /etc/letsencrypt/archive/"{{ servername }}"/fullchain1.pem /etc/pve/local/pve-ssl.pem
+    cp /etc/letsencrypt/archive/"{{ servername }}"/privkey1.pem /etc/pve/local/pve-ssl.key
+    cp /etc/letsencrypt/archive/"{{ servername }}"/chain1.pem /etc/pve/pve-root-ca.pem
+
+- name: Restart pveproxy and pvedaemon services
+  command: >-
+    service pveproxy restart && service pvedaemon restart
+
+- name: Create renew script to periodically renew certificates
+  template:
+    src: cert-renew.sh.j2
+    dest: /root/cert-renew.sh
+    mode: '0755'
+
+- name: Add script to crontab, run monthly
+  cron:
+    name: "Renew SSL Certificates"
+    special_time: monthly 
+    job: /root/cert-renew.sh 2>&1 | logger -t cert-renew-monthly
