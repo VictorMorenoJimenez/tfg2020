@@ -1,11 +1,9 @@
 ---
+- hosts: "{{ target_host }}"
+  gather_facts: false
 
-#- hosts: "{{ target_host }}"
-#  gather_facts: false
-#
-#  roles:
-#    - install_hetzner_image
-#
+  roles:
+    - install_hetzner_image
 
 - hosts: "{{ target_host }}"
   gather_facts: false
@@ -118,9 +116,8 @@
         repo: "{{ remove_apt_repo }}"
         state: absent
       when: remove_apt_repo is defined
-
-        
-- hosts: "{{ target_host }}"
+       
+ hosts: "{{ target_host }}"
   gather_facts: false
 
   vars:
@@ -137,13 +134,12 @@
     link0: 192.168.100.1
     link1: 192.168.200.1
 
-
     # Proxmox users / groups
     create_groups_opt: 'yes'
 
   roles:
     - proxmox
-  
+
   post_tasks:
     - name: Check if cluster exists
       stat:
@@ -169,7 +165,7 @@
     - name: Create thin storage
       command: >-
         pvesh create /storage --storage thin --type lvmthin --vgname vg00 --thinpool thin
-      when: master == 'yes'
+#      when: master == 'yes'
 
     - name: Create backup LV 
       lvol:
