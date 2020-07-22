@@ -6,13 +6,13 @@
   #   --> Install Proxmox VE
   #   --> Create Proxmox thin and backups storage
   
-- hosts: "{{ target_host }}"
+- hosts: hetzner
   gather_facts: false
 
   roles:
     - install_hetzner_image
 
-- hosts: "{{ target_host }}"
+- hosts: hetzner
   gather_facts: false
 
   vars:
@@ -135,7 +135,7 @@
         state: present
         reload: yes
        
-- hosts: "{{ target_host }}"
+- hosts: hetzner
   gather_facts: false
   
   # Second part, configure proxmox node.
@@ -147,6 +147,11 @@
     manage_users_opt: 'yes'
     add_firewall_rule_opt: 'yes'
     install_proxmox_opt: 'no'
+
+    # Generate SSL cert
+    servername: "{{ ansible_host }}"
+    certbot_admin_email: victor.moreno@intelligenia.com
+    create_ssl_certificate_opt: 'yes'
 
     # Create cluster vars
     # Corosync links.
