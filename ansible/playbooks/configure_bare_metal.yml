@@ -1,4 +1,11 @@
 ---
+
+  # This playbook is responsible for:
+  #   --> Install ISO image on Hetzner Server
+  #   --> Install basic packages to server 
+  #   --> Install Proxmox VE
+  #   --> Create Proxmox thin and backups storage
+  
 - hosts: "{{ target_host }}"
   gather_facts: false
 
@@ -11,12 +18,14 @@
   vars:
     remove_apt_repo: deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
 
+    # Bash groups to create.
     create_groups:
         - name: sudo
           group_name: sudo
         - name: www-data
           group_name: www-data
           
+    # List of bash users to create.
     users:
       - name: mario
         username: mario
@@ -50,7 +59,7 @@
     remove_apt_repo: deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
               
   tasks:
-    - include_vars: secrets.yml
+    - include_vars: secrets.yml # User passwords
 
     - name: First create the groups of the user
       group:
@@ -116,9 +125,20 @@
         repo: "{{ remove_apt_repo }}"
         state: absent
       when: remove_apt_repo is defined
+
+      # /etc/sysctl.conf:
+      # net.ipv4.ip_forward = 1
+    - name: Activate ipv4 ip_forward
+      sysctl:
+        name: net.ipv4.ip_forward
+        value: '1'
+        state: present
+        reload: yes
        
- hosts: "{{ target_host }}"
+- hosts: "{{ target_host }}"
   gather_facts: false
+  
+  # Second part, configure proxmox node.
 
   vars:
     # Proxmox role add task or not.
@@ -129,6 +149,7 @@
     install_proxmox_opt: 'no'
 
     # Create cluster vars
+    # Corosync links.
     link0_flag: "--link0"
     link1_flag: "--link1"
     link0: 192.168.100.1
@@ -141,6 +162,10 @@
     - proxmox
 
   post_tasks:
+    # Post role tasks:
+    # Create cluster if master
+    # Configure storages
+
     - name: Check if cluster exists
       stat:
         path: /etc/pve/corosync.conf
