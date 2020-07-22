@@ -228,5 +228,5 @@
 
     - name: Create backups storage after restart
       command: >-
-        pvesh create /storage --storage backups --type dir --path /mnt/proxmox-backups
+        pvesh create /storage --storage backups --type dir --path /mnt/proxmox-backups --content --content backup
       when: master == 'yes'
