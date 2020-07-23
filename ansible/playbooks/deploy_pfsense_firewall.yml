@@ -1,0 +1,52 @@
+- hosts: slave
+  gather_facts: false
+
+  vars:
+    create_cluster_opt: 'no'
+    create_vm_from_backup_opt: 'yes'
+    firewall_pfsense_conf: 'yes'
+
+    downloads:
+        - name: PfSense-02 Template
+          download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
+          backup_destination: /var/lib/vz/dump/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
+
+    create_vms:
+        - name: pfSense-02
+          backup_location: /var/lib/vz/dump/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
+          kvm_name: tfg-pfsense-02
+          kvm_cores: 2 
+          kvm_memory: 2048
+          kvm_mac: 00:50:56:00:9C:A2 # MUST BE THA MAC REQUESTES ON HETZNER SECONDARY IP.
+          kvm_sockets: 2
+          new_id: 998
+          start_at_boot: "yes"
+
+  roles:
+    - proxmox
+
+- hosts: master
+  gather_facts: false
+  
+  vars:
+    create_cluster_opt: 'no'
+    create_vm_from_backup_opt: 'yes'
+    firewall_pfsense_conf: 'yes'
+  
+    downloads:
+        - name: PfSense-01 Template
+          download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+          backup_destination: /var/lib/vz/dump/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+    create_vms:
+        - name: pfSense-01
+          backup_location: /var/lib/vz/dump/vzdump-qemu-999-2020_07_17-09_27_15.vma.zst
+          kvm_name: tfg-pfsense-01
+          kvm_cores: 2 
+          kvm_memory: 1024
+          kvm_mac: 00:50:56:00:03:CA # MUST BE THA MAC REQUESTES ON HETZNER SECONDARY IP.
+          kvm_sockets: 1
+          new_id: 999
+          start_at_boot: "yes"
+  
+  roles:
+    - proxmox
