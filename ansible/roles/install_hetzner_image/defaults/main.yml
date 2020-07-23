@@ -2,13 +2,15 @@
 # defaults file for install_hetzner_image
 # All this variables need to be defined properly for the install_image role
 
+images_path: /root/.oldroot/nfs/images/
+image: Debian-103-buster-64-minimal.tar.gz
 raid:
   active: 'yes'
   level: 1
 disks:
   - nvme1n1 
   - nvme0n1
-image: /root/.oldroot/nfs/images/Debian-103-buster-64-minimal.tar.gz
+image: "{{ images_path }}/{{ image }}"
 partitions:
   - /boot:ext4:512M
   - lvm:vg00:all
