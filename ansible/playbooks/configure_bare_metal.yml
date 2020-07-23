@@ -6,13 +6,16 @@
   #   --> Install Proxmox VE
   #   --> Create Proxmox thin and backups storage
   
-- hosts: hetzner
+- hosts: "{{ target_host }}"
   gather_facts: false
+
+  vars:
+    image: Debian-104-buster-64-minimal.tar.gz
 
   roles:
     - install_hetzner_image
 
-- hosts: hetzner
+- hosts: "{{ target_host }}"
   gather_facts: false
 
   vars:
@@ -126,8 +129,6 @@
         state: absent
       when: remove_apt_repo is defined
 
-      # /etc/sysctl.conf:
-      # net.ipv4.ip_forward = 1
     - name: Activate ipv4 ip_forward
       sysctl:
         name: net.ipv4.ip_forward
@@ -135,18 +136,19 @@
         state: present
         reload: yes
        
-- hosts: hetzner
+- hosts: "{{ target_host }}"
   gather_facts: false
   
   # Second part, configure proxmox node.
 
   vars:
-    # Proxmox role add task or not.
-    pfsense_conf_opt: 'yes'
-    manage_groups_opt: 'yes'
-    manage_users_opt: 'yes'
-    add_firewall_rule_opt: 'yes'
-    install_proxmox_opt: 'no'
+
+    pfsense_conf_opt: 'yes'         # If the node is one of the masters, (pfSense)
+    pfsense_conf_opt: 'no'          # If the node is one normal node:
+    manage_groups_opt: 'yes'        # Create proxmox groups
+    manage_users_opt: 'yes'         # Create proxmox users
+    add_firewall_rule_opt: 'yes'    # Add firewall rules to proxmox cluster
+    install_proxmox_opt: 'no'       # We alredy installed proxmox as packages.
 
     # Generate SSL cert
     servername: "{{ ansible_host }}"
