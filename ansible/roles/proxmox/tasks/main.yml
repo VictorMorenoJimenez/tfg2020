@@ -78,3 +78,10 @@
     - create_ssl_cert
     - certbot
   when: create_ssl_certificate_opt == 'yes'
+
+- import_tasks: configure_common_vm.yml
+  tags:
+    - proxmox
+    - configure
+    - vm
+  when: configure_common_vm_opt == 'yes'
