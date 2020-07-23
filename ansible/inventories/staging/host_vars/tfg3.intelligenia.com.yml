@@ -1,0 +1,36 @@
+---
+
+    host: tfg3.intelligenia.com
+    
+    # install_image vars
+    disks:
+      - sda
+      - sdb 
+    
+    # node tfg3 values, for role proxmox task configure_node.
+    ppal_iface: enp3s0
+    hetzner_ip: 144.76.37.116 
+    hetzner_gateway: 144.76.37.97 
+    hetzner_broadcast: 144.76.37.127 
+    node_proxmox_ip: 192.168.100.3
+    node_redundant_corosync_ip: 192.168.200.3
+    
+    # Links corosync
+    link0_flag: "--link0"
+    link1_flag: "--link1"
+    link0: 192.168.100.3
+    link1: 192.168.200.3
+    
+    
+    # Proxmox vars
+    create_cluster_opt: 'no'
+    add_to_cluster_opt: 'no'
+    node: tfg3
+    master: 'no'
+    
+    # No pfSense config
+    pfsense_conf_opt: 'no'
+    master_ip: tfg.intelligenia.com
+
+    target: tfg3.intelligenia.com
+    hostname: tfg3.intelligenia.com

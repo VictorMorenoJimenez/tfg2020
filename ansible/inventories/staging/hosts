@@ -1,18 +1,68 @@
 [hetzner]
-tfg.intelligenia.com 
+tfg.intelligenia.com ansible_host=tfg.intelligenia.com
+tfg2.intelligenia.com ansible_host=tfg2.intelligenia.com
+tfg3.intelligenia.com ansible_host=tfg3.intelligenia.com
+
+[master]
+tfg.intelligenia.com
+
+[slave]
 tfg2.intelligenia.com
+
+[proxmox]
+tfg3.intelligenia.com
 
 [pfsense]
 pfsense-01.tfg.vps ansible_host=138.201.229.85 ansible_user=root
-pfsense-02.tfg.vps ansible_host=144.76.2.118 ansible_user=pfsense_ansible
+pfsense-02.tfg.vps ansible_host=144.76.2.118 ansible_user=root
+
+[pfsense_master]
+pfsense-01.tfg.vps
+
+[pfsense_slave]
+pfsense-02.tfg.vps
 
 [k8_master]
-k8-master ansible_host=10.6.100.20 ansible_user=mario
+k8-master ansible_host=10.6.100.20 ansible_user=mario vm_hostname=k8-master
 
 [k8_workers]
-k8-node-01 ansible_host=10.6.100.21 ansible_user=mario
-k8-node-02 ansible_host=10.6.100.22 ansible_user=mario
-k8-node-03 ansible_host=10.6.100.23 ansible_user=mario
+k8-node-01 ansible_host=10.6.100.21 ansible_user=mario vm_hostname=k8-node-01
+k8-node-02 ansible_host=10.6.100.22 ansible_user=mario vm_hostname=k8-node-02
+k8-node-03 ansible_host=10.6.100.23 ansible_user=mario vm_hostname=k8-node-03
+
+[ceph-all]
+tfg-ceph-admin vm_hostname=tfg-ceph-admin ansible_host=10.6.100.30 ceph_hostname=tfg-ceph-admin ansible_user=mario
+tfg-ceph-node-01 vm_hostname=tfg-ceph-node-01 ansible_host=10.6.100.31 ceph_hostname=tfg-ceph-node-01 ansible_user=mario
+tfg-ceph-node-02 vm_hostname=tfg-ceph-node-02 ansible_host=10.6.100.32 ceph_hostname=tfg-ceph-node-02 ansible_user=mario
+tfg-ceph-node-03 vm_hostname=tfg-ceph-node-03 ansible_host=10.6.100.33 ceph_hostname=tfg-ceph-node-03 ansible_user=mario
+
+[tfg-ceph-admin]
+tfg-ceph-admin vm_hostname=tfg-ceph-admin ansible_host=10.6.100.30 ceph_hostname=tfg-ceph-admin ansible_user=mario
+
+[ceph-nodes]
+tfg-ceph-node-01 vm_hostname=tfg-ceph-node-01 ansible_host=10.6.100.31 ceph_hostname=tfg-ceph-node-01 ansible_user=mario
+tfg-ceph-node-02 vm_hostname=tfg-ceph-node-02 ansible_host=10.6.100.32 ceph_hostname=tfg-ceph-node-02 ansible_user=mario
+tfg-ceph-node-03 vm_hostname=tfg-ceph-node-03 ansible_host=10.6.100.33 ceph_hostname=tfg-ceph-node-03 ansible_user=mario
+
+[ceph-osd]
+tfg-ceph-node-01 ansible_host=10.6.100.31 ceph_hostname=tfg-ceph-node-01 ansible_user=mario
+tfg-ceph-node-02 ansible_host=10.6.100.32 ceph_hostname=tfg-ceph-node-02 ansible_user=mario
+tfg-ceph-node-03 ansible_host=10.6.100.33 ceph_hostname=tfg-ceph-node-03 ansible_user=mario
+
+[ceph-mgr]
+tfg-ceph-admin ansible_host=10.6.100.30
+tfg-ceph-node-03 ansible_host=10.6.100.33
+
+[ceph-mds]
+tfg-ceph-node-01 ansible_host=10.6.100.31
+tfg-ceph-node-02 ansible_host=10.6.100.32
+
+[ceph-mon]
+tfg-ceph-admin
+ceph_nodes
+
+[tfg-webproxy]
+tfg-webproxy vm_hostname=tfg-webproxy ansible_host=10.6.100.1 ansible_user=mario
 
 [hetzner:vars]
 ansible_ssh_user=root
