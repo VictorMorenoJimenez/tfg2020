@@ -71,7 +71,11 @@
     state: absent
     path: /tmp/config.cache
 
-- name: Delete config lock file
-  file:
-    state: absent
-    path: /tmp/config.lock
+#- name: Delete config lock file
+#  file:
+#    state: absent
+#    path: /tmp/config.lock
+
+- name: Restart dhcp service on pfsense
+  command: >-
+    pfSsh.php playback svc restart dhcpd

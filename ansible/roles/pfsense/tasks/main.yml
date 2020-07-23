@@ -1,5 +1,10 @@
 ---
 # tasks file for pfsense
+# ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+
+- name: Change ssh port to {{ pfsense_ssh_port }}
+  set_fact:
+    ansible_port: "{{ pfsense_ssh_port }}"
 
 - import_tasks: configure_dhcp.yml
   tags:
@@ -8,3 +13,21 @@
     - config
     - dhcp
   when: pfsense_configure_dhcp_opt == 'yes'
+
+- import_tasks: apply_pfsense_config.yml
+  tags:
+    - pfsense
+    - network
+    - config
+    - global
+  when: apply_pfsense_config == 'yes'
+
+- name: Delete cache file in order to make changes persistent
+  file:
+    state: absent
+    path: /tmp/config.cache
+
+- name: Delete config lock file
+  file:
+    state: absent
+    path: /tmp/config.lock

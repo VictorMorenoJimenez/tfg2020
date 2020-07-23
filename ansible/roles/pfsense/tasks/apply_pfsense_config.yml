@@ -1,0 +1,6 @@
+---
+
+- name: Apply template config file to pfsense
+  template:
+    src: config-pfsense.xml.j2
+    dest: "{{ pfsense_config_path }}"

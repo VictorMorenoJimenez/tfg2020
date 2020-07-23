@@ -4,3 +4,4 @@
 pfsense_config_path: /cf/conf/config.xml
 pfsense_ssh_port: 11000
 pfsense_configure_dhcp_opt: 'no'
+apply_pfsense_config: 'no'
