@@ -29,9 +29,15 @@
     cp /etc/letsencrypt/archive/"{{ servername }}"/privkey1.pem /etc/pve/local/pve-ssl.key
     cp /etc/letsencrypt/archive/"{{ servername }}"/chain1.pem /etc/pve/pve-root-ca.pem
 
-- name: Restart pveproxy and pvedaemon services
-  command: >-
-    service pveproxy restart && service pvedaemon restart
+- name: Restart pveproxy service
+  systemd:
+    name: pveproxy
+    state: restarted
+
+- name: Restart pvedaemon service
+  systemd:
+    name: pvedaemon
+    state: restarted
 
 - name: Create renew script to periodically renew certificates
   template:

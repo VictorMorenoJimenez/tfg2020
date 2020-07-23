@@ -8,7 +8,7 @@
     - config
     - system
     - interfaces
-  when: pfsense_conf_opt == 'yes'
+  when: configure_node_opt == 'yes'
 
 - import_tasks: install_proxmox.yml
   tags:

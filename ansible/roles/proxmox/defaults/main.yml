@@ -11,20 +11,20 @@ add_to_cluster_opt: 'no'
 manage_users_opt: 'no'
 remove_cluster_opt: 'no'
 manage_groups_opt: 'no'
-add_firewall_rule_opt: 'no'
 create_vm_from_backup_opt: 'no'
 pfsense: 'no'
 #When creating VM, if it is pfsense needs special interface on task create_vm_from_backup
-firewall_pfsense_conf: 'no'
+add_firewall_rule_opt: 'no'
 create_ssl_certificate_opt: 'no'
 configure_common_vm_opt: 'no'
+configure_node_opt: 'no'
+firewall_pfsense_conf: 'no'
 
 
 # Upload iso role defauls
 proxmox:
   user: foo
   password: foopw
-
   node: tfg
   storage: local
   iso_url: foo
