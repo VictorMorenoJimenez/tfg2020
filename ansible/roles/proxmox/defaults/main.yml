@@ -17,6 +17,7 @@ pfsense: 'no'
 #When creating VM, if it is pfsense needs special interface on task create_vm_from_backup
 firewall_pfsense_conf: 'no'
 create_ssl_certificate_opt: 'no'
+configure_common_vm_opt: 'no'
 
 
 # Upload iso role defauls
