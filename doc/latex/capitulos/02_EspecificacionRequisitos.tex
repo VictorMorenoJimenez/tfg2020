@@ -27,13 +27,54 @@
 		
 		\begin{itemize}
 			\item \textbf{Desarrolladores}. Este tipo usuario tiene las siguientes necesidades:
-				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda.
-				\item Poder integrar cambios a las aplicaciones.
-				\item Poder tener feedback de el estado de la aplicación tras el despliegue.
-				\item Conocer la configuración del servidor donde se aloja la aplicación web.
+				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
+				\item Poder integrar cambios a las aplicaciones. [RF 2]
+				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
+				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
 			\item \textbf{Desarrolladores + Sistemas}
-				\item Todo lo anterior
-				\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones.
-				\item Poder conocer la configuración de la infraestructura.
+				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
+				\item Poder integrar cambios a las aplicaciones. [RF 2]
+				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
+				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
+				\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones. [RF 5]
+				\item Poder conocer la configuración de la infraestructura. [RF 6]
+		\end{itemize}
+	
+		Estos historias de usuario representan la funcionalidad final del proyecto, con un nivel de abstracción muy alto. En la siguiente sección, se desgranarán estas historias para definir de forma precisa los requisitos funcionales. \cite{ReqF:online} 
+	\end{paragraph}
+
+\section{Especificación de requisitos}
+	\begin{paragraph}
+		A continuación se detallan los requisitos funcionales de este proyecto. 
+		\begin{itemize}
+			\item Construir y desplegar infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
+			\item Poder integrar cambios en las aplicaciones de forma autónoma [RF 2]
+			\item Conocer el estado de la aplicación una vez hecho el despliegue [RF 3]
+			\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
+			\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones a través de ficheros de configuración. [RF 5]
+			\item Conocer en todo momento la configuración del servidor [RF 6]
+			\item Poder desplegar la infraestructura rápidamentte ante un error catastrófico [RF 7]
+			\item Realizar tareas de mantenimiento en los servidores con tareas automatizadas [RF 8]
+			\item Crear máquinas virtuales bajo demanda con tareas automatizadas y ficheros de configuración [RF 9]
+			\item Modificar la configuración de los firewall con tareas automatizadas [RF 10]
 		\end{itemize}
 	\end{paragraph}
+
+\section{Diagramas}
+	\subsection{Diagramas casos de uso}
+		\begin{paragraph}
+			contenidos...
+		\end{paragraph}
+	\subsection{Playbooks}
+		\begin{paragraph}
+		contenidos...
+		\end{paragraph}
+\section{Arquitectura del Sistema}
+	\subsection{Servidores Físicos}
+		\begin{paragraph}
+			contenidos...
+		\end{paragraph}
+	\subsection{Infraestructura objetivo}
+		\begin{paragraph}
+			contenidos...
+		\end{paragraph}
