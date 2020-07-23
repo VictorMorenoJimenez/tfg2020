@@ -180,17 +180,6 @@
           regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
           replace: '# \1'
 
-    # Enable SWAP at the end.
-    #- name: Reenable SWAP in fstab (1/2)
-    #  replace:
-    #    path: /etc/fstab
-    #    regexp: '^# (.+?\sswap\s+sw\s+.*)$'
-    #    replace: '\1'
-    #
-    #- name: Enable SWAP (2/2)
-    #  shell: |
-    #    swapon -a
-
     - name: Get join command for k8_workers
       shell: kubeadm token create --print-join-command
       register: join_command_raw
@@ -225,3 +214,11 @@
       args:
         chdir: "/home/{{ k8_ansible_user }}"
         creates: node_joined.txt
+
+    - name: Wait till cluster ready
+      become_user: "{{ k8_ansible_user }}"
+      shell: kubectl get nodes
+      register: result
+      until: result.stdout.find("k8-master    Ready") != -1
+      retries: 15
+      delay: 30
