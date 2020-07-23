@@ -1,0 +1,99 @@
+---
+# ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+# ssh-copy-id root@tfg-pfsense-02.intelligenia.com -p 11000
+
+- hosts: "{{ target_host }}"
+  gather_facts: no
+
+  # There's no need to add multiple vms to dhcp server.
+  # When we create the VM, we configure dhcp aswell.
+  
+  vars:
+    pfsense_ssh_port: 11000
+    apply_pfsense_config: 'yes'
+    pfsense_full_domain: tfg-pfsense-01.intelligenia.com
+    pfsense_hostname: tfg-pfsense-01
+    pfsense_hostname2: intelligenia.vps
+    pfsense_gateway: 10.6.0.3
+    pfsense_dns: 10.6.0.3
+    pfsense_slave: 10.6.0.2
+    pfsense_master: 10.6.0.1
+    pfsense_carp: 10.6.0.3
+    pfsense_wui_domain: intelligenia.com
+    pfsense_domain: tfg.vps
+    pfsense_wui_port: 8443
+    pfsense_update_bogons: monthly
+    pfsense_timezone: Etc/UTC
+    pfsense_ssh_port: 11000
+    dns_list:
+      - name: Google 1
+        ip: 1.1.1.1
+      - name: Google 2
+        ip: 8.8.8.8
+      - name: Google 3
+        ip: 8.8.4.4 
+    pfsense_wan_ip_address: 138.201.229.85
+    pfsense_wan_subnet: 29
+    pfsense_wan_gateway_name: WANGW
+    pfsense_wan_gateway_ip: 138.201.229.81
+    pfsense_lan_ip_address: 10.6.0.1
+    pfsense_lan_subnet: 16
+    pfsense_lan_gateway_ip: 10.6.0.3
+    pfsense_lan_gateway_name: CARP_MASTER   
+    pfsense_failover_ip_address: 144.76.47.196
+    pfsense_failover_subnet: 32
+    pfsense_failover_gateway_name: FAILOVER_GW
+    pfsense_failover_gateway_ip: 138.201.205.158    
+    pfsense_pfsync_ip_address: 192.168.1.1
+    pfsense_pfsync_peer_ip_address: 192.168.1.2
+    pfsense_pfsync_subnet: 24
+
+    #dhcp_staticmap:
+    # - name: tfg-webproxy
+    #   hostname: tfg-webproxy
+    #   mac: 2e:4a:65:65:5c:8b
+    #   id: 100
+    #   ip: 10.6.50.1
+    #   domain: tfg.vps 
+    # - name: tfg-gitlab
+    #   hostname: tfg-gitlab
+    #   mac: 66:a8:8b:3b:4f:02
+    #   id: 101
+    #   ip: 10.6.50.2
+    #   domain: tfg.vps 
+    # - name: tfg-ceph-admin
+    #   hostname: tfg-ceph-admin
+    #   mac: 1a:3a:1b:3d:7d:f7
+    #   id: 102
+    #   ip: 10.6.50.3
+    #   domain: tfg.vps
+    #    
+    # - name: tfg-ceph-node-01
+    #   hostname: tfg-ceph-node-01
+    #   mac: d6:d1:e4:5f:39:4c
+    #   id: 103
+    #   ip: 10.6.50.4
+    #   domain: tfg.vps
+    #    
+    # - name: tfg-ceph-node-02
+    #   hostname: tfg-ceph-node-02
+    #   mac: 36:69:c3:74:38:f8
+    #   id: 104
+    #   ip: 10.6.50.5
+    #   domain: tfg.vps
+    #    
+    # - name: tfg-ceph-node-03
+    #   hostname: tfg-ceph-node-03
+    #   mac: 6a:6f:32:4b:23:a1
+    #   id: 105
+    #   ip: 10.6.50.6
+    #   domain: tfg.vps 
+
+  tasks:
+    - include_vars: secrets.yml
+
+  roles:
+    - pfsense
+
+
+
