@@ -88,8 +88,3 @@
   wait_for:
     timeout: 60
 
-- name: Restart all Vms for DHCP server
-  command: >-
-    qm reboot "{{ item.new_id }}"
-  with_items: "{{ create_vms }}"
-
