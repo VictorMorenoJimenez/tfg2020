@@ -5,11 +5,12 @@
     name: "{{ vm_hostname }}"
   when: vm_hostname is defined
 
+  # 57
 - name: Modify /etc/hosts
   template:
     src: hosts_file.sh.j2
     dest: /etc/hosts
-    
+
 - name: Remove old SSH keys
   file:
     path: "/home/{{ host_user }}/.ssh/{{item }}"
