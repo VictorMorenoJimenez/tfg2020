@@ -1,0 +1,123 @@
+---
+  
+- hosts: pfsense_master
+
+  # Must have non-password ssh access
+  # # ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+
+  gather_facts: no
+
+  vars:
+    pfsense_config_path: /cf/conf/config.xml
+    pfsense_ssh_port: 11000
+    pfsense_configure_dhcp_opt: 'yes'
+
+    vms_to_configure:
+      - name: tfg-ceph-admin
+        vm_mac: 4E:55:60:E5:C9:C8
+        vm_id: 310
+        vm_ip: 10.6.100.30
+        vm_hostname: tfg-ceph-admin
+        vm_domain: tfg.vps
+
+      - name: tfg-ceph-node-01
+        vm_mac: 62:92:8B:2D:B9:E1
+        vm_id: 311
+        vm_ip: 10.6.100.31
+        vm_hostname: tfg-ceph-node-01
+        vm_domain: tfg.vps
+
+      - name: tfg-ceph-node-02
+        vm_mac: DE:49:69:28:9A:DA
+        vm_id: 312
+        vm_ip: 10.6.100.32
+        vm_hostname: tfg-ceph-node-02
+        vm_domain: tfg.vps
+
+      - name: tfg-ceph-node-03
+        vm_mac: 92:69:02:CA:1C:95
+        vm_id: 313
+        vm_ip: 10.6.100.33
+        vm_hostname: tfg-ceph-node-03
+        vm_domain: tfg.vps
+
+  roles:
+    - pfsense
+
+- hosts: proxmox_master
+  gather_facts: false
+
+  vars:
+    configure_vm_opt: 'yes'
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: tfg-ceph-admin
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: tfg-ceph-admin
+        kvm_cores: 2 
+        kvm_memory: 1048
+        kvm_mac: 4E:55:60:E5:C9:C8
+        kvm_sockets: 2
+        new_id: 310
+        start_at_boot: "yes"
+      - name: tfg-ceph-node-03
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: tfg-ceph-node-03
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: 92:69:02:CA:1C:95
+        kvm_sockets: 1
+        new_id: 313
+        start_at_boot: "yes"
+      
+  roles:
+    - proxmox_kvm
+
+- hosts: slave
+  gather_facts: false
+
+  vars:
+    configure_vm_opt: 'yes'
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: tfg-ceph-node-01
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: tfg-ceph-node-01
+        kvm_cores: 2 
+        kvm_memory: 1048
+        kvm_mac: 62:92:8B:2D:B9:E1
+        kvm_sockets: 2
+        new_id: 311
+        start_at_boot: "yes"
+      - name: tfg-ceph-node-02
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: tfg-ceph-node-02
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: DE:49:69:28:9A:DA
+        kvm_sockets: 1
+        new_id: 312
+        start_at_boot: "yes"
+      
+  roles:
+    - proxmox_kvm
