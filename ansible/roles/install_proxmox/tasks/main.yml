@@ -1,6 +1,0 @@
----
-# tasks file for install_proxmox
-
-- name: Include manage package role
-  include_role: 
-    name: manage_packages

@@ -1,5 +1,0 @@
----
-
-# Var file for create_vm task
-
-template: "local:iso/{{ create_vm.iso_name }}.iso"
