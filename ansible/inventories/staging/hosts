@@ -1,3 +1,5 @@
+
+
 [hetzner]
 tfg.intelligenia.com ansible_host=tfg.intelligenia.com
 tfg2.intelligenia.com ansible_host=tfg2.intelligenia.com
@@ -9,8 +11,6 @@ tfg.intelligenia.com
 [slave]
 tfg2.intelligenia.com
 
-[proxmox]
-tfg3.intelligenia.com
 
 [pfsense]
 pfsense-01.tfg.vps ansible_host=138.201.229.85 ansible_user=root
@@ -21,6 +21,7 @@ pfsense-01.tfg.vps
 
 [pfsense_slave]
 pfsense-02.tfg.vps
+
 
 [k8_master]
 k8-master ansible_host=10.6.100.20 ansible_user=mario vm_hostname=k8-master
@@ -63,6 +64,18 @@ ceph_nodes
 
 [tfg-webproxy]
 tfg-webproxy vm_hostname=tfg-webproxy ansible_host=10.6.100.1 ansible_user=mario
+
+[dockerswarm]
+tfg-docker-swarm-01 ansible_host=10.6.100.40 vm_hostname=tfg-docker-swarm-01 ansible_user=mario
+tfg-docker-swarm-02 ansible_host=10.6.100.41 vm_hostname=tfg-docker-swarm-02 ansible_user=mario
+tfg-docker-swarm-03 ansible_host=10.6.100.42 vm_hostname=tfg-docker-swarm-03 ansible_user=mario
+
+[swarm_manager]
+tfg-docker-swarm-01 ansible_host=10.6.100.40 vm_hostname=tfg-docker-swarm-01 ansible_user=mario
+
+[swarm_workers]
+tfg-docker-swarm-02 ansible_host=10.6.100.41 vm_hostname=tfg-docker-swarm-02 ansible_user=mario
+tfg-docker-swarm-03 ansible_host=10.6.100.42 vm_hostname=tfg-docker-swarm-03 ansible_user=mario
 
 [hetzner:vars]
 ansible_ssh_user=root

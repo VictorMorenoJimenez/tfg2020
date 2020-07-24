@@ -1,12 +1,12 @@
 ---
 
 host: tfg2.intelligenia.com
+hostname: tfg2.intelligenia.com
 
 # install_image vars
 disks:
   - sda
   - sdb 
-
 
 # node tfg2 values, for role proxmox task configure_node.
 ppal_iface: enp3s0
@@ -18,69 +18,10 @@ failover_ip: 144.76.47.196 # tfg2 144.76.47.196
 node_proxmox_ip: 192.168.100.2
 node_redundant_corosync_ip: 192.168.200.2
 
-# Links corosync
-link0_flag: "--link0"
-link1_flag: "--link1"
-link0: 192.168.100.2
-link1: 192.168.200.2
-
-
 # Proxmox vars
 create_cluster_opt: 'no'
-add_to_cluster_opt: 'no'
+pfsense_conf_opt: 'yes'
 node: tfg2
-master: 'no'
 
 master_ip: tfg.intelligenia.com
-
-# Firewall rules to add
-add_rule:
-  - name: Port mapper block
-    node: tfg2
-    action: DROP
-    type: in
-    dport: 111
-    proto: tcp
-  - name: Accept all traffic on LAN
-    node: tfg2
-    type: group
-    action: allowall
-    interface: vbmr2
-  - name: Accept all traffic on Proxmox nodes
-    node: tfg2
-    type: group
-    action: allowall
-    interface: vbmr1
-
-target: tfg2.intelligenia.com
-hostname: tfg2.intelligenia.com
-
-#downloads:
-#  - name: Debian 10 Template
-#    download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#    backup_destination: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#
-#  - name: PfSense-02 Backup
-#    download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
-#    backup_destination: /var/lib/vz/dump/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
-#
-#create_vms:
-#  - name: PfSense-02
-#    backup_location: /var/lib/vz/dump/vzdump-qemu-998-2020_07_17-09_28_06.vma.zst
-#    new_id: 998
-#
-#  - name: Docker Swarm 02
-#    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#    new_id: 104
-#
-#  - name: Docker Swarm 03
-#    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#    new_id: 105
-#
-#  - name: Ceph Node 01
-#    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#    new_id: 107
-#
-#  - name: Ceph Node 02
-#    backup_location: /var/lib/vz/dump/vzdump-qemu-802-2020_06_29-03_47_32.vma.lzo
-#    new_id: 108
+master: 'no'
