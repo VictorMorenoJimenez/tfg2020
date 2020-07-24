@@ -1,0 +1,27 @@
+---
+
+- include_vars: activate_rescue.yml
+
+- name: Activate Rescue mode if is not activated 
+  uri: 
+    url: "{{ rescue_url }}"
+    method: POST
+    user: "{{ hetzner_user_api }}"
+    password: "{{ hetzner_password_api }}"
+    body_format: form-urlencoded
+    body:
+      os: linux
+      arch: 64
+      authorized_key: "{{ fingerprint }}"
+ 
+- name: Reboot server after Rescue Mode activation
+  uri:
+    url: "{{ hardware_reset_url }}"
+    method: POST
+    user: "{{ hetzner_user_api }}"
+    password: "{{ hetzner_password_api }}"
+    body_format: form-urlencoded
+    body:
+      type: hw
+
+    

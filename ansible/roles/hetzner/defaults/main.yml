@@ -1,0 +1,5 @@
+---
+# defaults file for hetzner
+
+install_image_opt: 'no'
+activate_rescue_opt: 'no'

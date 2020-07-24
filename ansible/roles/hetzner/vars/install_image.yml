@@ -1,0 +1,25 @@
+# All this variables need to be defined properly for the install_image role
+---
+
+images_path: /root/.oldroot/nfs/images/
+iso: Debian-104-buster-64-minimal.tar.gz
+raid:
+  active: 'yes'
+  level: 1
+# disks:
+#   - nvme1n1 
+#   - nvme0n1
+image: "{{ images_path }}/{{ iso }}"
+partitions:
+  - /boot:ext4:512M
+  - lvm:vg00:all
+
+logical_volumes:
+  - vg00:root:/:ext4:30G
+  - vg00:swap:swap:swap:4G
+  - vg00:tmp:/tmp:xfs:5G
+  - vg00:home:/home:ext4:5G
+  - vg00:var:/var:ext4:6G
+format_second: 'no'
+binary: /root/.oldroot/nfs/install/installimage
+boot_loader: grub
