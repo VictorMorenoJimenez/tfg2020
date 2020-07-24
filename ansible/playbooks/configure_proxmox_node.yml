@@ -1,0 +1,119 @@
+---
+
+- hosts: "{{ target_host }}"
+  gather_facts: yes
+
+  vars:
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #                 Hetzner role VARS!                    #           
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Special var opt
+    install_image_opt: 'yes'
+
+    # Special var, must set on each host var:
+    # disks:
+    #   - nvme1n1 
+    #   - nvme0n1
+
+    # Vars for install_image role. More vars can be found at role vars.
+
+    partitions:
+      - /boot:ext4:512M
+      - lvm:vg00:all
+    
+    logical_volumes:
+      - vg00:root:/:ext4:30G
+      - vg00:swap:swap:swap:4G
+      - vg00:tmp:/tmp:xfs:5G
+      - vg00:home:/home:ext4:5G
+      - vg00:var:/var:ext4:6G
+
+    iso: Debian-104-buster-64-minimal.tar.gz
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #             Proxmox_Nodes role VARS!                  #           
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Special opt vars for this playbook
+    # Set only on host vars
+    # 
+    # Set on each node:
+    # pfsense_conf_opt: 'yes' add this option if the proxmox node is going to be pfSense host.
+    # create_cluster_opt : 'yes' Add this option on the proxmox master node.
+
+    # Special config vars, you must set on each node 
+    # ppal_iface: 
+    # hetzner_ip: 
+    # hetzner_gateway: 
+    # hetzner_broadcast: 
+    # pfsense_ip_node: 
+    # failover_ip: 
+    # node_proxmox_ip: 
+    # node_redundant_corosync_ip: 1
+    # thinsize: 
+
+    # If create_cluster_opt yes ONLY ON MASTER.
+    # 
+    # link0_flag: "--link0"
+    # link1_flag: "--link1"
+    # link0: 192.168.100.1 Corosync link0
+    # link1: 192.168.200.1 Corosync link1
+    # clustername: tfgcluster
+
+    # OPTS: Each opt executes one task on proxmox_nodes role.
+    configure_node_opt: 'yes'               # Core
+    create_users_groups_opt : 'yes'         # Core
+    install_packages_opt: 'yes'             # Core
+    install_proxmox_opt : 'yes'             # Core
+    configure_storages_opt : 'yes'          # Optional
+    configure_ssl_letsencrypt_opt : 'yes'   # Optional
+    create_proxmox_groups_opt: 'yes'        # Optional
+    create_proxmox_users_opt: 'yes'         # Optional
+
+    # Vars for configure node: Vlan ID on Hetzner VSWITCH.
+    vlan_nodes_id: 4020
+    vlan_lan_id: 4021
+    vlan_pfsync_id: 4022
+    vlan_nodes2_id: 4023
+
+    # Vars for create_ssl_letsencrypt
+    servername: "{{ ansible_host }}"
+    certbot_admin_email: victor.moreno@intelligenia.com
+    create_ssl_certificate_opt: 'yes'
+
+    # Vars for create users and groups: change them on role/proxmox-kvm/vars/
+    # Vars for install_packages : change them on role role/proxmox-kvm/vars/
+    # Vars for install_proxmox : change them on role role/proxmox-kvm/vars/
+
+    # Vars for manage proxmox users and groups
+
+    # proxmox_root_password: 
+ 
+    # pve_users:
+    #   - name: mario
+    #     username: mario
+    #     password: password
+    #     comment: CTO
+    #     email: mario@intelligenia.com
+    #     group: admin
+    #     realm: pve
+    #   - name: victor
+    #     username: victor
+    #     password: password
+    #     comment: Sysadmin
+    #     email: victor.moreno@intelligenia.com
+    #     group: admin
+    #     realm: pve
+
+    # pve_groups:
+    #   - groups: Admin group
+    #     name: admin
+    #     comment: "System Administrators"
+    #     permission: "/"
+    #     role: "Administrator"
+
+  roles:
+    #- hetzner 
+    - proxmox_nodes
