@@ -34,6 +34,7 @@
     state: present
     reload: yes
 
+# Issue 67
 - name: Reject incoming packages to port 111 tcp 
   iptables:
     chain: INPUT
