@@ -1,0 +1,30 @@
+---
+# tasks file for docker
+
+- import_tasks: install_docker.yml
+  tags:
+    - docker
+    - install
+    - system
+  when: install_docker_opt == 'yes'
+
+- import_tasks: create_swarm.yml
+  tags:
+    - docker-swarm
+    - create
+    - system
+  when: create_swarm_opt == 'yes'
+
+- import_tasks: add_manager.yml
+  tags:
+    - docker-swarm 
+    - add
+    - manager
+  when: add_manager_opt == 'yes'
+
+- import_tasks: add_worker.yml
+  tags:
+    - docker-swarm 
+    - add
+    - worker
+  when: add_worker_opt == 'yes'

@@ -1,0 +1,33 @@
+---
+
+- include_vars: install_docker.yml
+
+- name: Get Docker key
+  apt_key: 
+    url: https://download.docker.com/linux/debian/gpg
+    state: present 
+  tags: docker 
+
+- apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian buster stable
+    state: present
+  tags: docker
+
+- name: Install Docker-CE
+  apt: 
+    name: "{{ docker_package_list }}"
+    update_cache: yes
+  tags: docker
+
+- name: Add user to docker group
+  user:
+    name: "{{ host_user }}"
+    group: docker
+  tags: docker
+
+- name: Enable docker service 
+  systemd:
+    name: docker
+    enabled: yes 
+    masked: no 
+  tags: docker

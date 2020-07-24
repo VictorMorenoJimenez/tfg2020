@@ -1,0 +1,8 @@
+---
+# defaults file for docker
+
+# docker_swarm_manager_ip
+install_docker_opt: 'no'
+create_swarm_opt: 'no'
+add_manager_opt: 'no'
+add_worker_opt: 'no'
