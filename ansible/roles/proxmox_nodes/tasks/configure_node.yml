@@ -1,0 +1,53 @@
+---
+
+# This role is responsible for:
+# # 1. Configure /etc/network/interfaces
+# # 2. Create thin lvm 
+# # 3. Activate ipv4 forward
+
+- include_vars: configure_node.yml
+
+- name: Change /etc/network/interfaces using template
+  template:
+    src: interfaces.sh.j2
+    dest: /etc/network/interfaces
+  notify: Reboot
+
+- name: Create thin lvm storage
+  lvol:
+    vg: vg00
+    thinpool: thin
+    size: "{{ thinsize }}" 
+  when: thinsize is defined
+  ignore_errors: yes
+
+- name: Extend meta data size of thin
+  command: >-
+    lvextend --poolmetadatasize 6G vg00/thin
+  when: thinsize is defined
+  ignore_errors: yes
+
+- name: Activate ipv4 ip_forward
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    state: present
+    reload: yes
+
+- name: Reject incoming packages to port 111 tcp 
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "111"
+    ctstate: NEW
+    jump: DROP
+  become: yes 
+
+- name: Reject incoming packages to port 111 udp
+  iptables:
+    chain: INPUT
+    protocol: udp
+    destination_port: "111"
+    ctstate: NEW
+    jump: DROP
+  become: yes 

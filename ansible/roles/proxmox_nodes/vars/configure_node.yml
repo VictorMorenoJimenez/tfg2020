@@ -1,0 +1,15 @@
+---
+
+# ppal_iface: enp0s31f6
+# hetzner_ip: 138.201.205.158
+# hetzner_gateway: 138.201.205.129
+# hetzner_broadcast: 138.201.205.191
+# pfsense_ip_node1: 255.255.255.255
+# pfsense_ip_node2: 255.255.255.255
+# failover_ip: 255.255.255.255
+# node_proxmox_ip: 192.168.100.1
+# vlan_nodes_id: 4020
+# vlan_lan_id: 4021
+# vlan_pfsync_id: 4022
+# vlan_nodes2_id: 4023
+# thinsize: 300G

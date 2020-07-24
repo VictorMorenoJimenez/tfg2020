@@ -1,0 +1,36 @@
+---
+
+- include_vars: secrets.yml
+- include_vars: create_users_groups.yml
+
+- name: First create the groups of the user
+  group:
+    name: "{{ item.group_name }}"
+    state: present
+  with_items: "{{ create_groups }}"
+  when: create_groups is defined
+
+- name: Create user on system defined on vars
+  user:
+    name: "{{ item.username }}" 
+    password: "{{ item.password }}"
+    uid: " {{ item.uid | default(omit) }}"
+    comment: "{{ item.coment | default(omit) }}" 
+    append: no
+    create_home: "{{ item.home | default(omit) }}"
+    force: no
+    generate_ssh_key: "{{ item.generate_ssh_key | default(omit) }}"
+    shell: "{{ item.shell }}" 
+    ssh_key: "{{ item.ssh_key | default(omit) }}"
+    state: present
+    groups: "{{ item.groups | join(',') if 'groups' in item else '' }}"
+    expires: "{{ item.expires | default(omit) }}"
+  with_items: "{{ users }}"
+  when: users is defined
+
+- name: Change root password
+  user:
+    name: root
+    password: "{{ root_password }}"
+    state: present
+  when: root_password is defined

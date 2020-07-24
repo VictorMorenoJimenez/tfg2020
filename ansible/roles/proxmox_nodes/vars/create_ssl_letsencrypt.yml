@@ -1,0 +1,6 @@
+---
+
+# Generate SSL cert
+# servername: "{{ ansible_host }}"
+# certbot_admin_email: victor.moreno@intelligenia.com
+# create_ssl_certificate_opt: 'yes'

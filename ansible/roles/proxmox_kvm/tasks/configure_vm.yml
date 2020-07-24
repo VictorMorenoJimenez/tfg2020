@@ -1,0 +1,74 @@
+---
+
+# vm_hostname
+# vm_domain
+# host_user
+# recommended_packages
+# interface
+
+- include_vars: configure_vm.yml
+
+- name: Set hostname
+  hostname:
+    name: "{{ vm_hostname }}"
+  when: vm_hostname is defined
+
+- name: Modify /etc/hosts
+  template:
+    src: hosts_file.sh.j2
+    dest: /etc/hosts
+
+- name: Remove old SSH keys
+  file:
+    path: "/home/{{ host_user }}/.ssh/{{item }}"
+    state: absent
+  with_items:
+    - id_rsa
+    - id_rsa.pub
+
+- name: Create SSH keys
+  openssh_keypair:
+    path: "/home/{{ host_user }}/.ssh/id_rsa"
+    force: True
+
+- name: Set authorized keys, removing all previous 
+  authorized_key:
+    user: "{{ host_user }}"
+    state: present
+    exclusive: True
+    key: "{{ item }}"
+  with_file:
+    - public_keys/mario
+    - public_keys/victor-oficina
+    - public_keys/victor-pc
+    - public_keys/victor-portatil
+
+- name: Install recommended packages
+  apt:
+    name: "{{ recommended_packages }}"
+    state: present
+  when: recommended_packages is defined 
+
+- name: PermitRootLogin yes
+  become_user: root
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#PermitRootLogin prohibit-password'
+    line: PermitRootLogin yes
+
+- name: Set mtu 1400 to interfaces
+  become: yes 
+  command: >-
+    ip link set mtu 1400 dev "{{ interface }}"
+  when: interface is defined
+
+- name: Upgrade all packages to last version
+  apt:
+    name: "*"
+    state: latest
+
+- name: Restart ssh service 
+  become_user: root
+  service:
+    name: sshd
+    state: restarted

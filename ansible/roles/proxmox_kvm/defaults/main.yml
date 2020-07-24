@@ -1,0 +1,6 @@
+---
+# defaults file for proxmox_kvm
+
+create_vm_opt: 'no'
+configure_vm_opt: 'no'
+firewall_pfsense_conf: 'no'

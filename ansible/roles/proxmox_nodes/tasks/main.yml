@@ -1,0 +1,68 @@
+---
+# tasks file for proxmox_nodes
+
+- import_tasks: configure_node.yml
+  tags:
+    - proxmox
+    - network
+    - config
+    - system
+    - interfaces
+  when: configure_node_opt == 'yes'
+
+- import_tasks: create_users_groups.yml
+  tags:
+    - users
+    - groups
+    - system
+  when: create_users_groups_opt == 'yes'
+
+- import_tasks: install_packages.yml
+  tags:
+    - apt
+    - install
+    - packages
+    - system
+  when: install_packages_opt == 'yes'
+
+- import_tasks: install_proxmox.yml
+  tags:
+    - proxmox
+    - install
+    - system
+  when: install_proxmox_opt == 'yes'
+
+- import_tasks: create_proxmox_groups.yml
+  tags:
+    - proxmox
+    - groups
+    - system
+  when: create_proxmox_groups_opt == 'yes'
+
+- import_tasks: create_proxmox_users.yml
+  tags:
+    - users
+    - proxmox
+    - system
+  when: create_proxmox_users_opt == 'yes'
+
+- import_tasks: create_cluster.yml
+  tags:
+    - create_cluster
+    - proxmox
+    - system
+  when: create_cluster_opt == 'yes'
+
+- import_tasks: configure_storages.yml
+  tags:
+    - storage
+    - proxmox
+    - system
+  when: configure_storages_opt == 'yes'
+  
+- import_tasks: create_ssl_letsencrypt.yml
+  tags:
+    - letsencrypt
+    - ssl_cert
+    - system
+  when: configure_ssl_letsencrypt_opt == 'yes'

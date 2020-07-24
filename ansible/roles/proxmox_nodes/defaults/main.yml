@@ -1,0 +1,14 @@
+---
+# defaults file for proxmox_nodes
+
+# OPTS 
+configure_node_opt: 'no'
+create_users_groups_opt : 'no'
+install_packages_opt: 'no'
+install_proxmox_opt : 'no'
+create_cluster_opt : 'no'
+configure_storages_opt : 'no'
+configure_ssl_letsencrypt_opt : 'no'
+create_proxmox_groups_opt: 'no'
+create_proxmox_users_opt: 'no'
+

@@ -1,0 +1,15 @@
+---
+
+- include_vars: install_packages.yml
+
+- name: Show list of packages to be installed
+  debug:
+    msg: "{{ apt_package_list }}"
+  when: apt_package_list is defined
+
+- name: Install common packages to server
+  apt:
+    name: "{{ apt_package_list }}"
+    state: present
+    update_cache: yes
+  when: apt_package_list is defined

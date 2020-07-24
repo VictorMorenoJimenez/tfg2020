@@ -1,0 +1,91 @@
+---
+
+# Required vars 
+# # #
+    # downloads:
+    #    - name: Name
+    #      download_url: download_url
+    #      backup_destionation: Destionation on VM where the file is allocated.
+    #
+    # create_vms:
+    #   - name: vm_name
+    #     backup_location: location on the vm of the backup file.
+    #     new_id: New id on proxmox
+    #
+# # #
+# OPT 
+# create_vm_opt: 'yes'
+# firewall_pfsense_conf: 'yes' if creating pfSense Vms
+
+- include_vars: create_vm.yml 
+
+- name: Download templates
+  get_url:
+    url: "{{ item.download_url }}"
+    dest: "{{ item.backup_destination }}"
+  with_items: "{{ downloads }}"
+
+- name: Check if VM id exists
+  stat: 
+    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+  with_items: "{{ create_vms }}"
+  register: stat_results
+  ignore_errors: True
+
+- name: Restore backups on Proxmox
+  command: >-
+    qmrestore "{{ item.item.backup_location }}" "{{ item.item.new_id }}"
+  with_items: "{{ stat_results.results }}"
+  when: item.stat.exists == False
+
+- name: Configure KVM name
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+    regexp: 'name:*'
+    line: "name: {{ item.kvm_name }}"
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM MAC
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id }}.conf"
+    regexp: 'net0:*'
+    line: "net0: virtio={{ item.kvm_mac }},bridge=vmbr2"
+  when: firewall_pfsense_conf == 'no'
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM MAC
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id }}.conf"
+    regexp: 'net0:*'
+    line: "net0: virtio={{ item.kvm_mac }},bridge=vmbr0"
+  when: firewall_pfsense_conf == 'yes'
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM RAM
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+    regexp: 'memory:*'
+    line: "memory: {{ item.kvm_memory }}"
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM Cores
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+    regexp: 'cores:*'
+    line: "cores: {{ item.kvm_cores }}"
+  with_items: "{{ create_vms }}"
+
+- name: Configure KVM Sockets
+  lineinfile:
+    path: "/etc/pve/qemu-server/{{ item.new_id}}.conf"
+    regexp: 'sockets:*'
+    line: "sockets: {{ item.kvm_sockets }}"
+  with_items: "{{ create_vms }}"
+
+- name: Start all Vms after creation
+  command: >-
+    qm start "{{ item.new_id }}"
+  when: item.start_at_boot == "yes"
+  with_items: "{{ create_vms }}"
+    
+    

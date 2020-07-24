@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include proxmox_kvm"
+      include_role:
+        name: "proxmox_kvm"

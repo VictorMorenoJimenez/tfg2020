@@ -1,0 +1,22 @@
+---
+
+apt_package_list:
+    - python3-pip
+    - python-pip
+    - sudo
+    - lftp
+    - htop
+    - dnsutils
+    - netcat
+    - htop
+    - ntp
+    - bash-completion
+    - git
+    - curl
+    - wget
+    - apt-transport-https
+    - unzip
+    - net-tools
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common

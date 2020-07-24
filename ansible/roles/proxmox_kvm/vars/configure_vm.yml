@@ -1,0 +1,26 @@
+# vm_hostname
+# vm_domain
+# host_user
+# recommended_packages
+# interface
+
+recommended_packages:
+    - python3-pip
+    - python-pip
+    - sudo
+    - lftp
+    - htop
+    - dnsutils
+    - netcat
+    - ntp
+    - bash-completion
+    - git
+    - curl
+    - wget
+    - apt-transport-https
+    - unzip
+    - net-tools
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common
+    - vim

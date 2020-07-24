@@ -1,0 +1,63 @@
+---
+
+# Add users to Proxmox.
+# You need to define a list of users  named pve_users
+
+# See https://pve.proxmox.com/pve-docs/api-viewer/#/access/users Create it on vars/secrets.yml
+#
+# Or in the playbook.
+#
+# pve_users:
+# - name: foo
+#   username: foo
+#   password: foo_password
+#   comment: optional
+#   email: optional
+#   expire: optional
+#   group: 
+#   realm: pve or pam
+#  
+# - name: foo2
+#   username: foo2
+#   password: foo_password2
+#   group:
+#   realm: pve or pam
+#
+# proxmox_root_password
+
+    
+- include_vars: secrets.yml
+
+- name: Check if PVE users alredy exist
+  command: >-
+    pvesh get /access/users
+  register: existing_users
+
+- name: Create PVE user 
+  command: >-
+    pveum user add "{{ item.username }}@{{ item.realm }}"
+  with_items: "{{ pve_users }}"
+  no_log: true
+  when: (pve_users is defined) and item.username not in existing_users.stdout
+
+- name: Change password for users
+  command: >-
+    pvesh set /access/password --userid "{{ item.username }}@{{ item.realm }}"
+      --password "{{ item.password }}"
+  with_items: "{{ pve_users }}"
+  no_log: true
+  when: (pve_users is defined) and item.username not in existing_users.stdout
+
+- name: Change password for root user 
+  command: >-
+    pvesh set /access/password --userid root@pam
+      --password "{{ proxmox_root_password }}"
+  no_log: true
+  when: proxmox_root_password is defined
+
+- name: Add users to its groups
+  command: >-
+    pveum usermod "{{ item.username }}@{{ item.realm }}" -group "{{ item.group }}"
+  with_items: "{{ pve_users }}"
+  no_log: true
+  when: (pve_users is defined) and item.username not in existing_users.stdout

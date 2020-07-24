@@ -1,0 +1,39 @@
+--- 
+
+mario_password: $6$vZWK2RnvyZB$OnTIpyFPdHujy7IoqvzR9QCThJzlAHvU5LCacItgKXlJt3op0Ey10dXMOdhLYs7JE2MueaQKWrxhmR/iyLFCy1
+victor_password: $6$f.E8oyTM4I$zxFT0pz.s1aows7oy9W3I0ys2/AUriL5uqqtfpxujACEqE/SdCVevPKGdcsheXLKo0GwDaeNqiS.Gid2gV2FH1
+root_password: $6$vZWK2RnvyZB$OnTIpyFPdHujy7IoqvzR9QCThJzlAHvU5LCacItgKXlJt3op0Ey10dXMOdhLYs7JE2MueaQKWrxhmR/iyLFCy1
+
+create_groups:
+  - name: sudo
+    group_name: sudo
+  - name: www-data
+    group_name: www-data
+  - name: intelligenia
+    group_name: intelligenia
+
+# List of bash users to create.
+users:
+  - name: mario
+    username: mario
+    uid: 1100
+    password: "{{ mario_password }}"
+    comment: User mario must be on every server.
+    home: yes
+    update_password: on_create
+    generate_ssh_key: yes
+    shell: /bin/bash
+    groups: [sudo,www-data,intelligenia]
+    user_state: present
+  
+  - name: victor
+    username: victor
+    uid: 1101
+    password: "{{ victor_password }}"
+    comment: User victor
+    home: yes
+    update_password: on_create
+    generate_ssh_key: yes
+    shell: /bin/bash
+    groups: [sudo,www-data,intelligenia]
+    user_state: present

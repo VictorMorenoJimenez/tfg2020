@@ -1,0 +1,35 @@
+---
+
+- name: Create backup LV 
+  lvol:
+    vg: vg00
+    lv: backups
+    size: 20G
+
+- name: Create an ext4 filesystem on 
+  filesystem:
+    fstype: ext4
+    dev: /dev/vg00/backups
+
+- name: Create backups directory
+  file:
+    path: /mnt/proxmox-backups
+    state: directory
+    mode: '0755'
+
+- name: Add entry on /etc/fstab
+  lineinfile:
+    path: /etc/fstab
+    line: '/dev/vg00/backups  /mnt/proxmox-backups  ext4  defaults 0 0'
+
+- name: Restart server and wait for item
+  reboot:
+    msg: "Reboot by Ansible"
+    connect_timeout: 10
+    reboot_timeout: 600
+    test_command: whoami
+    
+- name: Create backups storage after restart
+  command: >-
+    pvesh create /storage --storage backups --type dir --path /mnt/proxmox-backups --content backup
+  when: master == 'yes'

@@ -1,0 +1,26 @@
+---
+
+#downloads:
+#  - name: Debian 10 Template
+#    download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+#    backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+#
+#create_vms:
+#  - name: tfg-docker-swarm-01
+#    backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+#    kvm_name: tfg-docker-swarm-01
+#    kvm_cores: 2 
+#    kvm_memory: 1048
+#    kvm_mac: 8E:E5:65:6A:EB:2A
+#    kvm_sockets: 2
+#    new_id: 340
+#    start_at_boot: "yes"
+#  - name: tfg-docker-swarm-02
+#    backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+#    kvm_name: tfg-docker-swarm-02
+#    kvm_cores: 2 
+#    kvm_memory: 1024
+#    kvm_mac: 92:3D:7B:7D:59:E7
+#    kvm_sockets: 1
+#    new_id: 341
+#    start_at_boot: "yes"

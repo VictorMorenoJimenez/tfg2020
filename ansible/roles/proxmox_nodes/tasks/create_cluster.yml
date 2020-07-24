@@ -1,0 +1,43 @@
+---
+# Vars
+# link0:
+# link0_flag: 
+# link1:
+# link1_flag:
+# clustername:
+
+- include_vars: create_cluster.yml
+
+
+- name: Check if cluster exists
+  stat:
+    path: /etc/pve/corosync.conf
+  register: stat_result
+  
+- name: Display if corosync file exists 
+  debug:
+    msg: "A corosync config file exists on /etc/pve/corosync.conf, can't create cluster."
+  when: stat_result.stat.exists 
+
+- name: If there is no cluster, create one
+  command: >- 
+    pvecm create {{ clustername }}
+    {% if link0 is defined %}
+    {{ link0_flag }} {{ link0 }}
+    {% endif %}
+    {% if link1 is defined %}
+    {{ link1_flag }} {{ link1 }}
+    {% endif %}
+  when: not stat_result.stat.exists
+
+- name: Check if thin storage exists
+  command: >-
+    pvesh get /storage
+  register: thin_exists
+  ignore_errors: yes
+  changed_when: no
+
+- name: Create thin storage
+  command: >-
+    pvesh create /storage --storage thin --type lvmthin --vgname vg00 --thinpool thin
+  when: thin_exists.stdout.find("thin") == -1

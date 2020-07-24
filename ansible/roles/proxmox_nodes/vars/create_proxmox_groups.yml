@@ -1,0 +1,9 @@
+---
+    
+pve_groups:
+    - groups: Admin group
+      name: admin
+      comment: "System Administrators"
+      permission: "/"
+      role: "Administrator"
+  

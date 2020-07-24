@@ -1,0 +1,18 @@
+---
+
+# create_vm_opt
+# configure_vm_opt
+
+- import_tasks: create_vm.yml
+  tags:
+    - proxmox
+    - create_vm
+    - system
+  when: create_vm_opt == 'yes'
+
+- import_tasks: configure_vm.yml
+  tags:
+    - proxmox
+    - configure_vm
+    - system
+  when: configure_vm_opt == 'yes'

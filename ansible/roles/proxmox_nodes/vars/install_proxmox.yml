@@ -1,0 +1,6 @@
+---
+
+proxmox_packages_list:
+  - proxmox-ve
+  - postfix
+  - open-iscsi   
