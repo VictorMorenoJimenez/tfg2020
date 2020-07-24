@@ -1,9 +1,9 @@
-- hosts: slave
+- hosts: proxmox_slave
   gather_facts: false
 
   vars:
-    create_cluster_opt: 'no'
-    create_vm_from_backup_opt: 'yes'
+    configure_vm_opt: 'no'
+    create_vm_opt: 'yes'
     firewall_pfsense_conf: 'yes'
 
     downloads:
@@ -23,14 +23,14 @@
           start_at_boot: "yes"
 
   roles:
-    - proxmox
+    - proxmox_kvm
 
-- hosts: master
+- hosts: proxmox_master
   gather_facts: false
   
   vars:
-    create_cluster_opt: 'no'
-    create_vm_from_backup_opt: 'yes'
+    configure_vm_opt: 'no'
+    create_vm_opt: 'yes'
     firewall_pfsense_conf: 'yes'
   
     downloads:
@@ -49,4 +49,4 @@
           start_at_boot: "yes"
   
   roles:
-    - proxmox
+    - proxmox_kvm
