@@ -28,8 +28,15 @@
     connect_timeout: 10
     reboot_timeout: 600
     test_command: whoami
-    
+
+- name: Check if backups storage exists
+  command: >-
+    pvesh get /storage
+  register: backup_exists
+  ignore_errors: yes
+  changed_when: no
+  
 - name: Create backups storage after restart
   command: >-
     pvesh create /storage --storage backups --type dir --path /mnt/proxmox-backups --content backup
-  when: master == 'yes'
+  when: backup_exists.stdout.find("backups") == -1
