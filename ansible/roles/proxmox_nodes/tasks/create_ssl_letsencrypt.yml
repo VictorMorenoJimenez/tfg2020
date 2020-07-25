@@ -20,6 +20,7 @@
   fail:
     msg: "Letsencrypt has limited cert requests, we must wait a day to issue more certs. \
           Create certificate, and create cron job will be skipped !! Do this task later."
+  ignore_errors: True
   when: create_ssl_status.rc != 0
 
 - name: Delete old certificates
