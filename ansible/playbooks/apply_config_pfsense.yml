@@ -48,46 +48,10 @@
     pfsense_pfsync_peer_ip_address: 192.168.1.2
     pfsense_pfsync_subnet: 24
 
-    #dhcp_staticmap:
-    # - name: tfg-webproxy
-    #   hostname: tfg-webproxy
-    #   mac: 2e:4a:65:65:5c:8b
-    #   id: 100
-    #   ip: 10.6.50.1
-    #   domain: tfg.vps 
-    # - name: tfg-gitlab
-    #   hostname: tfg-gitlab
-    #   mac: 66:a8:8b:3b:4f:02
-    #   id: 101
-    #   ip: 10.6.50.2
-    #   domain: tfg.vps 
-    # - name: tfg-ceph-admin
-    #   hostname: tfg-ceph-admin
-    #   mac: 1a:3a:1b:3d:7d:f7
-    #   id: 102
-    #   ip: 10.6.50.3
-    #   domain: tfg.vps
-    #    
-    # - name: tfg-ceph-node-01
-    #   hostname: tfg-ceph-node-01
-    #   mac: d6:d1:e4:5f:39:4c
-    #   id: 103
-    #   ip: 10.6.50.4
-    #   domain: tfg.vps
-    #    
-    # - name: tfg-ceph-node-02
-    #   hostname: tfg-ceph-node-02
-    #   mac: 36:69:c3:74:38:f8
-    #   id: 104
-    #   ip: 10.6.50.5
-    #   domain: tfg.vps
-    #    
-    # - name: tfg-ceph-node-03
-    #   hostname: tfg-ceph-node-03
-    #   mac: 6a:6f:32:4b:23:a1
-    #   id: 105
-    #   ip: 10.6.50.6
-    #   domain: tfg.vps 
+    # Secrets
+    # pfSense admin WUI 
+    # pfsense_wui_user:
+    # pfsense_wui_password: 
 
   tasks:
     - include_vars: secrets.yml
