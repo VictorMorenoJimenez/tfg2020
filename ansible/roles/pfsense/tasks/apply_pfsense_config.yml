@@ -1,5 +1,7 @@
 ---
 
+# pfsense_config_path: Path of the pfsense primary config file default /cf/conf/config.xml
+
 - name: Apply template config file to pfsense
   template:
     src: config-pfsense.xml.j2
