@@ -2,18 +2,32 @@
 
 # Add node to cluster
 
+# ssh_tfg_password: password of master node.
+
 - name: Check that there is no cluster on the server
   stat:
     path: /etc/pve/corosync.conf
   register: stat_result
 
+- name: Install expect 
+  command:
+    pip3 install pexpect 
+
 - name: Add node to the cluster
-  shell:
-    cmd: "pvecm add {{ master_ip }}
-    {% if link0 is defined %}
-    {{ link0_flag }} {{ link0 }}
-    {% endif %}
-    {% if link1 is defined %}
-    {{ link1_flag }} {{ link1 }}
-    {% endif %} -use_ssh"
+  expect:
+    command: >-
+        pvecm add {{ master_ip }} 
+        {% if link0 is defined %} 
+        {{ link0_flag }} {{ link0 }} 
+        {% endif %} 
+        {% if link1 is defined %} 
+        {{ link1_flag }} {{ link1 }} 
+        {% endif %}
+    responses:
+        "Please enter superuser": "{{ ssh_tfg_password }}"
+        "continue connecting": 'yes'
+  poll: 25
+  async: 60
+  ignore_errors: True
   when: not stat_result.stat.exists
+  

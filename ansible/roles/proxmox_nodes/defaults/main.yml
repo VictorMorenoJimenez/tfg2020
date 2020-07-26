@@ -11,4 +11,5 @@ configure_storages_opt : 'no'
 configure_ssl_letsencrypt_opt : 'no'
 create_proxmox_groups_opt: 'no'
 create_proxmox_users_opt: 'no'
+add_node_cluster_opt: 'no'
 

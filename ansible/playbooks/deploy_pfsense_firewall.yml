@@ -51,10 +51,40 @@
   roles:
     - proxmox_kvm
 
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - include_vars: secrets.yml
+
+    - name: Wait for port 11000 to be open pfsense-01
+      wait_for: 
+        host: tfg-pfsense-01.intelligenia.com
+        port: 11000
+        timeout: 120
+
+    - name: Wait for port 11000 to be open pfsense-02
+      wait_for: 
+        host: tfg-pfsense-02.intelligenia.com
+        port: 11000
+        timeout: 120
+
+    - name: SSH copy id to pfsense-01
+      expect:
+        command: ssh-copy-id -o StrictHostKeyChecking=no root@tfg-pfsense-01.intelligenia.com -p 11000
+        responses: 
+          (?i)password: "{{ ssh_pfsense01_password }}"
+
+    - name: SSH copy id to pfsense-02
+      expect:
+        command: ssh-copy-id -o StrictHostKeyChecking=no root@tfg-pfsense-02.intelligenia.com -p 11000
+        responses: 
+          (?i)password: "{{ ssh_pfsense02_password }}"
+
 # ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
 # ssh-copy-id root@tfg-pfsense-02.intelligenia.com -p 11000
 
-- hosts: proxmox_master
+- hosts: pfsense_master
   gather_facts: no
 
   # There's no need to add multiple vms to dhcp server.
@@ -76,7 +106,6 @@
     pfsense_wui_port: 8443
     pfsense_update_bogons: monthly
     pfsense_timezone: Etc/UTC
-    pfsense_ssh_port: 11000
     dns_list:
       - name: Google 1
         ip: 1.1.1.1
@@ -103,8 +132,8 @@
     # Secrets
     #
     # pfSense admin WUI 
-    # pfsense_wui_user:
-    # pfsense_wui_password: 
+    pfsense_wui_user: admin
+    pfsense_wui_password: tfg-intellicluster..
 
   tasks:
     - include_vars: secrets.yml
