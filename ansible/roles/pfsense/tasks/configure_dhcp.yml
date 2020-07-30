@@ -25,12 +25,6 @@
 
 # pfsense_configure_dhcp_opt: must be yes to execute task.
 
-
-
-- name: Change ssh port to {{ pfsense_ssh_port }}
-  set_fact:
-    ansible_port: "{{ pfsense_ssh_port }}"
-
 - name: Insert DHCP block on pfSense config.xml
   blockinfile:
     path: "{{ pfsense_config_path }}"

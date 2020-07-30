@@ -161,28 +161,50 @@
 			<numberoptions></numberoptions>
 			<dnsserver>{{pfsense_dns}}</dnsserver>
 
-			{% for vm in dhcp_staticmap %}
-				<staticmap>
-					<mac>{{vm.mac}}</mac>
-					<cid>{{vm.id}}</cid>
-					<ipaddr>{{vm.ip}}</ipaddr>
-					<hostname>{{vm.hostname}}</hostname>
-					<descr><![CDATA[webproxy]]></descr>
-					<filename></filename>
-					<rootpath></rootpath>
-					<defaultleasetime></defaultleasetime>
-					<maxleasetime></maxleasetime>
-					<gateway></gateway>
-					<domain>{{vm.domain}}</domain>
-					<domainsearchlist></domainsearchlist>
-					<ddnsdomain></ddnsdomain>
-					<ddnsdomainprimary></ddnsdomainprimary>
-					<ddnsdomainkeyname></ddnsdomainkeyname>
-					<ddnsdomainkey></ddnsdomainkey>
-					<tftp></tftp>
-					<ldap></ldap>
-				</staticmap>				
-			{% endfor %}
+			{% if dhcp_staticmap is defined %}
+				{% for vm in dhcp_staticmap %}
+					<staticmap>
+						<mac>{{vm.mac}}</mac>
+						<cid>{{vm.id}}</cid>
+						<ipaddr>{{vm.ip}}</ipaddr>
+						<hostname>{{vm.hostname}}</hostname>
+						<descr><![CDATA[webproxy]]></descr>
+						<filename></filename>
+						<rootpath></rootpath>
+						<defaultleasetime></defaultleasetime>
+						<maxleasetime></maxleasetime>
+						<gateway></gateway>
+						<domain>{{vm.domain}}</domain>
+						<domainsearchlist></domainsearchlist>
+						<ddnsdomain></ddnsdomain>
+						<ddnsdomainprimary></ddnsdomainprimary>
+						<ddnsdomainkeyname></ddnsdomainkeyname>
+						<ddnsdomainkey></ddnsdomainkey>
+						<tftp></tftp>
+						<ldap></ldap>
+					</staticmap>				
+				{% endfor %}
+			{% endif %}
+			<staticmap>
+				<mac>00:FF:56:DA:3D</mac>
+				<cid>00</cid>
+				<ipaddr>10.6.100.100</ipaddr>
+				<hostname>DUMMY</hostname>
+				<descr><![CDATA[dummy]]></descr>
+				<filename></filename>
+				<rootpath></rootpath>
+				<defaultleasetime></defaultleasetime>
+				<maxleasetime></maxleasetime>
+				<gateway></gateway>
+				<domain>tfg.vps</domain>
+				<domainsearchlist></domainsearchlist>
+				<ddnsdomain></ddnsdomain>
+				<ddnsdomainprimary></ddnsdomainprimary>
+				<ddnsdomainkeyname></ddnsdomainkeyname>
+				<ddnsdomainkey></ddnsdomainkey>
+				<tftp></tftp>
+				<ldap></ldap>
+			</staticmap>
 		</lan>
 	</dhcpd>
 	<dhcpdv6>
