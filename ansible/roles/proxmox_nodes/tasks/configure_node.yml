@@ -7,6 +7,11 @@
 
 - include_vars: configure_node.yml
 
+- name: Change /etc/hosts 
+  template:
+    src: hosts.conf.j2
+    dest: /etc/hosts
+    
 - name: Change /etc/network/interfaces using template
   template:
     src: interfaces.sh.j2

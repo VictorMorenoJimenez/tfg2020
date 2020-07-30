@@ -1,0 +1,8 @@
+# IPv4
+127.0.0.1 localhost.{{ localdomain }} localhost
+{{ host_ip }} {{ ansible_host }} {{ ansible_host_short }}
+
+{% for node in cluster_nodes %}
+{{ node.ip_ring_0 }} {{ node.name }}
+{{ node.ip_ring_1 }} {{ node.name }}
+{% endfor %}
