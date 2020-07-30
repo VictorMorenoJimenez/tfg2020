@@ -1,0 +1,23 @@
+---
+# defaults file for icinga2
+
+# OPTS 
+install_icinga2_opt: "no"
+install_director_opt: "no"
+
+# install_icinga2 vars
+icinga_db: icinga 
+icinga_db_user: icinga 
+icinga_db_password: icinga
+
+icingaweb2_db: icingaweb2 
+icingaweb2_db_user: icingaweb2 
+icingaweb2_db_password: icingaweb2 
+
+mysql_root_password: intel2010..
+
+# install_director vars 
+director_db: director 
+director_db_user: director 
+director_db_password: director
+

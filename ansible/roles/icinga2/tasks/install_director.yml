@@ -1,0 +1,98 @@
+---
+
+- include_vars: install_director.yml
+
+- name: Install icinga2 director dependencies 
+  apt:
+    name: "{{ icinga2_director_dependencies }}"
+    state: present
+
+- name: Create MySQL Director User and Database
+  become: yes 
+  become_user: root 
+  command: >-
+    mysql -u root -p{{ mysql_root_password }} -e "CREATE DATABASE {{ director_db }} CHARACTER SET 'utf8'; CREATE USER '{{ director_db_user }}'@'localhost' IDENTIFIED BY '{{ director_db_password }}'; GRANT ALL ON {{ director_db }}.* TO '{{ director_db_user }}'@'localhost';"
+    
+- name: Fix mysql8 error with hash
+  command: >-
+    mysql -u root -p{{ mysql_root_password }} -e "ALTER USER '{{ director_db_user }}'@'localhost' IDENTIFIED WITH Mysql_native_password BY '{{ director_db_password }}'"
+
+- name: Download Icinga2 Director installation script 
+  template:
+    src: install_director_script.sh.j2
+    dest: /tmp/install_director_script.sh
+    mode: u=rwx,g=r,o=r
+
+- name: Execute Director installation script
+  shell: /tmp/install_director_script.sh > /tmp/output_director_install.sh
+
+- name: Download Icinga2 Dependencies installation script  
+  template:
+    src: "{{ item }}.sh.j2"
+    dest: "/tmp/{{ item }}.sh"
+    mode: u=rwx,g=r,o=r
+  with_items:
+    - install_incubator_script
+    - install_ipl_script
+    - install_reactbundle_script
+
+- name: Execute Director Dependencies installation scripts
+  shell: "/tmp/{{ item }}.sh"
+  with_items:
+    - install_incubator_script
+    - install_ipl_script
+    - install_reactbundle_script
+
+- name: Modify /etc/icingaweb2/resources.ini
+  template:
+    src: resources.ini.j2 
+    dest: /etc/icingaweb2/resources.ini
+
+- name: Create director directory if it does not exist
+  file:
+    path: /etc/icingaweb2/modules/director
+    state: directory
+    mode: '0755'
+
+- name: Modify /etc/icingaweb2/modules/director/config.ini
+  template:
+    src: config.ini.j2
+    dest: /etc/icingaweb2/modules/director/config.ini
+
+- name: Enable Icinga2 Director Module
+  command: >-
+    icingacli module enable director --verbose
+
+- name: Run Icinga2 Director migrations 
+  command: >-
+    icingacli director migration run --verbose
+
+- name: Run icinga2 pending migrations 
+  command: >-
+    icingacli director migration pending --verbose
+  ignore_errors: True
+
+- name: Add user director to icingaweb2 group  
+  shell: useradd -r -g {{ icingaweb2_db_user }} -d /var/lib/icingadirector -s /bin/false icingadirector
+
+- name: Icinga2 user config 
+  shell: install -d -o icingadirector -g {{ icingaweb2_db_user }} -m 0750 /var/lib/icingadirector
+
+- name: Add director daemon as systemd service 
+  command: >-
+    cp /usr/share/icingaweb2/modules/director/contrib/systemd/icinga-director.service /etc/systemd/system/
+
+- name: Force systemd to reload config
+  systemd:
+    daemon_reload: yes
+
+- name: Enable director daemon
+  service:
+    name: icinga-director
+    enabled: yes
+
+- name: Start director daemon
+  service:
+    name: icinga-director
+    state: started
+

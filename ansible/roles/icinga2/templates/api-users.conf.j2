@@ -1,0 +1,12 @@
+/**
+ * The ApiUser objects are used for authentication against the API.
+ */
+
+ {% if api_users is defined %}
+    {% for user in api_users %}
+        object ApiUser "{{ user.name }}" {
+            password = "{{ user.password }}"
+            permissions = [ "*" ]
+        }
+    {% endfor %}
+{% endif %}

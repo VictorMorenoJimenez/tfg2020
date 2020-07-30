@@ -1,0 +1,14 @@
+---
+# tasks file for icinga2
+
+- import_tasks: install_icinga2.yml
+  tags:
+    - icinga2
+    - install
+  when: install_icinga2_opt == 'yes'
+
+- import_tasks: install_director.yml
+  tags:
+    - icinga2-director 
+    - install
+  when: install_director_opt == 'yes'

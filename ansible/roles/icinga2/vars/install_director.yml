@@ -1,0 +1,12 @@
+---
+
+icinga2_director_dependencies:
+    - php7.3
+    - php7.3-curl
+
+director_db: director 
+director_db_user: director 
+director_db_password: director
+
+mysql_root_password: dummypassword
+icingaweb2_db_user: icingaweb2 

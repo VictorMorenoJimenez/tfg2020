@@ -1,0 +1,34 @@
+---
+
+icinga2web_dependencies:
+    - icingaweb2
+    - icingaweb2-common 
+    - icingacli
+
+icinga2_dependencies:
+    - apt-transport-https
+    - wget
+    - gnupg
+    - python-pymysql
+    - php-imagick
+    - php7.3-gd
+
+mysql_packages:
+    - mysql-server
+    - mysql-client
+    - gnupg
+    - mysql-common 
+    - python3-mysqldb
+
+api_users:
+    - name: Root
+      user: root
+      password: dummypassword
+    - name: admin 
+      user: admin
+      password: dummypassword
+
+icinga_db_user: icinga
+icinga_db_password: icinga  
+icinga_db: icinga
+mysql_root_password: dummypassword

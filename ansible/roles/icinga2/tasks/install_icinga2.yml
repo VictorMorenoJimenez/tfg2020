@@ -1,0 +1,178 @@
+---
+
+- include_vars: install_icinga2.yml
+
+- name: Add Icinga2 apt-key
+  apt_key:
+    url: https://packages.icinga.com/icinga.key
+    state: present
+
+- name: Add icinga2 apt repositories 
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items:
+    - deb http://packages.icinga.com/debian icinga-buster main
+    - deb-src http://packages.icinga.com/debian icinga-buster main
+
+- name: Download apt-config package 
+  get_url:
+    url: https://downloads-tfg.intelligenia.com/mysql-apt-config_0.8.15-1_all.deb
+    dest: /tmp/mysql-apt-config_0.8.15-1_all.deb
+
+- name: Install package 
+  apt:
+    deb: /tmp/mysql-apt-config_0.8.15-1_all.deb
+
+- name: Install MySQL packages
+  apt:
+    name: "{{ mysql_packages }}"
+    state: present 
+    update_cache: yes
+
+- name: Install icinga2 dependencies
+  apt:
+    name: "{{ icinga2_dependencies }}"
+
+- name: Install icinga2
+  apt:
+    name: icinga2 
+
+- name: Enabled icinga2 service 
+  service:
+    name: icinga2
+    enabled: yes
+
+- name: Start icinga2 service
+  service:
+    name: icinga2
+    state: restarted
+
+- name: Install monitor plugins
+  apt:
+    name: monitoring-plugins
+    state: present 
+
+- name: Install Icinga2 Data Output Database
+  apt:
+    name: icinga2-ido-mysql
+    state: present 
+
+- name: Create MySQL Database for Icinga2
+  become: yes 
+  become_user: root 
+  command: >-
+    mysql -e "CREATE DATABASE {{ icinga_db }};"
+
+- name: Create MySQL User for icinga database
+  become: yes 
+  become_user: root 
+  command: >-
+    mysql -e "CREATE USER '{{ icinga_db_user }}'@'localhost' IDENTIFIED BY '{{ icinga_db_password }}'; GRANT ALL PRIVILEGES ON {{ icinga_db }}.* to '{{ icinga_db_user }}'@'localhost';"
+
+- name: Import Database Schema 
+  become: yes 
+  become_user: root 
+  shell: sudo mysql {{ icinga_db }} < /usr/share/icinga2-ido-mysql/schema/mysql.sql
+
+- name: Enabled module 
+  become: yes 
+  become_user: root 
+  command: >-
+    icinga2 feature enable ido-mysql 
+
+- name: Restart icinga2 service 
+  service:
+    name: icinga2
+    state: restarted
+
+- name: Install Icinga Web 2 
+  apt:
+    name: "{{ icinga2web_dependencies }}"
+    state: present 
+
+- name: Preparing Web Setup on Debian/Ubuntu
+  command: >-
+    mysql -e "CREATE DATABASE {{ icingaweb2_db }}; CREATE USER '{{ icingaweb2_db_user }}'@'localhost' IDENTIFIED BY '{{ icingaweb2_db_password }}'; GRANT ALL PRIVILEGES ON {{ icingaweb2_db }}.* to '{{ icingaweb2_db_user }}'@'localhost';"
+
+- name: Add user www-data to group icingaweb2
+  user:
+    name: www-data 
+    groups: "{{ icingaweb2_db_user }}"
+
+- name: Fix mysql8 error with hash root user
+  become: yes
+  command: >-
+    mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH Mysql_native_password BY '{{ mysql_root_password }}'"
+
+- name: Fix mysql8 error with hash icinga user 
+  command: >-
+    mysql -u root -p{{ mysql_root_password }} -e "ALTER USER '{{ icinga_db_user }}'@'localhost' IDENTIFIED WITH Mysql_native_password BY '{{ icinga_db_password }}'"
+
+- name: Fix mysql8 error with hash icingaweb2 user 
+  command: >-
+    mysql -u root -p{{ mysql_root_password }} -e "ALTER USER '{{ icingaweb2_db_user }}'@'localhost' IDENTIFIED WITH Mysql_native_password BY '{{ icingaweb2_db_password }}'"
+  
+- name: Modify /etc/icinga2/features-enabled/ido-mysql.conf and apply template
+  template:
+    src: ido-mysql.conf.j2
+    dest: /etc/icinga2/features-enabled/ido-mysql.conf
+
+- name: Modify Icinga2 API users on file /etc/icinga2/conf.d/api-users.conf
+  template:
+    src: api-users.conf.j2 
+    dest: /etc/icinga2/conf.d/api-users.conf
+
+- name: Start Icinga2 API setup
+  become: yes 
+  shell: icinga2 api setup 
+
+- name: Set up permission correctly
+  become: yes
+  shell: chown -R www-data:{{ icingaweb2_db_user }} /etc/icingaweb2
+
+- name: Restart Icinga2
+  service:
+    name: icinga2
+    state: restarted 
+
+# 1 . Ejecutar los siguientes comandos en base de datos, para todos los usuuarios
+
+# ALTER USER 'usuario'@'localhost' IDENTIFIED WITH Mysql_native_password BY 'password';
+
+# 2. Modificar fichero y poner correctamente las credenciales 
+
+# sudo vim /etc/icinga2/features-enabled/ido-mysql.conf
+# 
+# /**
+#  * The db_ido_mysql library implements IDO functionality
+#  * for MySQL.
+#  */
+# 
+# library "db_ido_mysql"
+# 
+# object IdoMysqlConnection "ido-mysql" {
+#   user = "icinga",
+#   password = "icinga",
+#   host = "localhost",
+#   database = "icinga"
+# }
+
+
+# 3. Ejecutar en consola: icinga2 api setup
+# 4. Modificar fichero /etc/icinga2/conf.d/api-users.conf Agregando usuarios
+
+# /**
+#  * The ApiUser objects are used for authentication against the API.
+#  */
+# object ApiUser "root" {
+#   password = "Ahth2Sai0uaquoo"
+#   permissions = [ "*" ]
+# }
+# 
+# object ApiUser "admin" {
+#   password = "intel2010.."
+#   permissions = [ "*" ]
+# }
+
+# 5. Retart service

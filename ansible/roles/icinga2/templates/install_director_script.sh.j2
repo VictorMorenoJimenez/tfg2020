@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ICINGAWEB_MODULEPATH="/usr/share/icingaweb2/modules"
+REPO_URL="https://github.com/icinga/icingaweb2-module-director"
+TARGET_DIR="${ICINGAWEB_MODULEPATH}/director"
+MODULE_VERSION="1.7.2"
+URL="${REPO_URL}/archive/v${MODULE_VERSION}.tar.gz"
+install -d -m 0755 "${TARGET_DIR}"
+wget -q -O - "$URL" | tar xfz - -C "${TARGET_DIR}" --strip-components 1
