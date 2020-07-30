@@ -1,0 +1,41 @@
+# install_gitlab_opt
+
+- include_vars: gitlab_dependencies.yml
+
+- name: Check if GitLab is already installed.
+  stat: path=/usr/bin/gitlab-ctl
+  register: gitlab_installed
+
+- name: Install GitLab dependencies
+  apt:
+    name: "{{ gitlab_dependencies }}"
+  when: gitlab_dependencies is defined
+
+- name: Download GitLab repository installation script.
+  get_url:
+    url: "{{ gitlab_installation_script }}"
+    dest: /tmp/gitlab_install_repository.sh
+  when: not gitlab_installed.stat.exists
+
+- name: Install GitLab repository.
+  command: bash /tmp/gitlab_install_repository.sh
+  when: not gitlab_installed.stat.exists
+
+- name: Install gitlab-ee package 
+  apt:
+    name: gitlab-ee
+  environment:
+    EXTERNAL_URL: "{{ gitlab_domain }}"
+  when: not gitlab_installed.stat.exists
+  ignore_errors: True
+
+- name: Apply config template
+  template:
+    src: gitlab.conf.j2
+    dest: /etc/gitlab/gitlab.rb
+
+- name: Reconfigure GitLab (first run).
+  command: >
+    gitlab-ctl reconfigure
+    creates=/var/opt/gitlab/bootstrapped
+  failed_when: false

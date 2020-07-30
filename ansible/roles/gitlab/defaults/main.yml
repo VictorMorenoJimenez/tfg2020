@@ -1,0 +1,9 @@
+---
+# defaults file for gitlab
+
+# gitlab_domain:
+# gitlab_dependencies:
+
+gitlab_installation_script: https://packinstall_icinga2ages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh
+install_gitlab_runner_opt: "no"
+install_gitlab_opt: "no"

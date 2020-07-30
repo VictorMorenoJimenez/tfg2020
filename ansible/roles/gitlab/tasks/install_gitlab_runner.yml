@@ -1,0 +1,17 @@
+---
+
+# install_gitlab_runner_opt 
+
+- name: Download gitlab-runner deb package 
+  get_url:
+    url: https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb
+    dest: /tmp
+
+- name: Install gitlab-runner .deb package
+  apt:
+    deb: /tmp/gitlab-runner_amd64.deb
+
+- name: Start runner 
+  become: yes
+  command: >-
+    gitlab-runner start

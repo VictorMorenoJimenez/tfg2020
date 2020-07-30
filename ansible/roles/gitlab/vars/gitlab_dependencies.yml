@@ -1,0 +1,7 @@
+---
+
+gitlab_dependencies:
+  - curl
+  - openssh-server
+  - ca-certificates
+  - postfix

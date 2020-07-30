@@ -1,0 +1,17 @@
+---
+# tasks file for gitlab
+# Install gitlab server.
+
+# First check if gitlab is alredy installed.
+
+- import_tasks: install_gitlab.yml
+  tags:
+    - gitlab
+    - install
+  when: install_gitlab_opt == 'yes'
+
+- import_tasks: install_gitlab_runner.yml
+  tags:
+    - gitlab-runner 
+    - install
+  when: install_gitlab_runner_opt == 'yes'
