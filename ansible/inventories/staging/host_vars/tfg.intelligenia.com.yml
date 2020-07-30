@@ -32,3 +32,17 @@ clustername: tfgcluster
 master: 'yes' # Master of proxmox cluster 
 pfsense_conf_opt: 'yes' # Create additional pfSense NIC
 node: tfg 
+
+# /etc/hosts template apply vars
+localdomain: intelligenia.com 
+ansible_host_short: tfg 
+
+host_ip: 138.201.205.158
+
+cluster_nodes:
+  - name: tfg2.intelligenia.com
+    ip_ring_0: 192.168.100.2
+    ip_ring_1: 192.168.200.2
+  - name: tfg3.intelligenia.com
+    ip_ring_0: 192.168.100.3
+    ip_ring_1: 192.168.200.3

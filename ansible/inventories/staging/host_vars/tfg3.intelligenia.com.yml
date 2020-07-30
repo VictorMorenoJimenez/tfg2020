@@ -20,6 +20,28 @@ create_cluster_opt: 'no'
 node: tfg3
 master: 'no'
 
+link0_flag: "--link0"
+link1_flag: "--link1"
+link0: 192.168.100.3
+link1: 192.168.200.3
+
 # No pfSense config
 pfsense_conf_opt: 'no'
 master_ip: tfg.intelligenia.com
+
+# Add node to cluster
+add_node_cluster_opt: 'yes'
+
+# /etc/hosts template apply vars
+localdomain: intelligenia.com 
+ansible_host_short: tfg3
+
+host_ip: 144.76.37.116
+
+cluster_nodes:
+  - name: tfg.intelligenia.com
+    ip_ring_0: 192.168.100.1
+    ip_ring_1: 192.168.200.1
+  - name: tfg2.intelligenia.com
+    ip_ring_0: 192.168.100.2
+    ip_ring_1: 192.168.200.2

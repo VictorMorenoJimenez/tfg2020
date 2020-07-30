@@ -18,6 +18,11 @@ failover_ip: 144.76.47.196 # tfg2 144.76.47.196
 node_proxmox_ip: 192.168.100.2
 node_redundant_corosync_ip: 192.168.200.2
 
+link0_flag: "--link0"
+link1_flag: "--link1"
+link0: 192.168.100.2
+link1: 192.168.200.2
+
 # Proxmox vars
 create_cluster_opt: 'no'
 pfsense_conf_opt: 'yes'
@@ -25,3 +30,20 @@ node: tfg2
 
 master_ip: tfg.intelligenia.com
 master: 'no'
+
+# add node to cluster
+add_node_cluster_opt: 'yes'
+
+# /etc/hosts template apply vars
+localdomain: intelligenia.com 
+ansible_host_short: tfg2
+
+host_ip: 144.76.2.146
+
+cluster_nodes:
+  - name: tfg.intelligenia.com
+    ip_ring_0: 192.168.100.1
+    ip_ring_1: 192.168.200.1
+  - name: tfg3.intelligenia.com
+    ip_ring_0: 192.168.100.3
+    ip_ring_1: 192.168.200.3
