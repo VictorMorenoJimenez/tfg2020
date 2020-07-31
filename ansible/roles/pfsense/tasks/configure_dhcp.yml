@@ -60,6 +60,11 @@
     state: absent
     regexp: '^blockinlinemarker-remove'
 
+- name: Delete cache file in order to make changes persistent
+  file:
+    state: absent
+    path: /tmp/config.cache
+
 - name: Restart dhcp service on pfsense
   command: >-
     pfSsh.php playback svc restart dhcpd
