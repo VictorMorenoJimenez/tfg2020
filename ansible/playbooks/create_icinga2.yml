@@ -120,3 +120,8 @@
       debug:
         msg: "Icinga2 and Icinga2 Director installed!! Follow http:/icinga-node-ip/icingaweb2/setup to finish setup!"
 
+    - name: Create token for Web User Interface 
+      debug:
+        msg: "Run this commands on VM to create token and configure WUI! \
+            sudo icingacli setup config directory --group icingaweb2; \
+            sudo icingacli setup token create; "
