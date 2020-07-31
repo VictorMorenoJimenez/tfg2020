@@ -16,3 +16,9 @@
     - configure_vm
     - system
   when: configure_vm_opt == 'yes'
+
+- import_tasks: create_disk.yml
+  tags:
+    - proxmox
+    - create-disk
+  when: create_disk_opt == 'yes'

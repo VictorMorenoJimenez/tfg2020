@@ -88,4 +88,3 @@
   when: item.start_at_boot == "yes"
   with_items: "{{ create_vms }}"
     
-    

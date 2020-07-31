@@ -1,0 +1,12 @@
+---
+
+# vm_id:
+# node:
+# disk_size:
+
+- name: Create Proxmox disk
+  become: yes 
+  command: >-
+    pvesh create /nodes/{{ node }}/qemu/{{ vm_id }}/config -scsi1 'thin:{{ disk_size }},discard=on,cache=writeback'
+
+

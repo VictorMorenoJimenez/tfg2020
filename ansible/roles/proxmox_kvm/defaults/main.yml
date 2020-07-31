@@ -4,3 +4,4 @@
 create_vm_opt: 'no'
 configure_vm_opt: 'no'
 firewall_pfsense_conf: 'no'
+create_disk_opt: 'no'

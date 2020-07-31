@@ -18,6 +18,17 @@
     src: hosts_file.sh.j2
     dest: /etc/hosts
 
+- name: Change owner of file /etc/hosts
+  file:
+    owner: "{{ host_user }}"
+    path: /etc/hosts
+  when: host_user is defined
+
+- name: Modify /etc/apt/sources.list
+  template:
+    src: sources.list.sh.j2
+    dest: /etc/apt/sources.list
+
 - name: Remove old SSH keys
   file:
     path: "/home/{{ host_user }}/.ssh/{{item }}"
@@ -43,11 +54,18 @@
     - public_keys/victor-pc
     - public_keys/victor-portatil
 
+- name: Upgrade all packages to last version
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+
 - name: Install recommended packages
   apt:
     name: "{{ recommended_packages }}"
     state: present
-  when: recommended_packages is defined 
+  ignore_errors: True
+  when: recommended_packages is defined
 
 - name: PermitRootLogin yes
   become_user: root
@@ -61,11 +79,6 @@
   command: >-
     ip link set mtu 1400 dev "{{ interface }}"
   when: interface is defined
-
-- name: Upgrade all packages to last version
-  apt:
-    name: "*"
-    state: latest
 
 - name: Restart ssh service 
   become_user: root
