@@ -4,10 +4,11 @@
   shell: docker node ls
   register: swarm_created
   ignore_errors: true
+  no_log: True
   tags: docker-swarm
 
 - name: Add Managers to the Swarm
   shell: >- 
-    docker swarm join --token {{ hostvars['swarm_manager']['manager_token']['stdout'] }} {{ docker_swarm_manager_ip }}:2377
-  when: swarm_status.rc != 0
+    docker swarm join --token {{ hostvars['docker_swarm_01']['manager_token']['stdout'] }} {{ docker_swarm_manager_ip }}:2377
+  when: swarm_created.rc != 0
   tags: docker-swarm
