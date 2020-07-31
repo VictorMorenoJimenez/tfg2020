@@ -132,10 +132,10 @@
     # Secrets
     #
     # pfSense admin WUI 
-    pfsense_wui_user: admin
-    pfsense_wui_password: tfg-intellicluster..
+    #pfsense_wui_user: admin
+    #pfsense_wui_password: tfg-intellicluster..
 
-  tasks:
+  pre_tasks:
     - include_vars: secrets.yml
 
   roles:
