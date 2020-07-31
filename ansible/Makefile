@@ -38,5 +38,6 @@ create_role: ## Create role, need NEW_ROLE var. Execute with make NEW_ROLE=role 
 playbook: ## Execute playbook, need PLAYBOOK var. Execute with make PLAYBOOK=playbook playbook
 	ansible-playbook playbooks/$(PLAYBOOK).yml -i inventories/staging/hosts.yml \
 					  --vault-password-file .pass \
-					  --extra-vars "target_host=$(HOST)"
+					  --extra-vars "target_host=$(HOST)" \
+					  --tags "$(TAGS)"
 	
