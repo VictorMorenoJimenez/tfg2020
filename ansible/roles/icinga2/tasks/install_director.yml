@@ -91,6 +91,13 @@
     name: icinga-director
     enabled: yes
 
+- name: Change owner of directory 
+  file:
+    dest: /etc/icingaweb2
+    owner: www-data
+    group: "{{ icingaweb2_db_user }}"
+    recurse: yes
+
 - name: Start director daemon
   service:
     name: icinga-director
