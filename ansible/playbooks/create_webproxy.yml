@@ -13,28 +13,25 @@
         pfsense_configure_dhcp_opt: 'yes'
     
         vms_to_configure:
-          - name: tfg-webproxy
+          - name: webproxy
             vm_mac: 8E:4B:D8:94:C9:F4
             vm_id: 200
             vm_ip: 10.6.100.1
-            vm_hostname: tfg-webproxy
+            vm_hostname: webproxy
             vm_domain: tfg.vps
     
       roles:
         - pfsense
-    
-      post_tasks:
-        - name: Restart dhcp service on pfsense
-          command: >-
-            pfSsh.php playback svc restart dhcpd
 
-    - hosts: master
+    - hosts: proxmox_master
       gather_facts: false
     
       vars:
-        create_cluster_opt: 'no'
-        create_vm_from_backup_opt: 'yes'
+        create_vm_opt: 'yes'
         start_after_create: 'yes'
+    
+        interface: ens18
+        host_user: mario
     
         downloads:
           - name: Debian 10 Template
@@ -44,7 +41,7 @@
         create_vms:
           - name: Webproxy
             backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
-            kvm_name: tfg-webproxy
+            kvm_name: webproxy
             kvm_cores: 2 
             kvm_memory: 2048
             kvm_mac: 8E:4B:D8:94:C9:F4
@@ -53,48 +50,4 @@
             start_at_boot: "yes"
 
       roles:
-        - proxmox
-
-    - hosts: tfg-webproxy
-      gather_facts: no
-      become: yes
-
-      vars:
-        configure_common_vm_opt: 'yes'
-
-        vm_domain: tfg.vps
-
-        interface: ens18
-        host_user: mario
-        recommended_packages:
-          - net-tools
-          - htop
-          - nmap
-          - ncdu
-          - netcat
-          - curl
-          - wget
-          - vim 
-          - ntp
-          - nginx
-
-      roles:
-        - proxmox 
-
-      tasks:
-        - name: Set authorized keys, removing all previous 
-          authorized_key:
-            user: "{{ host_user }}"
-            state: present
-            exclusive: True
-            key: "{{ item }}"
-          with_file:
-            - public_keys/mario
-            - public_keys/victor-oficina
-            - public_keys/victor-pc
-            - public_keys/victor-portatil
-
-        - name: Upgrade all packages to last version
-          apt:
-            name: "*"
-            state: latest
+        - proxmox_kvm
