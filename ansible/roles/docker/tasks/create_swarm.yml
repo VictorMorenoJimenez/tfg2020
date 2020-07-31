@@ -4,8 +4,9 @@
   shell: docker node ls
   register: swarm_created
   ignore_errors: true
+  no_log: True
   tags: docker-swarm
-  
+
 - name: Initialize Docker Swarm
   shell: >
         docker swarm init
