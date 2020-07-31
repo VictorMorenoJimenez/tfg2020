@@ -1,0 +1,75 @@
+---
+# tasks file for ceph
+
+- import_tasks: install_docker.yml
+  tags:
+    - docker
+    - install
+    - system
+  when: install_docker_opt == "yes"
+
+- import_tasks: install_ceph.yml
+  tags:
+    - ceph
+    - install
+  when: install_ceph_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: create_cluster.yml
+  tags:
+    - ceph
+    - deploy-admin-key
+  when: create_cluster_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: deploy_ceph_keys.yml
+  tags:
+    - ceph
+    - deploy-admin-key
+  when: deploy_ceph_keys_opt == "yes" and ceph_admin == "no"
+
+- import_tasks: add_nodes_to_cluster.yml
+  tags:
+    - ceph
+    - add-nodes
+  when: add_nodes_to_cluster_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: configure_dashboard_access.yml
+  tags:
+    - ceph
+    - dashboard 
+    - install
+  when: configure_dashboard_access_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: deploy_ceph_mons.yml
+  tags:
+    - ceph
+    - deploy-mons 
+    - install
+  when: deploy_ceph_mons_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: deploy_ceph_osd.yml
+  tags:
+    - ceph
+    - deploy-osd 
+    - install
+  when: deploy_ceph_osd_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: deploy_ceph_mgr.yml
+  tags:
+    - ceph
+    - deploy-mgr
+    - install
+  when: deploy_ceph_mgr_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: deploy_ceph_mds.yml
+  tags:
+    - ceph
+    - deploy-mds 
+    - install
+  when: deploy_ceph_mds_opt == "yes" and ceph_admin == "yes"
+
+- import_tasks: create_cephfs.yml
+  tags:
+    - ceph
+    - create-fs
+    - install
+  when: create_cephfs_opt == "yes" and ceph_admin == "yes"

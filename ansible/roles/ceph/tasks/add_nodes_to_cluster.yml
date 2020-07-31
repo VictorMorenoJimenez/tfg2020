@@ -1,0 +1,24 @@
+
+# Passwords, vault encrypted file
+# ceph_workers:
+#    - ceph-worker-01
+#    - ceph-worker-02
+#    - ceph-worker-03
+
+# Secrets
+# ceph_dashboard_admin
+# ceph_dashboard_password
+
+# TODO 
+
+- include_vars: secrets.yml
+
+- name: Add nodes to ceph cluster
+  become: yes
+  become_user: root 
+  command: >-
+      ceph orch host add {{ item }}
+  with_items: "{{ ceph_workers }}"
+  retries: 5
+  delay: 10
+

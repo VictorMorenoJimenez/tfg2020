@@ -1,0 +1,21 @@
+---
+- name: Add CEPH apt-key
+  apt_key:
+    url: https://download.ceph.com/keys/release.asc
+    state: present
+
+- name: Add ceph apt repository
+  apt_repository:
+    repo: deb https://download.ceph.com/debian-octopus buster main
+
+- name: Download cephadm
+  get_url:
+    url: https://downloads-tfg.intelligenia.com/cephadm
+    dest: /usr/local/bin
+    mode: '0755'
+    
+- name: Create ceph directory
+  file:
+    path: /etc/ceph
+    state: directory
+    mode: 0755

@@ -1,0 +1,19 @@
+---
+
+- name: Tell ceph to only deploy 2 mds. 
+  become_user: root
+  command: >-
+    ceph orch apply mds 2
+
+- name: Add labels to nodes
+  become_user: root 
+  shell: |
+    ceph orch host label add ceph-node-01 mds
+    ceph orch host label add ceph-node-02 mds 
+
+- name: Apply mon labels to hosts
+  become_user: root
+  shell: |
+    sudo ceph orch apply mds cephfs
+
+#    ceph orch apply mds label:mds

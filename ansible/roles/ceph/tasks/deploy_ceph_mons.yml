@@ -1,0 +1,24 @@
+---
+    
+- name: Tell ceph to dont automatic deploy monitors, we choose them
+  become_user: root
+  command: >-
+    ceph orch apply mon --unmanaged
+
+- name: Tell ceph to only deploy 4 mons, we only have 4 nodes. 
+  become_user: root
+  command: >-
+    ceph orch apply mon 4
+
+- name: Add labels to nodes, mon, osd, mgr
+  become_user: root 
+  shell: |
+    ceph orch host label add ceph-node-01 mon
+    ceph orch host label add ceph-node-02 mon 
+    ceph orch host label add ceph-node-03 mon 
+    ceph orch host label add ceph-admin mon
+
+- name: Apply mon labels to hosts
+  become_user: root
+  shell: |
+    ceph orch apply mon label:mon

@@ -1,0 +1,26 @@
+---
+
+# host_user: mario 
+# 
+# Execute this task on ceph nodes. 
+
+- name: Add id_rsa_pub of ceph-admin to authorized_keys
+  become_user: "{{ host_user }}"
+  authorized_key:
+    user: "{{ host_user }}"
+    state: present
+    key: "{{ hostvars['ceph_admin'].ssh_pub_key }}"
+
+- name: Add id_rsa_pub of tfg-ceph-admin to authorized_keys
+  become_user: root
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ hostvars['ceph_admin'].ssh_pub_key }}"
+
+- name: Add id_rsa_pub of ceph cluster to authorized_keys
+  become_user: root
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ hostvars['ceph_admin'].ssh_ceph_pub_key }}"    

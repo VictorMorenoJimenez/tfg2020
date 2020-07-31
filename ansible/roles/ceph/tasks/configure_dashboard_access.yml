@@ -1,0 +1,18 @@
+---
+
+# - include_vars: secrets.yml
+
+# vars
+# ceph_dashboard_admin_password: dummypassword
+# ceph_dashboard_admin: admin 
+
+- name: Create user for ceph dashboard
+  become_user: root
+  command: >-
+    ceph dashboard ac-user-create {{ ceph_dashboard_admin }} {{ ceph_dashboard_admin_password }} administrator
+
+- name: Confirm password of user 
+  become_user: root 
+  command: >-
+    sudo ceph dashboard ac-user-set-password {{ ceph_dashboard_admin }} {{ ceph_dashboard_admin_password }}
+

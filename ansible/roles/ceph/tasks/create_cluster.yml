@@ -1,0 +1,33 @@
+---
+
+# Must have var:
+# first_node_ip: ip of the ceph-admin 
+# host_user: mario 
+
+- name: Initialize ceph cluster with 1 node
+  become_user: root
+  command: >-
+    cephadm bootstrap --mon-ip {{ first_node_ip }}
+
+- name: Install ceph common packages with cephadm 
+  become_user: root
+  command: >-
+    cephadm install ceph-common
+
+- name: Get public key of ceph-admin
+  become_user: "{{ host_user }}"
+  shell: cat $HOME/.ssh/id_rsa.pub
+  register: id_rsa_pub
+
+- name: Get public key of ceph cluster
+  become_user: root
+  shell: cat /etc/ceph/ceph.pub
+  register: ceph_pub
+  
+- name: Set facts id_rsa_pub
+  set_fact:
+    ssh_pub_key: "{{ id_rsa_pub.stdout }}"
+
+- name: Set facts ceph key
+  set_fact:
+    ssh_ceph_pub_key: "{{ ceph_pub.stdout }}"

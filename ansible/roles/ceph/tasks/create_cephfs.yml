@@ -1,0 +1,26 @@
+---
+
+- name: Create ceph pool cephfs_data
+  become_user: root 
+  shell: ceph osd pool create cephfs_data
+
+- name: Create ceph pool cephfs_metadata
+  become_user: root 
+  shell: ceph osd pool create cephfs_metadata
+
+- name: Create cephfs
+  become_user: root
+  shell: ceph fs new cephfs cephfs_metadata cephfs_data
+
+- name: Create cephfs client in order to mount fs 
+  become_user: root 
+  shell: ceph fs authorize cephfs client.swarm / rw
+  register: client_token
+
+- name: Register token on host var
+  set_fact:
+    register_token: client_token.stdout | regex_search('key')
+
+- name: Show token to mount fs
+  debug:
+    msg: "{{ client_token.stdout }}"

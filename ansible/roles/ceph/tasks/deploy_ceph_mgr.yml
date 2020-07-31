@@ -1,0 +1,22 @@
+---
+    
+- name: Tell ceph to dont automatic deploy mgr, we choose them
+  become_user: root
+  command: >-
+    ceph orch apply mgr --unmanaged
+
+- name: Tell ceph to only deploy 2 mgr 
+  become_user: root
+  command: >-
+    ceph orch apply mgr 2
+
+- name: Add labels to nodes
+  become_user: root 
+  shell: |
+    ceph orch host label add ceph-admin mgr
+    ceph orch host label add ceph-node-03 mgr 
+
+- name: Apply mon labels to hosts
+  become_user: root
+  shell: |
+    ceph orch apply mgr label:mgr

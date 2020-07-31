@@ -1,0 +1,14 @@
+---
+# defaults file for ceph
+
+add_nodes_to_cluster_opt: "no"
+install_docker_opt: "no"
+deploy_ceph_keys_opt: "no"
+install_ceph_opt: "no"
+create_cluster_opt: "no"
+configure_dashboard_access_opt: "no" 
+deploy_ceph_mons_opt: "no"
+deploy_ceph_osd_opt: "no"
+deploy_ceph_mgr_opt: "no"
+deploy_ceph_mds_opt: "no"
+create_cephfs_opt: "no"

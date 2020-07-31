@@ -1,0 +1,20 @@
+---
+
+# var 
+# osd_disk_path_1: /dev/sdb
+# osd_disk_path_2: /dev/sdb
+# osd_disk_path_3: /dev/sdb
+
+- name: Add labels to nodes
+  become_user: root 
+  shell: |
+    ceph orch host label add ceph-node-01 osd
+    ceph orch host label add ceph-node-02 osd 
+    ceph orch host label add ceph-node-03 osd 
+
+- name: Create osd on hosts
+  become_user: root
+  shell: |
+    ceph orch daemon add osd ceph-node-01:{{ osd_disk_path_1 }}
+    ceph orch daemon add osd ceph-node-02:{{ osd_disk_path_2 }}
+    ceph orch daemon add osd ceph-node-03:{{ osd_disk_path_3 }}
