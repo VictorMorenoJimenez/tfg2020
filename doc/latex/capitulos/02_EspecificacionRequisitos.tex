@@ -85,48 +85,47 @@
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_1.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Desarrollador \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Desarrollador 1]{Diagrama secuencia Desarrollador 1 \cite{diagramasecuencia:online}} 
+			\label{Diagrama secuencia_desarrollador_1}
 		\end{figure}
 		\clearpage
 	
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_4.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Desarrollador \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Desarrollador 2]{Diagrama secuencia Desarrollador 2 \cite{diagramasecuencia:online}} 
+			\label{Diagrama secuencia_desarrollador_2}
 		\end{figure}
 
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_3.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Desarrollador \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Desarrollador 3]{Diagrama secuencia Desarrollador 3 \cite{diagramasecuencia:online}} 
+			\label{Diagrama secuencia_desarrollador_3}
 		\end{figure}
 	
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_1.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Administrador \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Administrador 1]{Diagrama secuencia Administrador 1 \cite{diagramasecuencia:online}}
+			\label{Diagrama secuencia_administrador_1}
 		\end{figure}
 		\clearpage
 		
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Administrador \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Administrador 2]{Diagrama secuencia Administrador 2 \cite{diagramasecuencia:online}}
+			\label{Diagrama secuencia_administrador_2}
 		\end{figure}
 	
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
-			\caption[Diagrama secuencia Desarrollador]{Diagrama secuencia Administrador \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia}
+			\caption[Diagrama secuencia Administrador 3]{Diagrama secuencia Administrador 3 \cite{diagramasecuencia:online}}
+			\label{Diagrama secuencia_administrador_3}
 		\end{figure}
 		
-	
 	
 \section{Arquitectura del Sistema}
 	\subsection{Servidores Físicos}
@@ -145,5 +144,52 @@
 			\caption[Infraestructura Objetivo]{Infraestructura Objetivo }
 			\label{Infraestructura_objetivo}
 		\end{figure}
+	\clearpage
+	
+\section{Metodología de desarrollo}
+	\begin{paragraph}
+		Todo proyecto software debe tener una organización y unas etapas de desarrollo bien definidas. En esta sección se pretende explicar la metodología de desarrollo elegida para realizar este proyecto. \\
+		Se ha tratado este proyecto como cualquier otro proyecto software. Para la organización y el control de versiones se ha elegido Github, un software basado en git originalmente creado para el control de versiones. Actualmente, GitHub ofrece múltiples servicios, como almacenamiento, gestión de paneles de trabajo, registry, integración con mútliples tecnologías... \\
+		En cuanto a la metodología de desarrollo, se ha optado por un desarrollo basado en Milestones. Cada Milestone está compuesto por Issues y estos están etiquetados y asignados a personas. A continuación se explican con mayor detalle estos conceptos.
+	\end{paragraph}
+
+	\subsection{Milestones}
+	\label{milestones}
+	\begin{paragraph}
+		Los Milestones o Hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un Milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración github.
+		
+		\begin{figure}[!hbt]
+			\centering
+			\includegraphics[scale=0.37]{imagenes/Analisis/milestones.png}
+			\caption[GitHub milestones]{GitHub milestones}
+			\label{github_milestones}
+		\end{figure}
+	\end{paragraph}
+	\subsection{Issues}
+	\begin{paragraph}
+		Como ya hemos visto, los issues forman parte de los hitos. Es una forma de desgranar el problema. Siguiendo el ejemplo anterior, si tenemos un hito: "Servidores configurados a través de ficheros de configuración Ansible", podemos desgranar el siguiente en distintos issues, que serían tareas más sencillas que hay que realizar para completar el hito. Por ejemplo, algunos issues serían: 
+		\begin{itemize}
+			\item Crear estructura directorios Ansible.
+			\item Instalar paquetes en servidor a través de ficheros de configuración Ansible. \textbf{Core}
+			\item Configurar interfaces de red a través de ficheros de configuración Ansible. \textbf{Core}
+			\item Instalar ISO en servidor a través de ficheros de configuración Ansible. \textbf{Core}
+			\item Instalar certificados SSL a través de ficheros de configuración Ansible. \textbf{Mejora}
+		\end{itemize}
+	
+		Y así seguiríamos creando issues según creamos que van a ser necesarios para completar el hito en cuestión. \\
+		En la sección  \nameref{milestones} hemos hablado que los issues tienen etiquetas. En la lista anterior por ejemplo, únicamente tenemos dos etiquetas que nos indican en este caso si son issues imprescindibles para el hito o simplemente mejoras. Gracias a estas etiquetas, podemos distinguir entre distintos tipos de issues y asignar mayor o menos prioridad por etiqueta. También gracias a Github, cada issue puede ser asignado a un desarrollador del proyecto. A continuación se muestra un ejemplo del panel de Github para mostrar los issues, etiquetas y hitos. \\
+		Como se puede comprobar, el sistema de etiquetas y asingación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / milestone. 
+		
+			\begin{figure}[!hbt]
+				\centering
+				\includegraphics[scale=0.44]{imagenes/Analisis/githubissues.jpg}
+				\caption[GitHub panel]{GitHub panel}
+				\label{github_issues}
+			\end{figure}
+	\end{paragraph}
+	\clearpage
+
+
+	
 	
 	
