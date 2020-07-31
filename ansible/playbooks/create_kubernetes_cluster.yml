@@ -1,0 +1,101 @@
+---
+  
+- hosts: pfsense_master
+
+  # Must have non-password ssh access
+  # # ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+
+  gather_facts: no
+
+  vars:
+    pfsense_config_path: /cf/conf/config.xml
+    pfsense_ssh_port: 11000
+    pfsense_configure_dhcp_opt: 'yes'
+
+    vms_to_configure:
+      - name: k8 master
+        vm_mac: CA:3F:C8:C6:68:AB
+        vm_id: 300
+        vm_ip: 10.6.100.20
+        vm_hostname: k8-master
+        vm_domain: tfg.vps
+
+      - name: k8 node 01
+        vm_mac: CE:81:5C:E6:93:32
+        vm_id: 301
+        vm_ip: 10.6.100.21
+        vm_hostname: k8-node-01
+        vm_domain: tfg.vps
+
+      - name: k8 node 02
+        vm_mac: EA:9F:8E:67:BE:D9
+        vm_id: 302
+        vm_ip: 10.6.100.22
+        vm_hostname: k8-node-02
+        vm_domain: tfg.vps
+
+      - name: k8 node 03
+        vm_mac: B2:54:B0:EB:62:C8
+        vm_id: 303
+        vm_ip: 10.6.100.23
+        vm_hostname: k8-node-03
+        vm_domain: tfg.vps
+
+  roles:
+    - pfsense
+
+- hosts: proxmox_master
+  gather_facts: false
+
+  vars:
+    configure_vm_opt: 'yes'
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: Kubernetes Master
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: k8-master
+        kvm_cores: 2 
+        kvm_memory: 2048
+        kvm_mac: CA:3F:C8:C6:68:AB
+        kvm_sockets: 2
+        new_id: 300
+        start_at_boot: "yes"
+      - name: Kubernetes Node 01
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: k8-node-01
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: CE:81:5C:E6:93:32
+        kvm_sockets: 1
+        new_id: 301
+        start_at_boot: "yes"
+      - name: Kubernetes Node 02
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: k8-node-02
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: EA:9F:8E:67:BE:D9
+        kvm_sockets: 1
+        new_id: 302
+        start_at_boot: "yes"
+      - name: Kubernetes Node 03
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: k8-node-03
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: B2:54:B0:EB:62:C8
+        kvm_sockets: 1        
+        new_id: 303
+        start_at_boot: "yes"
+  roles:
+    - proxmox_kvm
