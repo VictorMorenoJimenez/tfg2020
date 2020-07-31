@@ -50,8 +50,8 @@
 
     # Secrets
     # pfSense admin WUI 
-    # pfsense_wui_user:
-    # pfsense_wui_password: 
+    # pfsense_wui_user: admin
+    # pfsense_wui_password: dummypassword
 
   tasks:
     - include_vars: secrets.yml
