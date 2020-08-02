@@ -2,7 +2,7 @@
 
 \section{Solución adoptada}
 	\begin{paragraph}
-		Con el fin de cumplir todos los objetivos definidos en la sección \nameref{ObjetivosPropuestos} se han elegido las siguientes tecnologías. Cabe destacar la influencia ejercida por la empresa para utilizar tecnologías ya existentes en la infraestructura actual como los firewall pfSense o el servicio de virtualización Proxmox. Sin embargo, son tecnologías con contínuo desarrollo y muy aptas para desarrollar su papel dentro del cluster. \\
+		Con el fin de cumplir todos los objetivos definidos en la sección \nameref{ObjetivosPropuestos} se han elegido las siguientes tecnologías. Cabe destacar la influencia ejercida por la empresa para utilizar tecnologías ya existentes en la infraestructura actual como los firewall pfSense o el servicio de virtualización Proxmox. Sin embargo, son tecnologías con continuo desarrollo y muy aptas para desarrollar su papel dentro del cluster. \\
 		Todas las tecnologías que se van a mencionar a continuación son de código abierto y satisfacen las necesidades de este proyecto. 
 	\end{paragraph}
 
@@ -45,8 +45,8 @@
 				\item \textbf{Networking}. Solución a la gestión de redes desde un punto de vista software. Se pueden crear tantas interfaces virtuales como se necesiten.
 				\item \textbf{Backups}. Gestión de backups completo de las máquinas.
 				\item \textbf{User management}. Gestión de espacios de usuario así como restricción de permisos según tipo de usuario.
-				\item \textbf{Firewall}. Firewall por máquina virtual y por cluster. El fireall se puede manejar por la interfaz web o por la API.
-				\item \textbf{Proxmox VE API}. La interfaz web es una gran ayuda para el Administrador, sin embargo Proxmox también posee una extensa API \cite{ProxmoxAPI:online} para poder realizar todo lo que se puede hacer desde la interfaz web, desde línea de comandos a través de su api con el comando \textbf{pvesh}
+				\item \textbf{Firewall}. Firewall por máquina virtual y por cluster. El firewall se puede manejar por la interfaz web o por la API.
+				\item \textbf{Proxmox VE API}. La interfaz web es una gran ayuda para el Administrador, sin embargo Proxmox también posee una extensa API \cite{ProxmoxAPI:online} para poder realizar todo lo que se puede hacer desde la interfaz web, desde línea de comandos a través de su API con el comando \textbf{pvesh}
 				\item \textbf{Proxmox Forums}. Al no ser la versión enterprise, Proxmox VE no dispone de soporte dedicado como tal, sin embargo posee una gran comunidad muy activa que responden a tus dudas en los foros \cite{ProxmoxForum:online}.
 				\item \textbf{Interfaz Web.} Gracias a su interfaz web, se hace muy sencilla la gestión de las distintas máquinas.
 				\begin{figure}[!hbt]
@@ -98,7 +98,7 @@
 			Como ya hemos visto, Proxmox nos proporciona una capa de virtualización del hardware de los servidores para poder crear máquinas virtuales donde alojar los distintos servicios. \\
 			Sin embargo, a la hora del desarrollo y despliegue de aplicaciones web en el cluster, se hace inviable crear una máquina virtual por cada una de las aplicaciones web creadas. Esto sería insostenible ya que las máquinas virtuales demandan recursos. \\
 			
-			Para solventar este problema se van a crear aplicaciones en contenedores. Cada aplicación tendrá uno o varios contenedores dependiendo de los servicios, normalmente 1 servicio 1 contenedor. Para realizar este proceso se ha elegido la tecnología Docker \cite{docker:online}.
+			Para solventar este problema se van a crear aplicaciones en contenedores. Cada aplicación tendrá uno o varios contenedores dependiendo de los servicios, normalmente 1 servicio 1 contenedor. Para realizar este proceso se ha elegido la tecnología Docker. \cite{docker:online}.
 		\end{paragraph}
 		\subsubsection{Docker}
 		\begin{paragraph}
@@ -118,8 +118,8 @@
 	\subsection{Almacenamiento estático}
 		\label{ceph}
 		\begin{paragraph}
-			Si bien tanto Docker Swarm como Kubernetes nos permiten gestionar los contenedores, estas tecnologías estan pensadas para aplicaciones stateless o sin estado \cite{stateless:online}. A grandes rasgos, esto quiere decir que tanto Kubernetes como Docker Swarm, funcionan bien con aplicaciones que no necesitan almacenar información para su correcto funcionamiento. \\
-			Para esto, Docker ofrece una solución en forma de volúmenes. Sin embargo, esta solución no se adecua a las necesidades de un entorno de alta disponibilidad  y alta fiabilidad. Es por esto que suge la necesidad de crear alguna solución de almacenamiento distribuido que nos proporcione dichas características. La solución elegida ha sido Ceph \cite{ceph:online}.
+			Si bien tanto Docker Swarm como Kubernetes nos permiten gestionar los contenedores, estas tecnologías están pensadas para aplicaciones stateless o sin estado \cite{stateless:online}. A grandes rasgos, esto quiere decir que tanto Kubernetes como Docker Swarm, funcionan bien con aplicaciones que no necesitan almacenar información para su correcto funcionamiento. \\
+			Para esto, Docker ofrece una solución en forma de volúmenes. Sin embargo, esta solución no se adecua a las necesidades de un entorno de alta disponibilidad  y alta fiabilidad. Es por esto que surge la necesidad de crear alguna solución de almacenamiento distribuido que nos proporcione dichas características. La solución elegida ha sido Ceph \cite{ceph:online}.
 		\end{paragraph}
 		\subsubsection{Ceph}
 		\begin{paragraph}
@@ -127,7 +127,7 @@
 			En nuestro caso particular, nos vamos a beneficiar de CephFS o Ceph File System, que está implementado sobre el sistema de almacenamiento a nivel de bloque creado por Ceph. Las principales ventajas de Ceph son:
 			\begin{itemize}
 				\item Seguridad de la información
-				\item Almaceniamiento ilimitado por sistema de ficheros.
+				\item Almacenamiento ilimitado por sistema de ficheros.
 				\item Balanceo de carga.
 				\item Alta disponibilidad y alta fiabilidad.
 				\item Interfaz web. Ceph nos ofrece la opción de gestionar el cluster desde una interfaz web. Aunque las opciones son limitadas ya que está bajo desarrollo, facilita en gran medida la gestión del cluster.
@@ -135,7 +135,7 @@
 				\begin{figure}[!hbt]
 					\centering
 					\includegraphics[scale=0.35]{imagenes/Diseno/ceph_wui.png}
-					\caption[ceph interfaz web]{ceph interfaz web} 
+					\caption[CEPH interfaz web]{CEPH interfaz web} 
 					\label{ceph_wui}
 				\end{figure}
 			\end{itemize}
@@ -176,13 +176,13 @@
 		\end{paragraph}
 		\subsubsection{GitLab}
 			\begin{paragraph}
-				GitLab es un software basado en Git, que proporciona una interfaz web para la gestión de proyectos, usuarios y ofrece herramientas para todo el ciclo DevOps. Integración contínua, despliegue contínuo, registry para contenedores... GitLab ofrece una versión Community gratuita que se puede instalar en servidores propios. GitLab ofrece múltiples servicios así como integración con servicios externos. \\
+				GitLab es un software basado en Git, que proporciona una interfaz web para la gestión de proyectos, usuarios y ofrece herramientas para todo el ciclo DevOps. Integración continua, despliegue continuo, registry para contenedores... GitLab ofrece una versión Community gratuita que se puede instalar en servidores propios. GitLab ofrece múltiples servicios así como integración con servicios externos. \\
 				Se ha elegido GitLab por ser la solución adoptada en un momento inicial por la empresa así como por ofrecer la posibilidad de instalar GitLab de forma gratuita en los servidores y administrar el servicio por completo. 
 			\end{paragraph}
 		
 		\subsection{Base de datos}
 		\begin{paragraph}
-			Las aplicaciones lanzadas tanto en Docker Swarm como en kubernetes, necesitarán almacenar el estado de la aplicación así como datos necesarios para el correcto funcionamiento de esta. Estos datos deben ser persistentes y no borrarse ante el reinicio de los contenedores o re-despliegue. Para esto, es necesario tener una base de datos que nos proporcione almacenamiento para las aplicaciones. La tecnología elegida para esta causa ha sido MariaDB, ya que las aplicaciones necesitan bases de datos relacionales y MariaDB está licenciado por GNU General Public License, así que lo podemos usar sin problemas. También se ha elegido esta tecnología porque es con la que más familiarizados estamos todos en la empresa. \\
+			Las aplicaciones lanzadas tanto en Docker Swarm como en Kubernetes, necesitarán almacenar el estado de la aplicación así como datos necesarios para el correcto funcionamiento de esta. Estos datos deben ser persistentes y no borrarse ante el reinicio de los contenedores o re-despliegue. Para esto, es necesario tener una base de datos que nos proporcione almacenamiento para las aplicaciones. La tecnología elegida para esta causa ha sido MariaDB, ya que las aplicaciones necesitan bases de datos relacionales y MariaDB está licenciado por GNU General Public License, así que lo podemos usar sin problemas. También se ha elegido esta tecnología porque es con la que más familiarizados estamos todos en la empresa. \\
 			Para garantizar la alta disponibilidad y alto rendimiento a la hora de recuperar datos, se ha optado por la creación de un cluster de Galera \cite{galeracluster:online} con 3 nodos, uno en cada nodo principal de Proxmox.
 		\end{paragraph}
 		\subsubsection{Galera Cluster}
@@ -199,8 +199,8 @@
 	\end{paragraph}
 	\subsection{Docker Swarm}
 	\begin{paragraph}
-		Como se puede observar en el siguiente diagrama, cada apliación estará separada en distintos contenedores dentro del docker swarm. En este caso, para ejemplificarlo, se ha elegido una aplicación que tiene 3 contenedores. Backend, frontend y un contenedor que se encargará de encolar tareas Celery. De esta forma, al lanzar la aplicación el cluster de docker swarm, docker swarm se encargará de replicar los contenedores y de asegurar la disponibilidad de los servicios. \\
-		Sin embargo, lo ideal sería poder alojar en el swarm, únicamente el proxy y que este se encargue de balancear el tráfico hacía otro cluster donde se alojan las aplicaciones, ya sea otro swarm o un cluster de kubernetes.
+		Como se puede observar en el siguiente diagrama, cada aplicación estará separada en distintos contenedores dentro del docker swarm. En este caso, para ejemplificarlo, se ha elegido una aplicación que tiene 3 contenedores. Backend, frontend y un contenedor que se encargará de encolar tareas Celery. De esta forma, al lanzar la aplicación el cluster de docker swarm, docker swarm se encargará de replicar los contenedores y de asegurar la disponibilidad de los servicios. \\
+		Sin embargo, lo ideal sería poder alojar en el swarm, únicamente el proxy y que este se encargue de balancear el tráfico hacía otro cluster donde se alojan las aplicaciones, ya sea otro swarm o un cluster de Kubernetes.
 		
 		\begin{figure}[!hbt]
 			\centering
@@ -215,7 +215,7 @@
 			A continuación, bajando el nivel de abstracción, se explican los principales servicios que componen el cluster. Esta parte corresponde con la nube verde llamada cluster en la sección \nameref{InfraestructuraObjetivo}.
 			\begin{itemize}
 				\item \textbf{K8 cluster}. Kubernetes cluster formado por 4 nodos. Un nodo administrador y 3 workers. Este cluster servirá para lanzar aplicaciones en contenedores Docker. Es una mejora al cluster de docker swarm.
-				\item \textbf{Ceph cluster}. Cluster de ceph formado por 4 nodos. Un nodo administrador y otros 3 nodos. En cada nodo habrá los siguientes servicios de ceph \footnote{Servicios de ceph explicados en sección \nameref{cephdefinitions}}
+				\item \textbf{Ceph cluster}. Cluster de CEPH formado por 4 nodos. Un nodo administrador y otros 3 nodos. En cada nodo habrá los siguientes servicios de CEPH \footnote{Servicios de CEPH explicados en sección \nameref{cephdefinitions}}
 				\begin{itemize}
 					\item \textbf{ceph-admin}: ceph\_mgr, ceph\_mon
 					\item \textbf{ceph-node-01}: ceph\_mds, ceph\_mon, ceph\_osd
@@ -228,8 +228,8 @@
 				Virtualmin nos ofrece todo lo necesario para gestionar servidores virtuales para cada una de las aplicaciones Wordpress. 
 				\item \textbf{Icinga}. Sistema de monitorización del cluster. Icinga2 es un software de monitorización basado en nagios de código abierto. Surgió de un fork de Nagios en 2009. Encaja en nuestra infraestructura para monitorizar todos los servicios.
 				\item \textbf{Gitlab}. Control de versiones, véase sección \nameref{gitlab}.
-				\item \textbf{Rabbit MQ}. Broker de mensajería. Software de código abierto que srive como middleware de mensajería, implementa el estándart Advanced MEssage Queuing Protocol. \\ 
-				Será el encargado de tramitar los mensajes lanzados en el cluster por celery. 
+				\item \textbf{Rabbit MQ}. Broker de mensajería. Software de código abierto que sirve como middleware de mensajería, implementa el estándar Advanced Message Queuing Protocol. \\ 
+				Será el encargado de tramitar los mensajes lanzados en el cluster por Celery. 
 			\end{itemize}
 		\clearpage
 		\subsubsection{Diagrama Cluster}
@@ -245,6 +245,6 @@
 \section{Posibles mejoras}
 	\begin{paragraph}
 		El proyecto que describe este documento, es una solución integral para resolver el problema de infraestructura en una pequeña empresa. Si hablamos de posibles mejoras, ya que siempre se puede mejorar, hablaríamos de hacer más eficientes los playbooks de Ansible o estructurarlos de forma que sean más comprensibles. Cabe destacar que en el diseño del cluster se incluye un cluster de Kubernetes, el cual está justamente para mejorar el cluster de docker-swarm. \\
-		Un punto importante de mejora sería implementar las técnicas de integración contínua y entrega contínua a las aplicaciones Wordpress de virtualmin, ya que en este proyecto únicamente se abordan los proyectos Django + Angular de la empresa. \\
+		Un punto importante de mejora sería implementar las técnicas de integración continua y entrega continua a las aplicaciones Wordpress de Virtualmin, ya que en este proyecto únicamente se abordan los proyectos Django + Angular de la empresa. \\
 		A grandes rasgos y exceptuando pequeñas mejoras en la calidad del código o la documentación, pienso que el proyecto es muy ambicioso y está bien diseñado a nivel de infraestructura, no necesitando grandes cambios en un futuro próximo.
 	\end{paragraph}

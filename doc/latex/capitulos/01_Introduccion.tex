@@ -3,7 +3,7 @@
 
 	\begin{paragraph}
 			 Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
-			 Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adoptación de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
+			 Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adopción de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
 	\end{paragraph}
 
 \section{Motivación}
@@ -18,7 +18,7 @@
 		\end{paragraph}
 	\subsection{DevOps}
 		\begin{paragraph}
-			El término DevOps es una fusión de las dos palabras Desarrollo y Operaciones. DevOps es una filosofía, una forma de abordar el desarrollo de software. El objetivo de DevOps es fusionar los departamentos Desarollo y Operaciones de forma que sea más fácil y rápida la creación de software. La siguiente imagen define el término:
+			El término DevOps es una fusión de las dos palabras Desarrollo y Operaciones. DevOps es una filosofía, una forma de abordar el desarrollo de software. El objetivo de DevOps es fusionar los departamentos Desarrollo y Operaciones de forma que sea más fácil y rápida la creación de software. La siguiente imagen define el término:
 			
 			\begin{figure}[!hbt]
 				\centering
@@ -28,25 +28,25 @@
 			\end{figure}
 			 
 		\end{paragraph}
-	\subsection{Integración Contínua (CI)}
+	\subsection{Integración Continua (CI)}
 		\begin{paragraph}
-			La Integración Contínua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración contínua se basa en haer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. La Integración Contínua consta de dos partes: compilación y ejecución de tests de un proyecto.
+			La Integración Continua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración continua se basa en hacer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. La Integración Continua consta de dos partes: compilación y ejecución de test de un proyecto.
 			
 			\begin{figure}[!hbt]
 				\centering
 				\includegraphics[scale=0.45]{imagenes/Introduccion/Conceptos_Basicos/ci.png}
-				\caption[Integración Contínua]{Integración Contínua \cite{Alcanzan90:online} }
+				\caption[Integración Continua]{Integración Continua \cite{Alcanzan90:online} }
 				\label{integracion_continua} 
 			\end{figure}
 		\end{paragraph}
 	\subsection{Despliegue contínuo (CD)}
 		\begin{paragraph}
-			El Despligue Contínuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración contínua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración contínua. Gracias a CD podemos garantizar entregas rápidas y seguras de software.
+			El Despligue Continuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración continua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración continua. Gracias a CD podemos garantizar entregas rápidas y seguras de software.
 			
 			\begin{figure}[!hbt]
 				\centering
 				\includegraphics[scale=0.35]{imagenes/Introduccion/Conceptos_Basicos/CD.png}
-				\caption[Despliegue Contínuo]{Despliegue Contínuo \cite{continuo84:online}}
+				\caption[Despliegue Continuo]{Despliegue Continuo \cite{continuo84:online}}
 				\label{despligue_continuo} 
 			\end{figure}
 		\end{paragraph}
@@ -131,7 +131,7 @@
 		\subsubsection{AWS}
 			\begin{paragraph}
 				Amazon Web Services es una de las plataformas de computación en la nube más usadas en el mundo. 
-				AWS ofrece una gran cantidad de servicios, recursos de cómputo en la nube, almcenamiento, bases de datos, herramientas de administración, seguridad, dispositivos móviles... \\
+				AWS ofrece una gran cantidad de servicios, recursos de cómputo en la nube, almacenamiento, bases de datos, herramientas de administración, seguridad, dispositivos móviles... \\
 				Actualmente Amazon ofrece múltiples soluciones DevOps para empresas, sin embargo no todas las compañías se pueden permitir los costes, que aún son elevados. AWS ofrece:
 				
 				\begin{itemize}
@@ -148,7 +148,7 @@
 		
 		\subsubsection{Azure}
 			\begin{paragraph}
-				Azure es la gran competidora de AWS, ofreciendo múltiples servicios en la nube. También disponen de servicios DevOps \cite{AzureDev63:online} para empresas, una solución integral y muy completa. Sin embargo deberíamos contratar el hosting para las aplicaciones a parte, ya que este servicio únicamente es para ejecutar cauces de CI/CD. Una vez más la única limitación es el poder adquisito de una empresa, que en caso de pequeñas compañías no lo pueden afrontar. Azure DevOps ofrece:
+				Azure es la gran competidora de AWS, ofreciendo múltiples servicios en la nube. También disponen de servicios DevOps \cite{AzureDev63:online} para empresas, una solución integral y muy completa. Sin embargo deberíamos contratar el hosting para las aplicaciones a parte, ya que este servicio únicamente es para ejecutar cauces de CI/CD. Una vez más la única limitación es el poder adquisitivo de una empresa, que en caso de pequeñas compañías no lo pueden afrontar. Azure DevOps ofrece:
 				\begin{itemize}
 					\item Azure Boards
 					\item Azure Pipelines
@@ -185,7 +185,7 @@
 			\item \textbf{Objetivo 1:} \textit{Automatizar despliegue de sistema de virtualización en servidores bare metal.}  Dados los servidores bare metal, poder desplegar algún sistema de virtualización para gestionar máquinas virtuales donde poder crear los servicios necesarios para la infraestructura.
 			\item \textbf{Objetivo 2:} \textit{Automatizar creación de esquema Firewall - Proxy - WebServer.}  Dado el objetivo de ofrecer servicios a clientes, tenemos que securizar los servidores con Firewalls y necesitamos Proxys y Webservers para servir las aplicaciones finales. 
 			\item \textbf{Objetivo 3:} \textit{Automatizar creación de servicios necesarios para poder ofrecer servicios propios de hosting.} Crear cluster de almacenamiento distribuido, cluster donde alojar las aplicaciones...
-			\item \textbf{Objetivo 4:} \textit{Automatizar la creación de los servicios necesarios para poder adoptar un enfoque DevOps para el desarrollo de aplicaciones.} Uno de los objetivos principales de este proyecto es crear y configurar los cauces de integración contínua y entrega contínua y aplicarlo al desarrollo de aplicaciones para la compañía.
+			\item \textbf{Objetivo 4:} \textit{Automatizar la creación de los servicios necesarios para poder adoptar un enfoque DevOps para el desarrollo de aplicaciones.} Uno de los objetivos principales de este proyecto es crear y configurar los cauces de integración continua y entrega continua y aplicarlo al desarrollo de aplicaciones para la compañía.
 		\end{itemize}
  
 	\subsection{Grado de cumplimiento de los objetivos propuestos}

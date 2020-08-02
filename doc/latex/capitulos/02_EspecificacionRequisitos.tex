@@ -2,9 +2,9 @@
 
 \section{Definición del problema}
 \begin{paragraph}
-	Hoy en día, aún hay muchas compañías que siguen teniendo dos equipos diferenciados dentro el departamento de IT. Systemas o Operaciones y Desarrolladores. Ya hemos visto en la introducción que esto a la larga causa problemas y no es la forma más rápida y eficiente de desarrollar software. \\
-	Trabajo como Administrador de Sistemas en una empresa pequeña y contínuamente aparecen problemas. Es por eso que se ha decidido adoptar un enfoque DevOps par el desarrollo del software. En este cambio están implicados ambos departamentos ya que es responsabilidad de ambos que los cauces de desarrollo y despliegue funcionen correctamente. \\
-	En mi compañía la Infraestructura donde se alojan los proyectos, se configura manualmente haciendo prácticamente imposible una replicación de ésta en caso de que sea necesario. También las subidas de proyectos y ejecución de tests no están automatizados y cada desarrollador se encarga de ejecutar los tests en local. Ésto implica discrepancias varias entre el equipo de operaciones y el de desarrolladores. Es por esto que se hace necesario la adoptación de técnicas DevOps como IaaC, CI y CD en la empresa.
+	Hoy en día, aún hay muchas compañías que siguen teniendo dos equipos diferenciados dentro el departamento de IT. Sistemas o Operaciones y Desarrolladores. Ya hemos visto en la introducción que esto a la larga causa problemas y no es la forma más rápida y eficiente de desarrollar software. \\
+	Trabajo como Administrador de Sistemas en una empresa pequeña y continuamente aparecen problemas. Es por eso que se ha decidido adoptar un enfoque DevOps par el desarrollo del software. En este cambio están implicados ambos departamentos ya que es responsabilidad de ambos que los cauces de desarrollo y despliegue funcionen correctamente. \\
+	En mi compañía la Infraestructura donde se alojan los proyectos, se configura manualmente haciendo prácticamente imposible una replicación de ésta en caso de que sea necesario. También las subidas de proyectos y ejecución de tests no están automatizados y cada desarrollador se encarga de ejecutar los tests en local. Ésto implica discrepancias varias entre el equipo de operaciones y el de desarrolladores. Es por esto que se hace necesario la adopción de técnicas DevOps como IaaC, CI y CD en la empresa.
 \end{paragraph}
 \section{Que se pretende resolver}
 		\begin{itemize}
@@ -14,8 +14,8 @@
 \section{Casuísticas que se dan y como se resuelve cada una}
 		\begin{itemize}
 			\item \textbf{Problema 1}: \textit{Recreación ante fallo total o réplica de infraestructura}. Ante un fallo total de la infraestructura o replicación para propósitos de testing, con los sistemas actuales sería imposible, ya que dada la configuración manual de cada uno de los servidores, sería imposible replicar al 100% el estado de los servidores. 
-			\item  \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estaŕá codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
-			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Ésto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcioanar en local con una configuración dada pero no en producción. 
+			\item  \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estará codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
+			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Ésto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
 			\item \textbf {Solución 2}: Al estar la infraestructura de cada aplicación codificada y bajo control de versiones, será sencillo replicar el entorno de producción en un entorno test para el desarrollo de aplicaciones.
 			\item \textbf{Problema 3}: \textit{Petición de subidas a producción}. Al no existir cauces de integración o despliegue, no se tiene un conocimiento exacto de qué comportamiento va a tener la aplicación en producción. Ésto y la necesidad de hacer peticiones al equipo de sistemas para subir nuevas versiones a producción ralentizan el desarrollo del software.
 			\item \textbf{Solución 3:} Al tener el desarrollador un servidor réplica de producción para desplegar las aplicaciones, sabe perfectamente el comportamiento que va a tener en producción, puesto que son entornos idénticos. Ésto y los cauces CI-CD solucionan el problema.
@@ -23,7 +23,7 @@
 
 \section{Tipos de usuario}
 	\begin{paragraph}
-		Adoptando la filosofía DevOps, tanto desarrolladores como sysadmins debería adoptar el mismo rol. Sin embargo, en una empresa en la cual crean y configuran sus propios servidores sin contratar servicios externos (como Azure DevOps, AWS...) se crea la necesidad de crear y configurar la infraestructura que va a alojar toda la infraestructura necesaria para el desarrollo cada aplicación. Es por esto que se distinguen entre dos tipos de usuarios: \textbf{Desarrolladores} y \textbf{Sistemas + Desarrolladores}.  
+		Adoptando la filosofía DevOps, tanto desarrolladores como sysadmin debería adoptar el mismo rol. Sin embargo, en una empresa en la cual crean y configuran sus propios servidores sin contratar servicios externos (como Azure DevOps, AWS...) se crea la necesidad de crear y configurar la infraestructura que va a alojar toda la infraestructura necesaria para el desarrollo cada aplicación. Es por esto que se distinguen entre dos tipos de usuarios: \textbf{Desarrolladores} y \textbf{Sistemas + Desarrolladores}.  
 		
 		\begin{itemize}
 			\item \textbf{Desarrolladores}. Este tipo usuario tiene las siguientes necesidades:
@@ -54,7 +54,7 @@
 			\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
 			\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones a través de ficheros de configuración. [RF 5]
 			\item Conocer en todo momento la configuración del servidor [RF 6]
-			\item Poder desplegar la infraestructura rápidamentte ante un error catastrófico [RF 7]
+			\item Poder desplegar la infraestructura rápidamente ante un error catastrófico [RF 7]
 			\item Realizar tareas de mantenimiento en los servidores con tareas automatizadas [RF 8]
 			\item Crear máquinas virtuales bajo demanda con tareas automatizadas y ficheros de configuración [RF 9]
 			\item Modificar la configuración de los firewall con tareas automatizadas [RF 10]
@@ -149,14 +149,14 @@
 \section{Metodología de desarrollo}
 	\begin{paragraph}
 		Todo proyecto software debe tener una organización y unas etapas de desarrollo bien definidas. En esta sección se pretende explicar la metodología de desarrollo elegida para realizar este proyecto. \\
-		Se ha tratado este proyecto como cualquier otro proyecto software. Para la organización y el control de versiones se ha elegido Github, un software basado en git originalmente creado para el control de versiones. Actualmente, GitHub ofrece múltiples servicios, como almacenamiento, gestión de paneles de trabajo, registry, integración con mútliples tecnologías... \\
+		Se ha tratado este proyecto como cualquier otro proyecto software. Para la organización y el control de versiones se ha elegido Github, un software basado en git originalmente creado para el control de versiones. Actualmente, GitHub ofrece múltiples servicios, como almacenamiento, gestión de paneles de trabajo, registry, integración con múltiples tecnologías... \\
 		En cuanto a la metodología de desarrollo, se ha optado por un desarrollo basado en Milestones. Cada Milestone está compuesto por Issues y estos están etiquetados y asignados a personas. A continuación se explican con mayor detalle estos conceptos.
 	\end{paragraph}
 
 	\subsection{Milestones}
 	\label{milestones}
 	\begin{paragraph}
-		Los Milestones o Hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un Milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración github.
+		Los Milestones o Hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un Milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración GitHub.
 		
 		\begin{figure}[!hbt]
 			\centering
