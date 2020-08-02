@@ -1,0 +1,207 @@
+---
+  
+ - hosts: pfsense_master
+ 
+   # Must have non-password ssh access
+   # # ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+ 
+   gather_facts: no
+ 
+   vars:
+     pfsense_config_path: /cf/conf/config.xml
+     pfsense_ssh_port: 11000
+     pfsense_configure_dhcp_opt: 'yes'
+ 
+     vms_to_configure:
+       - name: docker-swarm-01
+         vm_mac: 8E:E5:65:6A:EB:2A
+         vm_id: 340
+         vm_ip: 10.6.100.40
+         vm_hostname: docker-swarm-01
+         vm_domain: tfg.vps
+ 
+       - name: docker-swarm-02
+         vm_mac: 92:3D:7B:7D:59:E7
+         vm_id: 341
+         vm_ip: 10.6.100.41
+         vm_hostname: docker-swarm-02
+         vm_domain: tfg.vps
+ 
+       - name: docker-swarm-03
+         vm_mac: 66:02:B3:F5:DC:56
+         vm_id: 342
+         vm_ip: 10.6.100.42
+         vm_hostname: docker-swarm-03
+         vm_domain: tfg.vps
+ 
+ 
+   roles:
+     - pfsense
+ 
+ - hosts: proxmox_master
+   gather_facts: false
+ 
+   vars:
+     configure_vm_opt: 'no'
+     create_vm_opt: 'yes'
+     start_after_create: 'yes'
+ 
+     downloads:
+       - name: Debian 10 Template
+         download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+         backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+ 
+     create_vms:
+       - name: docker-swarm-01
+         backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+         kvm_name: docker-swarm-01
+         kvm_cores: 2 
+         kvm_memory: 1048
+         kvm_mac: 8E:E5:65:6A:EB:2A
+         kvm_sockets: 2
+         new_id: 340
+         start_at_boot: "yes"
+       
+   roles:
+     - proxmox_kvm
+ 
+ - hosts: proxmox_slave
+   gather_facts: false
+ 
+   vars:
+     configure_vm_opt: 'no'
+     create_vm_opt: 'yes'
+     start_after_create: 'yes'
+ 
+     downloads:
+       - name: Debian 10 Template
+         download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+         backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+ 
+     create_vms:
+       - name: docker-swarm-02
+         backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+         kvm_name: docker-swarm-02
+         kvm_cores: 2 
+         kvm_memory: 1024
+         kvm_mac: 92:3D:7B:7D:59:E7
+         kvm_sockets: 1
+         new_id: 341
+         start_at_boot: "yes"
+ 
+   roles:
+     - proxmox_kvm
+   
+ - hosts: tfg3.intelligenia.com
+   gather_facts: false
+ 
+   vars:
+     configure_vm_opt: 'no'
+     create_vm_opt: 'yes'
+     start_after_create: 'yes'
+ 
+     downloads:
+       - name: Debian 10 Template
+         download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+         backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+ 
+     create_vms:
+       - name: docker-swarm-03
+         backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+         kvm_name: docker-swarm-03
+         kvm_cores: 2 
+         kvm_memory: 1024
+         kvm_mac: 66:02:B3:F5:DC:56
+         kvm_sockets: 1
+         new_id: 342
+         start_at_boot: "yes"
+ 
+   roles:
+     - proxmox_kvm
+   
+   post_tasks:
+     - name: Wait for 60 seconds for VM's to come up
+       wait_for:
+         timeout: 60
+       delegate_to: localhost
+
+ - hosts: docker_swarm
+   gather_facts: no
+   become: yes
+ 
+   vars:
+     configure_vm_opt: 'yes'
+     install_docker_opt: 'yes'
+     vm_domain: tfg.vps
+ 
+     interface: ens18
+     host_user: mario
+ 
+     recommended_packages:
+       - net-tools
+       - htop
+       - nmap
+       - ncdu
+       - netcat
+       - curl
+       - wget
+       - vim 
+       - ntp
+       - apt-transport-https
+       - ca-certificates 
+       - software-properties-common
+       - tcpdump 
+       - openssl
+       - python
+       - gnupg
+ 
+   roles:
+     - proxmox_kvm
+     - docker
+ 
+   tasks:
+     - name: Set authorized keys, removing all previous 
+       authorized_key:
+         user: "{{ host_user }}"
+         state: present
+         exclusive: True
+         key: "{{ item }}"
+       with_file:
+       - public_keys/mario
+       - public_keys/victor-oficina
+       - public_keys/victor-pc
+       - public_keys/victor-portatil
+ 
+     #- name: Upgrade all packages to last version
+     #  apt:
+     #    name: "*"
+     #    state: latest 
+ #
+     #- name: Restart server and wait
+     #  reboot:
+     #    msg: "Reboot by Ansible"
+     #    connect_timeout: 10
+     #    reboot_timeout: 600
+     #    test_command: whoami
+ 
+ - hosts: swarm_manager
+   gather_facts: no
+   become: yes
+ 
+   vars:
+     create_swarm_opt: 'yes'
+     docker_swarm_manager_ip: 10.6.100.40
+ 
+   roles:
+     - docker 
+ 
+ - hosts: swarm_nodes 
+   gather_facts: no 
+   become: yes 
+   
+   vars: 
+     add_manager_opt: 'yes'
+     docker_swarm_manager_ip: 10.6.100.40
+ 
+   roles:
+     - docker 
