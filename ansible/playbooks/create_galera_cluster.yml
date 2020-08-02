@@ -1,0 +1,209 @@
+---
+ 
+- hosts: pfsense_master
+
+  # Must have non-password ssh access
+  # # ssh-copy-id root@tfg-pfsense-01.intelligenia.com -p 11000
+
+  gather_facts: no
+  tags: create_dhcp_pfsense
+
+  vars:
+    pfsense_config_path: /cf/conf/config.xml
+    pfsense_ssh_port: 11000
+    pfsense_configure_dhcp_opt: 'yes'
+    
+    vms_to_configure:
+      - name: galera-node-01
+        vm_mac: DA:BB:B8:A4:4B:8B
+        vm_id: 310
+        vm_ip: 10.6.100.70
+        vm_hostname: galera-node-01
+        vm_domain: tfg.vps
+
+      - name: galera-node-02
+        vm_mac: DE:13:2B:ED:91:D2
+        vm_id: 311
+        vm_ip: 10.6.100.71
+        vm_hostname: galera-node-02
+        vm_domain: tfg.vps
+
+      - name: galera-node-03
+        vm_mac: 1E:F6:AA:CD:97:57
+        vm_id: 312
+        vm_ip: 10.6.100.72
+        vm_hostname: galera-node-03
+        vm_domain: tfg.vps
+
+  roles:
+    - pfsense
+
+- hosts: proxmox_master
+  gather_facts: false
+  tags: create_vm
+
+  vars:
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: galera-node-01
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: galera-node-01
+        kvm_cores: 2
+        kvm_memory: 2048
+        kvm_mac: DA:BB:B8:A4:4B:8B
+        kvm_sockets: 2
+        new_id: 700
+        start_at_boot: "yes"
+      
+  roles:
+    - proxmox_kvm
+
+- hosts: proxmox_slave
+  gather_facts: false
+  tags: create_vm
+
+  vars:
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: galera-node-02
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: galera-node-02
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: DE:13:2B:ED:91:D2
+        kvm_sockets: 1
+        new_id: 701
+        start_at_boot: "yes"
+      
+  roles:
+    - proxmox_kvm
+
+- hosts: tfg3.intelligenia.com
+  gather_facts: false
+  tags: create_vm
+
+  vars:
+    create_vm_opt: 'yes'
+    start_after_create: 'yes'
+
+    interface: ens18
+    host_user: mario
+
+    downloads:
+      - name: Debian 10 Template
+        download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+        backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+
+    create_vms:
+      - name: galera-node-03
+        backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+        kvm_name: galera-node-03
+        kvm_cores: 2 
+        kvm_memory: 1024
+        kvm_mac: 1E:F6:AA:CD:97:57
+        kvm_sockets: 1
+        new_id: 702
+        start_at_boot: "yes"
+
+  roles:
+    - proxmox_kvm
+
+  post_tasks:
+    - name: Wait 60 seconds to Vms to come up
+      wait_for:
+        timeout: 60 
+
+- hosts: galera
+  tags: galera-configure-common 
+  gather_facts: no
+  become: yes
+
+  vars:
+    configure_vm_opt: 'yes'
+    vm_domain: tfg.vps
+
+    interface: ens18
+    host_user: mario
+
+    recommended_packages:
+      - net-tools
+      - htop
+      - nmap
+      - ncdu
+      - netcat
+      - curl
+      - wget
+      - vim 
+      - ntp
+      - apt-transport-https
+      - ca-certificates 
+      - software-properties-common
+      - tcpdump 
+      - openssl
+      - python
+      - gnupg
+
+  roles:
+    - proxmox_kvm
+
+- hosts: pfsense_master
+  gather_facts: no 
+  tags: restart_pfsense
+
+  vars:
+    pfsense_ssh_port: 11000
+
+  tasks:
+    - name: Change ssh port to {{ pfsense_ssh_port }}
+      set_fact:
+        ansible_port: "{{ pfsense_ssh_port }}"
+
+    - name: Delete cache file in order to make changes persistent
+      file:
+        state: absent
+        path: /tmp/config.cache
+
+    - name: Restart dhcp service on pfsense
+      command: >-
+        pfSsh.php playback svc restart dhcpd
+
+- hosts: galera
+  become: yes
+  gather_facts: no
+  tags: create_galera_cluster
+
+  vars:
+    # opts 
+    pre_tasks_opt: "yes"
+    configure_galera_opt: "yes"
+    install_mariadb_opt: "yes"
+
+    # galera_node_address: defined on hosts file.
+
+    mysql_root_password: dummypassword
+    galera_cluster_name: tfg-galera-cluster
+
+    galera_cluster_nodes: 10.6.100.70,10.6.100.71,10.6.100.72
+
+  roles:
+    - galera
+    
