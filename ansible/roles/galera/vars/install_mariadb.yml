@@ -1,0 +1,5 @@
+---
+
+mariadb_dependencies:
+  - mariadb-server
+  - mariadb-client 

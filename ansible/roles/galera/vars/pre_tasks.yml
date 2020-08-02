@@ -1,0 +1,10 @@
+---
+
+mariadb_dependencies:
+    - apt-transport-https
+    - software-properties-common
+    - python-mysqldb
+    - rsync
+
+mariadb_pip_dependencies:
+  - pymysql

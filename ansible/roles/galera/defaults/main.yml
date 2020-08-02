@@ -1,0 +1,6 @@
+---
+# defaults file for galera
+
+configure_galera_opt: "no"
+pre_tasks_opt: "no"
+install_mariadb_opt: "no"

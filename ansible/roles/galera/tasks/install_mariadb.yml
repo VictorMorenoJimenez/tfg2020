@@ -1,0 +1,64 @@
+---
+
+# To install mariadb 10.4 we need to add mariadb repos.
+# We are going to install 10.3, this version comes with debian 10
+
+# vars
+# mysql_root_password
+# mariadb_dependencies
+
+- include_vars: install_mariadb.yml
+
+- name: Install Mariadb
+  apt:
+    name: "{{ mariadb_dependencies }}"
+
+- name: Set root password 
+  mysql_user:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    user: root 
+    password: "{{ mysql_root_password }}"
+    host: localhost
+
+- name: Remove anonymous users
+  become: yes 
+  become_user: root
+  mysql_user:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    user: ""
+    host: localhost 
+    state: absent 
+
+- name: Remove root remote access 
+  become: yes 
+  become_user: root
+  mysql_user:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    user: root 
+    password: "{{ mysql_root_password }}"
+    host: localhost 
+
+- name: Remove root remote access 
+  become: yes 
+  become_user: root
+  mysql_user:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    user: root 
+    password: "{{ mysql_root_password }}"
+    host: 127.0.0.1 
+
+- name: Remove test database 
+  become: yes 
+  become_user: root
+  mysql_db:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    db: test
+    state: absent

@@ -1,0 +1,23 @@
+---
+
+# Vars for 50-server.cnf template file 
+# galera_cluster_name
+# galera_node_address
+
+- include_vars: configure_galera.yml
+
+- name: Apply 50-server.cnf template 
+  template:
+    src: 50-server.cnf.j2 
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+
+- name: Start galera cluster on first node only
+  become_user: root 
+  shell: galera_new_cluster 
+  when: first_node == "yes"
+
+- name: Restart Mariadb service 
+  service:
+    name: mariadb
+    state: restarted
+

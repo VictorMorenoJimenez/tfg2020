@@ -1,0 +1,23 @@
+---
+
+# mariadb_dependencies 
+
+- include_vars: pre_tasks.yml 
+
+- name: Update package list 
+  apt:
+    update_cache: yes
+    cache_valid_time: 3000
+
+- name: Installing dependencies
+  apt:
+    name: "{{ mariadb_dependencies }}"
+    state: present 
+
+- name: Install pip dependencies 
+  pip:
+    name: "{{ mariadb_pip_dependencies }}"
+
+- name: Setting unix_socket fact
+  set_fact:
+    mariadb_login_unix_socket: /var/run/mysqld/mysqld.sock
