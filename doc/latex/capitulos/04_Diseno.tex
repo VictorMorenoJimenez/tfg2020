@@ -180,6 +180,19 @@
 				Se ha elegido GitLab por ser la solución adoptada en un momento inicial por la empresa así como por ofrecer la posibilidad de instalar GitLab de forma gratuita en los servidores y administrar el servicio por completo. 
 			\end{paragraph}
 		
+		\subsection{Base de datos}
+		\begin{paragraph}
+			Las aplicaciones lanzadas tanto en Docker Swarm como en kubernetes, necesitarán almacenar el estado de la aplicación así como datos necesarios para el correcto funcionamiento de esta. Estos datos deben ser persistentes y no borrarse ante el reinicio de los contenedores o re-despliegue. Para esto, es necesario tener una base de datos que nos proporcione almacenamiento para las aplicaciones. La tecnología elegida para esta causa ha sido MariaDB, ya que las aplicaciones necesitan bases de datos relacionales y MariaDB está licenciado por GNU General Public License, así que lo podemos usar sin problemas. También se ha elegido esta tecnología porque es con la que más familiarizados estamos todos en la empresa. \\
+			Para garantizar la alta disponibilidad y alto rendimiento a la hora de recuperar datos, se ha optado por la creación de un cluster de Galera \cite{galeracluster:online} con 3 nodos, uno en cada nodo principal de Proxmox.
+		\end{paragraph}
+		\subsubsection{Galera Cluster}
+		\begin{paragraph}
+			Galera cluster es una tecnología de replicación de bases de datos MariaDB para InnoDB. Galera nos ofrece una solución síncrona con replicación de datos y resincronización automática. Todos los nodos de galera, tienen la información actualizada en tiempo real con lo cual, en caso de caída de alguno de los nodos, la información estaría disponible en cualquiera los otros nodos. La facilidad para crear un cluster de galera es una gran ventaja frente a otras soluciones, ya que se puede crear un cluster con el paquete de mysql-server que viene por defecto en distribuciones debian. \\
+			Galera cluster nos permite el re-escalado del cluster, tanto aumentando la cantidad de nodos maestros o esclavos cómo reducir el número de nodos. Esto es genial ya que en caso de aumento de la demanda, o incremento en el número de aplicaciones se puede aumentar el cluster de galera sin problema de forma sencilla ya que viene con una herramienta integrada para ello. \\
+			Cabe destacar que, no hay que hacer ninguna configuración especial para adaptar las aplicaciones, ya que, galera cluster es visto por las aplicaciones como un nodo normal de MariaDB. \\
+			
+		\end{paragraph}
+		
 \section{Diseño cluster}
 	\begin{paragraph}
 		En la sección \nameref{InfraestructuraObjetivo} se muestra un diagrama de la Infraestructura General diseñada para este proyecto. Un esquema Firewall - Proxy - Webserver. El objetivo de esta sección es reducir un nivel de abstracción y mostrar el diseño del Docker Swarm y del Cluster, rodeados por un círculo rojo en el caso de Docker Swarm y por una nube verde en el caso del cluster.
@@ -222,7 +235,7 @@
 		\subsubsection{Diagrama Cluster}
 			\begin{figure}[!hbt]
 				\centering
-				\includegraphics[scale=0.33]{imagenes/Diseno/diagrama_cluster.png}
+				\includegraphics[scale=0.39]{imagenes/Diseno/diagrama_cluster_2.png}
 				\caption[Diseño Cluster]{Diseño Cluster} 
 				\label{cluster_design}
 			\end{figure}

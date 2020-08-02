@@ -2,14 +2,14 @@
 \section{Introducción al problema}
 
 	\begin{paragraph}
-			 Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí. Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de testing y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
-			 Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con ésta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejándo toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mi en local me funciona...' o ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoría que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adoptación de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
+			 Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
+			 Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adoptación de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
 	\end{paragraph}
 
 \section{Motivación}
 
 	\begin{paragraph}
-		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación sobre el tema y deciden fundar una lista de correo Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración contínua, entrega contínua, infraestructura como código, etc.\\
+		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación sobre el tema y deciden fundar una lista de correo: Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración continua, entrega continua, infraestructura como código, etc.\\
 		Es en 2009 cuando se produce el famoso congreso  'O'reilly Velocity Conference' donde se realiza una charla llamada '10 Deploys per day'. En esta charla se empieza a plantear seriamente la fusión de los departamentos de Desarrollo y Operaciones. A raíz de esta charla nacen los llamados DevOpsdays, desarrolladores y equipo de operaciones empiezan a trabajar conjuntamente dando ideas de como poder fusionar ambos departamentos. Los DevOpsdays, rápidamente se extienden por todo el mundo popularizándose el término DevOps como fusión de Desarrollo y Operaciones.
 	\end{paragraph}
 \section{Conceptos básicos}
@@ -189,21 +189,6 @@
 		\end{itemize}
  
 	\subsection{Grado de cumplimiento de los objetivos propuestos}
-
-
-% Ejemplo de cita
-%\cite{BibTeXen2:online}hola
-
-% Ejemplo Imagen
-%\begin{figure}
-	%\includegraphics[scale=0.43]{imagenes/01_Introduccion/federativas_espana.png}
-	%\caption[Histórico licencias federativas España]{Número licencias federativas 1994-2018}
-	%\label{historico_licencias}
-%\end{figure}
-
-% Foot note
-% Ejemplo foot Note
-%\footnote{World Padel Tour (WPT): Actual máxima competición de pádel del mundo.}
 
 % Generador de tablas https://www.tablesgenerator.com/
 
