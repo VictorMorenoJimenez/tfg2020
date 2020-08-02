@@ -1,0 +1,13 @@
+---
+# defaults file for webproxy
+clone_repository_opt: "no"
+install_nginx_opt: "no"
+apply_config_opt: "no"
+
+nginx_user: www-data
+access_log_location: '/var/log/nginx/access.log'
+error_log_location: '/var/log/nginx/error.log'
+letsencrypt_well_known: '/mnt/wwwdata/letsencrypt-well-known'
+proxy_target: 'docker-swarm-01'
+install_certbot_opt: "no"
+create_ssl_cert_opt: "no"
