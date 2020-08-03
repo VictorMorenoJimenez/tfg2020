@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include rabbitmq"
+      include_role:
+        name: "rabbitmq"

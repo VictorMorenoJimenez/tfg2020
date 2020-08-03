@@ -1,0 +1,6 @@
+---
+# defaults file for rabbitmq
+
+pre_tasks_opt: "yes"
+install_opt: "yes"
+post_install_opt: "yes"

@@ -1,0 +1,17 @@
+---
+
+    - name: Start and Enable RabbitMQ service 
+      systemd:
+        name: rabbitmq-server
+        state: started
+        enabled: yes
+
+    - name: Enable RabbitMQ management plugins 
+      become: yes
+      shell: rabbitmq-plugins enable rabbitmq_management
+
+    # - name: Controll system limits
+    #   become: yes
+    #   template:
+    #     src: limits.conf.j2 
+    #     dest: /etc/systemd/system/rabbitmq-server.service.d/limits.conf

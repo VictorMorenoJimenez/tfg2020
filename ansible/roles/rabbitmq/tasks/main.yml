@@ -1,0 +1,20 @@
+---
+# tasks file for rabbitmq
+
+- import_tasks: pre_tasks.yml
+  tags:
+    - dependencies
+    - configure
+    - rabbitmq
+  when: pre_tasks_opt == 'yes'
+
+- import_tasks: install.yml
+  tags:
+    - install-rabbitmq
+  when: install_opt == 'yes'
+
+- import_tasks: post_install.yml
+  tags:
+    - post-install-rabbitmq
+  when: post_install_opt == 'yes'
+

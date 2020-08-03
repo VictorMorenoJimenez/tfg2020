@@ -1,0 +1,17 @@
+---
+
+    - include_vars: pre_tasks.yml
+
+    - name: Add RabbitMQ signing key to APT
+      apt_key:
+        keyserver: hkps://keys.openpgp.org
+        id: 0A9AF2115F4687BD29803A206B73A36E6026DFCA
+
+    - name: Make sure package apt-transport-https is installed
+      apt:
+        name: apt-transport-https 
+        state: present
+        update_cache:  yes
+
+
+    

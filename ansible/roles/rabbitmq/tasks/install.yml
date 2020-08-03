@@ -1,0 +1,19 @@
+---
+    - name: Add RabbitMQ source repository into sources listo.
+      apt_repository:
+        repo: "{{ item }}"
+        state: present 
+      with_items:
+        - deb https://dl.bintray.com/rabbitmq-erlang/debian buster erlang
+        - deb https://dl.bintray.com/rabbitmq/debian buster main
+    
+    - name: Install erlang dependencies 
+      apt:
+        name: "{{ erlang_dependencies }}"
+        state: present
+        update_cache: yes 
+    
+    - name: Install rabbitmq-server 
+      apt:
+        name: rabbitmq-server 
+        state: fixed 
