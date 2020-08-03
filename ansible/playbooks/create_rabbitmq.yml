@@ -1,0 +1,112 @@
+---
+ 
+    - hosts: pfsense_master
+      tags: configure_pfsense
+    
+      # Must have non-password ssh access
+      # # ssh-copy-id root@pfsense-01-ip.domain -p 11000
+    
+      gather_facts: no
+    
+      vars:
+        pfsense_config_path: /cf/conf/config.xml
+        pfsense_ssh_port: 11000
+        pfsense_configure_dhcp_opt: 'yes'
+    
+        vms_to_configure:
+          - name: rabbitmq-01
+            vm_mac: EA:A0:B6:24:9E:8E
+            vm_id: 800
+            vm_ip: 10.6.100.80
+            vm_hostname: rabbitmq-01
+            vm_domain: tfg.vps
+   
+      roles:
+        - pfsense
+    
+    - hosts: proxmox_slave
+      tags: configure_vm
+      gather_facts: false
+    
+      vars:
+        configure_vm_opt: 'no'
+        create_vm_opt: 'yes'
+        start_after_create: 'yes'
+    
+        downloads:
+          - name: Debian 10 Template
+            download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+            backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+    
+        create_vms:
+          - name: rabbitmq-01
+            backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+            kvm_name: rabbitmq-01
+            kvm_cores: 2 
+            kvm_memory: 2048
+            kvm_mac: EA:A0:B6:24:9E:8E
+            kvm_sockets: 1
+            new_id: 800
+            start_at_boot: "yes"
+
+        recommended_packages:
+            - net-tools
+            - htop
+            - nmap
+            - ncdu
+            - netcat
+            - curl
+            - wget
+            - vim 
+            - ntp
+            - apt-transport-https
+            - ca-certificates 
+            - software-properties-common
+            - tcpdump 
+            - openssl
+            - python
+            - gnupg
+          
+      roles:
+        - proxmox_kvm
+   
+      post_tasks:
+       - name: Wait for 60 seconds for VM's to come up
+         wait_for:
+           timeout: 60
+         delegate_to: localhost
+
+
+    - hosts: rabbitmq-01
+      tags: configure_and_install
+      gather_facts: false
+      become: yes
+  
+      vars:
+        configure_vm_opt: 'yes'
+        vm_domain: tfg.vps
+
+        interface: ens18
+        host_user: mario
+    
+        recommended_packages:
+            - net-tools
+            - htop
+            - nmap
+            - ncdu
+            - netcat
+            - curl
+            - wget
+            - vim 
+            - ntp
+            - apt-transport-https
+            - ca-certificates 
+            - software-properties-common
+            - tcpdump 
+            - openssl
+            - python
+            - gnupg
+          
+      roles:
+        - proxmox_kvm
+        - rabbitmq
