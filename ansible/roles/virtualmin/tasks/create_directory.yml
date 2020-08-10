@@ -1,0 +1,20 @@
+---
+
+- name: Create /mnt/wwwdata
+  file:
+    path: /mnt/wwwdata
+    state: directory
+    mode: '0755'
+
+- name: Mount /mnt/wwdata 
+  mount: 
+    path: /mnt/wwwdata
+    src: /dev/mapper/vg00-www--data
+    fstype: ext4
+    state: present
+
+- name: Add entry to /etc/fstab
+  lineinfile:
+    path: /etc/fstab
+    line: /dev/mapper/vg00-www--data ext4 defaults 0 2
+

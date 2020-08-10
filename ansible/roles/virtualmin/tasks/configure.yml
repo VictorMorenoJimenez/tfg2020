@@ -1,0 +1,13 @@
+---
+# virtualmin_root_passwrod
+# virtualmin_domain
+
+- name: Change root password
+  become: yes
+  shell: /usr/share/webmin/changepass.pl root {{ virtualmin_root_password }}
+
+- name: Add referers to /etc/webmin/config
+  lineinfile:
+    path: /etc/webmin/config
+    line: referers={{ virtualmin_domain }}
+
