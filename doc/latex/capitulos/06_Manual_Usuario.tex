@@ -1,0 +1,60 @@
+\chapter {Anexo I: Manual Usuario}
+	\section{Despliegue automático sobre bare metal}
+		\subsection{Requisitos previos}
+			\subsubsection{Hetzner}
+				\begin{paragraph}
+					Explicamos que es Hetzner y mencionamos capítulos anteriores.
+						\begin{itemize}
+							\item Ip adicional nodos maestros.
+							\item MAC adicional para ip adicional nodos maestros.
+							\item IP failover.
+							\item Virtual Switch conexión nodos en cluster. 
+							\item Clave pública. Fingerprint
+						\end{itemize}	
+				\end{paragraph}
+			\subsubsection{Dominio}
+				\begin{paragraph}
+					Explicamos la necesidad de tener comprado un dominio para todos los servicios. La necesidad de crear los siguientes CNAMES dentro de la zona DNS del dominio comprado:
+					\begin{itemize}
+						\item nodo1.dominio.com
+						\item nodo2.dominio.com 
+						\item nodo3.dominio.com
+						\item gitab.dominio.com
+						\item pfsense-01.dominio.com
+						\item pfsense-02.dominio.com
+						\item failover.dominio.com
+						\item ceph-admin.dominio.com
+						\item rabbitmq-01.dominio.com
+					\end{itemize}
+				\end{paragraph}
+			\subsubsection{Ansible Hosts}
+			\subsubsection{Dependencias. Configuración host}
+				\begin{paragraph}
+					Lista de dependencias que hay que instalar en el host donde se lanzan los playbooks.
+					Comprobar todos los modulos de Ansible que utilizamos para ver sus dependencias y agregarlas aqui.
+					\begin{itemize}
+						\item Ansible  2.9.11
+						\item Python  3.7
+						\item Proxmoxer pip
+						\item requests pip 
+						\item dependencias pip varias.
+						\item Molecule
+						\item Docker
+					\end{itemize}
+				\end{paragraph}
+			\subsubsection{Clonar repositorio desde Github}
+			
+		\subsection{Configuración variables Playbook}
+		\subsection{Ejecución Playbook}
+	\section{Despliegue automático y aprovisionamiento de máquinas virtuales}
+		\subsection{pfSense}
+		\subsection{GitLab}
+			\subsubsection{GitLab Runner}
+		\subsection{Webproxy}
+		\subsection{Docker Swarm}
+		\subsection{Kubernetes}
+		\subsection{Galera cluster}
+		\subsection{Ceph}
+		\subsection{RabbitMQ}
+		\subsection{Virtualmin}
+		
