@@ -11,7 +11,9 @@ help: ## This help.
 
 
 DOT := $(command -v pdflatex 2> /dev/null)
-doc_gen:
+
+
+doc_gen: ## Generate pdf.
 		cd doc/latex; \
 			pdflatex proyecto.tex
 
