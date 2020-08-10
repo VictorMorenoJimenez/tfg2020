@@ -141,10 +141,22 @@
 		\begin{figure}[!hbt]
 			\centering
 			\includegraphics[scale=0.75]{imagenes/Analisis/diagrama.jpg}
-			\caption[Infraestructura Objetivo]{Infraestructura Objetivo }
+			\caption[Infraestructura Objetivo]{Infraestructura Objetivo}
 			\label{Infraestructura_objetivo}
 		\end{figure}
 	\clearpage
+	\subsection{VSwitch}
+	\begin{paragraph}
+		El cluster está bajo la red LAN 10.6.0.0/16, de forma que todas las máquinas virtuales están comunicadas. Sin embargo los nodos principales (tfg.intelligenia.com, tfg2.intelligenia.com y tfg3.intelligenia.com) tienen que estar comunicados a través de una red interna para el correcto funcionamiento de Proxmox y los pfSense.
+		Es aquí donde entran en juego los switches virtuales de Hetzner. Un VSwitch simula el funcionamiento de un switch convencional, conectando los servidores que se conecten al switch entre sí. De este modo, conseguimos crear una red de conexión entre los nodos principales.
+		
+		 \begin{figure}[!hbt]
+		 	\centering
+		 	\includegraphics[scale=0.4]{imagenes/Analisis/vswitch.jpg}
+		 	\caption[VSwitch]{VSwitch}
+		 	\label{VSwitch}
+		 \end{figure}
+	\end{paragraph}
 	
 \section{Metodología de desarrollo}
 	\begin{paragraph}
