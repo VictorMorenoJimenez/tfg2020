@@ -31,3 +31,15 @@
   ignore_errors: True
   when: not stat_result.stat.exists
   
+
+- name: Restart PVE corosync 
+  systemd:
+    name: corosync
+    state: restarted 
+
+- name: Restart PVE daemon 
+  systemd:
+    name: pvedaemon
+    state: restarted
+  
+  
