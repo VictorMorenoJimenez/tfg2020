@@ -5,6 +5,7 @@
 .pass
 
 ## LATEX
+*.pdf
 *.aux
 *.glo
 *.idx
