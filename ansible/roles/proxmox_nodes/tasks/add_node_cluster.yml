@@ -29,7 +29,7 @@
   poll: 25
   async: 60
   ignore_errors: True
-  when: not stat_result.stat.exists
+  when: not stat_result.stat.exists and ssh_tfg_password is defined
   
 
 - name: Restart PVE corosync 
