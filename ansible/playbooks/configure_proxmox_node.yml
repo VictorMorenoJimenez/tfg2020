@@ -78,7 +78,7 @@
     vlan_pfsync_id: 4022
     vlan_nodes2_id: 4023
 
-    # Vars for create_ssl_letsencrypt
+    # Vars for create_ssl_letsencrypt@t
     servername: "{{ ansible_host }}"
     certbot_admin_email: victor.moreno@intelligenia.com
     create_ssl_certificate_opt: 'yes'
@@ -113,6 +113,9 @@
     #     comment: "System Administrators"
     #     permission: "/"
     #     role: "Administrator"
+
+  vars_files:
+    - secrets.yml
 
   roles:
     - hetzner 
