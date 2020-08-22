@@ -1,18 +1,18 @@
 \chapter {Diseño}
 
 \section{Solución adoptada}
-	\begin{paragraph}
+	\begin{text}
 		Con el fin de cumplir todos los objetivos definidos en la sección \nameref{ObjetivosPropuestos} se han elegido las siguientes tecnologías. Cabe destacar la influencia ejercida por la empresa para utilizar tecnologías ya existentes en la infraestructura actual como los firewall pfSense o el servicio de virtualización Proxmox. Sin embargo, son tecnologías con continuo desarrollo y muy aptas para desarrollar su papel dentro del cluster. \\
 		Todas las tecnologías que se van a mencionar a continuación son de código abierto y satisfacen las necesidades de este proyecto. 
-	\end{paragraph}
+	\end{text}
 
 	\subsection{Proveedor Infraestructura}
-		\begin{paragraph}
+		\begin{text}
 			La infraestructura necesaria para formar el ecosistema que cumpla con los objetivos de este proyecto, se ha de alojar en servidores físicos. Para cumplir esta necesidad se ha elegido el proveedor Hetzner \cite{hetzner:online}, uno de los proveedores de servidores bare metal más conocidos en Europa. \\
-		\end{paragraph}
+		\end{text}
 		 \clearpage
 		\subsubsection{Hetzner}
-		\begin{paragraph}
+		\begin{text}
 			Hetzner posee tres grandes centros de datos, Suiza, Irlanda y Luxemburgo. Una de las principales ventajas que tiene Hetzner sobre otras compañías es el soporte 24/7 que ofrece en los servidores dedicados. Ante cualquier problema siempre tienes una línea abierta de soporte para solucionarlo. Ésto junto con la gran variedad de servidores de distintas gamas que ofrece, hace a Hetzner un candidato perfecto para contratar la infraestructura.
 			
 			\begin{figure}[!hbt]
@@ -28,15 +28,15 @@
 				\caption[Hetzner Building]{Hetzner Building \cite{hetzner:online}} 
 				\label{Hetzner Building}
 				\end{figure} 
-			\end{paragraph}
+			\end{text}
 		
 	\subsection{Servicio Virtualización}
-		\begin{paragraph}
+		\begin{text}
 			Para poder ofrecer todos los servicios descritos en \nameref{ObjetivosPropuestos} y cumplir con la arquitectura objetivo \nameref{Infraestructura_objetivo}, se hace necesario añadir una capa de virtualización a los servidores contratados. Estos 3 servidores físicos, servirán para desplegar los servicios descritos, sin embargo es necesario separar estos servicios en distintas máquinas. El servicio de virtualización nos permitirá crear tantas máquinas virtuales como servicios, virtualizando el hardware del servidor físico y aportando entornos cerrados, virtualizados y fácilmente recreables. \\
 			El servicio de virtualización elegido ha sido Proxmox VE \cite{proxmox:online}, basado en KVM (Kernel-based Virtual Machine) y de código abierto. Se ha elegido este servicio de virtualización por necesidades de la empresa.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{Proxmox}
-		\begin{paragraph}
+		\begin{text}
 			Proxmox VE es una solución completa para gestionar máquinas virtuales KVM. Entre sus servicios podemos destacar:
 			\begin{itemize}
 				\item \textbf{Hypervisor KVM}. Fácil acceso a las máquinas a través de una consola gestionada por el hypervisor KVM.
@@ -57,9 +57,9 @@
 				\end{figure}
 			\end{itemize}
  
-		\end{paragraph}
+		\end{text}
 	\subsection{Firewall}
-		\begin{paragraph}
+		\begin{text}
 			Hoy en día, con el auge de la informática y de las nuevas tecnologías, cada vez se están dando más y más ciberataques. Los denominados 'hackers' o delincuentes, aprovechan brechas de seguridad en los sistemas para poder hacerse con información sensible y después poder pedir rescate por dicha información. Estos ataques suelen aprovechar puertos abiertos, servicios obsoletos y vulnerabilidades conocidas para perpetrar sus ataques. Por ejemplo, esta web nos muestra en tiempo real la cantidad de ataques que sufre un país determinado \cite{ciberataques:online}.
 			\begin{figure}[!hbt]
 				\centering
@@ -69,10 +69,10 @@
 			\end{figure}
 			Es por esto que se hace necesaria la protección de la infraestructura final, exponiendo únicamente los puertos necesarios para desviar el tráfico y trabajar con los servicios únicamente dentro de la red LAN segura. \\
 			Para este fin se ha elegido la tecnología pfSense \cite{pfsense:online}. PfSense dispone de su versión community gratuita y de código abierto. Esta tecnología se ha elegido ya que es la tecnología utilizada en el cluster de producción de la empresa.
-		\end{paragraph}
+		\end{text}
 
 		\subsubsection{pfSense}
-			\begin{paragraph}
+			\begin{text}
 				Basado en FreeBSD, este firewall se instala en una máquina virtual como un servicio más sirviendo como router/firewall según la configuración. Entre otros, los principales servicios que ofrecen pfSense son:
 				\begin{itemize}
 					\item \textbf{DHCP Server}. Un servidor DHCP totalmente configurable para asignar ya sea de forma dinánmica o estática las IP a las máquinas del cluster.
@@ -91,38 +91,38 @@
 						\label{pfsense_wui}
 					\end{figure}
 				\end{itemize}
-			\end{paragraph}
+			\end{text}
 		\clearpage
 	\subsection{Contenedores}
-		\begin{paragraph}
+		\begin{text}
 			Como ya hemos visto, Proxmox nos proporciona una capa de virtualización del hardware de los servidores para poder crear máquinas virtuales donde alojar los distintos servicios. \\
 			Sin embargo, a la hora del desarrollo y despliegue de aplicaciones web en el cluster, se hace inviable crear una máquina virtual por cada una de las aplicaciones web creadas. Esto sería insostenible ya que las máquinas virtuales demandan recursos. \\
 			
 			Para solventar este problema se van a crear aplicaciones en contenedores. Cada aplicación tendrá uno o varios contenedores dependiendo de los servicios, normalmente 1 servicio 1 contenedor. Para realizar este proceso se ha elegido la tecnología Docker. \cite{docker:online}.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{Docker}
-		\begin{paragraph}
+		\begin{text}
 			Docker es la tecnología más famosa para crear contenedores. Gracias a Docker podemos aislar las aplicaciones en contenedores seguros y fácilmente replicables. Se ha elegido Docker por su extensa comunidad y porque es la tecnología más utilizada para este fin. Sin embargo, con esto no es suficiente ya que, una vez tengamos la aplicación separada en contenedores, necesitamos un entorno donde lanzar estos contenedores y poder gestionarlos. Es aquí donde surgen los orquestadores de contenedores. A continuación se hace una pequeña a dos orquestadores: Docker Swarm \cite{swarm:online} y Kubernetes \cite{k8:online}.
-		\end{paragraph}
+		\end{text}
 	\subsection{Orquestación contenedores}
 		\subsubsection{Kubernetes}
-		\begin{paragraph}
+		\begin{text}
 			Kubernetes es un software de orquestación de contenedores que nos permite automatizar el proceso de despliegue, escalado y gestión de las aplicaciones en contenedores. Kubernetes se ha convertido en la solución principal para grandes empresas por su robustez. La principal ventaja de Kubernetes frente a sus competidores es la posibilidad de modificar las condiciones de escalado vertical o horizontal de los contenedores sin afectar a la disponibilidad de la aplicación. Su gran desventaja es la complejidad, ya que para poder manejar de forma eficiente un cluster de Kubernetes debemos pasar por un largo camino de aprendizaje. \\
 			Se ha elegido esta tecnología por su gran demanda en el sector y como proceso de aprendizaje. Esta tecnología no estaba implementada en la empresa, sin embargo, se va a introducir como orquestador adicional.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{Docker Swarm}
-		\begin{paragraph}
+		\begin{text}
 			Docker Swarm es un software de orquestación de contenedores. Es la solución nativa de Docker para la gestión de los contenedores. Docker Swarm nos permite automatizar los procesos de despliegue escalado y gestión de contenedores. Sin embargo, cuando hablamos de escalado vertical o horizontal, Docker Swarm, al contrario que Kubernetes, no permite este escalado asegurando la disponibilidad. Debemos relanzar los contenedores con los nuevos parámetros para el escalado. \\
 			Se ha elegido esta tecnología por ser la usada en un principio en la empresa para la gestión de contenedores. Cabe destacar que, aunque no ofrece los mismos servicios que Kubernetes, Docker Swarm es una solución muy buena para la orquestación de contenedores y su principal ventaja frente a Kubernetes es la facilidad para desplegar y gestionar los contenedores.
-		\end{paragraph}
+		\end{text}
 	\subsection{Almacenamiento estático}
 		\label{ceph}
-		\begin{paragraph}
+		\begin{text}
 			Si bien tanto Docker Swarm como Kubernetes nos permiten gestionar los contenedores, estas tecnologías están pensadas para aplicaciones stateless o sin estado \cite{stateless:online}. A grandes rasgos, esto quiere decir que tanto Kubernetes como Docker Swarm, funcionan bien con aplicaciones que no necesitan almacenar información para su correcto funcionamiento. \\
 			Para esto, Docker ofrece una solución en forma de volúmenes. Sin embargo, esta solución no se adecua a las necesidades de un entorno de alta disponibilidad  y alta fiabilidad. Es por esto que surge la necesidad de crear alguna solución de almacenamiento distribuido que nos proporcione dichas características. La solución elegida ha sido Ceph \cite{ceph:online}.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{Ceph}
-		\begin{paragraph}
+		\begin{text}
 			Ceph es un software de código abierto que proporciona almacenamiento distribuido. Ceph ofrece almacenamiento a nivel de bloque, objeto y a nivel de fichero. \\
 			En nuestro caso particular, nos vamos a beneficiar de CephFS o Ceph File System, que está implementado sobre el sistema de almacenamiento a nivel de bloque creado por Ceph. Las principales ventajas de Ceph son:
 			\begin{itemize}
@@ -142,22 +142,22 @@
 		
 			Se ha elegido esta tecnología por ser la más completa de las opciones de código abierto. 
 			
-		\end{paragraph}
+		\end{text}
 	
 	\subsubsection{Aclaraciones Ceph}
 	\label{cephdefinitions}
-	\begin{paragraph}
+	\begin{text}
 		Ceph es una tecnología compleja, para abordar de forma correcta este documento se cree necesaria la aclaración de cómo funciona Ceph así como de los servicios que involucra:
 		
 		
-	\end{paragraph}
+	\end{text}
 	\subsection{Servidor Web / Proxy}
-		\begin{paragraph}
+		\begin{text}
 			Para el correcto acceso de los clientes y desarrolladores a las aplicaciones, se hace necesario un proxy que desvíe las peticiones a la aplicación correcta. Para este fin se ha elegido la tecnología Nginx \cite{nginx:online}, que sirve a la vez de servidor web y de proxy. Un proxy es esencial para asegurar la seguridad del cluster, ya que únicamente hay un punto de entrada protegido por un proxy que a su vez está protegido por el firewall. De esta forma se aumenta la seguridad y se dificultan los intentos de ataque masivos.
-		\end{paragraph}
+		\end{text}
 	\clearpage
 		\subsubsection{Nginx}
-		\begin{paragraph}
+		\begin{text}
 			Nginx, es uno de los servidores web más utilizados en el mundo por su facilidad en el uso así por su versatilidad, puede ser utilizado como servidor web, proxy o balanceador. 
 			
 			\begin{figure}[!hbt]
@@ -168,37 +168,37 @@
 			\end{figure}
 		
 			Se ha elegido Nginx por ser la solución adoptada por la empresa en primer lugar, no se ha propuesto utilizar otra tecnología ya que esta satisface las necesidades de este proyecto. 
-		\end{paragraph}
+		\end{text}
 	\subsection{Control de versiones}
 		\label{gitlab}
-		\begin{paragraph}
+		\begin{text}
 			Para el correcto desarrollo del software y en este caso de la infraestructura, es necesario disponer de un servicio de control de versiones donde subir el código y llevar un seguimiento del mismo. Esto es muy importante, ya que cualquier cambio en el código queda reflejado y hacer rollbacks a versiones anteriores es posible. Para este fin se ha elegido la herramienta basada en git GitLab \cite{gitlab:online}.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{GitLab}
-			\begin{paragraph}
+			\begin{text}
 				GitLab es un software basado en Git, que proporciona una interfaz web para la gestión de proyectos, usuarios y ofrece herramientas para todo el ciclo DevOps. Integración continua, despliegue continuo, registry para contenedores... GitLab ofrece una versión Community gratuita que se puede instalar en servidores propios. GitLab ofrece múltiples servicios así como integración con servicios externos. \\
 				Se ha elegido GitLab por ser la solución adoptada en un momento inicial por la empresa así como por ofrecer la posibilidad de instalar GitLab de forma gratuita en los servidores y administrar el servicio por completo. 
-			\end{paragraph}
+			\end{text}
 		
 		\subsection{Base de datos}
-		\begin{paragraph}
+		\begin{text}
 			Las aplicaciones lanzadas tanto en Docker Swarm como en Kubernetes, necesitarán almacenar el estado de la aplicación así como datos necesarios para el correcto funcionamiento de esta. Estos datos deben ser persistentes y no borrarse ante el reinicio de los contenedores o re-despliegue. Para esto, es necesario tener una base de datos que nos proporcione almacenamiento para las aplicaciones. La tecnología elegida para esta causa ha sido MariaDB, ya que las aplicaciones necesitan bases de datos relacionales y MariaDB está licenciado por GNU General Public License, así que lo podemos usar sin problemas. También se ha elegido esta tecnología porque es con la que más familiarizados estamos todos en la empresa. \\
 			Para garantizar la alta disponibilidad y alto rendimiento a la hora de recuperar datos, se ha optado por la creación de un cluster de Galera \cite{galeracluster:online} con 3 nodos, uno en cada nodo principal de Proxmox.
-		\end{paragraph}
+		\end{text}
 		\subsubsection{Galera Cluster}
-		\begin{paragraph}
+		\begin{text}
 			Galera cluster es una tecnología de replicación de bases de datos MariaDB para InnoDB. Galera nos ofrece una solución síncrona con replicación de datos y resincronización automática. Todos los nodos de galera, tienen la información actualizada en tiempo real con lo cual, en caso de caída de alguno de los nodos, la información estaría disponible en cualquiera los otros nodos. La facilidad para crear un cluster de galera es una gran ventaja frente a otras soluciones, ya que se puede crear un cluster con el paquete de mysql-server que viene por defecto en distribuciones debian. \\
 			Galera cluster nos permite el re-escalado del cluster, tanto aumentando la cantidad de nodos maestros o esclavos cómo reducir el número de nodos. Esto es genial ya que en caso de aumento de la demanda, o incremento en el número de aplicaciones se puede aumentar el cluster de galera sin problema de forma sencilla ya que viene con una herramienta integrada para ello. \\
 			Cabe destacar que, no hay que hacer ninguna configuración especial para adaptar las aplicaciones, ya que, galera cluster es visto por las aplicaciones como un nodo normal de MariaDB. \\
 			
-		\end{paragraph}
+		\end{text}
 		
 \section{Diseño cluster}
-	\begin{paragraph}
+	\begin{text}
 		En la sección \nameref{InfraestructuraObjetivo} se muestra un diagrama de la Infraestructura General diseñada para este proyecto. Un esquema Firewall - Proxy - Webserver. El objetivo de esta sección es reducir un nivel de abstracción y mostrar el diseño del Docker Swarm y del Cluster, rodeados por un círculo rojo en el caso de Docker Swarm y por una nube verde en el caso del cluster.
-	\end{paragraph}
+	\end{text}
 	\subsection{Docker Swarm}
-	\begin{paragraph}
+	\begin{text}
 		Como se puede observar en el siguiente diagrama, cada aplicación estará separada en distintos contenedores dentro del docker swarm. En este caso, para ejemplificarlo, se ha elegido una aplicación que tiene 3 contenedores. Backend, frontend y un contenedor que se encargará de encolar tareas Celery. De esta forma, al lanzar la aplicación el cluster de docker swarm, docker swarm se encargará de replicar los contenedores y de asegurar la disponibilidad de los servicios. \\
 		Sin embargo, lo ideal sería poder alojar en el swarm, únicamente el proxy y que este se encargue de balancear el tráfico hacía otro cluster donde se alojan las aplicaciones, ya sea otro swarm o un cluster de Kubernetes.
 		
@@ -209,9 +209,9 @@
 			\label{docker_swarm_design}
 		\end{figure}
 		
-	\end{paragraph}
+	\end{text}
 	\subsection{Cluster}
-		\begin{paragraph}
+		\begin{text}
 			A continuación, bajando el nivel de abstracción, se explican los principales servicios que componen el cluster. Esta parte corresponde con la nube verde llamada cluster en la sección \nameref{InfraestructuraObjetivo}.
 			\begin{itemize}
 				\item \textbf{K8 cluster}. Kubernetes cluster formado por 4 nodos. Un nodo administrador y 3 workers. Este cluster servirá para lanzar aplicaciones en contenedores Docker. Es una mejora al cluster de docker swarm.
@@ -240,11 +240,11 @@
 				\label{cluster_design}
 			\end{figure}
 		
-	\end{paragraph}
+	\end{text}
 		
 \section{Posibles mejoras}
-	\begin{paragraph}
+	\begin{text}
 		El proyecto que describe este documento, es una solución integral para resolver el problema de infraestructura en una pequeña empresa. Si hablamos de posibles mejoras, ya que siempre se puede mejorar, hablaríamos de hacer más eficientes los playbooks de Ansible o estructurarlos de forma que sean más comprensibles. Cabe destacar que en el diseño del cluster se incluye un cluster de Kubernetes, el cual está justamente para mejorar el cluster de docker-swarm. \\
 		Un punto importante de mejora sería implementar las técnicas de integración continua y entrega continua a las aplicaciones Wordpress de Virtualmin, ya que en este proyecto únicamente se abordan los proyectos Django + Angular de la empresa. \\
 		A grandes rasgos y exceptuando pequeñas mejoras en la calidad del código o la documentación, pienso que el proyecto es muy ambicioso y está bien diseñado a nivel de infraestructura, no necesitando grandes cambios en un futuro próximo.
-	\end{paragraph}
+	\end{text}

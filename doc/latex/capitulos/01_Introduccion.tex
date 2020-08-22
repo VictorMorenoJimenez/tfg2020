@@ -1,23 +1,45 @@
 \chapter {Introducción}
-\section{Introducción al problema}
-
 	\begin{paragraph}
-			 Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
-			 Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adopción de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
+		Actualmente trabajo como administrador de sistemas en una empresa de desarrollo de aplicaciones web. Este proyecto es una colaboración con la empresa con el fin de mejorar técnicamente toda la infraestructura necesaria para desarrollar la actividad de la empresa. A continuación se detalla el alcance del proyecto así como una definición específica del problema se pretende resolver.
 	\end{paragraph}
+\section{Definición del problema}
+	\begin{text}
+		Actualmente la empresa para la que trabajo dispone de una infraestructura desplegada en un proveedor de servidores bare metal, esta infraestructura se ha ido creando con el tiempo, añadiendo servicios y haciendo las modificaciones pertinentes. \\
+		Esta infraestructura es la responsable de alojar todos los servicios que se ofrecen a los clientes y se utiliza también para el desarrollo de nuevo software. Los desarrolladores utilizan máquinas virtuales creadas en la infraestructura para simular entornos de producción donde desplegar las aplicaciones en fase de pruebas antes de hacer un despliegue definitivo en producción. \\
+		Lo explicado anteriormente plantea varios problemas:
+		\begin{itemize}
+			\item Infraestructura configurada manualmente, imposible de replicar.
+			\item Configuración de los distintos servicios manual, imposible de replicar. 
+			\item Difícil conocer el estado actual de los distintos servicios desplegados. 
+			\item Dependencia desarrolladores de equipo de sistemas para incorporar cambios en aplicaciones en pruebas.
+			\item Ralentización de los procesos de desarrollo de software debido a la dependencia del equipo de sistemas.
+		\end{itemize}
+	\end{text}
 
-\section{Motivación}
+\section{Objetivos}
+\label{objetivos_primarios}
+\begin{text}
+	Una vez identificados los problemas podemos definir una série de objetivos a alcanzar para solucionarlos. Este proyecto pretende lograr:
+	\begin{itemize}
+		\item \textbf{Objetivo 1}. Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios.
+		\item \textbf{Objetivo 2}. Replicar la infraestructura asegurando bajos tiempos de creación.
+		\item \textbf{Objetivo 3}. Crear servicios necesarios para una empresa de aplicaciones web asegurando bajos tiempos de creación.
+		\item \textbf{Objetivo 4}. Replicar cualquier servicio alojado en la infraestructura de una empresa en la infraestructura de forma rápida.
+		\item \textbf{Objetivo 5}. Crear cauces rápidos y seguros para la creación de nuevo software.
+	\end{itemize}
+\end{text}
 
-	\begin{paragraph}
-		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación sobre el tema y deciden fundar una lista de correo: Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración continua, entrega continua, infraestructura como código, etc.\\
-		Es en 2009 cuando se produce el famoso congreso  'O'reilly Velocity Conference' donde se realiza una charla llamada '10 Deploys per day'. En esta charla se empieza a plantear seriamente la fusión de los departamentos de Desarrollo y Operaciones. A raíz de esta charla nacen los llamados DevOpsdays, desarrolladores y equipo de operaciones empiezan a trabajar conjuntamente dando ideas de como poder fusionar ambos departamentos. Los DevOpsdays, rápidamente se extienden por todo el mundo popularizándose el término DevOps como fusión de Desarrollo y Operaciones.
-	\end{paragraph}
+\section{Grado de cumplimiento de los objetivos propuestos}
+\begin{text}
+	Explicar aquí si se ha logrado cumplir el objetivo propuesto.
+\end{text}
+
 \section{Conceptos básicos}
-		\begin{paragraph}
+		\begin{text}
 			A continuación se van a describir uno a uno, los conceptos básicos para entender este proyecto. Son conceptos claves sin los cuales un lector inexperto no comprenderá ni el problema ni la solución adoptada para el problema.
-		\end{paragraph}
+		\end{text}
 	\subsection{DevOps}
-		\begin{paragraph}
+		\begin{text}
 			El término DevOps es una fusión de las dos palabras Desarrollo y Operaciones. DevOps es una filosofía, una forma de abordar el desarrollo de software. El objetivo de DevOps es fusionar los departamentos Desarrollo y Operaciones de forma que sea más fácil y rápida la creación de software. La siguiente imagen define el término:
 			
 			\begin{figure}[!hbt]
@@ -27,9 +49,9 @@
 				\label{termino_devops}
 			\end{figure}
 			 
-		\end{paragraph}
+		\end{text}
 	\subsection{Integración Continua (CI)}
-		\begin{paragraph}
+		\begin{text}
 			La Integración Continua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración continua se basa en hacer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. La Integración Continua consta de dos partes: compilación y ejecución de test de un proyecto.
 			
 			\begin{figure}[!hbt]
@@ -38,9 +60,9 @@
 				\caption[Integración Continua]{Integración Continua \cite{Alcanzan90:online} }
 				\label{integracion_continua} 
 			\end{figure}
-		\end{paragraph}
+		\end{text}
 	\subsection{Despliegue contínuo (CD)}
-		\begin{paragraph}
+		\begin{text}
 			El Despligue Continuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración continua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración continua. Gracias a CD podemos garantizar entregas rápidas y seguras de software.
 			
 			\begin{figure}[!hbt]
@@ -49,9 +71,9 @@
 				\caption[Despliegue Continuo]{Despliegue Continuo \cite{continuo84:online}}
 				\label{despligue_continuo} 
 			\end{figure}
-		\end{paragraph}
+		\end{text}
 	\subsection{Infraestructura como Código (IaaC)}
-		\begin{paragraph}
+		\begin{text}
 			La infraestructura cómo código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. IaaC acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
 			De esta manera no únicamente se testea el software antes de ser lanzado, si no también la infraestructura. A continuación se muestra como sería el cauce de trabajo siguiendo los principios de IaaC.
 			
@@ -61,30 +83,54 @@
 				\caption[Infraestructura como Código]{Infraestructura como Código \cite{WhatIsIaaC:online}}
 				\label{infraestructura_como_codigo} 
 			\end{figure}
-		\end{paragraph}
+		\end{text}
+	
+\section{Solución propuesta}
+\begin{text}
+	Este proyecto se ha creado para cumplir con los objetivos descritos en la sección 1.2. A continuación se define a grandes rasgos la solución propuesta que se irá justificando y ampliando a lo largo del documento.
+	\begin{itemize}
+		\item \textbf{Objetivo 1: Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios}. \\ Aplicando la filosofía DevOps a la infraestructura. Se tratará la infraestructura como si fuese un proyecto software, es decir, la infraestructura será codificada bajo ficheros de configuración y estos estarán alojados en algún sistema de control de versiones.
+		\item \textbf{Objetivo 1.1: Infraestructura segura frente a ataques}. \\ Para garantizar la seguridad de la infraestructura, se desplegarán firewalls redundantes. Estos firewalls serán tratados como servicios y entran dentro de las especificaciones del objetivo 3.
+		\item \textbf{Objetivo 2: Replicar la infraestructura asegurando bajos tiempos de creación.} \\
+		Si se consigue objetivo 1, es decir, tener la infraestructura codificada en ficheros de configuración con alguna herramienta de automatización, esta será fácilmente replicable. Si se cumple el objetivo 1, se cumplirá el objetivo 2.
+		\item \textbf{Objetivo 3: Crear y desplegar servicios necesarios para una empresa de aplicaciones web asegurando bajos tiempos de creación.} \\
+		Una vez cumplidos objetivos 1 y 2, y con una infraestructura base desplegada, será necesario desplegar los servicios que una empresa dedicada al desarrollo de aplicaciones web requiere. Servicios como servidores web, servicios de orquestación de contenedores para lanzar las aplicaciones, gestor de paso de mensajes... Para garantizar que estos servicios se pueden crear y desplegar en tiempos eficientes, será necesario utilizar herramientas de automatización para crear y desplegar los servicios, de manera que, mediante ficheros de configuración lanzados en la infraestructura, logramos el despliegue de todos los servicios necesarios.
+		\item \textbf{Objetivo 4: Crear cauces rápidos y seguros para la creación de nuevo software.} \\
+		Para cumplir con este objetivo se va a instalar un servicio en la infraestructura que permita la creación de dichos cauces. Se aplicarán técnicas para garantizar los despliegues automáticos y la creación de entornos de pruebas para probar las aplicaiones. La seguridad está garantizada ya que todo sucede en un entorno seguro gracias al sub objetivo 1.1, y en una red LAN a la cual únicamente tienen acceso los administradores.
+	\end{itemize}
+\end{text}
 	
 \section{Estado del arte}
-	\begin{paragraph}
-		En esta sección se va a comentar el estado actual de proyectos parecidos al que se describe en este documento. Sin embargo, antes de abordar esta cuestión me gustaría hacer un pequeño análisis de cómo ha evolucionado el mercado laboral de este tipo de puestos de trabajo para hacer énfasis en la importancia de todo lo mencionado anteriormente.
-	\end{paragraph}
+	\begin{text}
+		En esta sección se va a comentar el estado actual de proyectos parecidos al que se describe en este documento así como el contexto en el cual se desarrolla este proyecto. También se añade un pequeño análisis de cómo ha evolucionado el mercado laboral de este tipo de puestos de trabajo para hacer énfasis en la importancia de todo lo mencionado anteriormente.
+	\end{text}
 
 	\subsection{Introducción}
-		\begin{paragraph}
+	\begin{text}
+		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación sobre el tema y deciden fundar una lista de correo: Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración continua, entrega continua, infraestructura como código, etc.\\
+		Es en 2009 cuando se produce el famoso congreso  'O'reilly Velocity Conference' donde se realiza una charla llamada '10 Deploys per day'. En esta charla se empieza a plantear seriamente la fusión de los departamentos de Desarrollo y Operaciones. A raíz de esta charla nacen los llamados DevOpsdays, desarrolladores y equipo de operaciones empiezan a trabajar conjuntamente dando ideas de como poder fusionar ambos departamentos. Los DevOpsdays, rápidamente se extienden por todo el mundo popularizándose el término DevOps como fusión de Desarrollo y Operaciones. \\
+
+		Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
+		Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adopción de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
+	\end{text}
+	
+	\subsection{Mercado actual}
+		\begin{text}
 			Es una realidad que cada día más las empresas optan por soluciones Cloud y es bastante sencillo para un programador medio crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores Cloud y convertirse en todo un auténtico DevOps. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
 			Sin embargo, no todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener. \\
 			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
-		\end{paragraph}
+		\end{text}
 	
 	\subsection{Proveedores Cloud}
-		\begin{paragraph}
+		\begin{text}
 			A continuación se va a hacer un análisis de los principales proveedores Cloud, ya que no se ha encontrado nada similar a lo que pretende este proyecto. Sin embargo los proveedores Cloud sí ofrecen dichas soluciones, contratando sus servicios. \\
 			En estudio vamos a comparar los servicios Cloud y su coste con los servicios contratados para este proyecto (Servidores Bare metal) \\
-		\end{paragraph}
+		\end{text}
 	
 		\subsubsection{Servidores Bare Metal}
 			\label{servidores_bare_metal}
 
-			\begin{paragraph}
+			\begin{text}
 				Se han contratado tres servidores en el proveedor Hetzner. Éstos son tres servidores físicos que cuentan con las siguientes características hardware:
 				
 				\begin{itemize}
@@ -127,9 +173,9 @@
 			
 			Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{1047,75} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
 			
-			\end{paragraph}
+			\end{text}
 		\subsubsection{AWS}
-			\begin{paragraph}
+			\begin{text}
 				Amazon Web Services es una de las plataformas de computación en la nube más usadas en el mundo. 
 				AWS ofrece una gran cantidad de servicios, recursos de cómputo en la nube, almacenamiento, bases de datos, herramientas de administración, seguridad, dispositivos móviles... \\
 				Actualmente Amazon ofrece múltiples soluciones DevOps para empresas, sin embargo no todas las compañías se pueden permitir los costes, que aún son elevados. AWS ofrece:
@@ -144,10 +190,10 @@
 					\item Security
 				\end{itemize}
 				
-			\end{paragraph}
+			\end{text}
 		
 		\subsubsection{Azure}
-			\begin{paragraph}
+			\begin{text}
 				Azure es la gran competidora de AWS, ofreciendo múltiples servicios en la nube. También disponen de servicios DevOps \cite{AzureDev63:online} para empresas, una solución integral y muy completa. Sin embargo deberíamos contratar el hosting para las aplicaciones a parte, ya que este servicio únicamente es para ejecutar cauces de CI/CD. Una vez más la única limitación es el poder adquisitivo de una empresa, que en caso de pequeñas compañías no lo pueden afrontar. Azure DevOps ofrece:
 				\begin{itemize}
 					\item Azure Boards
@@ -156,10 +202,10 @@
 					\item Azure Atifacts (CI/CD)
 					\item Azure test plans
 				\end{itemize}
-			\end{paragraph}
+			\end{text}
 		
 		\subsubsection{Google Cloud}
-			\begin{paragraph}
+			\begin{text}
 				Al igual que las dos anteriores, Google Cloud ofrece servicios DevOps para empresas a precios similares \cite{GoogleCloud:online}. De igual manera el servicio de hosting para las aplicaciones va a parte y ofrece servicios como:
 				\begin{itemize}
 					\item Control de versiones
@@ -170,25 +216,25 @@
 					\item Arquitectura
 					\item Seguridad
 				\end{itemize}
-			\end{paragraph}	
+			\end{text}	
 	
-\section{Objetivos del TFG}
-	\begin{paragraph}
-		Esta sección se va a encargar de definir los objetivos propuestos para este proyecto, sirviendo como primera aproximación para los requisitos funcionales. A continuación se redactan los objetivos propuestos en un estado inicial del proyecto y qué nivel de cumplimiento de éstos se ha logrado.
-	\end{paragraph}
-	\subsection{Objetivos propuestos}
-		\label{ObjetivosPropuestos}
-		\begin{paragraph}
-			El objetivo principal de este proyecto es dar una solución integra y completa para gestionar la infraestructura de una pequeña empresa adoptando una filosofía DevOps.
-		\end{paragraph}
-		\begin{itemize}
-			\item \textbf{Objetivo 1:} \textit{Automatizar despliegue de sistema de virtualización en servidores bare metal.}  Dados los servidores bare metal, poder desplegar algún sistema de virtualización para gestionar máquinas virtuales donde poder crear los servicios necesarios para la infraestructura.
-			\item \textbf{Objetivo 2:} \textit{Automatizar creación de esquema Firewall - Proxy - WebServer.}  Dado el objetivo de ofrecer servicios a clientes, tenemos que securizar los servidores con Firewalls y necesitamos Proxys y Webservers para servir las aplicaciones finales. 
-			\item \textbf{Objetivo 3:} \textit{Automatizar creación de servicios necesarios para poder ofrecer servicios propios de hosting.} Crear cluster de almacenamiento distribuido, cluster donde alojar las aplicaciones...
-			\item \textbf{Objetivo 4:} \textit{Automatizar la creación de los servicios necesarios para poder adoptar un enfoque DevOps para el desarrollo de aplicaciones.} Uno de los objetivos principales de este proyecto es crear y configurar los cauces de integración continua y entrega continua y aplicarlo al desarrollo de aplicaciones para la compañía.
-		\end{itemize}
+%\section{Objetivos}
+%	\begin{text}
+%		Esta sección se va a encargar de definir los objetivos propuestos para este proyecto, sirviendo como primera aproximación para los requisitos funcionales. A continuación se redactan los objetivos propuestos en un estado inicial del proyecto y qué nivel de cumplimiento de éstos se ha logrado.
+%	\end{text}
+%	\subsection{Objetivos propuestos y subobjetivos}
+%		\label{ObjetivosPropuestos}
+%		\begin{text}
+%			El objetivo principal de este proyecto es dar una solución integra y completa para gestionar la infraestructura de una pequeña empresa adoptando una filosofía DevOps.
+%		\end{text}
+%		\begin{itemize}
+%			\item \textbf{Objetivo 1:} \textit{Automatizar despliegue de sistema de virtualización en servidores bare metal.}  Dados los servidores bare metal, poder desplegar algún sistema de virtualización para gestionar máquinas virtuales donde poder crear los servicios necesarios para la infraestructura.
+%			\item \textbf{Objetivo 2:} \textit{Automatizar creación de esquema Firewall - Proxy - WebServer.}  Dado el objetivo de ofrecer servicios a clientes, tenemos que securizar los servidores con Firewalls y necesitamos Proxys y Webservers para servir las aplicaciones finales. 
+%			\item \textbf{Objetivo 3:} \textit{Automatizar creación de servicios necesarios para poder ofrecer servicios propios de hosting.} Crear cluster de almacenamiento distribuido, cluster donde alojar las aplicaciones...
+%			\item \textbf{Objetivo 4:} \textit{Automatizar la creación de los servicios necesarios para poder adoptar un enfoque DevOps para el desarrollo de aplicaciones.} Uno de los objetivos principales de este proyecto es crear y configurar los cauces de integración continua y entrega continua y aplicarlo al desarrollo de aplicaciones para la compañía.
+%		\end{itemize}
  
-	\subsection{Grado de cumplimiento de los objetivos propuestos}
+%	\subsection{Grado de cumplimiento de los objetivos propuestos}
 
 % Generador de tablas https://www.tablesgenerator.com/
 
