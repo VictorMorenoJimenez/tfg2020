@@ -1,0 +1,32 @@
+---
+
+    - hosts: localhost
+      connection: local 
+      become: true
+
+      vars:
+        apt_dependencies:
+            - ansible
+            - python3-pip 
+            - libssl-dev
+            - build-essential
+            - libffi-dev
+            - python3-dev
+            - git
+            - make
+            - python3-pip
+
+        pip_dependencies:
+            - molecule
+            - docker
+
+      tasks:
+        - name: Install APT dependencies
+          tags: install_apt_dependencies
+          apt:
+            name: "{{ apt_dependencies }}"
+
+        - name: Install PIP dependencies
+          tags: install_pip_dependencies
+          pip:
+            name: "{{ pip_dependencies }}"
