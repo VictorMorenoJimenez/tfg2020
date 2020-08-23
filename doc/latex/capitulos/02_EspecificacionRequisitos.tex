@@ -17,13 +17,13 @@
 			
 			\item  \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estará codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
 			
-			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Ésto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
+			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Esto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
 			
 			\item \textbf {Solución 2}: Al estar la infraestructura de cada aplicación codificada y bajo control de versiones, será sencillo replicar el entorno de producción en un entorno test para el desarrollo de aplicaciones.
 			
-			\item \textbf{Problema 3}: \textit{Petición de subidas a producción}. Al no existir cauces de integración o despliegue, no se tiene un conocimiento exacto de qué comportamiento va a tener la aplicación en producción. Ésto y la necesidad de hacer peticiones al equipo de sistemas para subir nuevas versiones a producción ralentizan el desarrollo del software.
+			\item \textbf{Problema 3}: \textit{Petición de subidas a producción}. Al no existir cauces de integración o despliegue, no se tiene un conocimiento exacto de qué comportamiento va a tener la aplicación en producción. Esto y la necesidad de hacer peticiones al equipo de sistemas para subir nuevas versiones a producción ralentizan el desarrollo del software.
 			
-			\item \textbf{Solución 3:} Al tener el desarrollador un servidor réplica de producción para desplegar las aplicaciones, sabe perfectamente el comportamiento que va a tener en producción, puesto que son entornos idénticos. Ésto y los cauces CI-CD solucionan el problema.
+			\item \textbf{Solución 3:} Al tener el desarrollador un servidor réplica de producción para desplegar las aplicaciones, sabe perfectamente el comportamiento que va a tener en producción, puesto que son entornos idénticos. Esto y los cauces CI-CD solucionan el problema.
 			
 			\item \textbf{Problema 4}: \textit{Desconocimiento estado infraestructura o servicios}. Al configurarse los servidores de forma manual, parche tras parche, es imposible conocer en qué estado se encuentra la infraestructura. También dificulta la replicación de esta para procesos de pruebas.
 			
@@ -62,7 +62,7 @@
 	
 	Y así seguiríamos creando issues según creamos que van a ser necesarios para completar el hito en cuestión. \\
 	En la sección  \nameref{milestones} hemos hablado que los issues tienen etiquetas. En la lista anterior por ejemplo, únicamente tenemos dos etiquetas que nos indican en este caso si son issues imprescindibles para el hito o simplemente mejoras. Gracias a estas etiquetas, podemos distinguir entre distintos tipos de issues y asignar mayor o menos prioridad por etiqueta. También gracias a Github, cada issue puede ser asignado a un desarrollador del proyecto. A continuación se muestra un ejemplo del panel de Github para mostrar los issues, etiquetas y hitos. \\
-	Como se puede comprobar, el sistema de etiquetas y asingación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / milestone. 
+	Como se puede comprobar, el sistema de etiquetas y asignación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / Milestone. 
 	
 	\begin{figure}[!hbt]
 		\centering
@@ -73,7 +73,7 @@
 \end{text}
 \clearpage
 
-\section{Subobjetivos, requisitos funcionales e issues}
+\section{Subjetivos, requisitos funcionales e issues}
 	\begin{text}
 		En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en Milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
 	\end{text}
@@ -91,7 +91,7 @@
 				\item \textbf{Milestone 5:} Cluster preparado para desplegar aplicaciones.
 				\item \textbf{Milestone 6:} Despliegue automático de aplicaciones.
 			\end{itemize}
-			A continuación se relaciona cada objetivo definido en la sección \nameref{objetivos_primarios} con su milestone.
+			A continuación se relaciona cada objetivo definido en la sección \nameref{objetivos_primarios} con su Milestone.
 			
 		
 		\begin{table}[!hbt]
@@ -205,7 +205,7 @@
 			\item \textbf{Restricción 1.} El uso de las siguientes tecnologías será necesario para la correcta adaptación del proyecto a la empresa:
 			\begin{itemize}
 				\item Bases de datos: MySQL
-				\item Almacenamiento esático: Ceph cluster
+				\item Almacenamiento estático: Ceph cluster
 				\item Servicio virtualización: Proxmox
 				\item Servido web: Nginx
 				\item Contenedores: Docker
@@ -222,15 +222,15 @@
 	\end{text}
 	\subsubsection{Puppet}
 	\begin{text}
-		Puppet es una herramienta de software libre de gestión de configuración de software. Es comunmente utilizado por los administradores de sistemas para configurar múltiples servidores y para automatizar las tareas de mantenimiento. Puppet se adapta perfectamente a las necesidades de este proyecto. Sin embargo, la complejidad del lenguaje ruby junto con la necesidad de crear una infraestructura maestro - esclavo con los distintos nodos hace que se haya desechado esta opción.
+		Puppet es una herramienta de software libre de gestión de configuración de software. Es comúnmente utilizado por los administradores de sistemas para configurar múltiples servidores y para automatizar las tareas de mantenimiento. Puppet se adapta perfectamente a las necesidades de este proyecto. Sin embargo, la complejidad del lenguaje ruby junto con la necesidad de crear una infraestructura maestro - esclavo con los distintos nodos hace que se haya desechado esta opción.
 	\end{text}
 	\subsubsection{Chef}
 	\begin{text}
-		Chef es una herramienta open source con objetivos similares a Puppet. Basado en ruby y orientado a desarrolladores con experienca en ruby. La curva de aprendizaje es menor que la de Puppet. Sin embargo, también hay que crear una infraestructura específica para usar Chef con un nodo que acturía de servidor y los nodos esclavos que serían los servidores a configurar.
+		Chef es una herramienta open source con objetivos similares a Puppet. Basado en ruby y orientado a desarrolladores con experienca en ruby. La curva de aprendizaje es menor que la de Puppet. Sin embargo, también hay que crear una infraestructura específica para usar Chef con un nodo que actuaria de servidor y los nodos esclavos que serían los servidores a configurar.
 	\end{text}
 	\subsubsection{Ansible}
 	\begin{text}
-		Por úlitmo la elegida, Ansible. Ansible está basado en python y también es software libre. La gran ventaja de Ansible frente a Chef o Puppet es que no necesitamos generar ninguna estructura específica dentro del sistema para ejecutar tareas de Ansible. Simplemente instalar Ansible y los módulos necesarios según nuestras necesidades. También aprender Ansible es bastante asequible ya que los playbooks o ficheros de configuración Ansible son ficheros .yml. Los playbooks se ejecutan en orden secuencial lo que facilita mucho su comprensión. Es por todo esto que hemos elegido Ansible como herramienta de automatización para cumplir con los objetivos de este proyecto.
+		Por último la elegida, Ansible. Ansible está basado en python y también es software libre. La gran ventaja de Ansible frente a Chef o Puppet es que no necesitamos generar ninguna estructura específica dentro del sistema para ejecutar tareas de Ansible. Simplemente instalar Ansible y los módulos necesarios según nuestras necesidades. También aprender Ansible es bastante asequible ya que los playbooks o ficheros de configuración Ansible son ficheros .yml. Los playbooks se ejecutan en orden secuencial lo que facilita mucho su comprensión. Es por todo esto que hemos elegido Ansible como herramienta de automatización para cumplir con los objetivos de este proyecto.
 	\end{text}
 	
 	\subsection{Issues}
@@ -658,7 +658,7 @@
 	
 	\addrow{Actores}{Administrador}
 	
-	\addrow{Precondición}{El usuario administrador ha ejecutado correctamente << CU.0 >>, los ficheros hosts.yml con los nodos objetivo y asignado las variables necesaris enl os roles \textbf{hetzner}y \textbf{proxmox\_nodes}.}
+	\addrow{Precondición}{El usuario administrador ha ejecutado correctamente << CU.0 >>, los ficheros hosts.yml con los nodos objetivo y asignado las variables necesarias en os roles \textbf{hetzner}y \textbf{proxmox\_nodes}.}
 	
 	\addrow{Postcondición}{La infraestructura queda replicada en nuevos nodos.}
 	
@@ -677,6 +677,7 @@
 \hline
 \end{usecase}
 
+\clearpage 
 
 \section{Arquitectura del Sistema}
 	\subsection{Servidores Físicos}
@@ -684,16 +685,14 @@
 			Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto.Las características técnicas de los servidores se pueden consultar en \nameref{servidores_bare_metal}.
 		\end{text}
 	\subsection{Infraestructura objetivo}
-		\label{InfraestructuraObjetivo}
 		\begin{text}
 			Este proyecto pretende crear una infraestructura robusta para una pequeña empresa que se dedique al desarrollo del software. Ésta infraestructura debe ser robusta al igual que segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web.  A continuación se muestra la infraestructura objetivo.
 		\end{text}
-	
 		\begin{figure}[!hbt]
+			\label{InfraestructuraObjetivo}
 			\centering
-			\includegraphics[scale=0.57]{imagenes/Analisis/diagrama.jpg}
+			\includegraphics[scale=0.75]{imagenes/Analisis/diagrama.jpg}
 			\caption[Infraestructura Objetivo]{Infraestructura Objetivo}
-			\label{Infraestructura_objetivo}
 		\end{figure}
 	\clearpage
 	\subsection{VSwitch}
@@ -703,7 +702,7 @@
 		
 		 \begin{figure}[!hbt]
 		 	\centering
-		 	\includegraphics[scale=0.4]{imagenes/Analisis/vswitch.jpg}
+		 	\includegraphics[scale=0.5]{imagenes/Analisis/vswitch.jpg}
 		 	\caption[VSwitch]{VSwitch}
 		 	\label{VSwitch}
 		 \end{figure}

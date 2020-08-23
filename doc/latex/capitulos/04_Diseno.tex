@@ -2,7 +2,7 @@
 
 \section{Solución adoptada}
 	\begin{text}
-		Con el fin de cumplir todos los objetivos definidos en la sección \nameref{ObjetivosPropuestos} se han elegido las siguientes tecnologías. Cabe destacar la influencia ejercida por la empresa para utilizar tecnologías ya existentes en la infraestructura actual como los firewall pfSense o el servicio de virtualización Proxmox. Sin embargo, son tecnologías con continuo desarrollo y muy aptas para desarrollar su papel dentro del cluster. \\
+		Con el fin de cumplir todos los objetivos definidos en la sección \nameref{objetivos_primarios} se han elegido las siguientes tecnologías. Cabe destacar la influencia ejercida por la empresa para utilizar tecnologías ya existentes en la infraestructura actual como los firewall pfSense o el servicio de virtualización Proxmox. Sin embargo, son tecnologías con continuo desarrollo y muy aptas para desarrollar su papel dentro del cluster. \\
 		Todas las tecnologías que se van a mencionar a continuación son de código abierto y satisfacen las necesidades de este proyecto. 
 	\end{text}
 
@@ -13,7 +13,7 @@
 		 \clearpage
 		\subsubsection{Hetzner}
 		\begin{text}
-			Hetzner posee tres grandes centros de datos, Suiza, Irlanda y Luxemburgo. Una de las principales ventajas que tiene Hetzner sobre otras compañías es el soporte 24/7 que ofrece en los servidores dedicados. Ante cualquier problema siempre tienes una línea abierta de soporte para solucionarlo. Ésto junto con la gran variedad de servidores de distintas gamas que ofrece, hace a Hetzner un candidato perfecto para contratar la infraestructura.
+			Hetzner posee tres grandes centros de datos, Suiza, Irlanda y Luxemburgo. Una de las principales ventajas que tiene Hetzner sobre otras compañías es el soporte 24/7 que ofrece en los servidores dedicados. Ante cualquier problema siempre tienes una línea abierta de soporte para solucionarlo. Esto junto con la gran variedad de servidores de distintas gamas que ofrece, hace a Hetzner un candidato perfecto para contratar la infraestructura.
 			
 			\begin{figure}[!hbt]
 				\centering
@@ -75,7 +75,7 @@
 			\begin{text}
 				Basado en FreeBSD, este firewall se instala en una máquina virtual como un servicio más sirviendo como router/firewall según la configuración. Entre otros, los principales servicios que ofrecen pfSense son:
 				\begin{itemize}
-					\item \textbf{DHCP Server}. Un servidor DHCP totalmente configurable para asignar ya sea de forma dinánmica o estática las IP a las máquinas del cluster.
+					\item \textbf{DHCP Server}. Un servidor DHCP totalmente configurable para asignar ya sea de forma dinámica o estática las IP a las máquinas del cluster.
 					\item \textbf{DNS Resolver}. Posibilidad de configurar el servidor DNS. Forzar resolución de nombres, modificar servidores...
 					\item \textbf{Firewall}. Por defecto deniega todo el tráfico menos el necesario para la interfaz web. Podemos definir reglas firewall dedicadas para cada interfaz. También podemos crear reglas NAT para redirigir el tráfico dentro de la red. Todo gestionado desde la interfaz web.
 					\item \textbf{Virtual IP}. Al querer ofrecer alta disponibilidad, es necesario disponer de una ip virtual del tipo CARP (Common Address Redundancy Protocol). De esta forma podemos tener una IP virtual de acceso al cluster para los firewall. En caso de fallo del firewall principal, se modificará esta IP para que el pfSense secundario se haga cargo de dirigir el tráfico dentro del cluster a través de esta ip virtual.
