@@ -177,6 +177,28 @@ pdfproducer = {pdflatex}
 
 \newcommand{\bigrule}{\titlerule[0.5mm]}
 
+\usepackage{booktabs}
+
+\newcommand\tabularhead[1]{
+	\begin{table}[!hbt]
+		\caption{Acción #1}
+		
+		\begin{tabular}{|p{0.4\linewidth}|p{0.55\linewidth}|}
+			\hline
+			\textbf{Acción} & \textbf{#1} \\
+			\hline}
+		
+		\newcommand\addrow[2]{#1 &#2\\ \hline}
+		
+		\newcommand\addmulrow[2]{ \begin{minipage}[t][][t]{2.5cm}#1\end{minipage}% 
+			&\begin{minipage}[t][][t]{8cm}
+				\begin{enumerate} #2   \end{enumerate}
+			\end{minipage}\\ }
+		
+		\newenvironment{usecase}{\tabularhead}
+{\hline\end{tabular}\end{table}}
+
+
 
 %Para conseguir que en las páginas en blanco no ponga cabecerass
 \makeatletter

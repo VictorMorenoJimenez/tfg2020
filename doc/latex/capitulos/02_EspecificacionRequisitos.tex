@@ -176,13 +176,17 @@
 			\item \textbf{RF 3.1}. El sistema permitirá la creación de un servicio de firewall en el cluster. (RNF 4)
 			\item \textbf{RF 3.2}. El sistema permitirá la creación de un servicio de control de versiones en el cluster.
 			\item \textbf{RF 3.3}. El sistema permitirá la creación de un servicio de almacenamiento estático en el cluster.
-			\item \textbf{RF 3.4}. El sistema permitirá la creación de un servicio de gestión de aplicaciones en el cluster.
+			\item \textbf{RF 3.4}. El sistema permitirá la creación de un servicio de gestión de aplicaciones Wordpress en el cluster.
 			\item \textbf{RF 3.5}. El sistema permitirá la creación de un servicio de orquestación de contenedores en el cluster. (RNF 4)
 			\item \textbf{RF 3.6}. El sistema permitirá la creación de un servicio de servidor web en el cluster.
 			\item \textbf{RF 3.7}. El sistema permitirá la creación de un servicio de monitorización en el cluster.
 			\item \textbf{RF 3.8}. El sistema permitirá la creación de un servicio de base de datos en el cluster. (RNF 3)
 			\item \textbf{RF 3.9}. El sistema permitirá la creación de un servicio de gestión de colas.
 		\end{itemize}
+	
+	\item \textbf{RF 4}. El sistema permitirá la recreación de infraestructura en un tiempo bajo.
+	
+	\item \textbf{RF 5}. El sistema permitirá el despliegue automatizados en un cluster seguro.
 	\end{itemize}
 
 	\subsection{Requisitos funcionales}
@@ -275,130 +279,406 @@
 				\end{itemize}
 			\item \textbf{Milestone 5:} Cluster preparado para desplegar aplicaciones.
 				\begin{itemize}
-					\item \textbf{Issue 5.1}
-					\item \textbf{Issue 5.2}
-					\item \textbf{Issue 5.3}
-					\item \textbf{Issue 5.4}
-					\item \textbf{Issue 5.5}
+					\item \textbf{Issue 5.1}. Instalar y configurar Ceph cluster.
+					\item \textbf{Issue 5.2}. Instalar y configurar Galera cluster.
+					\item \textbf{Issue 5.3}. Instalar y configurar Virtualmin.
+					\item \textbf{Issue 5.4}. Instalar y configurar Kubernetes cluster.
+					\item \textbf{Issue 5.5}. Instalar y configurar RabbitMQ.
+					\item \textbf{Issue 5.6}. Instalar y configurar Nginx.
 				\end{itemize}
 			\item \textbf{Milestone 6:} Despliegue automático de aplicaciones.
 				\begin{itemize}
-					\item \textbf{Issue 6.1}
-					\item \textbf{Issue 6.2}
-					\item \textbf{Issue 6.3}
-					\item \textbf{Issue 6.4}
+					\item \textbf{Issue 6.2}. Dockerizar proyecto Djagno + Angular.
+					\item \textbf{Issue 6.2}. Creación test unitarios.
+					\item \textbf{Issue 6.1}. Instalación y configuración de GiLab CI+CD.
+					\item \textbf{Issue 6.3}. Adaptar proyecto a CI/CD.
 				\end{itemize}
 		\end{itemize}
 	\end{text}
 
 
 
-\section{Tipos de usuario}
-	\begin{text}
-		Adoptando la filosofía DevOps, tanto desarrolladores como sysadmin debería adoptar el mismo rol. Sin embargo, en una empresa en la cual crean y configuran sus propios servidores sin contratar servicios externos (como Azure DevOps, AWS...) se crea la necesidad de crear y configurar la infraestructura que va a alojar toda la infraestructura necesaria para el desarrollo cada aplicación. Es por esto que se distinguen entre dos tipos de usuarios: \textbf{Desarrolladores} y \textbf{Sistemas + Desarrolladores}.  
+%\section{Tipos de usuario}
+%	\begin{text}
+%		Adoptando la filosofía DevOps, tanto desarrolladores como sysadmin debería adoptar el mismo rol. Sin embargo, en una empresa en la cual crean y configuran sus propios servidores sin contratar servicios externos (como Azure DevOps, AWS...) se crea la necesidad de crear y configurar la infraestructura que va a alojar toda la infraestructura necesaria para el desarrollo cada aplicación. Es por esto que se distinguen entre dos tipos de usuarios: \textbf{Desarrolladores} y \textbf{Sistemas + Desarrolladores}.  
 		
-		\begin{itemize}
-			\item \textbf{Desarrolladores}. Este tipo usuario tiene las siguientes necesidades:
-				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
-				\item Poder integrar cambios a las aplicaciones. [RF 2]
-				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
-				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
-			\item \textbf{Desarrolladores + Sistemas}
-				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
-				\item Poder integrar cambios a las aplicaciones. [RF 2]
-				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
-				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
-				\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones. [RF 5]
-				\item Poder conocer la configuración de la infraestructura. [RF 6]
-		\end{itemize}
+%		\begin{itemize}
+%			\item \textbf{Desarrolladores}. Este tipo usuario tiene las siguientes necesidades:
+%				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
+%				\item Poder integrar cambios a las aplicaciones. [RF 2]
+%				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
+%				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
+%			\item \textbf{Desarrolladores + Sistemas}
+%				\item Poder construir una infraestructura para el desarrollo de aplicaciones bajo d%emanda. [RF 1]
+%				\item Poder integrar cambios a las aplicaciones. [RF 2]
+%%				\item Poder tener feedback de el estado de la aplicación tras el despliegue. [RF 3]
+%				\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
+%				\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones. [RF 5]
+%				\item Poder conocer la configuración de la infraestructura. [RF 6]
+%		\end{itemize}
 	
-		Estos historias de usuario representan la funcionalidad final del proyecto, con un nivel de abstracción muy alto. En la siguiente sección, se desgranarán estas historias para definir de forma precisa los requisitos funcionales. \cite{ReqF:online} 
-	\end{text}
+%		Estos historias de usuario representan la funcionalidad final del proyecto, con un nivel de abstracción muy alto. En la siguiente sección, se desgranarán estas historias para definir de forma precisa los requisitos funcionales. \cite{ReqF:online} 
+%	\end{text}
 
-\section{Especificación de requisitos}
-	\label{erf}
-	\begin{text}
-		A continuación se detallan los requisitos funcionales de este proyecto. 
-		\begin{itemize}
-			\item Construir y desplegar infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
-			\item Poder integrar cambios en las aplicaciones de forma autónoma [RF 2]
-			\item Conocer el estado de la aplicación una vez hecho el despliegue [RF 3]
-			\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
-			\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones a través de ficheros de configuración. [RF 5]
-			\item Conocer en todo momento la configuración del servidor [RF 6]
-			\item Poder desplegar la infraestructura rápidamente ante un error catastrófico [RF 7]
-			\item Realizar tareas de mantenimiento en los servidores con tareas automatizadas [RF 8]
-			\item Crear máquinas virtuales bajo demanda con tareas automatizadas y ficheros de configuración [RF 9]
-			\item Modificar la configuración de los firewall con tareas automatizadas [RF 10]
-		\end{itemize}
-	\end{text}
+%\section{Especificación de requisitos}
+%	\label{erf}
+%	\begin{text}
+%		A continuación se detallan los requisitos funcionales de este proyecto. 
+%		\begin{itemize}
+%			\item Construir y desplegar infraestructura para el desarrollo de aplicaciones bajo demanda. [RF 1]
+%			\item Poder integrar cambios en las aplicaciones de forma autónoma [RF 2]
+%			\item Conocer el estado de la aplicación una vez hecho el despliegue [RF 3]
+%%			\item Conocer la configuración del servidor donde se aloja la aplicación web. [RF 4]
+%			\item Poder desplegar la infraestructura completa que aloja la infraestructura para las aplicaciones a través de ficheros de configuración. [RF 5]
+%			\item Conocer en todo momento la configuración del servidor [RF 6]
+%			\item Poder desplegar la infraestructura rápidamente ante un error catastrófico [RF 7]
+%			\item Realizar tareas de mantenimiento en los servidores con tareas automatizadas [RF 8]
+%			\item Crear máquinas virtuales bajo demanda con tareas automatizadas y ficheros de configuración [RF 9]
+%			\item Modificar la configuración de los firewall con tareas automatizadas [RF 10]
+%		\end{itemize}
+%	\end{text}
 
-\section{Diagramas}
-	\subsection{Diagramas casos de uso}
-		\begin{text}
-			A continuación se muestran los principales diagramas según los requisitos funcionales descritos en la sección \nameref{erf}.
-		\end{text}
+%section{Diagramas}
+%	\subsection{Diagramas casos de uso}
+%		\begin{text}
+%			A continuación se muestran los principales diagramas según los requisitos funcionales descritos en la sección \nameref{erf}.
+%		\end{text}
 	
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/casos_uso_administrador.png}
-			\caption[Casos de uso Administrador]{Casos de uso \cite{casosuso:online}} 
-			\label{Casos de uso Administrador}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/casos_uso_administrador.png}
+%			\caption[Casos de uso Administrador]{Casos de uso \cite{casosuso:online}} 
+%			\label{Casos de uso Administrador}
+%		\end{figure}
 	
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/casos_uso_desarrollador.png}
-			\caption[Casos de uso Desarrollador]{Casos de uso \cite{casosuso:online}} 
-			\label{Casos de uso Desarrollador}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/casos_uso_desarrollador.png}
+%			\caption[Casos de uso Desarrollador]{Casos de uso \cite{casosuso:online}} 
+%			\label{Casos de uso Desarrollador}
+%		\end{figure}
 	
-	\subsection{Diagramas de secuencia}
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_1.png}
-			\caption[Diagrama secuencia Desarrollador 1]{Diagrama secuencia Desarrollador 1 \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia_desarrollador_1}
-		\end{figure}
-		\clearpage
+%	\subsection{Diagramas de secuencia}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_1.png}
+%			\caption[Diagrama secuencia Desarrollador 1]{Diagrama secuencia Desarrollador 1 %cite{diagramasecuencia:online}} 
+%			\label{Diagrama secuencia_desarrollador_1}
+%		\end{figure}
+%		\clearpage
 	
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_4.png}
-			\caption[Diagrama secuencia Desarrollador 2]{Diagrama secuencia Desarrollador 2 \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia_desarrollador_2}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_4.png}
+%			\caption[Diagrama secuencia Desarrollador 2]{Diagrama secuencia Desarrollador 2 \cite{diagramasecuencia:online}} 
+%			\label{Diagrama secuencia_desarrollador_2}
+%		\end{figure}
 
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_3.png}
-			\caption[Diagrama secuencia Desarrollador 3]{Diagrama secuencia Desarrollador 3 \cite{diagramasecuencia:online}} 
-			\label{Diagrama secuencia_desarrollador_3}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_desarrollador_3.png}
+%			\caption[Diagrama secuencia Desarrollador 3]{Diagrama secuencia Desarrollador 3 \cite{diagramasecuencia:online}} 
+%			\label{Diagrama secuencia_desarrollador_3}
+%		\end{figure}
 	
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_1.png}
-			\caption[Diagrama secuencia Administrador 1]{Diagrama secuencia Administrador 1 \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia_administrador_1}
-		\end{figure}
-		\clearpage
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_1.png}
+%			\caption[Diagrama secuencia Administrador 1]{Diagrama secuencia Administrador 1 \cite{diagramasecuencia:online}}
+%			\label{Diagrama secuencia_administrador_1}
+%		\end{figure}
+%		\clearpage
 		
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
-			\caption[Diagrama secuencia Administrador 2]{Diagrama secuencia Administrador 2 \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia_administrador_2}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
+%			\caption[Diagrama secuencia Administrador 2]{Diagrama secuencia Administrador 2 \cite{diagramasecuencia:online}}
+%			\label{Diagrama secuencia_administrador_2}
+%		\end{figure}
 	
-		\begin{figure}[!hbt]
-			\centering
-			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
-			\caption[Diagrama secuencia Administrador 3]{Diagrama secuencia Administrador 3 \cite{diagramasecuencia:online}}
-			\label{Diagrama secuencia_administrador_3}
-		\end{figure}
+%		\begin{figure}[!hbt]
+%			\centering
+%			\includegraphics[scale=0.4]{imagenes/Analisis/diagrama_secuencia_administrador_2.png}
+%			\caption[Diagrama secuencia Administrador 3]{Diagrama secuencia Administrador 3 \cite{diagramasecuencia:online}}
+%			\label{Diagrama secuencia_administrador_3}
+%		\end{figure}
 		
+\clearpage
+\section{Casos de uso}
+
+	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
+		\addrow{Descripción}{Configura el equipo donde se van a lanzar las tareas del proyecto.}
+		
+		\addrow{Actores}{Administrador/Desarrollador}
+		
+		\addrow{Precondición}{El usuario dispone de un equipo con una ISO instalada de la familia Debian.}
+		
+		\addrow{Postcondición}{El equipo del usuario queda preparado para la ejecución de tareas del proyecto.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El usuario clona el proyecto
+			\item El usuario configura las va- \\
+			riables necesarias para ejecutar el \\ 
+			playbook
+			\item El usuario ejecuta el playbook \\ \textbf{configure\_development\_\\environment} 
+			\item El sistema ejecuta las tareas en el \\
+			equipo local
+			\item El sistema informa al usuario \\
+			del resultado de la ejecución}
+		\hline
+	\end{usecase}
+	\clearpage
+	\begin{usecase}{Crear infraestructura << CU.1 >>}
+		\addrow{Descripción}{Permite crear la infraestructura sobre los nodos.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario administrador ha clonado el proyecto y ha configurado correctamente los ficheros hosts.yml, asignado valor a las variables de los roles hetzner y proxmox\_nodes y ejecutado caso de uso 0}
+		
+		\addrow{Postcondición}{Los nodos están configurados con la ISO elegida instalada y el servicio de virtualización Proxmox desplegado. Creado y configurado cluster Proxmox.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador clona el proyecto
+			\item El administrador configura las va- \\
+				riables necesarias para ejecutar el \\ 
+				playbook
+			\item El administrador ejecuta el play- \\
+			book \textbf{configure\_proxmox\_nodes} 
+			\item El sistema ejecuta las tareas en los \\
+				nodos 
+			\item El sistema informa al administrador \\
+				  del resultado de la ejecución}
+			  \hline
+	\end{usecase}
+	\clearpage
+	\begin{usecase}{Replicar infraestructura << CU.2 >>}
+		\addrow{Descripción}{Permite replicar la infraestructura sobre los nodos.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario administrador ha clonado el proyecto y ha configurado correctamente el fichero hosts.yml con los nuevos nodos donde replicar la infraestructura, asignado valor a las variables de los roles hetzner y proxmox\_nodes y ejecutado caso de uso 0}
+		
+		\addrow{Postcondición}{La infraestructura desplegada en << CU.1 >> queda replicada en los nodos elegidos.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador clona el proyecto
+			\item El administrador configura las va- \\
+			riables necesarias para ejecutar el \\ 
+			playbook
+			\item El administrador ejecuta el play- \\
+			book \textbf{configure\_proxmox\_nodes} 
+			\item El sistema ejecuta las tareas en los \\
+			nodos 
+			\item El sistema informa al administrador \\
+			del resultado de la ejecución}
+		\hline
+	\end{usecase}
+	\clearpage
 	
+	\begin{usecase}{Crear servicio firewall << CU.3 >>}
+		\addrow{Descripción}{Permite crear un servicio de firewall en el cluster.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >>}
+		
+		\addrow{Postcondición}{Se ha creado el servicio de firewall pfSense en el cluster.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador ejecuta \\ correctamente << CU.0 >>
+			\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+			o << CU.2 >>.
+			\item El administrador configura \\ variables 
+			de role \textbf{pfsense} 
+			\item El administrador ejecuta playbook \\  
+				\textbf{deploy\_pfsense\_firewall}
+			\item El sistema ejecuta las tareas en los \\
+			nodos. 
+			\item El sistema informa al administrador \\
+			del resultado de la ejecución}
+		\hline
+	\end{usecase}
+\clearpage
+\begin{usecase}{Crear servicio almacenamiento estático << CU.4 >>}
+	\addrow{Descripción}{Permite crear un servicio de almacenamiento estático en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de almacenamiento estático \textbf{Ceph cluster} en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{pfsense} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{deploy\_pfsense\_firewall}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\begin{usecase}{Crear servicio de gestión de aplicaciones Wordpress << CU.5 >>}
+	\addrow{Descripción}{Permite crear un servicio de gestión de aplicaciones Wordpress en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de gestión de aplicaciones Wordpress en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{virtualmin} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_virtualmin}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\clearpage 
+
+\begin{usecase}{Crear servicio de orquestación de contenedores en el cluster << CU.6 >>}
+	\addrow{Descripción}{Permite crear un servicio de orquestación de contenedores en el cluster en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de orquestación de contenedores en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{kubernetes} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_kubernetes\_cluster}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\clearpage
+
+\begin{usecase}{Crear servicio de monitorización en el cluster << CU.7 >>}
+	\addrow{Descripción}{Permite crear un servicio de monitorización en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de monitorización en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{icinga2} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_icinga2}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\clearpage
+
+\begin{usecase}{Crear servicio de bases de datos << CU.8 >>}
+	\addrow{Descripción}{Permite crear un servicio bases de datos en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de bases de datos en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{icinga2} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_galera\_cluster}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\clearpage 
+
+\begin{usecase}{Crear servicio de gestión de colas << CU.10 >>}
+	\addrow{Descripción}{Permite crear un servicio gestión de colas en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de gestión de colas en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{rabbitmq} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_rabbitmq}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\clearpage
+
+\begin{usecase}{Recrear infraestructura << CU.11 >>}
+	\addrow{Descripción}{Permite replicar infraestructura en nuevos nodos.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario administrador ha ejecutado correctamente << CU.0 >>, los ficheros hosts.yml con los nodos objetivo y asignado las variables necesaris enl os roles \textbf{hetzner} y \textbf{proxmox\_nodes}.}
+	
+	\addrow{Postcondición}{La infraestructura queda replicada en nuevos nodos.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador clona \\ el proyecto.
+		\item El administrador configura \\ fichero \textbf{hosts.yml} 
+		\item El administrador configura \\ variables 
+		de role \textbf{hetzner}. 
+		\item El administrador configura \\ variables 
+		de role \textbf{proxmox\_kvm}. 
+		\item El administrador ejecuta playbook \\  
+		\textbf{configure\_proxmox\_nodes}.
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}.
+	\hline
+\end{usecase}
+
 \section{Arquitectura del Sistema}
 	\subsection{Servidores Físicos}
 		\begin{text}
@@ -429,8 +709,6 @@
 		 	\label{VSwitch}
 		 \end{figure}
 	\end{text}
-
-
 
 	
 	
