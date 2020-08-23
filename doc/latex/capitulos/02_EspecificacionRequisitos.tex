@@ -595,7 +595,7 @@
 		\item El sistema ejecuta las tareas en los \\
 		nodos. 
 		\item El sistema informa al administrador \\
-		del resultado de la ejecución}.
+		del resultado de la ejecución}
 	\hline
 \end{usecase}
 
@@ -658,26 +658,25 @@
 	
 	\addrow{Actores}{Administrador}
 	
-	\addrow{Precondición}{El usuario administrador ha ejecutado correctamente << CU.0 >>, los ficheros hosts.yml con los nodos objetivo y asignado las variables necesaris enl os roles \textbf{hetzner} y \textbf{proxmox\_nodes}.}
+	\addrow{Precondición}{El usuario administrador ha ejecutado correctamente << CU.0 >>, los ficheros hosts.yml con los nodos objetivo y asignado las variables necesaris enl os roles \textbf{hetzner}y \textbf{proxmox\_nodes}.}
 	
 	\addrow{Postcondición}{La infraestructura queda replicada en nuevos nodos.}
 	
 	\addmulrow{Secuencia principal (P)}{
-		\item El administrador ejecuta \\ correctamente << CU.0 >>
-		\item El administrador clona \\ el proyecto.
-		\item El administrador configura \\ fichero \textbf{hosts.yml} 
-		\item El administrador configura \\ variables 
-		de role \textbf{hetzner}. 
-		\item El administrador configura \\ variables 
-		de role \textbf{proxmox\_kvm}. 
-		\item El administrador ejecuta playbook \\  
-		\textbf{configure\_proxmox\_nodes}.
-		\item El sistema ejecuta las tareas en los \\
-		nodos. 
-		\item El sistema informa al administrador \\
-		del resultado de la ejecución}.
-	\hline
+	\item El administrador ejecuta \\ correctamente << CU.0 >>
+	\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+	o << CU.2 >> y << CU.3 >>.
+	\item El administrador configura \\ variables 
+	de role \textbf{proxmox\_kvm} 
+	\item El administrador ejecuta playbook \\  
+	\textbf{configure\_proxmox\_nodes}
+	\item El sistema ejecuta las tareas en los \\
+	nodos. 
+	\item El sistema informa al administrador \\
+	del resultado de la ejecución}
+\hline
 \end{usecase}
+
 
 \section{Arquitectura del Sistema}
 	\subsection{Servidores Físicos}
@@ -692,7 +691,7 @@
 	
 		\begin{figure}[!hbt]
 			\centering
-			\includegraphics[scale=0.75]{imagenes/Analisis/diagrama.jpg}
+			\includegraphics[scale=0.57]{imagenes/Analisis/diagrama.jpg}
 			\caption[Infraestructura Objetivo]{Infraestructura Objetivo}
 			\label{Infraestructura_objetivo}
 		\end{figure}
