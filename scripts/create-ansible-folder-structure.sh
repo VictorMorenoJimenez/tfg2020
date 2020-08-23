@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Fill this variable with the roles you need
-
 roles=(install_image)
 
 
