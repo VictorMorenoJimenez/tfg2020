@@ -10,11 +10,13 @@ help: ## This help.
 	@echo
 
 
-DOT := $(command -v pdflatex 2> /dev/null)
-
+DOT=$(command -v pdflatex)
 
 doc_gen: ## Generate pdf.
-		cd doc/latex; \
-			pdflatex proyecto.tex
+ifndef DOT
+    $(error "pdflatex is not available please install pdflatex")
+endif
+	cd doc/latex; \
+		pdflatex proyecto.tex
 
 	  
