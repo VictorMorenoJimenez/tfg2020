@@ -39,5 +39,6 @@ playbook: ## Execute playbook, need PLAYBOOK var. Execute with make PLAYBOOK=pla
 	ansible-playbook playbooks/$(PLAYBOOK).yml -i inventories/staging/hosts.yml \
 					  --vault-password-file .pass \
 					  --extra-vars "target_host=$(HOST)" \
-					  --tags "$(TAGS)"
+					  --tags "$(TAGS)" \
+						--ask-become-pass
 	
