@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help 
 
 SHELL= /bin/bash
-help: ## This help.
+help: ## This help Makefile.
 	@echo @echo -e "\e[1;35m Makefile for project,generates doc files \e[0m"
 	@echo
 	@echo
@@ -12,7 +12,7 @@ help: ## This help.
 
 DOT=$(command -v pdflatex)
 
-doc_gen: ## Generate pdf.
+doc_gen: ## Generate pdf if pdflatex exists.
 ifndef DOT
     $(error "pdflatex is not available please install pdflatex")
 endif
