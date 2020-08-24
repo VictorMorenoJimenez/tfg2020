@@ -5,12 +5,13 @@
 \section{Definición del problema}
 	\begin{text}
 		Actualmente la empresa para la que trabajo dispone de una infraestructura desplegada en un proveedor de servidores bare metal, esta infraestructura se ha ido creando con el tiempo, añadiendo servicios y haciendo las modificaciones pertinentes. \\
-		Esta infraestructura es la responsable de alojar todos los servicios que se ofrecen a los clientes y se utiliza también para el desarrollo de nuevo software. Los desarrolladores utilizan máquinas virtuales creadas en la infraestructura para simular entornos de producción donde desplegar las aplicaciones en fase de pruebas antes de hacer un despliegue definitivo en producción. \\
+		Dicha infraestructura es la responsable de alojar todos los servicios que se ofrecen a los clientes y se utiliza también para el desarrollo de nuevo software. Los desarrolladores utilizan máquinas virtuales para simular entornos de producción donde desplegar las aplicaciones en fase de pruebas antes de hacer un despliegue definitivo en producción. \\
 		Lo explicado anteriormente plantea varios problemas:
 		\begin{itemize}
 			\item Infraestructura configurada manualmente, imposible de replicar.
 			\item Configuración de los distintos servicios manual, imposible de replicar. 
 			\item Difícil conocer el estado actual de los distintos servicios desplegados. 
+			\item Imposible replicar ante fallo total del sistema la infraestructura.
 			\item Dependencia desarrolladores de equipo de sistemas para incorporar cambios en aplicaciones en pruebas.
 			\item Ralentización de los procesos de desarrollo de software debido a la dependencia del equipo de sistemas.
 		\end{itemize}
@@ -24,7 +25,7 @@
 		\item \textbf{Objetivo 1}. Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios.
 		\item \textbf{Objetivo 2}. Replicar la infraestructura asegurando bajos tiempos de creación.
 		\item \textbf{Objetivo 3}. Crear servicios necesarios para una empresa de aplicaciones web asegurando bajos tiempos de creación.
-		\item \textbf{Objetivo 4}. Replicar cualquier servicio alojado en la infraestructura de una empresa en la infraestructura de forma rápida.
+		\item \textbf{Objetivo 4}. Replicar cualquier servicio alojado en la infraestructura de una empresa de forma rápida.
 		\item \textbf{Objetivo 5}. Crear cauces rápidos y seguros para la creación de nuevo software.
 	\end{itemize}
 \end{text}
@@ -47,7 +48,7 @@
 		\end{text}
 	\subsection{Integración Continua (CI)}
 		\begin{text}
-			La Integración Continua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración continua se basa en hacer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. La Integración Continua consta de dos partes: compilación y ejecución de test de un proyecto.
+			La Integración Continua o CI para abreviar, es uno de los pilares de la filosofía DevOps. La integración continua se basa en hacer integraciones automáticas de un proyecto lo más a menudo posible para poder detectar fallos rápidamente. Consta de dos partes: compilación y ejecución de test de un proyecto.
 			
 			\begin{figure}[!hbt]
 				\centering
@@ -69,7 +70,7 @@
 		\end{text}
 	\subsection{Infraestructura como Código (IaaC)}
 		\begin{text}
-			La infraestructura cómo código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. IaaC acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
+			La infraestructura como código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. IaaC acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
 			De esta manera no únicamente se testea el software antes de ser lanzado, si no también la infraestructura. A continuación se muestra como sería el cauce de trabajo siguiendo los principios de IaaC.
 			
 			\begin{figure}[!hbt]
@@ -82,7 +83,7 @@
 	
 \section{Solución propuesta}
 \begin{text}
-	Este proyecto se ha creado para cumplir con los objetivos descritos en la sección 1.2. A continuación se define a grandes rasgos la solución propuesta que se irá justificando y ampliando a lo largo del documento.
+	Este proyecto se ha creado para cumplir con los objetivos descritos en la sección \nameref{objetivos_primarios}. A continuación se define a grandes rasgos la solución propuesta que se irá justificando y ampliando a lo largo del documento. \\
 	\begin{itemize}
 		\item \textbf{Objetivo 1: Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios}. \\ Aplicando la filosofía DevOps a la infraestructura. Se tratará la infraestructura como si fuese un proyecto software, es decir, la infraestructura será codificada bajo ficheros de configuración y estos estarán alojados en algún sistema de control de versiones.
 		\item \textbf{Objetivo 1.1: Infraestructura segura frente a ataques}. \\ Para garantizar la seguridad de la infraestructura, se desplegarán firewalls redundantes. Estos firewalls serán tratados como servicios y entran dentro de las especificaciones del objetivo 3.
@@ -115,6 +116,7 @@
 			Sin embargo, no todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener. \\
 			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
 		\end{text}
+	\clearpage
 	
 	\subsection{Proveedores Cloud}
 		\begin{text}
@@ -152,7 +154,8 @@
 						\item \textbf{Coste mes}: \euro{22.6891} 
 						\item \textbf{Coste anual}: \euro{272,9692} 
 					\end{itemize}
-				
+					
+					\clearpage
 					\item \textbf{tfg3.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
 
 					\begin{itemize}

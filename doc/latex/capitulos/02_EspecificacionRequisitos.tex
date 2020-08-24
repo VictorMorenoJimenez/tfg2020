@@ -17,7 +17,7 @@
 			
 			\item  \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estará codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
 			
-			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local los desarrolladores, no tienen una réplica de los servidores de producción para poder probar sus cambios. Esto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
+			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local, los desarrolladores no tienen una réplica de los servidores de producción para poder probar sus cambios. Esto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
 			
 			\item \textbf {Solución 2}: Al estar la infraestructura de cada aplicación codificada y bajo control de versiones, será sencillo replicar el entorno de producción en un entorno test para el desarrollo de aplicaciones.
 			
@@ -66,14 +66,14 @@
 	
 	\begin{figure}[!hbt]
 		\centering
-		\includegraphics[scale=0.44]{imagenes/Analisis/githubissues.jpg}
+		\includegraphics[scale=0.5]{imagenes/Analisis/githubissues.jpg}
 		\caption[GitHub panel]{GitHub panel}
 		\label{github_issues}
 	\end{figure}
 \end{text}
 \clearpage
 
-\section{Subjetivos, requisitos funcionales e issues}
+\section{Milestones, subjetivos, requisitos funcionales, restricciones e issues}
 	\begin{text}
 		En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en Milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
 	\end{text}
@@ -224,6 +224,7 @@
 	\begin{text}
 		Puppet es una herramienta de software libre de gestión de configuración de software. Es comúnmente utilizado por los administradores de sistemas para configurar múltiples servidores y para automatizar las tareas de mantenimiento. Puppet se adapta perfectamente a las necesidades de este proyecto. Sin embargo, la complejidad del lenguaje ruby junto con la necesidad de crear una infraestructura maestro - esclavo con los distintos nodos hace que se haya desechado esta opción.
 	\end{text}
+\clearpage
 	\subsubsection{Chef}
 	\begin{text}
 		Chef es una herramienta open source con objetivos similares a Puppet. Basado en ruby y orientado a desarrolladores con experienca en ruby. La curva de aprendizaje es menor que la de Puppet. Sin embargo, también hay que crear una infraestructura específica para usar Chef con un nodo que actuaria de servidor y los nodos esclavos que serían los servidores a configurar.
@@ -403,7 +404,7 @@
 %			\label{Diagrama secuencia_administrador_3}
 %		\end{figure}
 		
-\clearpage
+%\clearpage
 \section{Casos de uso}
 
 	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
@@ -471,6 +472,7 @@
 			nodos 
 			\item El sistema informa al administrador \\
 			del resultado de la ejecución}
+ 
 		\hline
 	\end{usecase}
 	\clearpage
@@ -682,31 +684,36 @@
 \section{Arquitectura del Sistema}
 	\subsection{Servidores Físicos}
 		\begin{text}
-			Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto.Las características técnicas de los servidores se pueden consultar en \nameref{servidores_bare_metal}.
+			Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto. Las características técnicas de los servidores se pueden consultar en \nameref{servidores_bare_metal}.
 		\end{text}
 	\subsection{Infraestructura objetivo}
 		\begin{text}
 			Este proyecto pretende crear una infraestructura robusta para una pequeña empresa que se dedique al desarrollo del software. Ésta infraestructura debe ser robusta al igual que segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web.  A continuación se muestra la infraestructura objetivo.
 		\end{text}
-		\begin{figure}[!hbt]
-			\label{InfraestructuraObjetivo}
-			\centering
-			\includegraphics[scale=0.75]{imagenes/Analisis/diagrama.jpg}
-			\caption[Infraestructura Objetivo]{Infraestructura Objetivo}
-		\end{figure}
-	\clearpage
+	
 	\subsection{VSwitch}
 	\begin{text}
 		El cluster está bajo la red LAN 10.6.0.0/16, de forma que todas las máquinas virtuales están comunicadas. Sin embargo los nodos principales (tfg.intelligenia.com, tfg2.intelligenia.com y tfg3.intelligenia.com) tienen que estar comunicados a través de una red interna para el correcto funcionamiento de Proxmox y los pfSense.
 		Es aquí donde entran en juego los switches virtuales de Hetzner. Un VSwitch simula el funcionamiento de un switch convencional, conectando los servidores que se conecten al switch entre sí. De este modo, conseguimos crear una red de conexión entre los nodos principales.
-		
-		 \begin{figure}[!hbt]
-		 	\centering
-		 	\includegraphics[scale=0.5]{imagenes/Analisis/vswitch.jpg}
-		 	\caption[VSwitch]{VSwitch}
-		 	\label{VSwitch}
-		 \end{figure}
 	\end{text}
+
+	\begin{figure}[!hbt]
+		\label{InfraestructuraObjetivo}
+		\centering
+		\includegraphics[scale=0.75]{imagenes/Analisis/diagrama.jpg}
+		\caption[Infraestructura Objetivo]{Infraestructura Objetivo}
+	\end{figure}
+
+	\begin{figure}[!hbt]
+		\centering
+		\includegraphics[scale=0.4]{imagenes/Analisis/vswitch.jpg}
+		\caption[VSwitch]{VSwitch}
+		\label{VSwitch}
+	\end{figure}
+
+
+
+
 
 	
 	
