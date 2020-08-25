@@ -1,0 +1,8 @@
+---
+# defaults file for kubernetes
+id_rsa_user: victor
+k8_ansible_user: k8_ansible
+host_user: mario
+configure_k8_nodes_opt: 'no'
+configure_master_opt: 'no'
+configure_workers_opt: 'no'

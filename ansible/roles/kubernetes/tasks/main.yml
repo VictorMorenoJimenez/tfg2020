@@ -1,0 +1,20 @@
+---
+# tasks file for kubernetes
+
+- import_tasks: configure_k8_nodes.yml
+  tags:
+    - kubernetes 
+    - configure_nodes
+  when: configure_k8_nodes_opt == 'yes'
+
+- import_tasks: configure_master.yml
+  tags:
+    - kubernetes 
+    - configure_master
+  when: configure_master_opt == 'yes'
+
+- import_tasks: configure_workers.yml
+  tags:
+    - kubernetes 
+    - configure_workers
+  when: configure_workers_opt == 'yes'

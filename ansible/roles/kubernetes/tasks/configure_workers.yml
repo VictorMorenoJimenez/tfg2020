@@ -1,0 +1,29 @@
+---
+
+    - name: Disable SWAP, kubernetes can't work with SWAP enabled
+      shell: |
+        swapoff -a
+  
+    - name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+      replace:
+          path: /etc/fstab
+          regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+          replace: '# \1'
+
+    - name: Debug var
+      debug: msg="{{ hostvars['k8-master'].join_command }}"
+      
+    - name: Join the cluster
+      become_user: root
+      shell: "{{ hostvars['k8-master'].join_command }} >> node_joined.txt"
+      args:
+        chdir: "/home/{{ k8_ansible_user }}"
+        creates: node_joined.txt
+
+    - name: Wait till cluster ready
+      become_user: "{{ k8_ansible_user }}"
+      shell: kubectl get nodes
+      register: result
+      until: result.stdout.find("k8-master    Ready") != -1
+      retries: 15
+      delay: 30

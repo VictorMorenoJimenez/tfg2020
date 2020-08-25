@@ -1,0 +1,86 @@
+---
+
+- name: Install kubectl
+  apt:
+    name: kubectl=1.18.6-00
+    state: present
+    force: yes
+
+- name: Disable SWAP, kubernetes can't work with SWAP enabled
+  become_user: root
+  shell: |
+    sudo swapoff -a
+  
+- name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+  replace:
+      path: /etc/fstab
+      regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+      replace: '# \1'
+
+- name: Initialize the cluster
+  shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
+  args:
+    chdir: /home/k8_ansible
+    creates: cluster_initialized.txt
+  ignore_errors: yes
+
+- name: Create .kube directory
+  become_user: "{{ k8_ansible_user }}"
+  file:
+    path: $HOME/.kube
+    state: directory
+    mode: 0755
+
+- name: Change permissions to admin.conf
+  file:
+    path: /etc/kubernetes/admin.conf
+    state: touch
+    mode: u=rw,g=r,o=r
+
+- name: Copy admin config to user's kube config
+  become_user: "{{ k8_ansible_user }}"
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: $HOME/.kube/config
+    remote_src: yes
+    owner: "{{ k8_ansible_user }}"
+
+- name: Change user and group
+  become_user: "{{ k8_ansible_user }}"
+  become: yes
+  shell: |
+    chown $(id -u):$(id -g) $HOME/.kube/config
+
+- name: Export KUBECONFIG environment var
+  lineinfile:
+    dest: /home/k8_ansible/.bashrc
+    line: 'export KUBECONFIG=/home/k8_ansible/.kube/config'
+
+- name: Apply changes on .bashrc
+  shell: . /home/k8_ansible/.bashrc
+
+- name: Install Pod network
+  become_user: "{{ k8_ansible_user }}"
+  shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
+  args:
+    chdir: $HOME
+    creates: pod_network_setup.txt
+
+- name: Disable SWAP, kubernetes can't work with SWAP enabled
+  become_user: root
+  shell: |
+    sudo swapoff -a
+
+- name: Disable SWAP in fstab, k8 can't work with SWAP enabled
+  replace:
+      path: /etc/fstab
+      regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+      replace: '# \1'
+
+- name: Get join command for k8_workers
+  shell: kubeadm token create --print-join-command
+  register: join_command_raw
+
+- name: Set join command
+  set_fact:
+    join_command: "{{ join_command_raw.stdout_lines[0] }}"
