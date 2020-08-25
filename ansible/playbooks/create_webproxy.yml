@@ -51,3 +51,79 @@
 
       roles:
         - proxmox_kvm
+
+      post_tasks:
+        - name: Wait 60 seconds to Vms to come up
+          wait_for:
+            timeout: 60
+
+    - hosts: pfsense_master
+      gather_facts: no 
+      tags: restart_pfsense
+    
+      vars:
+        pfsense_ssh_port: 11000
+    
+      tasks:
+        - name: Change ssh port to {{ pfsense_ssh_port }}
+          set_fact:
+            ansible_port: "{{ pfsense_ssh_port }}"
+    
+        - name: Delete cache file in order to make changes persistent
+          file:
+            state: absent
+            path: /tmp/config.cache
+    
+        - name: Restart dhcp service on pfsense
+          command: >-
+            pfSsh.php playback svc restart dhcpd
+
+
+    - hosts: webproxy-01
+      tags: webproxy-configure-common 
+      gather_facts: no
+      become: yes
+    
+      vars:
+        configure_vm_opt: 'yes'
+        vm_domain: tfg.vps
+    
+        interface: ens18
+        host_user: mario
+    
+        recommended_packages:
+          - net-tools
+          - htop
+          - nmap
+          - ncdu
+          - netcat
+          - curl
+          - wget
+          - vim 
+          - ntp
+          - apt-transport-https
+          - ca-certificates 
+          - software-properties-common
+          - tcpdump 
+          - openssl
+          - python
+          - gnupg
+    
+      roles:
+        - proxmox_kvm
+
+    - hosts: webproxy-01
+      become: yes
+      gather_facts: false
+
+      vars:
+        install_nginx_opt: 'yes'
+        apply_config_opt: 'yes'
+        create_site_opt: 'no'
+        install_certbot_opt: 'yes'
+        create_ssl_cert_opt: 'no'
+
+      roles: 
+        - webproxy
+
+    
