@@ -2,6 +2,7 @@
 
 - hosts: "{{ target_host }}"
   gather_facts: yes
+  tags: install_configure_hetzner
 
   vars:
 
