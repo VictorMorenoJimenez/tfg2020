@@ -405,8 +405,9 @@
 %		\end{figure}
 		
 %\clearpage
+\clearpage
 \section{Casos de uso}
-
+	\subsection{CU 0. Configurar entorno proyecto}
 	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
 		\addrow{Descripción}{Configura el equipo donde se van a lanzar las tareas del proyecto.}
 		
@@ -429,6 +430,7 @@
 		\hline
 	\end{usecase}
 	\clearpage
+	\subsection{CU 0.1. Crear infraestructura}
 	\begin{usecase}{Crear infraestructura << CU.1 >>}
 		\addrow{Descripción}{Permite crear la infraestructura sobre los nodos.}
 		
@@ -452,6 +454,7 @@
 			  \hline
 	\end{usecase}
 	\clearpage
+	\subsection{CU.2. Replicar infraestructura}
 	\begin{usecase}{Replicar infraestructura << CU.2 >>}
 		\addrow{Descripción}{Permite replicar la infraestructura sobre los nodos.}
 		
@@ -477,6 +480,7 @@
 	\end{usecase}
 	\clearpage
 	
+	\subsection{CU.3. Crear servicio firewall}
 	\begin{usecase}{Crear servicio firewall << CU.3 >>}
 		\addrow{Descripción}{Permite crear un servicio de firewall en el cluster.}
 		
@@ -501,6 +505,7 @@
 		\hline
 	\end{usecase}
 \clearpage
+\subsection{CU.4. Crear servicio almacenamiento estático}
 \begin{usecase}{Crear servicio almacenamiento estático << CU.4 >>}
 	\addrow{Descripción}{Permite crear un servicio de almacenamiento estático en el cluster.}
 	
@@ -525,6 +530,7 @@
 	\hline
 \end{usecase}
 
+\subsection{CU.5. Crear servicio de gestión de aplicaciones Wordpress}
 \begin{usecase}{Crear servicio de gestión de aplicaciones Wordpress << CU.5 >>}
 	\addrow{Descripción}{Permite crear un servicio de gestión de aplicaciones Wordpress en el cluster.}
 	
@@ -550,7 +556,7 @@
 \end{usecase}
 
 \clearpage 
-
+\subsection{CU.6. Crear servicio de orquestación de contenedores en el cluster}
 \begin{usecase}{Crear servicio de orquestación de contenedores en el cluster << CU.6 >>}
 	\addrow{Descripción}{Permite crear un servicio de orquestación de contenedores en el cluster en el cluster.}
 	
@@ -576,7 +582,7 @@
 \end{usecase}
 
 \clearpage
-
+\subsection{CU.7. Crear servicio de monitorización en el cluster}
 \begin{usecase}{Crear servicio de monitorización en el cluster << CU.7 >>}
 	\addrow{Descripción}{Permite crear un servicio de monitorización en el cluster.}
 	
@@ -602,7 +608,7 @@
 \end{usecase}
 
 \clearpage
-
+\subsection{CU.8. Crear servicio de bases de datos}
 \begin{usecase}{Crear servicio de bases de datos << CU.8 >>}
 	\addrow{Descripción}{Permite crear un servicio bases de datos en el cluster.}
 	
@@ -628,7 +634,7 @@
 \end{usecase}
 
 \clearpage 
-
+\subsection{CU.10. Crear servicio de gestión de colas}
 \begin{usecase}{Crear servicio de gestión de colas << CU.10 >>}
 	\addrow{Descripción}{Permite crear un servicio gestión de colas en el cluster.}
 	
@@ -654,7 +660,7 @@
 \end{usecase}
 
 \clearpage
-
+\subsection{CU.11. Recrear infraestructura}
 \begin{usecase}{Recrear infraestructura << CU.11 >>}
 	\addrow{Descripción}{Permite replicar infraestructura en nuevos nodos.}
 	
@@ -678,7 +684,6 @@
 	del resultado de la ejecución}
 \hline
 \end{usecase}
-
 \clearpage 
 
 \section{Arquitectura del Sistema}
