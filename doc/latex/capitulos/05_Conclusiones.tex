@@ -12,10 +12,62 @@
 \section{Análisis mejora tiempos}
 \label{analisis_tiempos} 
 \subsection{Tiempo estimado creación infraestructura antes del proyecto}
+\begin{text}
+	Como ya hemos comentado antes de este proyecto toda la infraestructura de la empresa se configuraba de forma manual, con lo cual llevaba un tiempo. A continuación se hace una estimación en horas de trabajo de un ingeniero junior del tiempo necesario para cubrir el \textbf{RF 1}.
+	
+	Gracias a que personalmente he recreado la infraestructura de la empresa de forma manual, puedo hacer estimaciones bastante correctas.
+	
+	\begin{itemize}
+		\item Automatizar la creación de la infraestructura. Esto implica la configuración de los servidores contratados en Hetzner bare metal, la instalación y configuración del servicio de virtualización en cada uno de los nodos y la creación del cluster.  \textbf{20 horas}.
+	\end{itemize}
+	
+	
+\end{text}
 
 \subsection{Tiempo estimado creación infraestructura después del proyecto}
+\begin{text}
+	Gracias a los playbooks de Ansible, podemos crear la infraestructura en el tiempo que tarda en ejecutarse el playbook. Esta primera parte es la más costosa ya que tiene que instalar una ISO en los servidores y el servicio Proxmox que instala bastantes paquetes, la duración del playbook es de \textbf{29 minutos}. Esto supone una mejora sustancial en los tiempos, hemos pasado de \textbf{20 horas} de configuración manual a \textbf{29 minutos}.
+\end{text}
+
 \subsection{Tiempo estimado creación servicios antes del proyecto}
+	\begin{text}
+		Se va a realizar una estimación en la creación de forma manual de cada uno de los servicios desplegados en el cluster. Al haber realizado esta tarea en el pasado personalmente, la estimación será bastante acertada.
+		\clearpage
+		\begin{itemize}
+			\item Firewall pfSense. Despliegue y configuración firewall: \textbf{8 horas}.
+			\item GitLab. Despliegue y configuración control de versiones: \textbf{4 horas}.
+			\item Icinga2. Despliegue y configuración monitor sistema: \textbf{5 horas}.
+			\item Virtualmin: Despliegue y configuración gestor de aplicaciones Wordpress \item{8 horas}.
+			\item Kubernetes cluster.Despliegue cluster de orquestación \item{4 horas}.
+			\item RabbitMQ: Despliegue gestor de colas \item{3 horas}.
+			\item Docker swarm: Despliegue y configuración cluster orquestación: \item{3 horas}.
+			\item Nginx: Despliegue y configuración servidor web Nginx \item{3 horas}.
+			\item Ceph cluster: Despliegue y configuración cluster Ceph \textbf{6 horas}.
+			\item Galera cluster: Despliegue y configuración cluster Galera \textbf{4 horas}.
+		\end{itemize}
+	Esto hace un total de \textbf{44 horas} en desplegar y configurar los servicios.
+	\end{text}
+
 \subsection{Tiempo estimado creación servicios después del proyecto}
+\begin{text}
+	El despliegue y creación de cada uno de los servicios que componen el cluster, se ha acelerado de forma sustancial gracias a la creación de playbooks de Ansible:
+	\begin{itemize}
+		\item Firewall pfSense. Despliegue y configuración firewall: \textbf{6 minutos}.
+		\item GitLab. Despliegue y configuración control de versiones: \textbf{5 minutos}.
+		\item Icinga2. Despliegue y configuración monitor sistema: \textbf{14 minutos}.
+		\item Virtualmin: Despliegue y configuración gestor de aplicaciones Wordpress \item{12 minutos}.
+		\item Kubernetes cluster.Despliegue cluster de orquestación \item{13 minutos}.
+		\item RabbitMQ: Despliegue gestor de colas \item{8 minutos}.
+		\item Docker swarm: Despliegue y configuración cluster orquestación: \item{10 minutos}.
+		\item Nginx: Despliegue y configuración servidor web Nginx \item{4 minutos}.
+		\item Ceph cluster: Despliegue y configuración cluster Ceph \textbf{15 minutos}.
+		\item Galera cluster: Despliegue y configuración cluster Galera \textbf{11 minutos}.
+	\end{itemize}
+
+	Esto hace un total de \textbf{98 minutos}. Sin embargo nada nos impide ejecutar los playbooks de forma paralela exceptuando el primero (Fireall pfSense) que se debe ejecutar por separado y el primero. Si ejecutamos los playbooks en paralelo en distintas sesiones de terminal, la duración total sería la de la tarea más larga más el despliegue del firewall con lo cual: \textbf{6 minutos} + \textbf{15 minutos} = \textbf{21 minutos}.
+	
+	Hemos pasado de un tiempo con configuración manaul de \textbf{44 horas} a un tiempo de \textbf{21 minutos}.
+\end{text}
 \subsection{Tiempo estimado integración nuevos cambios en aplicación antes del proyecto}
 \subsection{Tiempo estimado integración nuevos cambios en aplicación después del proyecto}
 
