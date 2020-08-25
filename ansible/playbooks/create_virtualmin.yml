@@ -1,0 +1,99 @@
+---
+
+    - hosts: pfsense_master
+    
+      # Must have non-password ssh access
+      # # ssh-copy-id root@pfsense-01-ip.domain -p 11000
+    
+      gather_facts: no
+    
+      vars:
+        pfsense_config_path: /cf/conf/config.xml
+        pfsense_ssh_port: 11000
+        pfsense_configure_dhcp_opt: 'yes'
+    
+        vms_to_configure:
+          - name: virtualmin
+            vm_mac: 9E:36:E5:88:A3:C8
+            vm_id: 900
+            vm_ip: 10.6.100.90
+            vm_hostname: virtualmin
+            vm_domain: tfg.vps
+   
+      roles:
+        - pfsense
+    
+    - hosts: tfg3.intelligenia.com
+      gather_facts: false
+    
+      vars:
+        configure_vm_opt: 'no'
+        create_vm_opt: 'yes'
+        start_after_create: 'yes'
+    
+        downloads:
+          - name: Debian 10 Template
+            download_url: https://downloads-tfg.intelligenia.com/vzdump-qemu-878-2020_07_20-08_29_27.vma.zst
+            backup_destination: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+    
+        create_vms:
+          - name: virtualmin
+            backup_location: /var/lib/vz/dump/vzdump-qemu-878-2020_07_18-22_44_27.vma.zst
+            kvm_name: virtualmin
+            kvm_cores: 2 
+            kvm_memory: 4096
+            kvm_mac: 9E:36:E5:88:A3:C8
+            kvm_sockets: 2
+            new_id: 900
+            start_at_boot: "yes"
+          
+      roles:
+        - proxmox_kvm
+   
+      post_tasks:
+       - name: Wait for 60 seconds for VM's to come up
+         wait_for:
+           timeout: 60
+         delegate_to: localhost
+      
+    - hosts: virtualmin
+      gather_facts: no
+      become: yes
+    
+      vars:
+        configure_vm_opt: 'yes'
+        vm_domain: tfg.vps
+        install_opt: 'yes'
+        create_directory_opt: 'yes'
+        configure_directory_opt: 'yes'
+
+        virtualmin_root_password: 'intel2010..'
+        virtualmin_domain: 'tfg-virtualmin.intelligenia.com'
+
+    
+        interface: ens18
+        host_user: mario
+   
+    
+        recommended_packages:
+          - net-tools
+          - htop
+          - nmap
+          - ncdu
+          - netcat
+          - curl
+          - wget
+          - vim 
+          - ntp
+          - apt-transport-https
+          - ca-certificates 
+          - software-properties-common
+          - tcpdump 
+          - openssl
+          - python
+          - gnupg
+    
+      roles:
+        - proxmox_kvm
+        - virtualmin
+   
