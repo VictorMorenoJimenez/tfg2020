@@ -1,2 +1,6 @@
 ---
 # defaults file for virtualmin
+
+install_opt: 'no'
+create_directory_opt: 'no'
+configure_directory_opt: 'no'

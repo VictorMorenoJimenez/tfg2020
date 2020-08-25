@@ -1,2 +1,17 @@
 ---
 # tasks file for virtualmin
+
+- import_tasks: install.yml
+  tags:
+    - virtualmin_install 
+  when: install_opt == 'yes'
+
+- import_tasks: create_directory.yml
+  tags:
+    - create_directory 
+  when: create_directory_opt == 'yes'
+
+- import_tasks: configure.yml
+  tags:
+    - configure_directory
+  when: configure_directory_opt == 'yes'
