@@ -5,3 +5,7 @@
     url: https://downloads-tfg.intelligenia.com/certbot-auto
     dest: /usr/local/sbin
     mode: '0755'
+
+- name: Install certbot for nginx
+  apt:
+    name: python-certbot-nginx

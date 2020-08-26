@@ -1,13 +1,23 @@
 ---
 
-- name: Create SSL cert with certbot-auto
-  shell: "certbot-auto certonly --standalone --noninteractive --agree-tos --email {{ certbot_admin_email }} -d {{ servername }}"
-  register: create_ssl_status
-  ignore_errors: True
+#- name: Create SSL cert with certbot-auto
+#  shell: "certbot-auto certonly --standalone --noninteractive --agree-tos --email {{ certbot_admin_email }} -d {{ servername }}"
+#  register: create_ssl_status
+#  ignore_errors: True
+#
+#- name: Custom error message if certbot fails
+#  fail:
+#    msg: "Letsencrypt has limited cert requests, we must wait a day to issue more certs. \
+#          Create certificate, and create cron job will be skipped !! Do this task later."
+#  ignore_errors: True
+#  when: create_ssl_status.rc != 0
 
-- name: Custom error message if certbot fails
-  fail:
-    msg: "Letsencrypt has limited cert requests, we must wait a day to issue more certs. \
-          Create certificate, and create cron job will be skipped !! Do this task later."
-  ignore_errors: True
-  when: create_ssl_status.rc != 0
+#- name: Create SSL cert with python-certbot-nginx 
+#  become: yes
+#  shell: certbot --nginx --noninteractive --agree-tos --email {{ certbot_admin_email }} -d "{{ servername }}"
+#
+
+- name: Create SSL cert with python-certbot-nginx 
+  become: yes
+  shell: certbot --nginx --noninteractive --agree-tos --email {{ certbot_admin_email }} -d "{{ item.domain }}"
+  with_items: "{{ servername_list }}"

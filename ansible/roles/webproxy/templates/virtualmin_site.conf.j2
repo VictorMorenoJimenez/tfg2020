@@ -1,0 +1,48 @@
+server {
+       listen 80;
+       server_name     {{ virtualmin_domain }};
+       proxy_set_header        X-Forwarded-Proto       $scheme;
+       proxy_set_header        Host                    $host;
+       proxy_set_header        X-Forwarded-For         $remote_addr;
+       proxy_connect_timeout   1200;
+       proxy_send_timeout      1200;
+       proxy_read_timeout      1200;
+       send_timeout            1200;
+
+       #location / {
+       #        return 301 https://$host$request_uri;
+       #}
+
+      location / {
+               proxy_pass              http://{{ proxy_target }};
+       }
+
+       location /.well-known {
+               default_type "text/plain";
+               root /mnt/wwwdata/letsencrypt-well-known;
+       }
+}
+
+#server {
+#       listen 443 ssl;
+#       server_name  {{ virtualmin_domain }};
+#       client_max_body_size    500M;
+#
+#       #ssl_certificate     /etc/letsencrypt/live/{{ virtualmin_domain }}/fullchain.pem;
+#       #ssl_certificate_key /etc/letsencrypt/live/{{ virtualmin_domain }}/privkey.pem;
+#       #ssl_trusted_certificate /etc/letsencrypt/live/{{ virtualmin_domain }}/fullchain.pem;
+#
+#       location / {
+#               proxy_pass              https://{{ proxy_target }}:10000/;
+#               proxy_redirect          https://$host:10000/ https://{{ virtualmin_ip }}/;
+#               proxy_redirect          https://$host:20000/ https://{{ virtualmin_ip }}/usermin;
+#               proxy_set_header        X-Forwarded-Proto       $scheme;
+#               proxy_set_header        Host                    $host;
+#               proxy_set_header        X-Forwarded-For         $remote_addr;
+#               proxy_connect_timeout   1200;
+#               proxy_send_timeout      1200;
+#               proxy_read_timeout      1200;
+#               send_timeout            1200;
+#       }
+#
+#}
