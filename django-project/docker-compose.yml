@@ -1,0 +1,116 @@
+version: '3'
+
+services:
+
+  # Backend Service
+  backend: &backend
+    image: django_template-backend
+    container_name: django_template-backend
+    build:
+      context: ./backend
+      dockerfile: ./compose/Dockerfile.local
+    restart: unless-stopped
+    command: /start
+    volumes:
+      - ./backend/src:/code
+      - /app/.ipython
+      - ipython_data_local:/app/.ipython/profile_default
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+      
+    env_file:
+      - backend/.envs/.local/.django
+      - backend/.envs/.local/.mysql
+      - backend/.envs/.local/.minio
+    networks:
+      - django_template-network
+
+  # Database Service
+  db:
+    build:
+      context: ./db
+      dockerfile: ./compose/Dockerfile
+    container_name: django_template-database
+    env_file:
+      - backend/.envs/.local/.mysql
+    restart: unless-stopped
+    volumes:
+     - mysql-data:/var/lib/mysql
+    ports:
+      - "3333:3306"
+    networks:
+      - django_template-network
+
+   
+  celeryworker:
+     <<: *backend
+     image: django_template-celeryworker
+     container_name: django_template-celeryworker
+     depends_on:
+       - redis
+       - db
+     ports: []
+     command: celery -A main worker -l INFO
+
+  flower:
+    <<: *backend
+    image: django_template-celeryflower
+    container_name: django_template-celeryflower
+    ports:
+      - "5555:5555"
+    command: celery flower --broker=redis://redis:6379
+  
+  redis:
+    image: redis:5.0.6
+    restart: unless-stopped
+    container_name: django_template-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - django_template-network
+
+  # Phpmyadmin sql web client Service
+  phpmyadmin:
+    container_name: django_template-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    ports:
+      - '9090:80'
+    environment:
+      PMA_HOST: db
+    env_file:
+      - backend/.envs/.local/.mysql
+    depends_on:
+      - db
+    networks:
+      - django_template-network
+
+  # Public frontend
+  frontend:
+    container_name: django_template-frontend
+    restart: unless-stopped
+    build:
+      context: ./frontend
+      dockerfile: ./compose/Dockerfile.local
+    volumes:
+      - ./frontend/.:/usr/src/app
+      - frontend_node_modules:/usr/src/app/node_modules
+    ports:
+      - '4200:4200'
+    depends_on:
+      - backend
+    networks:
+      - django_template-network
+
+volumes:
+  mysql-data:
+  minio-data:
+  frontend_node_modules:
+  ipython_data_local:
+
+networks:
+  django_template-network:
+    external: false
