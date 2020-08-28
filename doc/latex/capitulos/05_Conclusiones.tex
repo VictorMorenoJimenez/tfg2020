@@ -69,9 +69,31 @@
 	Hemos pasado de un tiempo con configuración manaul de \textbf{44 horas} a un tiempo de \textbf{21 minutos}.
 \end{text}
 \subsection{Tiempo estimado integración nuevos cambios en aplicación antes del proyecto}
+\begin{text}
+	El funcionamiento normal de la empresa que no tiene cauces de despliegue definidos es:
+	\begin{itemize}
+		\item 1. Subir cambios a repositorio.
+		\item 2. Hacer petición a equipo de sistemas para integrar cambios en servidor.
+		\item 3. Solucionar cualquier problema tras el feedback del equipo de sistemas.
+	\end{itemize}
+
+	El desarrollador depende del equipo de sistemas para saber qué ha ocurrido con el despliegue y para realizar el despliegue. En nuestra compañía este tiempo podría variar desde 1 hora hasta más de un día dependiendo de las tareas del equipo de sistemas.
+\end{text}
 \subsection{Tiempo estimado integración nuevos cambios en aplicación después del proyecto}
+\begin{text}
+	Una vez implementados los cauces de despliegue de aplicaciones en la compañía, los pasos descritos en la sección anterior cambian:
+	\begin{itemize}
+		\item 1. Subir cambios a repositorio.
+		\item 2. Se ejecuta automáticamente el cauce definido en el proyecto. Este cauce se encarga de construir y desplegar la aplicación en el servidor.
+		\item 3. Acceso a los logs del servidor a través de una tarea del cauce.
+	\end{itemize}
 
-
+	Al ejecutarse el cauce inmediatamente tras subir un cambio al repositorio, el tiempo estimado de despliegue de la aplicación tras incorporar cambios al repositorio es el mismo que tarde el runner en cuestión en ejecutar las tareas de construcción y despliegue. Tras hacer varias pruebas se han estimado los siguientes tiempos:
+	\begin{itemize}
+		\item Backend: 2 minutos.
+		\item Frontend: 10 minutos.
+	\end{itemize}
+\end{text}
 \section{Futuro del proyecto}
 \begin{text}
 	A continuación se hace un pequeño análisis de cómo puede evolucionar el proyecto en un futuro. De tener éxito y intentar aplicarlo a empresas, hay muchos aspectos del proyecto que se pueden mejorar o añadir. 
