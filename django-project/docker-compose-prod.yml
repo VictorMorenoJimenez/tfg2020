@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  backend: &backend
+    image: tfg-registry.intelligenia.com/victor/django-project-backend:latest
+    command: /start
+    env_file:
+      - /home/mario/.env
+    volumes:
+      - /mnt/cephfs/sites/django-project-files/static:/app/main/settings/staticfiles
+      - /mnt/cephfs/sites/django-project-files/media:/app/main/media
+
+  frontend:
+    image: tfg-registry.intelligenia.com/victor/django-project-frontend:latest 
+    ports:
+      - 8020:80
+
+  redis:
+    image: redis:5.0.6-alpine
+
+  # Celery worker
+  celeryworker:
+    <<: *backend
+    image: tfg-registry.intelligenia.com/victor/django-project-backend:latest 
+    command: celery -A main worker -l INFO
+    ports: []
+
+  # Celery flower
+  flower:
+    <<: *backend
+    image: tfg-registry.intelligenia.com/victor/django-project-backend:latest 
+    command: celery flower --broker=redis://redis:6379
+    ports:
+      - "5000:5555"
