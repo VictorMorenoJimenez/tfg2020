@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+# en la variable $pythonpath se define la ruta a la raíz de la 
+# exportación. En dicha raíz donde debe estar el módulo python
+# "intelligenia_local" con el fichero "intelligenia_settings_local.py"
+# Este fichero debe contener al menos las credenciales para el acceso
+# a la base de datos en el sistema en explotación definidas en las 
+# siguientes variables:
+# 
+#  DBNAME
+#  DBUSER
+#  DBPASSWORD
+#  DBHOST
+#  DBPORT
+#
+#  MEDIA       # Ruta absoluta al directorio "media" de la instalación
+#  BASE_URI    # Prefijo para la URI para los estáticos servidos  
+#  DEBUG       # True | False para mensajes de depuración
+
+EXPORT_FULL_DIR=$1
+EXPORT_REVISION=$2
+RUN_PARTS_ARG=$3  # contiene la variante de la instalación con la personalización de plantillas y estáticos
+
+#pythonpath=`realpath $1/../..`
+
+cmd="python $1/manage.py collectstatic --pythonpath=$1 --link --noinput"
+
+echo "collectstatic: comando que se va a ejecutar:"
+echo $cmd
+
+$cmd 2>&1 | grep -v ^Linking
+status="${PIPESTATUS[0]}"
+
+if [ $status -ne 0 ] ; then
+    exit 1
+fi

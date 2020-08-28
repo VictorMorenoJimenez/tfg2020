@@ -1,0 +1,47 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+export CELERY_BROKER_URL="${REDIS_URL}"
+
+mysql_ready() {
+python << END
+
+
+import sys
+import time
+import os
+
+from MySQLdb import _mysql
+
+
+dbuser = os.environ.get('MYSQL_USER', '')
+dbpassword = os.environ.get('MYSQL_PASSWORD', '')
+dbhost = os.environ.get('MYSQL_HOST', '')
+print(dbuser + ":" + dbpassword)
+
+try:
+	db =_mysql.connect(host=dbhost,user=dbuser, passwd=dbpassword)
+
+except Exception as ex:
+	print(ex)
+	sys.exit(-1)
+sys.exit(0)
+
+END
+}
+
+loop_mysql_ready(){
+    until mysql_ready; do
+        >&2 echo 'Waiting for mysQL to become available...'
+    sleep 1
+    done
+    >&2 echo 'mysQL is available'
+}
+
+
+loop_mysql_ready
+exec "$@"
+
+

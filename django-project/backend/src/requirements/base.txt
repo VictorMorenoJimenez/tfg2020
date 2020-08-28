@@ -1,0 +1,63 @@
+# Core
+# ------------------------------------------------------------------------------
+pytz==2019.3  # https://github.com/stub42/pytz
+python-slugify==4.0.0  # https://github.com/un33k/python-slugify
+Pillow==7.1.1  # https://github.com/python-pillow/Pillow
+argon2-cffi==19.2.0  # https://github.com/hynek/argon2_cffi
+dj-database-url==0.5.0 # https://github.com/kennethreitz/dj-database-url
+python-decouple==3.3 # https://github.com/henriquebastos/python-decouple
+python-magic==0.4.15
+packaging==20.3
+
+# Django
+# ------------------------------------------------------------------------------
+django==3.0.5  # pyup: < 3.1  # https://www.djangoproject.com/
+django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
+django-filter==2.2.0 #https://github.com/carltongibson/django-filter
+django-redis==4.11.0  # https://github.com/niwinz/django-redis
+django-extensions==2.2.9 #https://github.com/django-extensions/django-extensions
+django-rest-auth[with_social]==0.9.5
+
+# Django REST Framework
+# ------------------------------------------------------------------------------
+djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
+coreapi==2.3.3  # https://github.com/core-api/python-client
+drf-writable-nested==0.6.0  # https://github.com/beda-software/drf-writable-nested
+
+# Django REST Swagger
+# ------------------------------------------------------------------------------
+drf-yasg==1.17.1 # https://drf-yasg.readthedocs.io
+swagger-spec-validator==2.5.0 # https://github.com/Yelp/swagger_spec_validator
+
+
+# Utils
+# ------------------------------------------------------------------------------
+unidecode==1.1.1
+ipython==7.13.0
+pusher==3.0.0
+flex==6.14.1 # https://github.com/pipermerriam/flex
+jsonschema==3.2.0
+
+# Test
+# ------------------------------------------------------------------------------
+model-bakery==1.0.1
+snapshottest==0.5.1
+
+# Mysql
+# ------------------------------------------------------------------------------
+mysqlclient==1.4.6
+pymysql==0.9.3
+
+
+# Celery
+# ------------------------------------------------------------------------------
+celery==4.4.6  # pyup: < 5.0  # https://github.com/celery/celery
+django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
+flower==0.9.4  # https://github.com/mher/flower
+redis==3.4.1 # https://github.com/andymccurdy/redis-py
+django-celery-email==3.0.0
+# set gitlab_user and gitlab_password
+# git+https://<gitlab_user>:<gitlab_password>@git.intelligenia.com/community/celery_resilient_task.git#egg=resilient_task
+
+
+

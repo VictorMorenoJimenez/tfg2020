@@ -1,0 +1,40 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+django_compilemessages(){
+    folder=locale
+    if [ ! -d "$folder" ]; then
+       mkdir $folder
+    fi
+    echo "Run compilemessages French"
+    python manage.py compilemessages -l fr || exit 1
+    echo "Run compilemessages Spanish"
+    python manage.py compilemessages -l es || exit 1
+}
+
+django_collectstatic(){
+    if ! [ -d /static ] ; then
+        echo "*** Creating /static directory"
+        mkdir /static
+    fi
+    echo "*** Running collectstatic"
+    python manage.py collectstatic --verbosity 3 --noinput
+}
+
+# Run django migrate script and set dummy table
+django_migrate() {
+  echo "*** Running migrate"
+  python manage.py migrate --noinput || exit 1
+}
+
+django_runserver() {
+  echo "Run development webserver"
+  python manage.py runserver 0.0.0.0:8000
+}
+
+django_migrate
+django_compilemessages
+django_collectstatic
+django_runserver

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+## Ejecución de comando arbitrario para Django "manage.py"
+## El comando se indica en el fichero "custom-managepy"
+## que debe estar en la raíz de la exportación. Si este fichero
+## no existe, no se hace nada.
+
+# en la variable $pythonpath se define la ruta a la raíz de la 
+# exportación. En dicha raíz donde debe estar el módulo python
+# "intelligenia_local" con el fichero "intelligenia_settings_local.py"
+# Este fichero debe contener al menos las credenciales para el acceso
+# a la base de datos en el sistema en explotación definidas en las 
+# siguientes variables:
+# 
+#  DBNAME
+#  DBUSER
+#  DBPASSWORD
+#  DBHOST
+#  DBPORT
+#
+#  MEDIA       # Ruta absoluta al directorio "media" de la instalación
+#  BASE_URI    # Prefijo para la URI para los estáticos servidos  
+#  DEBUG       # True | False para mensajes de depuración
+
+EXPORT_FULL_DIR=$1
+EXPORT_REVISION=$2
+RUN_PARTS_ARG=$3  # contiene la variante de la instalación con la personalización de plantillas y estáticos
+
+file="custom-managepy"
+pythonpath=`realpath $1/../..`
+
+if [ -f $file ] ; then
+	managecmd=`cat $file`
+	echo "$file encontrado. Ejecutando comando para manage.py: $managecmd"
+
+	cmd="$pythonpath/venv/bin/python $1/manage.py $managecmd --pythonpath=$pythonpath"
+	echo $cmd
+	$cmd
+else
+	echo "No hay comandos personalizados para ejecutar en $file"
+fi
