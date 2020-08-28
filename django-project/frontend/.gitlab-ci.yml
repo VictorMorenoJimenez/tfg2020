@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE_NAME: $REGISTRY_URL/victor/django-project-frontend
+  SWARM_SERVICE_NAME: 'djangoproject_frontend'
+
+build:
+  stage: build
+  before_script:
+   - docker login $REGISTRY_URL --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD
+  script:
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker tag $IMAGE_NAME:$CI_COMMIT_SHORT_SHA $IMAGE_NAME:latest
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push $IMAGE_NAME:latest
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - sudo -u $SSH_USER ssh $SWARM_HOST docker service update --with-registry-auth --image $IMAGE_NAME:$CI_COMMIT_SHORT_SHA $SWARM_SERVICE_NAME --detach
+  only:
+    - master
+
