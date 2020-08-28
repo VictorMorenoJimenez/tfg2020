@@ -5,7 +5,7 @@
 \section{Definición del problema}
 	\begin{text}
 		Actualmente la empresa para la que trabajo dispone de una infraestructura desplegada en un proveedor de servidores bare metal, esta infraestructura se ha ido creando con el tiempo, añadiendo servicios y haciendo las modificaciones pertinentes. \\
-		Dicha infraestructura es la responsable de alojar todos los servicios que se ofrecen a los clientes y se utiliza también para el desarrollo de nuevo software. Los desarrolladores utilizan máquinas virtuales para simular entornos de producción donde desplegar las aplicaciones en fase de pruebas antes de hacer un despliegue definitivo en producción. \\
+		Dicha infraestructura es la responsable de alojar todos los servicios que ofrecen a los clientes y se utiliza también para el desarrollo de nuevo software. Los desarrolladores utilizan máquinas virtuales para simular entornos de producción donde desplegar las aplicaciones en fase de pruebas antes de hacer un despliegue definitivo en producción. \\
 		Lo explicado anteriormente plantea varios problemas:
 		\begin{itemize}
 			\item Infraestructura configurada manualmente, imposible de replicar.
@@ -32,7 +32,7 @@
 
 \section{Conceptos básicos}
 		\begin{text}
-			A continuación se van a describir uno a uno, los conceptos básicos para entender este proyecto. Son conceptos claves sin los cuales un lector inexperto no comprenderá ni el problema ni la solución adoptada para el problema.
+			A continuación se van a describir uno a uno, los conceptos básicos para entender este proyecto. Son conceptos claves sin los cuales un lector no experto en el tema a tratar, no comprenderá ni el problema ni la solución adoptada para el problema.
 		\end{text}
 	\subsection{DevOps}
 		\begin{text}
@@ -59,7 +59,7 @@
 		\end{text}
 	\subsection{Despliegue continuo (CD)}
 		\begin{text}
-			El Despliegue Continuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración continua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración continua. Gracias a CD podemos garantizar entregas rápidas y seguras de software.
+			El Despliegue Continuo o CD por sus siglas en inglés 'Continous Delivery' complementa a la integración continua desplegando el proyecto software en los servidores de producción una vez ha pasado el proceso de la integración continua. Gracias a 'Continous Delivery' podemos garantizar entregas rápidas y seguras de software.
 			
 			\begin{figure}[!hbt]
 				\centering
@@ -70,7 +70,7 @@
 		\end{text}
 	\subsection{Infraestructura como Código (IaaC)}
 		\begin{text}
-			La infraestructura como código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. IaaC acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
+			La infraestructura como código pretende tratar los servidores y toda la infraestructura alrededor de una organización como un software de programación. De este modo, la infraestructura está escrita en ficheros de configuración y es fácilmente replicable y testeable. Este concepto al igual que los dos anteriores está íntimamente ligado con el término DevOps, ya que es uno de los primeros pasos a adoptar. IaaC pretende difuminar la línea entre el código que ejecutan las aplicaciones y el código que configura la infraestructura. Acerca a los desarrolladores al equipo de operaciones o administradores de sistemas. \\
 			De esta manera no únicamente se testea el software antes de ser lanzado, si no también la infraestructura. A continuación se muestra como sería el cauce de trabajo siguiendo los principios de IaaC.
 			
 			\begin{figure}[!hbt]
@@ -98,15 +98,16 @@
 	
 \section{Estado del arte}
 	\begin{text}
-		En esta sección se va a comentar el estado actual de proyectos parecidos al que se describe en este documento así como el contexto en el cual se desarrolla este proyecto. También se añade un pequeño análisis de cómo ha evolucionado el mercado laboral de este tipo de puestos de trabajo para hacer énfasis en la importancia de todo lo mencionado anteriormente.
+		En esta sección se va a comentar el estado actual de proyectos parecidos al que se describe en este documento así como el contexto en el cual se desarrolla este proyecto. También se añade un pequeño análisis de cómo ha evolucionado el mercado laboral de este tipo de puestos de trabajo para hacer énfasis en la importancia de todo lo mencionado anteriormente. Finalmente se hace un estudio inicial de las distintas alternativas disponibles a este proyecto y el coste.
 	\end{text}
 
 	\subsection{Introducción}
 	\begin{text}
-		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación sobre el tema y deciden fundar una lista de correo: Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración continua, entrega continua, infraestructura como código, etc.\\
+		Allá por 2007, en la Agile Conference de Toronto, Andrew Shafer (fundador de Puppet) da una charla sobre aplicar la metodología Agile a la infraestructura. Su único oyente Patrick Debois interesado por el tema, mantiene una larga conversación y deciden fundar una lista de correo: Agile System Administration. Este momento ha sido crucial para la filosofía DevOps ya que es en esta lista donde empiezan a germinar algunos conceptos conocidos hoy día como integración continua, entrega continua, infraestructura como código, etc.\\
 		Es en 2009 cuando se produce el famoso congreso  'O'reilly Velocity Conference' donde se realiza una charla llamada '10 Deploys per day'. En esta charla se empieza a plantear seriamente la fusión de los departamentos de Desarrollo y Operaciones. A raíz de esta charla nacen los llamados DevOpsdays, desarrolladores y equipo de operaciones empiezan a trabajar conjuntamente dando ideas de como poder fusionar ambos departamentos. Los DevOpsdays, rápidamente se extienden por todo el mundo popularizándose el término DevOps como fusión de Desarrollo y Operaciones. \\
 
-		Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos la otra cara de la moneda, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
+		Tradicionalmente, en el mundo IT han existido dos departamentos claramente diferenciados entre sí, Desarrolladores y Operaciones. Éstos hacen referencia a dos tipos de informático. Por un lado el desarrollador de aplicaciones, que se encarga de escribir código para cumplir unos requisitos funcionales y darle forma al producto. Este primer grupo se caracteriza por únicamente preocuparse de que la aplicación funcione correctamente en su entorno de desarrollo y que cumpla las funcionalidades descritas por el cliente. Por otro lado nos encontramos, el perfil de operaciones o sistemas o, como lo llaman algunos, 'sysadmin'. Éstos no se encargan de desarrollar aplicaciones, se encargan de realizar todas las operaciones que hay alrededor de una aplicación a nivel de sistemas, a la hora de lanzarla en un entorno de producción. Un sysadmin se encargará de toda la parte de pruebas y despliegue así como del mantenimiento de los servidores una vez desplegada la aplicación. \\
+		
 		Alguno ya sabrá y se habrá dado cuenta de que esta diferenciación y separación de un trabajo en dos bandos diferenciados va a causar problemas a largo plazo y no se equivoca. De hecho, si preguntas a cualquiera que haya trabajado con esta filosofía de trabajo te explicará rápidamente los problemas. Al tener los equipos separados, el desarrollador únicamente se preocupa de que su aplicación funcione en su entorno de desarrollo, lavándose las manos y dejando toda la responsabilidad en manos del equipo de sistemas. Del mismo modo, el equipo de sistemas ante cualquier fallo en la aplicación, echarán las culpas al equipo de desarrollo, ya que es su trabajo que la aplicación funcione correctamente y así sucesivamente... Son habituales los comentarios del tipo: 'Si a mí en local me funciona...' O ante cualquier fallo en producción: 'La aplicación funciona correctamente, seguro que son los sistemas...'. Como era de suponer, este enfoque no iba a durar mucho tiempo ya que los inconvenientes de esta forma de trabajar (sobretodo en equipos grandes) son insostenibles. Desafortunadamente hoy en día sigue habiendo empresas con esta filosofía de trabajo, sobretodo empresas con una larga trayectoria que se niegan a cambiar algo que 'ya funciona'. Este trabajo pretende justamente facilitar la adopción de técnicas DevOps a una pequeña empresa, cambiando el enfoque y la forma de trabajar de los departamentos de desarrollo y sistemas.
 	\end{text}
 	
@@ -188,6 +189,14 @@
 					\item Security
 				\end{itemize}
 			
+			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 2 cores.
+				\item \textbf{RAM}: 4GB de RAM.
+				\item \textbf{Almacenamiento}: 100GB SSD.
+			\end{itemize}
+			
 			Tras utilizar la calculadora de precios de Amazon \cite{amazoncalculadora:online} y hacer un cálculo aproximado de las máquinas virtuales que vamos a necesitar hemos obtenido el presupuesto de: \textbf{489} \euro mensuales, lo que hace un total de \textbf{5868} \euro anuales
 				
 			\end{text}
@@ -203,6 +212,14 @@
 					\item Azure test plans
 				\end{itemize}
 			
+			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 2 cores.
+				\item \textbf{RAM}: 4GB de RAM.
+				\item \textbf{Almacenamiento}: 100GB SSD.
+			\end{itemize}
+		
 				Utilizando la calculadora de precios de Azure \cite{azurecalculadora:online} y haciendo una estimación de los recursos necesarios para el proyecto, obtenemos un presupuesto anual de \textbf{7780,96} \euro.
 			\end{text}
 	
@@ -220,9 +237,18 @@
 					\item Seguridad
 				\end{itemize}
 			
+			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 2 cores.
+				\item \textbf{RAM}: 4GB de RAM.
+				\item \textbf{Almacenamiento}: 100GB SSD.
+			\end{itemize}
+			
 			Utilizando la calculadora de precios que ofrece Google Cloud \cite{googlecloudcalculadora:online} y haciendo una estimación de los recuross necesarios , obtenemos un presupuesto anual de \textbf{7480} \euro.
 			\end{text}
 		
+		\clearpage
 		\subsubsection{Comparación precios}
 			\begin{text}
 				Tras un análisis de la infraestructura necesaria para este proyecto y la correspondiente investigación en los principales proveedores cloud, ha dado como resultado la siguiente relación de precios (coste anual).
