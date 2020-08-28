@@ -73,3 +73,9 @@
     - cluster
     - add-node
   when: add_node_cluster_opt == 'yes'
+
+- import_tasks: fix_ssl_certs.yml
+  tags:
+    - proxmox
+    - fix_ssl
+  when: fix_ssl_certs_opt == 'yes'

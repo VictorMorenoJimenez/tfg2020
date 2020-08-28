@@ -1,0 +1,15 @@
+---
+
+    - name: Delete old SSL files
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /etc/pve/pve-www.key
+        - /etc/pve/pve-www.key
+      when: master == "no"
+
+    - name: Re-generate SSL keys 
+      command: >-
+        pvecm updatecerts --force
+      when: master == "no"
