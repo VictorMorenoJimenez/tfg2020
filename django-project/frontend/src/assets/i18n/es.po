@@ -1,0 +1,1511 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+
+msgid "1. Download template"
+msgstr "1. Descargar plantilla"
+
+msgid "2. Select XLS/XLSX file"
+msgstr "2. Selecciona archivo XLS/XLSX"
+
+msgid "AM"
+msgstr "AM"
+
+msgid "Account"
+msgstr "Cuenta"
+
+msgid "Acronym"
+msgstr "Siglas"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Add a hour"
+msgstr "Añadir una hora"
+
+msgid "Add a minute"
+msgstr "Añadir un minuto"
+
+msgid "Add a second"
+msgstr "Añadir un segundo"
+
+msgid "Add element"
+msgstr "Añadir elemento"
+
+msgid "Add new"
+msgstr "Añadir nuevo"
+
+msgid "Add new carrier"
+msgstr "Añadir nuevo porteador"
+
+msgid "Add new category"
+msgstr "Añadir nueva categoría"
+
+msgid "Add new discount"
+msgstr "Añadir nuevo descuento"
+
+msgid "Add new organizer"
+msgstr "Añadir nuevo organizador"
+
+msgid "Additional data"
+msgstr "Información adicional"
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "Admin"
+msgstr "Administrador"
+
+msgid "An error has occurred uploading the breeders."
+msgstr "Se ha producido un error mientras se cargaban los criadores."
+
+msgid "An error has occurred uploading the judges."
+msgstr "Se ha producido un error mientras se cargaban los jueces."
+
+msgid "An error has occurred while loading the association"
+msgstr "Se ha producido un error mientras se cargaba la asociación."
+
+msgid "An error has occurred while loading the breeder"
+msgstr "Se ha producido un error mientras se cargaba el criador."
+
+msgid "An error has occurred while loading the college"
+msgstr "Se ha producido un error mientras se cargaba el colegio."
+
+msgid "An error has occurred while loading the competition"
+msgstr "Se ha producido un error mientras se cargaba el concurso."
+
+msgid "An error has occurred while loading the confederation"
+msgstr "Se ha producido un error mientras se cargaba la confederación."
+
+msgid "An error has occurred while loading the federation"
+msgstr "Se ha producido un error mientras se cargaba la federación."
+
+msgid "An error has occurred while loading the judge"
+msgstr "Se ha producido un error mientras se cargaba el juez."
+
+msgid "An error has occurred while loading the profile"
+msgstr "Se ha producido un error mientras se cargaba el perfil."
+
+msgid "An error occurred while activating the user."
+msgstr "Se ha producido un error mientras se activa el usuario."
+
+msgid "An error occurred while copying the categories."
+msgstr "Se ha producido un error mientras se copian las categorías."
+
+msgid "An error occurred while download the template."
+msgstr "Se ha producido un error mientras se descargaba la plantilla."
+
+msgid "An error occurred while removing the breeder."
+msgstr "Se ha producido un error mientras se elimina el criador."
+
+msgid "An error occurred while removing the cage."
+msgstr "Se ha producido un error mientras se elimina la jaula."
+
+msgid "An error occurred while removing the carrier."
+msgstr "Se ha producido un error mientras se elimina el porteador."
+
+msgid "An error occurred while removing the category."
+msgstr "Se ha producido un error mientras se elimina la categoría."
+
+msgid "An error occurred while removing the college."
+msgstr "Se ha producido un error mientras se elimina el colegio."
+
+msgid "An error occurred while removing the competition."
+msgstr "Se ha producido un error mientras se elimina el concurso."
+
+msgid "An error occurred while removing the confederation."
+msgstr "Se ha producido un error mientras se elimina la confederación."
+
+msgid "An error occurred while removing the discount."
+msgstr "Se ha producido un error mientras se elimina el descuento."
+
+msgid "An error occurred while removing the group."
+msgstr "Se ha producido un error mientras se elimina el grupo."
+
+msgid "An error occurred while removing the judge."
+msgstr "Se ha producido un error mientras se elimina el juez."
+
+msgid "An error occurred while removing the organizer."
+msgstr "Se ha producido un error mientrase se elimina al organizador."
+
+msgid ""
+"An error occurred while saving the association. Check the fields marked in "
+"red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la asociación. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the breeder. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el criador. Comprueba los "
+"campos marcados en rojo"
+
+msgid "An error occurred while saving the cage. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la jaula. Comprueba los campos "
+"marcados en rojo"
+
+msgid ""
+"An error occurred while saving the carrier. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientrase se guardaba el porteador. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the category. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la categoría. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the college. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el colegio. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the competition. Check the fields marked in "
+"red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el concurso. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the confederation. Check the fields marked in "
+"red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la confederación. Comprueba "
+"los campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the discount. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el descuento. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the federation. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la federación. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the group. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el grupo. Comprueba los campos "
+"marcados en rojo"
+
+msgid ""
+"An error occurred while saving the judge. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el juez. Comprueba los campos "
+"marcados en rojo"
+
+msgid ""
+"An error occurred while saving the organizer. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el organizador. Comprueba los "
+"campos en rojo"
+
+msgid ""
+"An error occurred while saving the password. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba la contraseña. Comprueba los "
+"campos marcados en rojo"
+
+msgid ""
+"An error occurred while saving the profile. Check the fields marked in red"
+msgstr ""
+"Se ha producido un error mientras se guardaba el perfil. Comprueba los "
+"campos marcados en rojo"
+
+msgid "An error occurred while verifying the phone"
+msgstr "Se ha producido un error al verificar el teléfono"
+
+msgid "An error occurred while verifying the phone."
+msgstr "Se ha producido un error al verificar el teléfono."
+
+msgid "Are you sure you want to remove the selected association?"
+msgstr "¿Estás seguro de que deseas eliminar la asociación seleccionada?"
+
+msgid "Are you sure you want to remove the selected breeder?"
+msgstr "¿Estás seguro de que deseas eliminar el criador seleccionado?"
+
+msgid "Are you sure you want to remove the selected cage?"
+msgstr "¿Estás seguro de que deseas eliminar la jaula seleccionada?"
+
+msgid "Are you sure you want to remove the selected carrier?"
+msgstr "¿Estás seguro de que deseas eliminar el porteador seleccionado?"
+
+msgid "Are you sure you want to remove the selected category?"
+msgstr "¿Estás seguro de que deseas eliminar la categoría seleccionada?"
+
+msgid "Are you sure you want to remove the selected college?"
+msgstr "¿Estás seguro de que deseas eliminar el colegio seleccionado?"
+
+msgid "Are you sure you want to remove the selected competition?"
+msgstr "¿Estás seguro de que deseas eliminar el concurso seleccionado?"
+
+msgid "Are you sure you want to remove the selected confederation?"
+msgstr "¿Estás seguro de que deseas eliminar la confederación seleccionada?"
+
+msgid "Are you sure you want to remove the selected discount?"
+msgstr "¿Estás seguro de que deseas eliminar el descuento seleccionado?"
+
+msgid "Are you sure you want to remove the selected federation?"
+msgstr "¿Estás seguro de que deseas eliminar la federación seleccionada?"
+
+msgid "Are you sure you want to remove the selected group?"
+msgstr "¿Estás seguro de que deseas eliminar el grupo seleccionado?"
+
+msgid "Are you sure you want to remove the selected judge?"
+msgstr "¿Estás seguro de que deseas eliminar el juez seleccionado?"
+
+msgid "Are you sure you want to remove the selected organizer?"
+msgstr "¿Estás seguro de que deseas eliminar el organizador seleccionado?"
+
+msgid "Association"
+msgstr "Asociación"
+
+msgid "Association admin"
+msgstr "Administrador de asociación"
+
+msgid "Association code"
+msgstr "Código de asociación"
+
+msgid "Association identification"
+msgstr "Identificación de la asociación"
+
+msgid "Association successfully saved."
+msgstr "Asociación guardada con éxito."
+
+msgid "Associations"
+msgstr "Asociaciones"
+
+msgid "Back to the list of associations"
+msgstr "Volver a la lista de asociaciones"
+
+msgid "Back to the list of breeders"
+msgstr "Volver a la lista de criadores"
+
+msgid "Back to the list of categories"
+msgstr "Volver a la lista de categorías"
+
+msgid "Back to the list of colleges"
+msgstr "Volver a la lista de colegios"
+
+msgid "Back to the list of competitions"
+msgstr "Volver a la lista de concursos"
+
+msgid "Back to the list of confederations"
+msgstr "Volver a la lista de confederaciones"
+
+msgid "Back to the list of discounts"
+msgstr "Volver a la lista de descuentos"
+
+msgid "Back to the list of federations"
+msgstr "Volver a la lista de federaciones"
+
+msgid "Back to the list of groups"
+msgstr "Volver a la lista de grupos"
+
+msgid "Back to the list of judges"
+msgstr "Volver a la lista de jueces"
+
+msgid "Bank account"
+msgstr "Cuenta bancaria"
+
+msgid "Bird age"
+msgstr "Edad del pájaro"
+
+msgid "Birds amount"
+msgstr "Cantidad de pájaros"
+
+msgid "Breeder"
+msgstr "Criador"
+
+msgid "Breeder code"
+msgstr "Código de criador"
+
+msgid "Breeder code (It will be used as username)"
+msgstr "Código de criador (se utilizará como nombre de usuario)"
+
+msgid "Breeder identification"
+msgstr "Identificación del criador"
+
+msgid "Breeder successfully saved."
+msgstr "Criador guardado correctamente."
+
+msgid "Breeders"
+msgstr "Criadores"
+
+msgid "Breeders added count: "
+msgstr "Criadores que han sido añadidos:"
+
+msgid "Breeders not added count: "
+msgstr "Criadores que no han sido añadidos:"
+
+msgid "CHANGE PASSWORD"
+msgstr "CAMBIAR CONTRASEÑA"
+
+msgid "CHANGE YOUR PASSWORD"
+msgstr "CAMBIA TU CONTRASEÑA"
+
+msgid "COE league"
+msgstr "Liga COE"
+
+msgid "Cage successfully saved."
+msgstr "Jaula guardada con éxito"
+
+msgid "Cage type"
+msgstr "Tipo de jaula"
+
+msgid "Cages"
+msgstr "Jaulas"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Carrier successfully saved."
+msgstr "Porteador guardado correctamente."
+
+msgid "Carriers"
+msgstr "Porteadores"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Categories and groups"
+msgstr "Categorías y grupos"
+
+msgid "Categories he can judge"
+msgstr "Categorías que puede enjuiciar"
+
+msgid "Categories were successfully copied."
+msgstr "Categorías copiadas correctamente"
+
+msgid "Category"
+msgstr "Categoría"
+
+msgid "Category code"
+msgstr "Código de categoría"
+
+msgid "Category successfully saved."
+msgstr "Categoría guardada correctamente."
+
+msgid "Category..."
+msgstr "Categoría..."
+
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+msgid "Change to month view"
+msgstr "Cambiar a la vista mes"
+
+msgid "Choose month and year"
+msgstr "Elija mes y año"
+
+msgid "Clear"
+msgstr "Limpiar"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Code"
+msgstr "Código"
+
+msgid "College"
+msgstr "Colegio"
+
+msgid "College code"
+msgstr "Código de colegio"
+
+msgid "College of judges"
+msgstr "Colegio de jueces"
+
+msgid "College successfully saved."
+msgstr "Colegio guardado correctamente."
+
+msgid "Colleges"
+msgstr "Colegios"
+
+msgid "Commission"
+msgstr "Comisión"
+
+msgid "Commission type"
+msgstr "Tipo de comisión"
+
+msgid "Competition"
+msgstr "Concurso"
+
+msgid "Competition Detail"
+msgstr "Detalle del concurso"
+
+msgid "Competition admin"
+msgstr "Administrador de concurso"
+
+msgid "Competition name"
+msgstr "Nombre del concurso"
+
+msgid "Competition successfully saved."
+msgstr "Concurso guardado correctamente."
+
+msgid "Competitions"
+msgstr "Concursos"
+
+msgid "Confederation"
+msgstr "Confederación"
+
+msgid "Confederation admin"
+msgstr "Administrador de confederación"
+
+msgid "Confederation code"
+msgstr "Código de confederación"
+
+msgid "Confederation identification"
+msgstr "Identificación de la confederación"
+
+msgid "Confederation successfully saved."
+msgstr "Confederación guardada correctamente."
+
+msgid "Confederations"
+msgstr "Confederaciones"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Confirm elimination"
+msgstr "Confirmar eliminación"
+
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "Contact email"
+msgstr "Email de contacto"
+
+msgid "Contact info"
+msgstr "Información de contacto"
+
+msgid "Contact phone"
+msgstr "Teléfono de contacto"
+
+msgid "Copy categories"
+msgstr "Copiar categorias"
+
+msgid "Copy categories from another competition"
+msgstr "Copiar categorías desde otro concurso"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Create"
+msgstr "Crear"
+
+msgid "Create breeder account"
+msgstr "Crear una cuenta de criador"
+
+msgid "Create group"
+msgstr "Crear grupo"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Denomination"
+msgstr "Denominación"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Deselect group"
+msgstr "Deseleccionar grupo"
+
+msgid "Deselect judge"
+msgstr "Deseleccionar juez"
+
+msgid "Discount per bird"
+msgstr "Descuento por pájaro"
+
+msgid "Discount successfully saved."
+msgstr "Descuento guardado correctamente."
+
+msgid "Discounts"
+msgstr "Descuentos"
+
+msgid "Download template"
+msgstr "Descargar plantilla"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Edit cage type"
+msgstr "Editar tipo de jaula"
+
+msgid "Edit carrier"
+msgstr "Editar porteador"
+
+msgid "Edit category"
+msgstr "Editar categoría"
+
+msgid "Edit discount"
+msgstr "Editar descuento"
+
+msgid "Edit group"
+msgstr "Editar grupo"
+
+msgid "Edit organizer"
+msgstr "Editar oganizador"
+
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+msgid ""
+"El texto debe ser inferior a {{control.errors['maxlength'].requiredLength}} "
+"caracteres"
+msgstr ""
+"El texto debe ser inferior a {{control.errors['maxlength'].requiredLength}} "
+"caracteres"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Email is required"
+msgstr "El email es necesario"
+
+msgid "End date"
+msgstr "Fecha final"
+
+msgid "End date of the competition"
+msgstr "Fecha final del concurso"
+
+msgid "End impersonation"
+msgstr "Acabar impersonación"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Erase"
+msgstr "Borrar"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Errors"
+msgstr "Errores"
+
+msgid "Federation"
+msgstr "Federación"
+
+msgid "Federation admin"
+msgstr "Administrador de federación"
+
+msgid "Federation code"
+msgstr "Código de federación"
+
+msgid "Federation identification"
+msgstr "Identificación de la federación"
+
+msgid "Federation successfully saved."
+msgstr "La federación se ha guardado con éxito."
+
+msgid "Federations"
+msgstr "Federaciones"
+
+msgid "File must be xls/xlsx."
+msgstr "El archivo debe ser xls/xlsx."
+
+msgid "Fill with a valid address"
+msgstr "Rellene con una dirección válida"
+
+msgid "Fill with association code"
+msgstr "Rellenar con código de asociación"
+
+msgid "Fill with college code"
+msgstr "Rellenar con código de colegio"
+
+msgid "First"
+msgstr "Primero"
+
+msgid "First name"
+msgstr "Nombre"
+
+msgid ""
+"First: {{first_points}} - Second: {{second_points}} - Third: {{third_points}}"
+msgstr ""
+"Pimero: {{first_points}} - Segundo: {{second_points}} - Tercero: "
+"{{third_points}}"
+
+msgid "Fixed value"
+msgstr "Valor fijo"
+
+msgid "French"
+msgstr "Francés"
+
+msgid "From"
+msgstr "Desde"
+
+msgid "From {{discount.from_birds}} to {{discount.to_birds}} birds"
+msgstr "Desde {{discount.from_birds}} hasta {{discount.to_birds}} pájaros"
+
+msgid "From {{from_birds}} to {{to_birds}} birds"
+msgstr "Desde {{from_birds}} hasta {{to_birds}} pájaros"
+
+msgid "General"
+msgstr "General"
+
+msgid "General Information"
+msgstr "Información general"
+
+msgid "General data"
+msgstr "Datos generales"
+
+msgid "Go back"
+msgstr "Ir atrás"
+
+msgid "Go back to login"
+msgstr "Volver a inicio de sesión"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Group code"
+msgstr "Código de grupo"
+
+msgid "Group successfully saved."
+msgstr "Grupo guardado correctamente."
+
+msgid "Group..."
+msgstr "Grupo..."
+
+msgid "Groups"
+msgstr "Grupos"
+
+msgid "Headquarter"
+msgstr "Sede"
+
+msgid "How to go"
+msgstr "Como llegar"
+
+msgid "How to go (link)"
+msgstr "Como llegar (enlace)"
+
+msgid "Identification"
+msgstr "DNI / NIE"
+
+msgid ""
+"If singing birds participate in your competition, you can set the prices of "
+"the batch below"
+msgstr ""
+"Si en tu concurso participan pájaros de canto, puedes establecer los precios "
+"de los lotes a continuación"
+
+msgid "Image"
+msgstr "Imagen"
+
+msgid "Import breeders"
+msgstr "Importar criadores"
+
+msgid "Import breeders by XLS/XLSX file"
+msgstr "Importar criadores con un archivo XLS/XLSX"
+
+msgid "Import judges"
+msgstr "Importar jueces"
+
+msgid "Import judges by XLS/XLSX file"
+msgstr "Importar jueces con archivo XLS/XLSX"
+
+msgid "Individual"
+msgstr "Individual"
+
+msgid "Individual code"
+msgstr "Código individual"
+
+msgid "Initial date of the competition"
+msgstr "Fecha inicial del concurso"
+
+msgid "Instructions have been sent to change the password to your email."
+msgstr ""
+"Las instrucciones para cambiar la contraseña han sido enviadas a su correo "
+"electrónico."
+
+msgid "Instructions:"
+msgstr "Instrucciones:"
+
+msgid "Italian"
+msgstr "Italiano"
+
+msgid "Judge"
+msgstr "Juez"
+
+msgid "Judge code"
+msgstr "Código de juez"
+
+msgid "Judge identification"
+msgstr "Identificación del juez"
+
+msgid "Judge successfully saved."
+msgstr "Juez guardado correctamente."
+
+msgid "Judge..."
+msgstr "Juez..."
+
+msgid "Judges"
+msgstr "Jueces"
+
+msgid "Judges added count: "
+msgstr "Cantidad de jueces añadidos:"
+
+msgid "Judges assignment"
+msgstr "Asignación de jueces"
+
+msgid "Judges not added count: "
+msgstr "Cantidad de jueces no añadidos:"
+
+msgid "LOGIN"
+msgstr "INICIO DE SESIÓN"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Last name"
+msgstr "Apellidos"
+
+msgid "List of associations"
+msgstr "Lista de asociaciones"
+
+msgid "List of breeders"
+msgstr "Lista de criadores"
+
+msgid "List of categories"
+msgstr "Lista de categorías"
+
+msgid "List of colleges"
+msgstr "Lista de colegios"
+
+msgid "List of competitions"
+msgstr "Lista de concursos"
+
+msgid "List of confederations"
+msgstr "Lista de confederaciones"
+
+msgid "List of discounts"
+msgstr "Lista de descuentos"
+
+msgid "List of federations"
+msgstr "Lista de federaciones"
+
+msgid "List of groups"
+msgstr "Lista de grupos"
+
+msgid "List of judges"
+msgstr "Lista de jueces"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Locality"
+msgstr "Localidad"
+
+msgid "Location"
+msgstr "Localización"
+
+msgid "Login"
+msgstr "Inicio de sesión"
+
+msgid "Logout"
+msgstr "Cierre de sesión"
+
+msgid "Lunch dinner price"
+msgstr "Precio por comida/cena"
+
+msgid "Lunch dinner price (member)"
+msgstr "Precio por comida/cena (socios)"
+
+msgid "Lunch dinner price (non member)"
+msgstr "Precio por comida/cena (no socios)"
+
+msgid "Member"
+msgstr "Socio"
+
+msgid "Members: {{discount_member}}€ - Non members: {{discount_non_member}}€"
+msgstr "Socios: {{discount_member}}€ - No socios: {{discount_non_member}}€"
+
+msgid "Min individual points"
+msgstr "Puntos individuales mínimos"
+
+msgid "Min team points"
+msgstr "Puntos de equipo mínimos"
+
+msgid "Minus a hour"
+msgstr "Menos de una hora"
+
+msgid "Minus a minute"
+msgstr "Menos de un minuto"
+
+msgid "Minus a second"
+msgstr "Menos de un segundo"
+
+msgid "Mixed"
+msgstr "Mixto"
+
+msgid "Mobile phone"
+msgstr "Teléfono móvil"
+
+msgid "My Profile"
+msgstr "Mi perfil"
+
+msgid "My profile"
+msgstr "Mi perfil"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "New association"
+msgstr "Nueva asociación"
+
+msgid "New breeder"
+msgstr "Nuevo criador"
+
+msgid "New cage type"
+msgstr "Nuevo tipo de jaula"
+
+msgid "New carrier"
+msgstr "Nuevo porteador"
+
+msgid "New category"
+msgstr "Nueva categoría"
+
+msgid "New college"
+msgstr "Nuevo colegio"
+
+msgid "New competition"
+msgstr "Nuevo concurso"
+
+msgid "New confederation"
+msgstr "Nueva confederación"
+
+msgid "New discount"
+msgstr "Nuevo descuento"
+
+msgid "New federation"
+msgstr "Nueva federación"
+
+msgid "New group"
+msgstr "Nuevo grupo"
+
+msgid "New judge"
+msgstr "Nuevo juez"
+
+msgid "New organizer"
+msgstr "Nuevo organizador"
+
+msgid "New password"
+msgstr "Nueva contraseña"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Next 21 years"
+msgstr "Siguientes 21 años"
+
+msgid "Next month"
+msgstr "Próximo mes"
+
+msgid "Next year"
+msgstr "Próximo año"
+
+msgid "No"
+msgstr "No"
+
+msgid "No association with the indicated id was found"
+msgstr "No se ha encontrado ninguna asociación con el id indicado"
+
+msgid "No breeder with the indicated id was found"
+msgstr "No se ha encontrado ningún criador con el id indicado"
+
+msgid "No category with the indicated id was found"
+msgstr "No se ha encontrado ninguna categoría con el id indicado"
+
+msgid "No college with the indicated id was found"
+msgstr "No se ha encontrado ningún colegio con el id indicado"
+
+msgid "No competition with the indicated id was found"
+msgstr "No se ha encontrado ningún concurso con el id indicado"
+
+msgid "No confederation with the indicated id was found"
+msgstr "No se ha encontrado ninguna confederación con el id indicado"
+
+msgid "No discount with the indicated id was found"
+msgstr "No se ha encontrado ningún descuento con el id indicado"
+
+msgid "No federation with the indicated id was found"
+msgstr "No se ha encontrado ninguna federación con el id indicado"
+
+msgid "No group with the indicated id was found"
+msgstr "No se ha encontrado ningún grupo con el id indicado"
+
+msgid "No judge with the indicated id was found"
+msgstr "No se ha encontrado ningún juez con el id indicado"
+
+msgid "Non member"
+msgstr "No socio"
+
+msgid "Number of birds to apply the discount"
+msgstr "Cantidad de pájaros para aplicar el descuento"
+
+msgid "Official"
+msgstr "Oficial"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Old password"
+msgstr "Antigua contraseña"
+
+msgid "Open in new tab"
+msgstr "Abrir en una nueva pestaña"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "Options: 1 (true), 0 (false)"
+msgstr "Opciones: 1 (Verdadero), 0 (falso)"
+
+msgid "Options: en, es, fr, it, pt"
+msgstr "Opciones: en, es, fr, it, pt"
+
+msgid "Organization"
+msgstr "Organización"
+
+msgid "Organizations"
+msgstr "Organizaciones"
+
+msgid "Organizer identification"
+msgstr "Identificación de la organización"
+
+msgid "Organizer successfully saved."
+msgstr "Organización guardada correctamente."
+
+msgid "Organizers"
+msgstr "Organizadores"
+
+msgid "PM"
+msgstr "PM"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Password (Confirm)"
+msgstr "Contraseña (Confirmar)"
+
+msgid "Password is required"
+msgstr "La contraseña es necesaria"
+
+msgid "Password successfully saved."
+msgstr "Contraseña guardada correctamente."
+
+msgid "Percentage"
+msgstr "Porcentaje"
+
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "Please enter a valid email address"
+msgstr "Por favor, introduzca una dirección de correo electrónico válida"
+
+msgid "Portuguese"
+msgstr "Portugués"
+
+msgid "Poster"
+msgstr "Póster"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Previous 21 years"
+msgstr "Anterior de 21 años"
+
+msgid "Previous month"
+msgstr "Mes anterior"
+
+msgid "Previous year"
+msgstr "Año anterior"
+
+msgid "Price per batch of singing birds"
+msgstr "Precio por lote de pájaros de canto"
+
+msgid "Price per batch of singing birds (member)"
+msgstr "Precio por lote de pájaros de canto (socios)"
+
+msgid "Price per batch of singing birds (non member)"
+msgstr "Precio por lote de pájaros de canto (no socios)"
+
+msgid "Price per catalog"
+msgstr "Precio por catálogo"
+
+msgid "Prices"
+msgstr "Precios"
+
+msgid "Profile successfully saved."
+msgstr "Perfil guardado correctamente."
+
+msgid "Province"
+msgstr "Provincia"
+
+msgid "RECOVER YOUR PASSWORD"
+msgstr "RECUPERAR SU CONTRASEÑA"
+
+msgid "RESET MY PASSWORD"
+msgstr "RESTABLECER MI CONTRASEÑA"
+
+msgid "RESET YOUR PASSWORD"
+msgstr "RESTABLECER SU CONTRASEÑA"
+
+msgid "Register"
+msgstr "Registrarse"
+
+msgid "Registration price per bird in team"
+msgstr "Precio de inscripción por pájaro en equipo"
+
+msgid "Registration price per bird in team (member)"
+msgstr "Precio de inscripción por pájaro en equipo (socios)"
+
+msgid "Registration price per bird in team (non member)"
+msgstr "Precio de inscripción por pájaro en equipo (no socios)"
+
+msgid "Registration price per individual bird"
+msgstr "Precio de inscripción por pájaro individual"
+
+msgid "Registration price per individual bird (member)"
+msgstr "Precio de inscripción por pájaro individual (socios)"
+
+msgid "Registration price per individual bird (non member)"
+msgstr "Precio de inscripción por pájaro individual (no socios)"
+
+msgid "Remember later"
+msgstr "Recordar más tarde"
+
+msgid "Remember password"
+msgstr "Recordar contraseña"
+
+msgid "Remember to complete the mandatory fields in the breeder after upload."
+msgstr ""
+"Recuerda completar los campos requeridos en el criador después de la subida."
+
+msgid "Remember to complete the mandatory fields in the judge after upload."
+msgstr ""
+"Recuerda completar los campos requeridos en el juez después de la subida."
+
+msgid "Required"
+msgstr "Requerido"
+
+msgid "SEND RESET LINK"
+msgstr "ENVIAR ENLACE DE RESTABLECIMIENTO"
+
+msgid "Sales of birds allowed"
+msgstr "Se permite la venta de ejemplares"
+
+msgid "Sales of birds allowed (commission)"
+msgstr "Se permite la venta de ejemplares (comisión)"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Scores for the COE league"
+msgstr "Puntúa para la liga COE"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Search for..."
+msgstr "Buscar..."
+
+msgid "Second"
+msgstr "Segundo"
+
+msgid "Select categories"
+msgstr "Seleccionar categorías"
+
+msgid "Select file"
+msgstr "Selecciona un archivo"
+
+msgid "Select item"
+msgstr "Seleccionar elemento"
+
+msgid "Set"
+msgstr "Establecer"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "Specialty"
+msgstr "Especialidad"
+
+msgid "Start date"
+msgstr "Fecha inicial"
+
+msgid ""
+"Successfully activated. Enter your username and password to log in to the "
+"system"
+msgstr ""
+"Activado con éxito. Ingrese su nombre de usuario y contraseña para iniciar "
+"sesión en el sistema"
+
+msgid "Superuser"
+msgstr "Súper usuario"
+
+msgid "Team"
+msgstr "Equipo"
+
+msgid "Team code"
+msgstr "Código de equipo"
+
+msgid "Tel."
+msgstr "Telf."
+
+msgid "The association was successfully deleted."
+msgstr "La asociación se ha eliminado correctamente."
+
+msgid "The breeder was successfully deleted."
+msgstr "El criador se ha eliminado correctamente."
+
+msgid "The cage was successfully deleted."
+msgstr "La jaula se ha eliminado correctamente."
+
+msgid "The carrier was successfully deleted."
+msgstr "El porteador se ha eliminado correctamente."
+
+msgid "The category was successfully deleted."
+msgstr "La categoría se ha eliminado correctamente."
+
+msgid "The college was successfully deleted."
+msgstr "El colegio se ha eliminado correctamente."
+
+msgid "The competition must have judges and groups to start the assignment"
+msgstr "La competición debe tener jueces y grupos para comenzar la asignación"
+
+msgid "The competition was successfully deleted."
+msgstr "El concurso se ha eliminado correctamente."
+
+msgid "The confederation was successfully deleted."
+msgstr "La confederación se ha eliminado correctamente."
+
+msgid "The discount was successfully deleted."
+msgstr "El descuento se ha eliminado correctamente."
+
+msgid "The federation was successfully deleted."
+msgstr "La federación se ha eliminado correctamente."
+
+msgid "The group was successfully deleted."
+msgstr "El grupo se ha eliminado correctamente."
+
+msgid "The judge was successfully deleted."
+msgstr "El juez se ha eliminado correctamente."
+
+msgid "The organizer was successfully deleted."
+msgstr "El organizador se ha eliminado correctamente."
+
+msgid "The password has been changed successfully.."
+msgstr "La contraseña se ha cambiado correctamente.."
+
+msgid "There are no items"
+msgstr "No hay elementos"
+
+msgid "There aren't any groups in this category"
+msgstr "No hay ningún grupo en esta categoría"
+
+msgid "Third"
+msgstr "Tercero"
+
+msgid "This field is required"
+msgstr "Este campo es obligatorio"
+
+msgid "This will remove your currents categories and groups"
+msgstr "Esto eliminará tus categorías y grupos actuales"
+
+msgid "To"
+msgstr "Hasta"
+
+msgid "Transfers"
+msgstr "Traspasos"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Undefined"
+msgstr "Indefinido"
+
+msgid "Upload association image"
+msgstr "Subir la imagen de la asociación"
+
+msgid "Upload breeders"
+msgstr "Cargar criadores"
+
+msgid "Upload college image"
+msgstr "Subir imagen del colegio"
+
+msgid "Upload confederation image"
+msgstr "Subir la imagen de la confederación"
+
+msgid "Upload federation image"
+msgstr "Subir la imagen de la federación"
+
+msgid "Upload judges"
+msgstr "Subir jueces"
+
+msgid "Upload logo"
+msgstr "Subir logo"
+
+msgid "Upload poster"
+msgstr "Subir poster"
+
+msgid "User type"
+msgstr "Tipo de usuario"
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Verified"
+msgstr "Verificado"
+
+msgid "Verify"
+msgstr "Verificar"
+
+msgid "Verify account"
+msgstr "Verificar cuenta"
+
+msgid "Verify phone"
+msgstr "Verificar teléfono"
+
+msgid "Verify your account by phone"
+msgstr "Verificar tu cuenta por teléfono"
+
+msgid "Verify your account with the link we have sent to your email"
+msgstr ""
+"Verifica tu cuenta con el enlace que le hemos enviado a su correo electrónico"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Website"
+msgstr "Página web"
+
+msgid "Welcome to Journeylone"
+msgstr "Bienvenido a Journeylone"
+
+msgid "Will be multiplied by 4"
+msgstr "Será multiplicado por 4"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "You can select an existing category to use as a template"
+msgstr "Puedes seleccionar una categoría existente para usarla como plantilla"
+
+msgid "You can select an existing group to use as a template"
+msgstr "Puedes seleccionar un grupo existente para usarlo como plantilla"
+
+msgid "You do not have an account?"
+msgstr "¿No tienes una cuenta?"
+
+msgid "You have an account?"
+msgstr "¿Tienes una cuenta?"
+
+msgid "a day ago"
+msgstr "hace un día"
+
+msgid "a few seconds ago"
+msgstr "hace unos segundos"
+
+msgid "a minute ago"
+msgstr "hace un minuto"
+
+msgid "a month ago"
+msgstr "hace un mes"
+
+msgid "a year ago"
+msgstr "hace un año"
+
+msgid "an hour ago"
+msgstr "hace una hora"
+
+msgid "groups"
+msgstr "grupos"
+
+msgid "judges"
+msgstr "jueces"
+
+msgid "translation load"
+msgstr "carga de traducción"
+
+msgid "{{time}} days ago"
+msgstr "{{hora}} días"
+
+msgid "{{time}} hours ago"
+msgstr "{{hora}} horas"
+
+msgid "{{time}} minutes ago"
+msgstr "{{hora}} minutos"
+
+msgid "{{time}} months ago"
+msgstr "{{hora}} meses"
+
+msgid "{{time}} years ago"
+msgstr "{{hora}} años"
+
+#~ msgid "Assigned categories"
+#~ msgstr "Categorías asignadas"
+
+#~ msgid "Available"
+#~ msgstr "Disponibles"
+
+#~ msgid "Finished"
+#~ msgstr "Acabados"
+
+#~ msgid "Inscribed"
+#~ msgstr "Inscritos"
+
+#~ msgid "Birds range"
+#~ msgstr "Rango de pájaros"
+
+#~ msgid "Payment"
+#~ msgstr "Pago"
+
+#~ msgid "Price per batch of birds (member)"
+#~ msgstr "Precio por lote de pájaros (socios)"
+
+#~ msgid "Price per batch of birds (non member)"
+#~ msgstr "Precio por lote de pájaros (no socios)"
+
+#~ msgid "{{amount}} categories selected"
+#~ msgstr "{{amount}} categorías seleccionadas"
+
+#~ msgid "Registrar"
+#~ msgstr "Registrar"
+
+#~ msgid "An error occurred while removing the association."
+#~ msgstr "Se ha producido un error mientras se elimina la asociación."
+
+#~ msgid "An error occurred while removing the federation."
+#~ msgstr "Se ha producido un error mientras se elimina la federación."
+
+#~ msgid "Headquarters"
+#~ msgstr "Sedes"
+
+#~ msgid "Tienes una cuenta?"
+#~ msgstr "Tienes una cuenta?"
+
+#~ msgid "Back to list"
+#~ msgstr "Volver a la lista"
+
+#~ msgid "Contraseña"
+#~ msgstr "Contraseña"
+
+#~ msgid "Crear cuenta"
+#~ msgstr "Crear cuenta"
+
+#~ msgid "Crear una cuenta"
+#~ msgstr "Crear una cuenta"
+
+#~ msgid "No tienes cuenta?"
+#~ msgstr "No tienes cuenta?"
+
+#~ msgid "Recordar contraseña"
+#~ msgstr "Recordar contraseña"
+
+#~ msgid "DNI"
+#~ msgstr "DNI"
+
+#~ msgid "Number"
+#~ msgstr "Número"
+
+#~ msgid "Nº Confederation"
+#~ msgstr "Nº de confederación"
+
+#~ msgid "Nº Criador"
+#~ msgstr "Nº de criador"
+
+#~ msgid "Nº Federation"
+#~ msgstr "Nº de federación"
+
+#~ msgid "Cities"
+#~ msgstr "Ciudades"
+
+#~ msgid "City"
+#~ msgstr "Ciudad"
+
+#~ msgid "State"
+#~ msgstr "Estado"
+
+#~ msgid "Zip code"
+#~ msgstr "Código postal"
+
+#~ msgid "ContraseÃ±a"
+#~ msgstr "Contraseña"
+
+#~ msgid "NÂº Confederation"
+#~ msgstr "NÂº ConfederaciÃ³n"
+
+#~ msgid "NÂº Criador"
+#~ msgstr "NÂº De Criador"
+
+#~ msgid "NÂº Federation"
+#~ msgstr "Nº De La Federación"
+
+#~ msgid "Recordar contraseÃ±a"
+#~ msgstr "Recordar contraseña"
+
+#~ msgid "d \""
+#~ msgstr "d \\"
+
+#~ msgid "d \"About Us"
+#~ msgstr "d \\"
+
+#~ msgid "d \"Chat"
+#~ msgstr "d \\"
+
+#~ msgid "d \"Chats"
+#~ msgstr "d \\"
+
+#~ msgid "d \"Customers"
+#~ msgstr "d \\"
+
+#~ msgid "d \"Customers review"
+#~ msgstr "d \\"
+
+#~ msgid ""
+#~ "d \"Estimated delivery time: {{estimated_time}} days ({{carrier_name}})"
+#~ msgstr "d \\"
+
+#~ msgid "d \"Hi<strong> {{name}}</strong>, how can we help you?"
+#~ msgstr "d \\"
+
+#~ msgid "d \"URL"
+#~ msgstr "d \\"
+
+#~ msgid "d \"max"
+#~ msgstr "d \\"
+
+#~ msgid "d \"min"
+#~ msgstr "d \\"
+
+#~ msgid "d \"{{amount}} products selected"
+#~ msgstr "d \\"
+
+#~ msgid "d \"{{amount}} variations selected"
+#~ msgstr "d \\"

@@ -1,0 +1,19 @@
+<div class="content-input-phone">
+    <p class="mt-0 mb-4 font-size-12">{{placeholder || 'Phone'}}<span *ngIf="required">*</span></p>
+    <ngx-intl-tel-input
+            (ngModelChange)="setPhone()"
+            [cssClass]="'custom'"
+            [preferredCountries]="preferredCountries"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Spain"
+            [enableAutoCountrySelect]="true"
+            [tooltipField]="TooltipLabel.Name"
+            [phoneValidation]="false"
+            [separateDialCode]="separateDialCode"
+            [(ngModel)]="phone">
+    </ngx-intl-tel-input>
+    <hr>
+</div>

@@ -1,0 +1,4877 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2020-03-30 20:30+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "#"
+msgstr ""
+
+msgid "& {{amount}} others"
+msgstr ""
+
+msgid "... and {{amount}} more"
+msgstr ""
+
+msgid "100% guaranteed payment"
+msgstr ""
+
+msgid "9-digit routing number"
+msgstr ""
+
+msgid "<b>Watch up</b> our specially selected offers for you"
+msgstr ""
+
+msgid ""
+"<div class='incobis-color text-bold'>Register with just a few clicks</div> "
+"to get the most out of your Shopping Experience"
+msgstr ""
+
+msgid "<h1>Boost your revenues,</h1><h2>sell on Incobis</h2>"
+msgstr ""
+
+msgid ""
+"<h5 class='font-cheddar'>You will love</h5><h6><strong class='incobis-"
+"color'>selling on</strong> Incobis</h6>"
+msgstr ""
+
+msgid ""
+"<p class='font-size-26 font-weight-100 m-0'>Welcome to</p><p class='font-"
+"size-46 text-bold m-0 incobis-color'>Incobis Help Center</p>"
+msgstr ""
+
+msgid ""
+"<span class=\"text-bold font-size-16\">{{ amount }} of your contacts</"
+"span><br>\n"
+"                                <span>{{ 'Reviewed this seller' | "
+"translate }}</span>"
+msgstr ""
+
+msgid ""
+"<span class=\"text-bold font-size-16\">{{ amount }} of your contacts</"
+"span><br>\n"
+"                            <span>{{ 'Reviewed this seller' | translate }}</"
+"span>"
+msgstr ""
+
+msgid ""
+"<span class=\"text-bold font-size-16\">{{ amount }} of your contacts</"
+"span><br>\n"
+"            <span>Reviewed this product</span>"
+msgstr ""
+
+msgid ""
+"<span class=\"text-bold font-size-16\">{{ amount }} of your contacts</"
+"span><br>\n"
+"            <span>Reviewed this seller</span>"
+msgstr ""
+
+msgid ""
+"<span class='incobis-color sidebar-title-larger font-weight-700'>Customize </"
+"span>your Account"
+msgstr ""
+
+msgid ""
+"<span class='incobis-color sidebar-title-larger font-weight-700'>Shopping is "
+"easier & faster</span> with Tailored Shopping"
+msgstr ""
+
+msgid ""
+"<span class='incobis-color sidebar-title-larger font-weight-700'>Start "
+"sharing </span>with your friends"
+msgstr ""
+
+msgid "<span class='incobis-color'>Live</span> the Shopping"
+msgstr ""
+
+msgid "<span class='text-bold'>Detailed </span><span>Rating</span>"
+msgstr ""
+
+msgid ""
+"<span>How was your </span><span class='text-bold'>General Experience?</span>"
+msgstr ""
+
+msgid "<span>Write a </span><span class='text-bold'>Review</span>"
+msgstr ""
+
+msgid "<strong class='incobis-color'>Boost</strong> your revenues"
+msgstr ""
+
+msgid ""
+"<strong class='incobis-color'>Connect</strong> with millions of engaged "
+"customers"
+msgstr ""
+
+msgid "<strong class='incobis-color'>How</strong> it works"
+msgstr ""
+
+msgid "<strong>Buyers </strong>loved the most"
+msgstr ""
+
+msgid "<strong>Community </strong>rating"
+msgstr ""
+
+msgid "<strong>Detailed </strong>rating"
+msgstr ""
+
+msgid ""
+"<strong>Incobis </strong>takes care of your privacy and data security, this "
+"is our top priority."
+msgstr ""
+
+msgid "<strong>Incobis</strong> guarantees your payments on time."
+msgstr ""
+
+msgid "<strong>Incobis</strong> is a Social Networking E-Commerce Platform."
+msgstr ""
+
+msgid ""
+"<strong>Incobis</strong> matches you with exactly the right product, brand, "
+"information and people."
+msgstr ""
+
+msgid ""
+"<strong>Incobis</strong> takes care of your privacy and data security, this "
+"is our top priorit."
+msgstr ""
+
+msgid "<strong>Login</strong> to Seller account"
+msgstr ""
+
+msgid "<strong>More </strong>feedbacks"
+msgstr ""
+
+msgid "<strong>My Saved</strong> Products"
+msgstr ""
+
+msgid "<strong>My favourite</strong> products"
+msgstr ""
+
+msgid "<strong>Premium</strong> Plan"
+msgstr ""
+
+msgid "<strong>Register</strong> as a Seller"
+msgstr ""
+
+msgid "<strong>Visitor</strong> Plan"
+msgstr ""
+
+msgid "<strong>{{count}}</strong> Comments"
+msgstr ""
+
+msgid "AM"
+msgstr ""
+
+msgid "About <strong>Us</strong>"
+msgstr ""
+
+msgid "About Us"
+msgstr ""
+
+msgid "About my Order"
+msgstr ""
+
+msgid "About us"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Account holder name"
+msgstr ""
+
+msgid "Account settings"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Action review"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Activate Store Account"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Active plans"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add New Delivery Address"
+msgstr ""
+
+msgid "Add Payment Method"
+msgstr ""
+
+msgid "Add a comment..."
+msgstr ""
+
+msgid "Add a hour"
+msgstr ""
+
+msgid "Add a minute"
+msgstr ""
+
+msgid "Add a second"
+msgstr ""
+
+msgid "Add all product variations"
+msgstr ""
+
+msgid "Add children"
+msgstr ""
+
+msgid "Add credit card"
+msgstr ""
+
+msgid "Add element"
+msgstr ""
+
+msgid "Add friend"
+msgstr ""
+
+msgid "Add image"
+msgstr ""
+
+msgid "Add new"
+msgstr ""
+
+msgid "Add new range"
+msgstr ""
+
+msgid "Add observations to this shipping address"
+msgstr ""
+
+msgid "Add range"
+msgstr ""
+
+msgid "Add to a list"
+msgstr ""
+
+msgid "Add to cart"
+msgstr ""
+
+msgid "Add video"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Admin Panel"
+msgstr ""
+
+msgid "Admin dashboard"
+msgstr ""
+
+msgid "Ads appear on first page of search results and product pages."
+msgstr ""
+
+msgid "Ads appear on relevant articles, tutorials & videos."
+msgstr ""
+
+msgid "Advertise"
+msgstr ""
+
+msgid "Advertise <br><strong>your Content</strong><br> on Incobis"
+msgstr ""
+
+msgid "Advertise <br><strong>your Products</strong><br> on Incobis"
+msgstr ""
+
+msgid "Advertise on Incobis"
+msgstr ""
+
+msgid "Advertise on Incobis Now"
+msgstr ""
+
+msgid "Advertising"
+msgstr ""
+
+msgid "Alert successfully saved."
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "All Categories"
+msgstr ""
+
+msgid "All categories"
+msgstr ""
+
+msgid "All markets"
+msgstr ""
+
+msgid "All markets except..."
+msgstr ""
+
+msgid "All of above"
+msgstr ""
+
+msgid "All product categories and markets are included."
+msgstr ""
+
+msgid "All rights reserved"
+msgstr ""
+
+msgid "All style"
+msgstr ""
+
+msgid "All styles"
+msgstr ""
+
+msgid "Almost done!"
+msgstr ""
+
+msgid "Always active"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "An error occurred"
+msgstr ""
+
+msgid "An error occurred changing product status"
+msgstr ""
+
+msgid "An error occurred while adding the product to the cart."
+msgstr ""
+
+msgid "An error occurred while changing status."
+msgstr ""
+
+msgid "An error occurred while changing the internal observations."
+msgstr ""
+
+msgid "An error occurred while changing the tracking id."
+msgstr ""
+
+msgid "An error occurred while cloning the product."
+msgstr ""
+
+msgid "An error occurred while generating payment commissions."
+msgstr ""
+
+msgid "An error occurred while impersonating the user."
+msgstr ""
+
+msgid "An error occurred while locking the seller."
+msgstr ""
+
+msgid "An error occurred while removing the address."
+msgstr ""
+
+msgid "An error occurred while removing the alert."
+msgstr ""
+
+msgid "An error occurred while removing the carrier."
+msgstr ""
+
+msgid "An error occurred while removing the category."
+msgstr ""
+
+msgid "An error occurred while removing the comment."
+msgstr ""
+
+msgid "An error occurred while removing the commission."
+msgstr ""
+
+msgid "An error occurred while removing the distribution area."
+msgstr ""
+
+msgid "An error occurred while removing the feature."
+msgstr ""
+
+msgid "An error occurred while removing the image."
+msgstr ""
+
+msgid "An error occurred while removing the list."
+msgstr ""
+
+msgid "An error occurred while removing the material."
+msgstr ""
+
+msgid "An error occurred while removing the offer."
+msgstr ""
+
+msgid "An error occurred while removing the offers."
+msgstr ""
+
+msgid "An error occurred while removing the order."
+msgstr ""
+
+msgid "An error occurred while removing the post."
+msgstr ""
+
+msgid "An error occurred while removing the product."
+msgstr ""
+
+msgid "An error occurred while removing the products."
+msgstr ""
+
+msgid "An error occurred while removing the promotion."
+msgstr ""
+
+msgid "An error occurred while removing the review."
+msgstr ""
+
+msgid "An error occurred while removing the role."
+msgstr ""
+
+msgid "An error occurred while removing the seller."
+msgstr ""
+
+msgid "An error occurred while removing the store."
+msgstr ""
+
+msgid "An error occurred while removing the user."
+msgstr ""
+
+msgid "An error occurred while removing the variation."
+msgstr ""
+
+msgid "An error occurred while removing the video."
+msgstr ""
+
+msgid ""
+"An error occurred while saving the alert. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the carrier. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the carrier. You must fill every field"
+msgstr ""
+
+msgid "An error occurred while saving the cart. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the category. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the comment."
+msgstr ""
+
+msgid ""
+"An error occurred while saving the comment. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the commission. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the delivery areas. You must fill every field"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the detail. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the distribution area. Check the fields "
+"marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the feature. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the formula."
+msgstr ""
+
+msgid "An error occurred while saving the image."
+msgstr ""
+
+msgid "An error occurred while saving the list."
+msgstr ""
+
+msgid "An error occurred while saving the list. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the material. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the offer. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the offers. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the plans. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the post. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the product. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the products. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the profile. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the promotion. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the review. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the rol. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the role. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the seller. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the shipping address."
+msgstr ""
+
+msgid ""
+"An error occurred while saving the shipping address. Check the fields marked "
+"in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the shipping. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the store. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while saving the user. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the variation. Check the fields marked in red"
+msgstr ""
+
+msgid ""
+"An error occurred while saving the video. Check the fields marked in red"
+msgstr ""
+
+msgid "An error occurred while sending the invitation"
+msgstr ""
+
+msgid "An error occurred while sending the request."
+msgstr ""
+
+msgid "An error occurred while sending the subscription"
+msgstr ""
+
+msgid "An error occurred while setting the admin."
+msgstr ""
+
+msgid "An error occurred while setting the chat assistant."
+msgstr ""
+
+msgid "An error occurred while sharing this feed"
+msgstr ""
+
+msgid "An error occurred while sharing this post"
+msgstr ""
+
+msgid "An error occurred while sharing this product"
+msgstr ""
+
+msgid "An error occurred while sharing this store"
+msgstr ""
+
+msgid "Apply exceeded measures price"
+msgstr ""
+
+msgid "Apply for a Job"
+msgstr ""
+
+msgid ""
+"Are you sure you want to cancel the selected product? A full refund will be "
+"made"
+msgstr ""
+
+msgid "Are you sure you want to cancel the subscription?"
+msgstr ""
+
+msgid "Are you sure you want to cancel this order?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected address?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected alert?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected carrier?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected category?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected comment?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected commission?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected distribution area?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected feature?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected friend?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected image?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected material?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected offer?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to remove the selected offers? This action will be "
+"irreversible"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected order?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected post?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected product?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to remove the selected product? Its variations will be "
+"removed too. This action will be irreversible."
+msgstr ""
+
+msgid ""
+"Are you sure you want to remove the selected products? Its variations will "
+"be removed too. This action will be irreversible."
+msgstr ""
+
+msgid "Are you sure you want to remove the selected promotion?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected review?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected role?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected seller?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected store?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected user?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected variation?"
+msgstr ""
+
+msgid "Are you sure you want to remove the selected video?"
+msgstr ""
+
+msgid "Are you sure you want to set this order as delivered?"
+msgstr ""
+
+msgid "Article / Tutorial"
+msgstr ""
+
+msgid "Articles"
+msgstr ""
+
+msgid "Articles / Videos & Tutorials"
+msgstr ""
+
+msgid "Articles / Videos / Tutorials"
+msgstr ""
+
+msgid "Artisan"
+msgstr ""
+
+msgid "Artisan product"
+msgstr ""
+
+msgid "Artsy"
+msgstr ""
+
+msgid "Attractive, magnetic, sensual, alluring, sexy, emotive"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Author action"
+msgstr ""
+
+msgid "Author email"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Average"
+msgstr ""
+
+msgid "Average rate"
+msgstr ""
+
+msgid "Awaiting processing"
+msgstr ""
+
+msgid "Awaiting shipment"
+msgstr ""
+
+msgid "BIO / Vegan"
+msgstr ""
+
+msgid "BIO product"
+msgstr ""
+
+msgid "Back to list"
+msgstr ""
+
+msgid "Back to store"
+msgstr ""
+
+msgid "Back to the list of carriers"
+msgstr ""
+
+msgid "Back to the list of categories"
+msgstr ""
+
+msgid "Back to the list of comments"
+msgstr ""
+
+msgid "Back to the list of commissions"
+msgstr ""
+
+msgid "Back to the list of distribution areas"
+msgstr ""
+
+msgid "Back to the list of offers"
+msgstr ""
+
+msgid "Back to the list of plans"
+msgstr ""
+
+msgid "Back to the list of posts"
+msgstr ""
+
+msgid "Back to the list of products"
+msgstr ""
+
+msgid "Back to the list of promotions"
+msgstr ""
+
+msgid "Back to the list of reviews"
+msgstr ""
+
+msgid "Back to the list of roles"
+msgstr ""
+
+msgid "Back to the list of sellers"
+msgstr ""
+
+msgid "Back to the list of stores"
+msgstr ""
+
+msgid "Back to the list of users"
+msgstr ""
+
+msgid "Back to the list of variations"
+msgstr ""
+
+msgid "Bank account number"
+msgstr ""
+
+msgid "Bank address"
+msgstr ""
+
+msgid "Bank country"
+msgstr ""
+
+msgid "Bank name"
+msgstr ""
+
+msgid "Baptism"
+msgstr ""
+
+msgid "Be matched to the right products, brands, information & peoble."
+msgstr ""
+
+msgid "Beach day"
+msgstr ""
+
+msgid "Because Sharing is Caring."
+msgstr ""
+
+msgid ""
+"Being a member of our Social Networking Online Shop means that you will get "
+"reliable reviews made by your own Network and other Incobis members."
+msgstr ""
+
+msgid ""
+"Benefit from Incobis pricings and special business offers only for Business "
+"customers."
+msgstr ""
+
+msgid "Best Sellers"
+msgstr ""
+
+msgid "Between 24h-48h"
+msgstr ""
+
+msgid "Bio product"
+msgstr ""
+
+msgid "Biography"
+msgstr ""
+
+msgid "Black"
+msgstr ""
+
+msgid "Block"
+msgstr ""
+
+msgid "Blue"
+msgstr ""
+
+msgid "Bohemian"
+msgstr ""
+
+msgid "Bold, striking, strong, confident, attention grabbing"
+msgstr ""
+
+msgid "Brand"
+msgstr ""
+
+msgid "Bridesmaids"
+msgstr ""
+
+msgid "Brief description"
+msgstr ""
+
+msgid ""
+"Bring your products to millions of customers. We help you grow your business."
+msgstr ""
+
+msgid "Brown"
+msgstr ""
+
+msgid "Building my Business network"
+msgstr ""
+
+msgid "Business"
+msgstr ""
+
+msgid "Business Info & Contact Details"
+msgstr ""
+
+msgid "Business Pricing"
+msgstr ""
+
+msgid "Buyer"
+msgstr ""
+
+msgid ""
+"By clicking Create Account, you agree to our <a href='{{wordpressUrl}}/terms-"
+"and-conditions'>Terms</a> and confirm that you have read our <a "
+"href='{{wordpressUrl}}/data-policy'>Data Policy</a>, including our <a "
+"href='{{wordpressUrl}}/cookies'>Cookies Use Policy.</a> You may receive SMS "
+"message notifications from Incobis and you can opt out at any time."
+msgstr ""
+
+msgid ""
+"By clicking Create Account, you confirm your seller subscription and agree "
+"to our <a href='{{wordpressUrl}}/terms-and-conditions'>Terms</a>. Our <a "
+"href='{{wordpressUrl}}/data-policy'>Privacy Policy</a> can be found here."
+msgstr ""
+
+msgid ""
+"By placing your order you agree to our <a class='terms-color'>Terms & "
+"Conditions and Return policies</a>"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Cancel Anytime"
+msgstr ""
+
+msgid "Cancel Order"
+msgstr ""
+
+msgid "Cancel edit"
+msgstr ""
+
+msgid "Cancel order"
+msgstr ""
+
+msgid "Cancelled"
+msgstr ""
+
+msgid "Careers"
+msgstr ""
+
+msgid "Carrier successfully saved."
+msgstr ""
+
+msgid "Carrier..."
+msgstr ""
+
+msgid "Carriers"
+msgstr ""
+
+msgid "Carriers tracking"
+msgstr ""
+
+msgid "Cart is empty"
+msgstr ""
+
+msgid "Cash-back & Points System"
+msgstr ""
+
+msgid "Cashback"
+msgstr ""
+
+msgid "Casual"
+msgstr ""
+
+msgid "Casual date"
+msgstr ""
+
+msgid "Casual, natural, relaxed, comfortable, simple, approachable, easy-going"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Category & {{commission.store_data.company_name}}:"
+msgstr ""
+
+msgid "Category successfully saved."
+msgstr ""
+
+msgid "Category..."
+msgstr ""
+
+msgid "Cause Sharing is Caring. Start Now & Share your Tutorial:"
+msgstr ""
+
+msgid "Cause the information in indeed a need."
+msgstr ""
+
+msgid "Celtic"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Change to month view"
+msgstr ""
+
+msgid "Chat"
+msgstr ""
+
+msgid "Chat & messages"
+msgstr ""
+
+msgid "Chats"
+msgstr ""
+
+msgid "Check"
+msgstr ""
+
+msgid "Checkout"
+msgstr ""
+
+msgid "Chic"
+msgstr ""
+
+msgid "Choose month and year"
+msgstr ""
+
+msgid "Choose the material"
+msgstr ""
+
+msgid "Choose the option"
+msgstr ""
+
+msgid "Choose the style"
+msgstr ""
+
+msgid "Choose to inform your customers, choose Tutorials."
+msgstr ""
+
+msgid "Choose your Ad Solution"
+msgstr ""
+
+msgid ""
+"Choose your interests to help us customize your Shopping Experience to your "
+"tastes and needs and to match you to the right product, brand and people."
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Claim tickets"
+msgstr ""
+
+msgid "Classic"
+msgstr ""
+
+msgid "Classic, traditional, responsible, polished, refined, sophisticated"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Clients can unsubscribe at any time."
+msgstr ""
+
+msgid "Clone"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Close Details"
+msgstr ""
+
+msgid "Cocktail"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Comment successfully saved."
+msgstr ""
+
+msgid "Comment..."
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Commission"
+msgstr ""
+
+msgid "Commission applied above this amount"
+msgstr ""
+
+msgid "Commission applied below this amount"
+msgstr ""
+
+msgid "Commission successfully saved."
+msgstr ""
+
+msgid "Commissions"
+msgstr ""
+
+msgid "Community"
+msgstr ""
+
+msgid "Community Rating"
+msgstr ""
+
+msgid "Community builder"
+msgstr ""
+
+msgid "Company & address information"
+msgstr ""
+
+msgid "Company name"
+msgstr ""
+
+msgid "Company web site"
+msgstr ""
+
+msgid "Compare"
+msgstr ""
+
+msgid "Complaint"
+msgstr ""
+
+msgid "Condition of the item"
+msgstr ""
+
+msgid "Confidentiality"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Confirm & Publish"
+msgstr ""
+
+msgid "Confirm cancellation"
+msgstr ""
+
+msgid "Confirm delivered"
+msgstr ""
+
+msgid "Confirm elimination"
+msgstr ""
+
+msgid "Confirm elimination request"
+msgstr ""
+
+msgid "Confirm unsubscribe"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Confirmed"
+msgstr ""
+
+msgid "Connect to Stripe"
+msgstr ""
+
+msgid "Connect with Google"
+msgstr ""
+
+msgid "Connect with Outlook"
+msgstr ""
+
+msgid "Connect with millions of <strong>engaged business customers</strong>"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Contact & address information"
+msgstr ""
+
+msgid "Contact Now"
+msgstr ""
+
+msgid "Contact Request"
+msgstr ""
+
+msgid "Contact Seller"
+msgstr ""
+
+msgid "Contact Us"
+msgstr ""
+
+msgid "Contact request accepted successfully."
+msgstr ""
+
+msgid "Contact request ignored successfully."
+msgstr ""
+
+msgid "Contact request sent successfully."
+msgstr ""
+
+msgid "Contact store"
+msgstr ""
+
+msgid "Contact the Seller"
+msgstr ""
+
+msgid "Contact us"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Contacts Contributions"
+msgstr ""
+
+msgid "Contacts Interests"
+msgstr ""
+
+msgid "Contacts Network"
+msgstr ""
+
+msgid "Contacts Profile"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Content will be shown in the store profile"
+msgstr ""
+
+msgid "Conversion rate"
+msgstr ""
+
+msgid "Cotton"
+msgstr ""
+
+msgid "Couldn't find your Google contacts on Incobis"
+msgstr ""
+
+msgid "Couldn't find your Outlook contacts on Incobis"
+msgstr ""
+
+msgid "Countries"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Country manufactering"
+msgstr ""
+
+msgid "Country manufactured"
+msgstr ""
+
+msgid "Country manufacturing"
+msgstr ""
+
+msgid "Country of manufacture"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Create Alert"
+msgstr ""
+
+msgid "Create Articles-Posts & share them with your friends"
+msgstr ""
+
+msgid "Create Event Now"
+msgstr ""
+
+msgid "Create List"
+msgstr ""
+
+msgid "Create Product Alert"
+msgstr ""
+
+msgid "Create Tailored Product Alert"
+msgstr ""
+
+msgid "Create a List"
+msgstr ""
+
+msgid "Create a List."
+msgstr ""
+
+msgid "Create a Tutorial"
+msgstr ""
+
+msgid "Create a Video"
+msgstr ""
+
+msgid "Create a listing"
+msgstr ""
+
+msgid "Create a new account"
+msgstr ""
+
+msgid "Create an Alert"
+msgstr ""
+
+msgid "Create an Article"
+msgstr ""
+
+msgid "Create an Incobis Account. It’s free, fast and easy."
+msgstr ""
+
+msgid "Create offer"
+msgstr ""
+
+msgid "Create page"
+msgstr ""
+
+msgid "Create post"
+msgstr ""
+
+msgid ""
+"Create your own Social-Shopping Network & be a member of our Incobis "
+"Shopping Community."
+msgstr ""
+
+msgid ""
+"Create your own Social-Shopping Network and be a member or our Incobis "
+"Community."
+msgstr ""
+
+msgid "Creation datetime"
+msgstr ""
+
+msgid "Creation end"
+msgstr ""
+
+msgid "Creation start"
+msgstr ""
+
+msgid "Credit card payment."
+msgstr ""
+
+msgid "Cross sells"
+msgstr ""
+
+msgid "Currency Unity"
+msgstr ""
+
+msgid "Custom Alerts"
+msgstr ""
+
+msgid "Custom Avatar"
+msgstr ""
+
+msgid "Custom Background"
+msgstr ""
+
+msgid "Custom Shopping Experience"
+msgstr ""
+
+msgid "Custom range"
+msgstr ""
+
+msgid "Custom-made Store"
+msgstr ""
+
+msgid "Customer"
+msgstr ""
+
+msgid "Customers"
+msgstr ""
+
+msgid "Customers review"
+msgstr ""
+
+msgid "Customize your Shopping experience to match your interests and needs."
+msgstr ""
+
+msgid "Customize your Social Networking Online Shop by following these steps:"
+msgstr ""
+
+msgid "Customize your account according to your interests and needs."
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Date of action"
+msgstr ""
+
+msgid "Date of the offer period"
+msgstr ""
+
+msgid "Date publication"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Deal"
+msgstr ""
+
+msgid "Deal Type"
+msgstr ""
+
+msgid "Delayed"
+msgstr ""
+
+msgid "Delayed orders"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete friend"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Deleted request"
+msgstr ""
+
+msgid "Delivered"
+msgstr ""
+
+msgid "Delivery"
+msgstr ""
+
+msgid "Delivery & Returns"
+msgstr ""
+
+msgid "Delivery Areas"
+msgstr ""
+
+msgid "Delivery Date"
+msgstr ""
+
+msgid "Delivery cost"
+msgstr ""
+
+msgid "Delivery time in days"
+msgstr ""
+
+msgid "Depth"
+msgstr ""
+
+msgid "Desactive plans"
+msgstr ""
+
+msgid ""
+"Describe the product including details and description adjusted and concise. "
+"Use a clear and concise format to ensure compatibility with the mobile "
+"format."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Descriptions"
+msgstr ""
+
+msgid "Destination country"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Detail successfully saved."
+msgstr ""
+
+msgid "Detailed Information"
+msgstr ""
+
+msgid "Devoted Customer Service"
+msgstr ""
+
+msgid "Dimensions"
+msgstr ""
+
+msgid "Dimensions Unity"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Discount Amount"
+msgstr ""
+
+msgid "Discount Percentage"
+msgstr ""
+
+msgid "Discount applies"
+msgstr ""
+
+msgid "Discount coupons"
+msgstr ""
+
+msgid "Dispatch time"
+msgstr ""
+
+msgid "Distribution Areas"
+msgstr ""
+
+msgid "Distribution area successfully saved."
+msgstr ""
+
+msgid "Distribution areas"
+msgstr ""
+
+msgid "Do you already have a seller account?"
+msgstr ""
+
+msgid "Do you want to join our Team?"
+msgstr ""
+
+msgid "Do you want to make money with us?"
+msgstr ""
+
+msgid "Dollar"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "Drive sales with individual Product Ads."
+msgstr ""
+
+msgid "Duration of the offer"
+msgstr ""
+
+msgid "Duration of the promotion"
+msgstr ""
+
+msgid "EAN"
+msgstr ""
+
+msgid "Ean number"
+msgstr ""
+
+msgid "Easily check your order details and status in your Account."
+msgstr ""
+
+msgid "Easily get your invoice via our invoicing system."
+msgstr ""
+
+msgid "Easily list your products"
+msgstr ""
+
+msgid ""
+"Easily list your products. Rock your sales! On Incobis you profit form "
+"unlimited listings."
+msgstr ""
+
+msgid "Easily pay with credit card and get your invoice."
+msgstr ""
+
+msgid "Easily place orders"
+msgstr ""
+
+msgid "Eclectic, spirited, unconventional, creative, unique"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit Alert"
+msgstr ""
+
+msgid "Edit My Interests"
+msgstr ""
+
+msgid "Edit cart"
+msgstr ""
+
+msgid "Edit comment"
+msgstr ""
+
+msgid "Edit comment..."
+msgstr ""
+
+msgid "Edit conditions"
+msgstr ""
+
+msgid "Edit information"
+msgstr ""
+
+msgid "Edit material"
+msgstr ""
+
+msgid "Edit or cancel orders"
+msgstr ""
+
+msgid "Edit shipping"
+msgstr ""
+
+msgid "Edit variation"
+msgstr ""
+
+msgid "Edit your message"
+msgstr ""
+
+msgid ""
+"El texto debe ser inferior a {{control.errors['maxlength'].requiredLength}} "
+"caracteres"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email confirmed"
+msgstr ""
+
+msgid "Email is required"
+msgstr ""
+
+msgid "Empty"
+msgstr ""
+
+msgid "Enable free shipping"
+msgstr ""
+
+msgid "End date"
+msgstr ""
+
+msgid "End date of action"
+msgstr ""
+
+msgid "End date of review"
+msgstr ""
+
+msgid "End date of the offer period"
+msgstr ""
+
+msgid "End date of the promotion period"
+msgstr ""
+
+msgid "End impersonation"
+msgstr ""
+
+msgid "End period"
+msgstr ""
+
+msgid "End price"
+msgstr ""
+
+msgid "Engagement"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Enhanced reports available"
+msgstr ""
+
+msgid "Enter a credit or debit card"
+msgstr ""
+
+msgid "Enter at least three characters"
+msgstr ""
+
+msgid "Erase"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Error in your order"
+msgstr ""
+
+msgid "Estimated"
+msgstr ""
+
+msgid "Euro"
+msgstr ""
+
+msgid "Events"
+msgstr ""
+
+msgid "Everyone"
+msgstr ""
+
+msgid "Exceeded measures action"
+msgstr ""
+
+msgid "Exceeded measures price"
+msgstr ""
+
+msgid "Excellent"
+msgstr ""
+
+msgid "Exclude categories"
+msgstr ""
+
+msgid "Exclude markets"
+msgstr ""
+
+msgid "Exclude products"
+msgstr ""
+
+msgid "Experienced Customer Service"
+msgstr ""
+
+msgid "Express delivery"
+msgstr ""
+
+msgid "Extra Shipping"
+msgstr ""
+
+msgid "Extra info"
+msgstr ""
+
+msgid "FAQ's"
+msgstr ""
+
+msgid "Fall in love"
+msgstr ""
+
+msgid "Fast Delivery & Delivery Alerts!"
+msgstr ""
+
+msgid "Feature"
+msgstr ""
+
+msgid "Feature successfully saved."
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Feed successfully shared."
+msgstr ""
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Feedbacks"
+msgstr ""
+
+msgid "Feeds"
+msgstr ""
+
+msgid "Fees, credits & invoices overview"
+msgstr ""
+
+msgid "Filters"
+msgstr ""
+
+msgid "Find the plans that works for you, the one that fits you best."
+msgstr ""
+
+msgid ""
+"Find the products that interest you most by selecting the related categories."
+msgstr ""
+
+msgid ""
+"Find your friends & Import your Network to Incobis: to stay connected, share "
+"your interests with your network & get reliable product reviews from them "
+"and Incobis members."
+msgstr ""
+
+msgid "Finish"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Follow"
+msgstr ""
+
+msgid "Follow your package and receive delivery updates."
+msgstr ""
+
+msgid "Followers"
+msgstr ""
+
+msgid "Following"
+msgstr ""
+
+msgid "Following products have variations which will be modified too:"
+msgstr ""
+
+msgid "Follows"
+msgstr ""
+
+msgid "Forgot Password?"
+msgstr ""
+
+msgid "Formula is not valid."
+msgstr ""
+
+msgid "Formula preview"
+msgstr ""
+
+msgid "Formula to calculate price"
+msgstr ""
+
+msgid "Franc"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Free delivery"
+msgstr ""
+
+msgid "Free for Incobis Sellers"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "Friend removed successfully."
+msgstr ""
+
+msgid "Friends"
+msgstr ""
+
+msgid "Friends Recommendations"
+msgstr ""
+
+msgid "Friends favourite"
+msgstr ""
+
+msgid "Friends of friends"
+msgstr ""
+
+msgid "Friends review"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Full Refund"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Generate"
+msgstr ""
+
+msgid ""
+"Generate brand recognition by advertising your brand logo and three of your "
+"products Ads appear on search results."
+msgstr ""
+
+msgid "Generate payment commissions"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid ""
+"Get Notifications and Alerts for new arrivals, when discount applies or when "
+"a friend rates a specific Product/Brand."
+msgstr ""
+
+msgid "Get Paid"
+msgstr ""
+
+msgid "Get Reliable Product Reviews."
+msgstr ""
+
+msgid "Get Started"
+msgstr ""
+
+msgid "Get increased exposure, engagement and influencer involvement."
+msgstr ""
+
+msgid ""
+"Get information and notifications exclusively about what you are interested "
+"in."
+msgstr ""
+
+msgid "Get invoice"
+msgstr ""
+
+msgid "Get it Now!"
+msgstr ""
+
+msgid ""
+"Get known and increase your business in Europe selling your products on "
+"Incobis."
+msgstr ""
+
+msgid "Get reliable reviews made by your contacts."
+msgstr ""
+
+msgid "Get reliable reviews made by your own contacts & Incobis members."
+msgstr ""
+
+msgid "Get started"
+msgstr ""
+
+msgid "Get started today!"
+msgstr ""
+
+msgid "Get the word out about your products and increase your business sales."
+msgstr ""
+
+msgid "Get your order and tracking information."
+msgstr ""
+
+msgid "Give admin privileges"
+msgstr ""
+
+msgid "Go back to login"
+msgstr ""
+
+msgid "Go to InfoSpot"
+msgstr ""
+
+msgid "Go to Seller Center"
+msgstr ""
+
+msgid "Go to cart"
+msgstr ""
+
+msgid "Go to detailed view"
+msgstr ""
+
+msgid "Go!"
+msgstr ""
+
+msgid "Going out-out"
+msgstr ""
+
+msgid ""
+"Got something to explain about a product, shopping experience or a brand you "
+"like? Write a Post or create an Article and share it with your Network."
+msgstr ""
+
+msgid "Gothic"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Green"
+msgstr ""
+
+msgid "Gross Sales"
+msgstr ""
+
+msgid "Group by"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Guide"
+msgstr ""
+
+msgid "Handle"
+msgstr ""
+
+msgid "Happy Shopping"
+msgstr ""
+
+msgid "Has invoice"
+msgstr ""
+
+msgid "Has new comments"
+msgstr ""
+
+msgid "Has {{amount}} mutual contacts"
+msgstr ""
+
+msgid "Headline"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Help Center"
+msgstr ""
+
+msgid "Help center"
+msgstr ""
+
+msgid "Here you can add as many categories as you want"
+msgstr ""
+
+msgid "Here you can add as many products as you want"
+msgstr ""
+
+msgid ""
+"Here you can add as many products as you want (offer will be saved "
+"automatically)"
+msgstr ""
+
+msgid "Here you can add variations of"
+msgstr ""
+
+msgid "Hi"
+msgstr ""
+
+msgid "Hi, how can we help you?"
+msgstr ""
+
+msgid "Hi,<strong> {{name}}</strong>"
+msgstr ""
+
+msgid "Hi<strong> {{name}}</strong>, how can we help you?"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "How do I send a message"
+msgstr ""
+
+msgid "How does InfoSpot work?"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "If filled, post will be published on that date"
+msgstr ""
+
+msgid "If you have a Seller account."
+msgstr ""
+
+msgid "If you still don't have a Seller account."
+msgstr ""
+
+msgid "Ignore"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Image field is required"
+msgstr ""
+
+msgid "Impersonate"
+msgstr ""
+
+msgid "Import fees"
+msgstr ""
+
+msgid "Import your contacts"
+msgstr ""
+
+msgid "In process"
+msgstr ""
+
+msgid "In which of these topics are you interested in?"
+msgstr ""
+
+msgid "Incobis B2B"
+msgstr ""
+
+msgid "Incobis Incl."
+msgstr ""
+
+msgid "Incobis Terms & Conditions"
+msgstr ""
+
+msgid ""
+"Incobis is the key to reach new audiences you might even didn't think about."
+msgstr ""
+
+msgid ""
+"Incobis will make your payment into your bank account at regular intervals "
+"and we will get notified."
+msgstr ""
+
+msgid "Incobis' B2B"
+msgstr ""
+
+msgid ""
+"Increase your brand's visibility by showcasing your brand around engaging "
+"content."
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "InfoSpot"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Infospot"
+msgstr ""
+
+msgid "Initial date of the offer period"
+msgstr ""
+
+msgid "Initial date of the promotion period"
+msgstr ""
+
+msgid "Insert biography here"
+msgstr ""
+
+msgid "Insert content here"
+msgstr ""
+
+msgid "Instruction Manuals"
+msgstr ""
+
+msgid "Instructions have been sent to change the password to your email."
+msgstr ""
+
+msgid "Interests"
+msgstr ""
+
+msgid "Interests successfully saved."
+msgstr ""
+
+msgid "Internal observations"
+msgstr ""
+
+msgid "Internal observations successfully changed."
+msgstr ""
+
+msgid "International Article Number"
+msgstr ""
+
+msgid "Inventory"
+msgstr ""
+
+msgid "Invitation sent correctly."
+msgstr ""
+
+msgid "Invoice Address"
+msgstr ""
+
+msgid "Invoice must be a PDF."
+msgstr ""
+
+msgid "Invoice requested"
+msgstr ""
+
+msgid "Invoice successfully attached"
+msgstr ""
+
+msgid "Invoices"
+msgstr ""
+
+msgid "Invoicing system"
+msgstr ""
+
+msgid "Is active"
+msgstr ""
+
+msgid "Is admin"
+msgstr ""
+
+msgid "Is chat assistant"
+msgstr ""
+
+msgid "Is read"
+msgstr ""
+
+msgid "Is visible"
+msgstr ""
+
+msgid ""
+"It is easy & fast! Choose your Interest/Category to find your Product. Apply "
+"filters to see: Products, Network Reviews, Ongoing News, Today’s Deals, New "
+"Arrivals, Articles, Videos & Tutorials."
+msgstr ""
+
+msgid "It's fast and easy."
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Item as described"
+msgstr ""
+
+msgid "Just bought it"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Language for Communication"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Launchpad product"
+msgstr ""
+
+msgid "Learn how to easily get more PowerPoints"
+msgstr ""
+
+msgid "Leather"
+msgstr ""
+
+msgid "Leave Feedback"
+msgstr ""
+
+msgid "Leave a Feedback"
+msgstr ""
+
+msgid "Leave a Feedback."
+msgstr ""
+
+msgid "Less than 24h"
+msgstr ""
+
+msgid "Let me know when discount applies"
+msgstr ""
+
+msgid "Let me know when the price drops below"
+msgstr ""
+
+msgid "Let's find people you know on Incobis"
+msgstr ""
+
+msgid "Like"
+msgstr ""
+
+msgid "Liked since"
+msgstr ""
+
+msgid "Line Order"
+msgstr ""
+
+msgid "List Name"
+msgstr ""
+
+msgid "List Product - From"
+msgstr ""
+
+msgid "List Product - To"
+msgstr ""
+
+msgid "List successfully removed."
+msgstr ""
+
+msgid "List successfully saved."
+msgstr ""
+
+msgid "List your Products"
+msgstr ""
+
+msgid "List your products the easiest and fastest way."
+msgstr ""
+
+msgid "Listing"
+msgstr ""
+
+msgid "Lists"
+msgstr ""
+
+msgid "Live the Shopping"
+msgstr ""
+
+msgid "Living my shopping..."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Lock"
+msgstr ""
+
+msgid "Log in"
+msgstr ""
+
+msgid "Log in with Facebook"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Login & security"
+msgstr ""
+
+msgid "Login / Register"
+msgstr ""
+
+msgid "Login to Seller Center"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Look after me"
+msgstr ""
+
+msgid ""
+"Look for a product you want to buy. Special offers for businesses are "
+"displayed with the business icon."
+msgstr ""
+
+msgid "Love"
+msgstr ""
+
+msgid "Loves"
+msgstr ""
+
+msgid "Low stock"
+msgstr ""
+
+msgid "Make the most of your advertising strategy with incobis ads."
+msgstr ""
+
+msgid "Make this order private"
+msgstr ""
+
+msgid "Make this order public"
+msgstr ""
+
+msgid "Manage account"
+msgstr ""
+
+msgid "Manage my messages"
+msgstr ""
+
+msgid "Manage offers"
+msgstr ""
+
+msgid "Manage offers & Deals"
+msgstr ""
+
+msgid "Manage orders"
+msgstr ""
+
+msgid "Manage returns"
+msgstr ""
+
+msgid "Mark as read"
+msgstr ""
+
+msgid "Market"
+msgstr ""
+
+msgid "Marriage"
+msgstr ""
+
+msgid "Match System"
+msgstr ""
+
+msgid "Matching Interests"
+msgstr ""
+
+msgid "Matching System"
+msgstr ""
+
+msgid "Material"
+msgstr ""
+
+msgid "Material successfully saved."
+msgstr ""
+
+msgid "Materials"
+msgstr ""
+
+msgid "Max"
+msgstr ""
+
+msgid "Max depth"
+msgstr ""
+
+msgid "Max heigth"
+msgstr ""
+
+msgid "Max price"
+msgstr ""
+
+msgid "Max weight"
+msgstr ""
+
+msgid "Max width"
+msgstr ""
+
+msgid "Maximum List up Products"
+msgstr ""
+
+msgid "Members Matching My Interests"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Messages"
+msgstr ""
+
+msgid "Messaging & Chat"
+msgstr ""
+
+msgid "Min"
+msgstr ""
+
+msgid "Min price"
+msgstr ""
+
+msgid "Minimum amount"
+msgstr ""
+
+msgid "Minus a hour"
+msgstr ""
+
+msgid "Minus a minute"
+msgstr ""
+
+msgid "Minus a second"
+msgstr ""
+
+msgid "Mobile Phone Number"
+msgstr ""
+
+msgid "Mobile phone"
+msgstr ""
+
+msgid "Modern, chic, trendy, tonal, basics with bold accessories, contemporary"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "More <strong class='incobis-color'>benefits</strong>"
+msgstr ""
+
+msgid "More About Us"
+msgstr ""
+
+msgid "More than 48h"
+msgstr ""
+
+msgid "Most Popular Seller Products"
+msgstr ""
+
+msgid "Most commented"
+msgstr ""
+
+msgid "Most liked"
+msgstr ""
+
+msgid "Most shared"
+msgstr ""
+
+msgid "Most visualizations"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid ""
+"Must contain 1 or more unique uppercase characters, 1 or more unique digits, "
+"1 or more non unique special characters"
+msgstr ""
+
+msgid "My Account"
+msgstr ""
+
+msgid "My Activity"
+msgstr ""
+
+msgid "My Alerts"
+msgstr ""
+
+msgid "My Business public profile"
+msgstr ""
+
+msgid "My Cart"
+msgstr ""
+
+msgid "My Contacts"
+msgstr ""
+
+msgid "My Custom Alerts"
+msgstr ""
+
+msgid "My Delivery Address"
+msgstr ""
+
+msgid "My Details"
+msgstr ""
+
+msgid "My Inbox"
+msgstr ""
+
+msgid "My Interests"
+msgstr ""
+
+msgid "My Invoice Address"
+msgstr ""
+
+msgid "My Lists"
+msgstr ""
+
+msgid "My Page Settings"
+msgstr ""
+
+msgid "My Published Articles"
+msgstr ""
+
+msgid "My Published Tutorials"
+msgstr ""
+
+msgid "My Published Videos"
+msgstr ""
+
+msgid "My Purchases"
+msgstr ""
+
+msgid "My Reviews"
+msgstr ""
+
+msgid "My Shopping"
+msgstr ""
+
+msgid "My Subscription"
+msgstr ""
+
+msgid "My Tailored Shopping"
+msgstr ""
+
+msgid "My addresses"
+msgstr ""
+
+msgid "My contacts"
+msgstr ""
+
+msgid "My dashboard"
+msgstr ""
+
+msgid "My payment methods"
+msgstr ""
+
+msgid "My payments"
+msgstr ""
+
+msgid "My seller account"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Net sales"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "New Dispatch"
+msgstr ""
+
+msgid "New Generation in Online Stores"
+msgstr ""
+
+msgid "New In Launchpad"
+msgstr ""
+
+msgid "New Variation"
+msgstr ""
+
+msgid "New carrier"
+msgstr ""
+
+msgid "New category"
+msgstr ""
+
+msgid "New commission"
+msgstr ""
+
+msgid "New distribution area"
+msgstr ""
+
+msgid "New in (last 30 days)"
+msgstr ""
+
+msgid "New in Incobis?"
+msgstr ""
+
+msgid "New in incobis"
+msgstr ""
+
+msgid "New material"
+msgstr ""
+
+msgid "New offer"
+msgstr ""
+
+msgid "New orders"
+msgstr ""
+
+msgid "New plans"
+msgstr ""
+
+msgid "New post"
+msgstr ""
+
+msgid "New product"
+msgstr ""
+
+msgid "New promotion"
+msgstr ""
+
+msgid "New review"
+msgstr ""
+
+msgid "New rol"
+msgstr ""
+
+msgid "New role"
+msgstr ""
+
+msgid "New seller"
+msgstr ""
+
+msgid "New store"
+msgstr ""
+
+msgid "New subcategory"
+msgstr ""
+
+msgid "New user"
+msgstr ""
+
+msgid "New variation"
+msgstr ""
+
+msgid "Newest Arrivals"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "News Feed"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Next 21 years"
+msgstr ""
+
+msgid "Next generation of E-Commerces"
+msgstr ""
+
+msgid "Next month"
+msgstr ""
+
+msgid "Next year"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No Action"
+msgstr ""
+
+msgid "No action required"
+msgstr ""
+
+msgid "No carrier with the indicated id was found"
+msgstr ""
+
+msgid "No category with the indicated id was found"
+msgstr ""
+
+msgid "No comment with the indicated id was found"
+msgstr ""
+
+msgid "No commission with the indicated id was found"
+msgstr ""
+
+msgid "No data available"
+msgstr ""
+
+msgid "No distribution area with the indicated id was found"
+msgstr ""
+
+msgid "No offer with the indicated id was found"
+msgstr ""
+
+msgid "No offers"
+msgstr ""
+
+msgid "No plans with the indicated id was found"
+msgstr ""
+
+msgid "No post with the indicated id was found"
+msgstr ""
+
+msgid "No product with the indicated id was found"
+msgstr ""
+
+msgid "No profile with the indicated id was found"
+msgstr ""
+
+msgid "No promotion with the indicated id was found"
+msgstr ""
+
+msgid "No results"
+msgstr ""
+
+msgid "No results available"
+msgstr ""
+
+msgid "No results found."
+msgstr ""
+
+msgid "No review with the indicated id was found"
+msgstr ""
+
+msgid "No role with the indicated id was found"
+msgstr ""
+
+msgid "No seller with the indicated id was found"
+msgstr ""
+
+msgid "No stock"
+msgstr ""
+
+msgid "No stock available"
+msgstr ""
+
+msgid "No store with the indicated id was found"
+msgstr ""
+
+msgid "No user with the indicated id was found"
+msgstr ""
+
+msgid "No variation with the indicated id was found"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Not apply"
+msgstr ""
+
+msgid "Not sure yet"
+msgstr ""
+
+msgid "Notification settings"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
+msgid "Notifications & Alerts"
+msgstr ""
+
+msgid "Notifications & privacy settings"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Observations"
+msgstr ""
+
+msgid "Occasion"
+msgstr ""
+
+msgid "Offer"
+msgstr ""
+
+msgid "Offer Detail"
+msgstr ""
+
+msgid "Offer and duration of the offer"
+msgstr ""
+
+msgid "Offer discount"
+msgstr ""
+
+msgid "Offer successfully saved."
+msgstr ""
+
+msgid "Offers"
+msgstr ""
+
+msgid "Offers applied to this product"
+msgstr ""
+
+msgid "Offers for Businesses"
+msgstr ""
+
+msgid "Offers per volume"
+msgstr ""
+
+msgid "Offers performance"
+msgstr ""
+
+msgid "Offers successfully saved."
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "On <strong>Incobis</strong>, you have control over your data."
+msgstr ""
+
+msgid ""
+"On Incobis you can Shop Online with your friends, share your interests, get "
+"ongoing news, products recommendations & reviews from your Network."
+msgstr ""
+
+msgid "On going"
+msgstr ""
+
+msgid "Ongoing News"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Online Shopping Networking Store"
+msgstr ""
+
+msgid "Only friends"
+msgstr ""
+
+msgid "Only me"
+msgstr ""
+
+msgid "Open Products"
+msgstr ""
+
+msgid "Operands"
+msgstr ""
+
+msgid "Orange"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Order Details"
+msgstr ""
+
+msgid "Order Number"
+msgstr ""
+
+msgid "Order Products"
+msgstr ""
+
+msgid "Order Status"
+msgstr ""
+
+msgid "Order id"
+msgstr ""
+
+msgid "Order number"
+msgstr ""
+
+msgid "Order status"
+msgstr ""
+
+msgid "Order status except"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Orders by country"
+msgstr ""
+
+msgid "Origin country"
+msgstr ""
+
+msgid "Other material"
+msgstr ""
+
+msgid "Our <br><strong class='incobis-color text-bold'>Ad Solutions</strong>"
+msgstr ""
+
+msgid "Our <strong>Posts</strong>"
+msgstr ""
+
+msgid "Our <strong>Products</strong>"
+msgstr ""
+
+msgid "Our <strong>Videos</strong>"
+msgstr ""
+
+msgid ""
+"Our Customer Service Team takes care of your order and your needs all along "
+"your purchase and after sale."
+msgstr ""
+
+msgid ""
+"Our Matching System matches you with like-interest minded people, products, "
+"stores and the right information."
+msgstr ""
+
+msgid "Our Products"
+msgstr ""
+
+msgid ""
+"Our mission is to provide personal & fully customizable Shopping "
+"Experiences, where customers can find, discover and share anything they "
+"might want to buy online."
+msgstr ""
+
+msgid "Out stock"
+msgstr ""
+
+msgid "PM"
+msgstr ""
+
+msgid "Package Dimensions"
+msgstr ""
+
+msgid "Package Weight"
+msgstr ""
+
+msgid "Partial Refund"
+msgstr ""
+
+msgid "Partial refund"
+msgstr ""
+
+msgid "Pass membership"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password (Confirm)"
+msgstr ""
+
+msgid "Pattern"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "Payment & Billing solutions"
+msgstr ""
+
+msgid "Payment Info"
+msgstr ""
+
+msgid "Payment Method"
+msgstr ""
+
+msgid "Payment commissions"
+msgstr ""
+
+msgid "Payment commissions successfully generated."
+msgstr ""
+
+msgid "Payment end date"
+msgstr ""
+
+msgid "Payment start date"
+msgstr ""
+
+msgid "Payments"
+msgstr ""
+
+msgid "Payments data"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Pending Contact Requests"
+msgstr ""
+
+msgid "People You May Know"
+msgstr ""
+
+msgid "People you may want to connect with"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
+
+msgid "Percentage discount"
+msgstr ""
+
+msgid "Performance"
+msgstr ""
+
+msgid "Personal Contact & ID"
+msgstr ""
+
+msgid "Personal style"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Pink"
+msgstr ""
+
+msgid "Place Order"
+msgstr ""
+
+msgid "Place your business order."
+msgstr ""
+
+msgid "Plan / Membership"
+msgstr ""
+
+msgid "Plan successfully saved."
+msgstr ""
+
+msgid "Plans"
+msgstr ""
+
+msgid "Please Select"
+msgstr ""
+
+msgid "Please enter a valid email address"
+msgstr ""
+
+msgid "Please validate the last rank before creating a new one."
+msgstr ""
+
+msgid "Poor"
+msgstr ""
+
+msgid "Post Comment"
+msgstr ""
+
+msgid "Post successfully saved."
+msgstr ""
+
+msgid "Post successfully shared."
+msgstr ""
+
+msgid "Post will be visible"
+msgstr ""
+
+msgid "Postage costs"
+msgstr ""
+
+msgid "Posts"
+msgstr ""
+
+msgid "Posts with new comments"
+msgstr ""
+
+msgid "Pound"
+msgstr ""
+
+msgid ""
+"PowerPoints can be applied as a deduted discount on your next order of "
+"exchanged by Cash Back."
+msgstr ""
+
+msgid "Premium"
+msgstr ""
+
+msgid "Preppy"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Previous 21 years"
+msgstr ""
+
+msgid "Previous month"
+msgstr ""
+
+msgid "Previous year"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Price Range"
+msgstr ""
+
+msgid "Price below"
+msgstr ""
+
+msgid "Price range"
+msgstr ""
+
+msgid "Price: High to low"
+msgstr ""
+
+msgid "Price: Low to high"
+msgstr ""
+
+msgid "Prices"
+msgstr ""
+
+msgid "Prices & Conditions"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "Privacy"
+msgstr ""
+
+msgid "Privacy options"
+msgstr ""
+
+msgid "Privacy settings"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Product  Volume"
+msgstr ""
+
+msgid "Product  Weight"
+msgstr ""
+
+msgid "Product Detail"
+msgstr ""
+
+msgid "Product Dimensions"
+msgstr ""
+
+msgid "Product EAN"
+msgstr ""
+
+msgid "Product ID or Article Number"
+msgstr ""
+
+msgid "Product Price"
+msgstr ""
+
+msgid "Product added to the cart."
+msgstr ""
+
+msgid "Product details"
+msgstr ""
+
+msgid "Product is offline"
+msgstr ""
+
+msgid "Product is online"
+msgstr ""
+
+msgid "Product is promoted"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product not received"
+msgstr ""
+
+msgid "Product now is offline"
+msgstr ""
+
+msgid "Product now is online"
+msgstr ""
+
+msgid "Product received, not as described"
+msgstr ""
+
+msgid "Product successfully added."
+msgstr ""
+
+msgid "Product successfully moved."
+msgstr ""
+
+msgid "Product successfully removed."
+msgstr ""
+
+msgid "Product successfully saved."
+msgstr ""
+
+msgid "Product successfully shared."
+msgstr ""
+
+msgid "Product..."
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Products data"
+msgstr ""
+
+msgid "Products recommendations per day"
+msgstr ""
+
+msgid "Products successfully saved."
+msgstr ""
+
+msgid "Products will be offline"
+msgstr ""
+
+msgid "Products will be online"
+msgstr ""
+
+msgid "Promoted"
+msgstr ""
+
+msgid "Promoted products"
+msgstr ""
+
+msgid "Promotion successfully saved."
+msgstr ""
+
+msgid "Propose more expensive items, upgrades or other add-ons"
+msgstr ""
+
+msgid "Propose products related to this product like accessories & extras"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Publicate"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Punk"
+msgstr ""
+
+msgid "Purchases"
+msgstr ""
+
+msgid "Purple"
+msgstr ""
+
+msgid "Qty"
+msgstr ""
+
+msgid "Quality of the item"
+msgstr ""
+
+msgid "Quantity"
+msgstr ""
+
+msgid "Quick tips & info"
+msgstr ""
+
+msgid "Quickview"
+msgstr ""
+
+msgid "RECOVER YOUR PASSWORD"
+msgstr ""
+
+msgid "Range"
+msgstr ""
+
+msgid "Range end"
+msgstr ""
+
+msgid "Range start"
+msgstr ""
+
+msgid "Rate"
+msgstr ""
+
+msgid "Rate this seller"
+msgstr ""
+
+msgid "Rating by Criteria"
+msgstr ""
+
+msgid "Reach millions of customers"
+msgstr ""
+
+msgid "Reach relevant customers for your products."
+msgstr ""
+
+msgid "Recent Orders"
+msgstr ""
+
+msgid "Recently viewed"
+msgstr ""
+
+msgid "Recommendations"
+msgstr ""
+
+msgid "Recommended Products"
+msgstr ""
+
+msgid "Recommended for you"
+msgstr ""
+
+msgid "Red"
+msgstr ""
+
+msgid "Reference"
+msgstr ""
+
+msgid "Refund"
+msgstr ""
+
+msgid "Refund & Return Policies"
+msgstr ""
+
+msgid "Refunded"
+msgstr ""
+
+msgid "Refunded amount"
+msgstr ""
+
+msgid "Refunded reason"
+msgstr ""
+
+msgid "Refunded type"
+msgstr ""
+
+msgid "Refunds"
+msgstr ""
+
+msgid "Register Now"
+msgstr ""
+
+msgid "Register as a Seller"
+msgstr ""
+
+msgid "Register in just a few clicks."
+msgstr ""
+
+msgid "Register your Incobis account with just a few clicks."
+msgstr ""
+
+msgid "Regular price"
+msgstr ""
+
+msgid "Related products"
+msgstr ""
+
+msgid "Reliable Reviews"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Reply to review"
+msgstr ""
+
+msgid "Report a problem"
+msgstr ""
+
+msgid "Request invoice"
+msgstr ""
+
+msgid "Reset all"
+msgstr ""
+
+msgid "Reshipped"
+msgstr ""
+
+msgid "Resoluction Center"
+msgstr ""
+
+msgid "Retro"
+msgstr ""
+
+msgid "Return a product for a refund"
+msgstr ""
+
+msgid "Returns & refunds"
+msgstr ""
+
+msgid "Returns & refunds policies"
+msgstr ""
+
+msgid "Returns Policy"
+msgstr ""
+
+msgid "Review"
+msgstr ""
+
+msgid "Review successfully saved."
+msgstr ""
+
+msgid "Reviewed this seller"
+msgstr ""
+
+msgid "Reviews"
+msgstr ""
+
+msgid "Rewiews"
+msgstr ""
+
+msgid "Rocker"
+msgstr ""
+
+msgid "Rol"
+msgstr ""
+
+msgid "Rol successfully saved."
+msgstr ""
+
+msgid "Role"
+msgstr ""
+
+msgid "Role in company"
+msgstr ""
+
+msgid "Role successfully saved."
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "Romantic dinner"
+msgstr ""
+
+msgid "Romantic, feminine, gentle, soft, pretty, sensitive, girly"
+msgstr ""
+
+msgid "SEND RESET LINK"
+msgstr ""
+
+msgid "SEO description"
+msgstr ""
+
+msgid "SEO title"
+msgstr ""
+
+msgid "SHIPPING"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "SUBTOTAL"
+msgstr ""
+
+msgid "Safe Platform"
+msgstr ""
+
+msgid "Sale Price"
+msgstr ""
+
+msgid "Sale price"
+msgstr ""
+
+msgid "Sales"
+msgstr ""
+
+msgid "Sales Tax"
+msgstr ""
+
+msgid "Sales by category"
+msgstr ""
+
+msgid "Sales by product"
+msgstr ""
+
+msgid "Sales data"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save Address"
+msgstr ""
+
+msgid "Save Interests"
+msgstr ""
+
+msgid "Save Payment Method"
+msgstr ""
+
+msgid "Save as a Draft"
+msgstr ""
+
+msgid "Save for later"
+msgstr ""
+
+msgid "Save offer"
+msgstr ""
+
+msgid "Save offers"
+msgstr ""
+
+msgid "Save products"
+msgstr ""
+
+msgid "Saved for later"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Search Contact"
+msgstr ""
+
+msgid "Search IP"
+msgstr ""
+
+msgid "Search by Interest"
+msgstr ""
+
+msgid "Search followers"
+msgstr ""
+
+msgid "Search for an item..."
+msgstr ""
+
+msgid "Search for help with..."
+msgstr ""
+
+msgid "Search for..."
+msgstr ""
+
+msgid "Search in Incobis"
+msgstr ""
+
+msgid "Search in other categories to find results of your interest."
+msgstr ""
+
+msgid "Search in our posts"
+msgstr ""
+
+msgid "Search in our videos"
+msgstr ""
+
+msgid "Search member"
+msgstr ""
+
+msgid "Search or start new chat"
+msgstr ""
+
+msgid "Search user..."
+msgstr ""
+
+msgid "Searching..."
+msgstr ""
+
+msgid "Secure purchase"
+msgstr ""
+
+msgid "See All"
+msgstr ""
+
+msgid "See All Feedbacks"
+msgstr ""
+
+msgid "See all"
+msgstr ""
+
+msgid "See all friends"
+msgstr ""
+
+msgid "See all products"
+msgstr ""
+
+msgid "See children"
+msgstr ""
+
+msgid "See more"
+msgstr ""
+
+msgid "See on Stripe"
+msgstr ""
+
+msgid ""
+"Select <span class='incobis-color sidebar-title-larger font-weight-700' "
+">your Interest</span>"
+msgstr ""
+
+msgid "Select Interests"
+msgstr ""
+
+msgid "Select a category of your interest"
+msgstr ""
+
+msgid "Select a contact to start a chat!"
+msgstr ""
+
+msgid "Select a contact to start a conversation."
+msgstr ""
+
+msgid "Select all"
+msgstr ""
+
+msgid "Select among your orders"
+msgstr ""
+
+msgid "Select from your purchase list"
+msgstr ""
+
+msgid "Select item"
+msgstr ""
+
+msgid "Select your friends to connect with"
+msgstr ""
+
+msgid "Sell & Ship"
+msgstr ""
+
+msgid "Sell Worldwide"
+msgstr ""
+
+msgid "Sell in Europe"
+msgstr ""
+
+msgid "Sell on Incobis"
+msgstr ""
+
+msgid "Sell on Incobis Now"
+msgstr ""
+
+msgid "Sell to Business Customers"
+msgstr ""
+
+msgid "Sell to business customers"
+msgstr ""
+
+msgid ""
+"Sell your listed products in our unique Social Networking E-Commerce "
+"platform."
+msgstr ""
+
+msgid "Sell your products on Incobis"
+msgstr ""
+
+msgid "Seller"
+msgstr ""
+
+msgid "Seller Communication"
+msgstr ""
+
+msgid "Seller Plan"
+msgstr ""
+
+msgid "Seller Rating"
+msgstr ""
+
+msgid "Seller Service"
+msgstr ""
+
+msgid "Seller center"
+msgstr ""
+
+msgid "Seller rating"
+msgstr ""
+
+msgid "Seller successfully saved."
+msgstr ""
+
+msgid "Sellers"
+msgstr ""
+
+msgid ""
+"Sellers must be registered in their country Trade Register. Sellers must "
+"declare taxes to the proper social authority."
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send invitation"
+msgstr ""
+
+msgid "Send to a friend"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "Sent Contact Requests"
+msgstr ""
+
+msgid "Set"
+msgstr ""
+
+msgid "Set as a main Delivery Address"
+msgstr ""
+
+msgid "Set as a main Invoice Address"
+msgstr ""
+
+msgid "Set as chat assistant"
+msgstr ""
+
+msgid "Set up my account"
+msgstr ""
+
+msgid "Settings & Privacy"
+msgstr ""
+
+msgid "Sexy"
+msgstr ""
+
+msgid "Share"
+msgstr ""
+
+msgid "Share in News feed"
+msgstr ""
+
+msgid "Share this feed"
+msgstr ""
+
+msgid "Share this post"
+msgstr ""
+
+msgid "Share this product"
+msgstr ""
+
+msgid "Share this store"
+msgstr ""
+
+msgid "Share to a friend"
+msgstr ""
+
+msgid ""
+"Share with them your preferred products, brands or last purchase. Because "
+"Sharing is Caring."
+msgstr ""
+
+msgid "Share with them your preferred products, purchase experience & more."
+msgstr ""
+
+msgid ""
+"Share with your friends your preferred products, your interests, your future "
+"& current purchases, your product recommendations, shopping experiences and "
+"all you might want to share with them."
+msgstr ""
+
+msgid "Shares"
+msgstr ""
+
+msgid "Shares feed"
+msgstr ""
+
+msgid "Shares product"
+msgstr ""
+
+msgid "Shares review"
+msgstr ""
+
+msgid "Shares store"
+msgstr ""
+
+msgid "Shares {{amount}} same interests"
+msgstr ""
+
+msgid "Shares {{amount}} same preferred brands"
+msgstr ""
+
+msgid "Shipped"
+msgstr ""
+
+msgid "Shipping"
+msgstr ""
+
+msgid "Shipping & Delivery"
+msgstr ""
+
+msgid "Shipping & Delivery Policies"
+msgstr ""
+
+msgid "Shipping & Postage"
+msgstr ""
+
+msgid "Shipping address successfully saved."
+msgstr ""
+
+msgid "Shipping and Extra Expenses"
+msgstr ""
+
+msgid "Shipping cost"
+msgstr ""
+
+msgid "Shipping limits"
+msgstr ""
+
+msgid "Shipping successfully saved."
+msgstr ""
+
+msgid "Shipping, Delivery & Returns"
+msgstr ""
+
+msgid "Shop"
+msgstr ""
+
+msgid "Shop Online with your Friends"
+msgstr ""
+
+msgid ""
+"Shop Online with your friends. Share your interests, ongoing news, products "
+"recommendations & reviews with your friends."
+msgstr ""
+
+msgid "Shop by Color"
+msgstr ""
+
+msgid "Shop by Occasion"
+msgstr ""
+
+msgid "Shop by Personal Style"
+msgstr ""
+
+msgid "Shopping"
+msgstr ""
+
+msgid "Shopping Center"
+msgstr ""
+
+msgid "Shopping Experience"
+msgstr ""
+
+msgid "Shopping Network"
+msgstr ""
+
+msgid "Shopping center"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "Simple Payment"
+msgstr ""
+
+msgid ""
+"Simply, pay less for more for those businesses that have big shopping needs."
+msgstr ""
+
+msgid "Sin valoraciones"
+msgstr ""
+
+msgid "Social Network"
+msgstr ""
+
+msgid "Social Networking marketplace"
+msgstr ""
+
+msgid "Social-Shopping Network"
+msgstr ""
+
+msgid "Sold by"
+msgstr ""
+
+msgid "Sold items"
+msgstr ""
+
+msgid "Some markets"
+msgstr ""
+
+msgid "Sort by"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Spare Part Sent"
+msgstr ""
+
+msgid "Sponsored Brands"
+msgstr ""
+
+msgid "Sponsored Brands per day"
+msgstr ""
+
+msgid "Sponsored Content"
+msgstr ""
+
+msgid "Sponsored Products"
+msgstr ""
+
+msgid "Sponsored Products per day"
+msgstr ""
+
+msgid "Sponsored Store per day"
+msgstr ""
+
+msgid "Sport activity"
+msgstr ""
+
+msgid "Sporty"
+msgstr ""
+
+msgid "Spread your opinion"
+msgstr ""
+
+msgid ""
+"Start <span class='incobis-color sidebar-title-larger font-"
+"weight-700'>Shopping!</span>"
+msgstr ""
+
+msgid "Start Selling your Products on Incobis now."
+msgstr ""
+
+msgid "Start Sharing Now"
+msgstr ""
+
+msgid "Start Shopping on Incobis."
+msgstr ""
+
+msgid "Start a conversation by typing your message below."
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "Start date of action"
+msgstr ""
+
+msgid "Start date of review"
+msgstr ""
+
+msgid "Start here"
+msgstr ""
+
+msgid "Start period"
+msgstr ""
+
+msgid "Start price"
+msgstr ""
+
+msgid "Start selling"
+msgstr ""
+
+msgid "Start shopping"
+msgstr ""
+
+msgid "State/ Region/ Province"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Staying up-to-date"
+msgstr ""
+
+msgid "Step"
+msgstr ""
+
+msgid "Stock"
+msgstr ""
+
+msgid "Stock successfully saved."
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Store Info"
+msgstr ""
+
+msgid "Store configuration"
+msgstr ""
+
+msgid "Store successfully saved."
+msgstr ""
+
+msgid "Store successfully shared."
+msgstr ""
+
+msgid "Stores"
+msgstr ""
+
+msgid "Street"
+msgstr ""
+
+msgid "Stripe payment"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Subcategories"
+msgstr ""
+
+msgid "Subscribe to this plans"
+msgstr ""
+
+msgid "Subscription - Mermbership"
+msgstr ""
+
+msgid "Subscriptions"
+msgstr ""
+
+msgid "Subtotal"
+msgstr ""
+
+msgid "Succeeded"
+msgstr ""
+
+msgid "Succesfully saved for later."
+msgstr ""
+
+msgid "Successfully registered. Activate your account from your e-mail."
+msgstr ""
+
+msgid "Successfully saved."
+msgstr ""
+
+msgid "Switch"
+msgstr ""
+
+msgid "Switch plans"
+msgstr ""
+
+msgid "TAX"
+msgstr ""
+
+msgid "TOTAL"
+msgstr ""
+
+msgid "Tag Friends"
+msgstr ""
+
+msgid "Tailored Shopping Experience."
+msgstr ""
+
+msgid "Tax"
+msgstr ""
+
+msgid "Terrible"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Thank you for ordering"
+msgstr ""
+
+msgid "Thanks for signing up :)"
+msgstr ""
+
+msgid ""
+"That's why we want Incobis members to be as much well informed as possible. "
+"We like to help our members finding the needed information fast and easily"
+msgstr ""
+
+msgid ""
+"The Online Store that combines a Social-Shopping Network and an Online Store."
+msgstr ""
+
+msgid ""
+"The Store where you find excellent shopping opportunities and you can share "
+"them with your friends."
+msgstr ""
+
+msgid "The address was successfully deleted."
+msgstr ""
+
+msgid "The alert was successfully deleted."
+msgstr ""
+
+msgid "The best way to start your Social Shopping Network"
+msgstr ""
+
+msgid "The carrier was successfully deleted."
+msgstr ""
+
+msgid "The category was successfully deleted."
+msgstr ""
+
+msgid "The comment was successfully deleted."
+msgstr ""
+
+msgid "The commission was successfully deleted."
+msgstr ""
+
+msgid "The distribution area was successfully deleted."
+msgstr ""
+
+msgid "The feature was successfully deleted."
+msgstr ""
+
+msgid "The image was successfully deleted."
+msgstr ""
+
+msgid "The listed Product will be online"
+msgstr ""
+
+msgid ""
+"The listed Product will have no limit listing date. To add a listing "
+"schedule date check the box"
+msgstr ""
+
+msgid "The material was successfully deleted."
+msgstr ""
+
+msgid "The offer was successfully deleted."
+msgstr ""
+
+msgid "The order was successfully deleted."
+msgstr ""
+
+msgid "The post was successfully deleted."
+msgstr ""
+
+msgid "The product was successfully cloned."
+msgstr ""
+
+msgid "The product was successfully deleted."
+msgstr ""
+
+msgid "The products were successfully deleted."
+msgstr ""
+
+msgid "The promotion was successfully deleted."
+msgstr ""
+
+msgid "The request was successfully sent."
+msgstr ""
+
+msgid "The review was successfully deleted."
+msgstr ""
+
+msgid "The role was successfully deleted."
+msgstr ""
+
+msgid "The seller was successfully deleted."
+msgstr ""
+
+msgid "The status was successfully changed."
+msgstr ""
+
+msgid "The store was successfully deleted."
+msgstr ""
+
+msgid "The subscription was successfully unsubscribe."
+msgstr ""
+
+msgid "The user was successfully deleted."
+msgstr ""
+
+msgid "The variation was successfully deleted."
+msgstr ""
+
+msgid "The video was successfully deleted."
+msgstr ""
+
+msgid "There are no contact requests"
+msgstr ""
+
+msgid "There are no items"
+msgstr ""
+
+msgid "There are no results"
+msgstr ""
+
+msgid "There are no results for this category."
+msgstr ""
+
+msgid "There are no results for this search"
+msgstr ""
+
+msgid "There are no reviews"
+msgstr ""
+
+msgid ""
+"There have been <span class='fuse-black-fg text-bold'>{{count}} results</"
+"span> for the search <span class='text-bold'>{{filter}}</span>"
+msgstr ""
+
+msgid "There was an error canceling the subscription."
+msgstr ""
+
+msgid "These offers were successfully deleted."
+msgstr ""
+
+msgid "This data is approximate"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
+msgid ""
+"This guide will help you to take direct advantage of Incobis unique features "
+"and to fully customize your Shopping Experience."
+msgstr ""
+
+msgid ""
+"This information will help us to customize the Store Feeds to your needs"
+msgstr ""
+
+msgid ""
+"This information will help us to customize the Store Feeds to your needs."
+msgstr ""
+
+msgid "This product is already included in this offer"
+msgstr ""
+
+msgid "This store hasn't feeds yet."
+msgstr ""
+
+msgid "This subscription ends the"
+msgstr ""
+
+msgid "This user cannot add products to the cart."
+msgstr ""
+
+msgid "This variation is already included in this offer"
+msgstr ""
+
+msgid "This will generate current month payments commissions"
+msgstr ""
+
+msgid "Time Rating"
+msgstr ""
+
+msgid "Timeless, professional, business, polished"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "To continue you must connect your account with Stripe"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Today's Deals"
+msgstr ""
+
+msgid "Tomboy"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Track Package"
+msgstr ""
+
+msgid "Track Packages"
+msgstr ""
+
+msgid "Track info is temporarily not available. Please try again later"
+msgstr ""
+
+msgid "Track my Package"
+msgstr ""
+
+msgid "Track your Package"
+msgstr ""
+
+msgid "Tracking ID"
+msgstr ""
+
+msgid "Tracking Info"
+msgstr ""
+
+msgid "Tracking details"
+msgstr ""
+
+msgid "Transferred"
+msgstr ""
+
+msgid "Trending day"
+msgstr ""
+
+msgid "Trendy"
+msgstr ""
+
+msgid "Tribal"
+msgstr ""
+
+msgid "Turn ON to make your interest public."
+msgstr ""
+
+msgid "Turn ON to make your list public."
+msgstr ""
+
+msgid "Turn ON to make your review public."
+msgstr ""
+
+msgid "Tutorials"
+msgstr ""
+
+msgid ""
+"Tutorials are a great way to keep your customers informed before, while and "
+"after a purchase."
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Type your message"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Unblock"
+msgstr ""
+
+msgid "Unfollow"
+msgstr ""
+
+msgid "Units"
+msgstr ""
+
+msgid "Units maximum"
+msgstr ""
+
+msgid "Unlimited stock"
+msgstr ""
+
+msgid "Unlisted negative reviews"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Unread chat messages"
+msgstr ""
+
+msgid "Unread product comments"
+msgstr ""
+
+msgid "Unread reviews"
+msgstr ""
+
+msgid "Unselect all"
+msgstr ""
+
+msgid "Unsubscribe"
+msgstr ""
+
+msgid "Unsubscribe this plans"
+msgstr ""
+
+msgid "Unused invitations"
+msgstr ""
+
+msgid "Up sells"
+msgstr ""
+
+msgid "Update Status"
+msgstr ""
+
+msgid "Upgrade to Get more Benefits"
+msgstr ""
+
+msgid "Upload avatar image"
+msgstr ""
+
+msgid "Upload carrier image"
+msgstr ""
+
+msgid "Upload category image"
+msgstr ""
+
+msgid "Upload header image"
+msgstr ""
+
+msgid "Upload invoice"
+msgstr ""
+
+msgid "Upload main image"
+msgstr ""
+
+msgid "Url"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User accounts"
+msgstr ""
+
+msgid "User successfully saved."
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "VAT country"
+msgstr ""
+
+msgid "VAT included"
+msgstr ""
+
+msgid "VAT number"
+msgstr ""
+
+msgid "Vacation"
+msgstr ""
+
+msgid "Value..."
+msgstr ""
+
+msgid "Values"
+msgstr ""
+
+msgid "Variation"
+msgstr ""
+
+msgid "Variation successfully saved."
+msgstr ""
+
+msgid "Variation..."
+msgstr ""
+
+msgid "Variations"
+msgstr ""
+
+msgid "Vat"
+msgstr ""
+
+msgid "Vat country"
+msgstr ""
+
+msgid "Vegan product"
+msgstr ""
+
+msgid "Very good"
+msgstr ""
+
+msgid "Vibrant"
+msgstr ""
+
+msgid "Video successfully saved."
+msgstr ""
+
+msgid "Videos"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "View commission"
+msgstr ""
+
+msgid "View product"
+msgstr ""
+
+msgid "View this order"
+msgstr ""
+
+msgid "Viking"
+msgstr ""
+
+msgid "Vintage"
+msgstr ""
+
+msgid "Volume"
+msgstr ""
+
+msgid "Volume Discounts"
+msgstr ""
+
+msgid "Volume Unity"
+msgstr ""
+
+msgid "Waiting"
+msgstr ""
+
+msgid "We believe in a"
+msgstr ""
+
+msgid "We hope to see you soon again"
+msgstr ""
+
+msgid "We know the importance of information when Shopping."
+msgstr ""
+
+msgid "We make it easier for you to connect to potential customers."
+msgstr ""
+
+msgid "We notify you when customers place an order."
+msgstr ""
+
+msgid "We offer a person-oriented & responsive service."
+msgstr ""
+
+msgid ""
+"We offer reliable product reviews because our reviews are made by your own "
+"Network and Incobis members."
+msgstr ""
+
+msgid "We tailor your Shopping Experience to adapt it to your needs."
+msgstr ""
+
+msgid "We will run the Ad Solution you choose."
+msgstr ""
+
+msgid "We're Done!"
+msgstr ""
+
+msgid "Weeding guest"
+msgstr ""
+
+msgid "Weight"
+msgstr ""
+
+msgid "Weight Unity"
+msgstr ""
+
+msgid "Welcome to Incobis {{ buyer?.first_name }}"
+msgstr ""
+
+msgid "Welcome to your"
+msgstr ""
+
+msgid "What did you like the most? Any drawbacks?"
+msgstr ""
+
+msgid "What do you want to be informed about?"
+msgstr ""
+
+msgid "What's the item you want to review?"
+msgstr ""
+
+msgid ""
+"Whether it is to inform your customers or just to share your know-how with "
+"others, to create a Tutorial is the best, easyest and fastest way to do it."
+msgstr ""
+
+msgid "White"
+msgstr ""
+
+msgid "Who's Viewed Your Profile"
+msgstr ""
+
+msgid "Why to advertise your products on Incobis?"
+msgstr ""
+
+msgid "Why to create events on Incobis?"
+msgstr ""
+
+msgid ""
+"Why to create your company / brand / products article / video / tutorial?"
+msgstr ""
+
+msgid "Wide range of offers and discounts applied per volume."
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Will be applied when"
+msgstr ""
+
+msgid "Will be generated automatically if you don't fill it"
+msgstr ""
+
+msgid "Work"
+msgstr ""
+
+msgid "Work in our pioneer company."
+msgstr ""
+
+msgid ""
+"Write here your article. Add images or video to make your article more visual"
+msgstr ""
+
+msgid "Write something to {{name}}"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Yellow"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid ""
+"Yes, I would like to receive personalized communications containing offers "
+"and newsletters from Incobis. You can unsubscribe at any time through the "
+"link in each communication we send."
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "You can change or update your personal information at any time."
+msgstr ""
+
+msgid "You can easily create an article and share it with your contacts."
+msgstr ""
+
+msgid ""
+"You can use the search engine to filter users and add them to the group."
+msgstr ""
+
+msgid "You don't have permission for this action"
+msgstr ""
+
+msgid "You have already sent a friend request to this user"
+msgstr ""
+
+msgid "You have to select a invoice address."
+msgstr ""
+
+msgid "You have to select a payment method."
+msgstr ""
+
+msgid "You have to select a shipping address."
+msgstr ""
+
+msgid "You have to select at least {{categories}} categories"
+msgstr ""
+
+msgid "You have to select at least {{categories}} category"
+msgstr ""
+
+msgid "You haven't saved products"
+msgstr ""
+
+msgid "You haven't written a message to this user"
+msgstr ""
+
+msgid "You must agree to Terms & Conditions."
+msgstr ""
+
+msgid "You must fill in this field to track the shipment"
+msgstr ""
+
+msgid "You must login to add to cart."
+msgstr ""
+
+msgid "You must to add a formula."
+msgstr ""
+
+msgid ""
+"You will receive a confirmation email soon to the email address you "
+"specified."
+msgstr ""
+
+msgid "Your Account & Data are fully customizable via Privacy Settings."
+msgstr ""
+
+msgid "Your Community Likes"
+msgstr ""
+
+msgid "Your Lists"
+msgstr ""
+
+msgid "Your Plan"
+msgstr ""
+
+msgid "Your Social Network"
+msgstr ""
+
+msgid "Your business"
+msgstr ""
+
+msgid "Your cart is empty!"
+msgstr ""
+
+msgid "Your orders"
+msgstr ""
+
+msgid "Your privacy settings are fully customizable."
+msgstr ""
+
+msgid "Zip"
+msgstr ""
+
+msgid "Zip code"
+msgstr ""
+
+msgid "a day ago"
+msgstr ""
+
+msgid "a few seconds ago"
+msgstr ""
+
+msgid "a minute ago"
+msgstr ""
+
+msgid "a month ago"
+msgstr ""
+
+msgid "a year ago"
+msgstr ""
+
+msgid "add credit card"
+msgstr ""
+
+msgid "an hour ago"
+msgstr ""
+
+msgid "and your products or brand to advertise."
+msgstr ""
+
+msgid "chf"
+msgstr ""
+
+msgid "cm"
+msgstr ""
+
+msgid "cm3"
+msgstr ""
+
+msgid "comments"
+msgstr ""
+
+msgid "day free trial to start"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "eur"
+msgstr ""
+
+msgid "feet"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "ft3"
+msgstr ""
+
+msgid "fully customizable"
+msgstr ""
+
+msgid "gbp"
+msgstr ""
+
+msgid "gr"
+msgstr ""
+
+msgid "in3"
+msgstr ""
+
+msgid "inches"
+msgstr ""
+
+msgid "jpy"
+msgstr ""
+
+msgid "kg"
+msgstr ""
+
+msgid "l"
+msgstr ""
+
+msgid "lbs"
+msgstr ""
+
+msgid "m"
+msgstr ""
+
+msgid "m3"
+msgstr ""
+
+msgid "max"
+msgstr ""
+
+msgid "member since {{year}}"
+msgstr ""
+
+msgid "miembros"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "month"
+msgstr ""
+
+msgid "offers you a unique Shopping Experience."
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "other selling fees"
+msgstr ""
+
+msgid "oz"
+msgstr ""
+
+msgid "people"
+msgstr ""
+
+msgid "translation load"
+msgstr ""
+
+msgid "units"
+msgstr ""
+
+msgid "usd"
+msgstr ""
+
+msgid "with our features"
+msgstr ""
+
+msgid ""
+"{{amount}}\n"
+"                mutual contacts"
+msgstr ""
+
+msgid "{{amount}} carriers selected"
+msgstr ""
+
+msgid "{{amount}} categories selected"
+msgstr ""
+
+msgid "{{amount}} likes"
+msgstr ""
+
+msgid "{{amount}} products selected"
+msgstr ""
+
+msgid "{{amount}} variations selected"
+msgstr ""
+
+msgid "{{time}} days ago"
+msgstr ""
+
+msgid "{{time}} hours ago"
+msgstr ""
+
+msgid "{{time}} minutes ago"
+msgstr ""
+
+msgid "{{time}} months ago"
+msgstr ""
+
+msgid "{{time}} years ago"
+msgstr ""
+
+msgid "¿New in Incobis?"
+msgstr ""

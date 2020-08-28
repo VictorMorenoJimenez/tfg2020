@@ -1,0 +1,28 @@
+.content-input-phone{
+  min-height: 73px;
+}
+
+ngx-intl-tel-input{
+  input{
+    background: none;
+  }
+
+  .intl-tel-input.separate-dial-code .selected-flag {
+    background: none;
+  }
+  .intl-tel-input .flag-container{
+    z-index: 999;
+  }
+
+  .country-dropdown{
+    background: #fff;
+  }
+
+  .country-dropdown{
+    display: none;
+  }
+
+  .country-dropdown.show{
+    display: block;
+  }
+}

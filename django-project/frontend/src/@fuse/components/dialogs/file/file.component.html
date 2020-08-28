@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content fxLayout="column">
+  <p>{{data.text}}</p>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+        <input-file #file
+            [fileAccept]="data.fileAccept"
+            placeholder="Fichero XLIFF traducido"
+            formControlName="myField">
+        </input-file>
+    </div>
+</div>
+<div mat-dialog-actions class="text-right" fxLayoutAlign="end center">
+  <button mat-button [mat-dialog-close]="false">Cancel·lar </button>
+  <button mat-button [mat-dialog-close]="file" mat-raised-button color="accent" cdkFocusInitial>Acceptar</button>
+</div>

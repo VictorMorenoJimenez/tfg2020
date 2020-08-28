@@ -1,0 +1,35 @@
+<div id="translate-input">
+    <mat-tab-group mat-align-tabs="end" [selectedIndex]="selectedIndex">
+
+        <mat-tab *ngFor="let language of languages">
+            <ng-template mat-tab-label>
+                <img class="flag" [src]="'assets/icons/flags/'+language.flag+'.png'">
+                <app-project-error-tab class="scale"
+                        [serverErrors]="serverErrors"
+                        [controls]="language.error"
+                ></app-project-error-tab>
+            </ng-template>
+
+            <ng-template matTabContent>
+                <div class="pt-12" fxFlex="100" fxLayout="column">
+                    <template [ngTemplateOutlet]="templateInput" [ngTemplateOutletContext]="{item: language}"></template>
+
+                    <mat-error *ngIf="serverErrors && serverErrors[language.field]">
+                        <app-project-error
+                                [serverErrors]="serverErrors[language.field]"
+                                [control]="form.controls['data']['controls'][language.field]"
+                        ></app-project-error>
+                    </mat-error>
+                </div>
+            </ng-template>
+        </mat-tab>
+
+    </mat-tab-group>
+
+    <mat-error *ngIf="serverErrors && serverErrors[field]">
+        <app-project-error
+                [serverErrors]="serverErrors[field]"
+                [control]="form.controls['data']['controls'][field]"
+        ></app-project-error>
+    </mat-error>
+</div>

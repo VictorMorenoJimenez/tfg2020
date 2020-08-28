@@ -1,0 +1,59 @@
+<div id="profile" class="page-layout simple tabbed detail-view" *ngIf="user; else: loading">
+
+    <!-- HEADER -->
+    <div class="header p-24" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+         fxLayoutAlign.gt-sm="space-between end">
+
+        <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row"
+             fxLayoutAlign.gt-sm="start center">
+            <!-- <img class="profile-image avatar huge" src="assets/images/avatars/Velazquez.jpg"
+                 [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}"> -->
+            <div class="name" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                {{ user.first_name + ' ' + user.last_name}}
+            </div>
+        </div>
+
+        <div class="actions" fxLayout="row" fxLayoutAlign="end center" [@animate]="{value:'*',params:{delay:'200ms'}}">
+            <button mat-raised-button color="accent" fxLayout="row" fxLayoutAlign="start center" class="h-36"
+                    [routerLink]="'/profile/edit'">
+                <mat-icon aria-label="save" class="mr-4">edit</mat-icon>
+                {{ 'Edit profile' | translate }}
+            </button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div id="about" ngClass.xs="p-8" ngClass.gt-xs="p-24" fxLayout="row wrap">
+            <div class="about-content" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxFlex.gt-md="65">
+
+                <div class="profile-box info-box general" fxLayout="column">
+                    <header class="accent">
+                        <div class="title">{{ 'General Information' | translate }}</div>
+                    </header>
+                    <div class="content">
+                        <div class="info-line">
+                            <div class="title">{{ 'Username' | translate }}</div>
+                            <div class="info">{{ user.username || '-' }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+
+<ng-template #loading>
+    <!-- Error loading event -->
+    <p *ngIf="error" class="alert alert-danger p-20">
+        <strong>{{'Error' | translate}}:</strong> {{'An error has occurred while loading the profile' | translate}}
+    </p>
+
+    <app-fake-loading *ngIf="!error" [type]="'simple-form'"
+                      class="page-layout simple full-width p-20">
+    </app-fake-loading>
+</ng-template>

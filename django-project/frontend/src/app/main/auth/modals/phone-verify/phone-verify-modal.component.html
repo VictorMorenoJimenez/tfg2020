@@ -1,0 +1,103 @@
+<div class="dialog-content-wrapper form-card">
+
+    <div class="mb-20 card-header">
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" class="ml-0 pl-0">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <span>{{ 'Verify account' | translate }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-content class="dialog-content pr-72 m-0" >
+
+        <div *ngIf="!user.email_is_verified">
+            <p>{{'Verify your account with the link we have sent to your email' | translate}}</p>
+
+            <div class="form-row">
+
+                <div *ngIf="!sendEmail">
+                    <button
+                            class="mr-12"
+                            type="submit"
+                            mat-raised-button
+                            color="primary"
+                            (click)="cancelEdit($event)">
+                        {{'Remember later' | translate}}
+                    </button>
+                    <button
+                            type="submit"
+                            mat-raised-button
+                            color="accent"
+                            (click)="finish()">
+                        {{'Ok' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="user.email_is_verified && !user.phone_is_verified">
+            <p>{{'Verify your account by phone' | translate}}</p>
+
+            <div class="form-row">
+
+                <div *ngIf="!sendEmail">
+                    <button
+                            class="mr-12"
+                            type="submit"
+                            mat-raised-button
+                            color="primary"
+                            (click)="cancelEdit($event)">
+                        {{'Remember later' | translate}}
+                    </button>
+                    <button
+                            type="submit"
+                            mat-raised-button
+                            color="accent"
+                            [projectWaitingButton]="formService.loading$ | async"
+                            (click)="register()">
+                        <mat-icon aria-label="phone">phone</mat-icon>
+                        {{'Verify phone' | translate}}
+                    </button>
+                </div>
+
+                <div *ngIf="sendEmail">
+                    <form
+                        #formElement
+                        [formGroup]="form.controls['data']"
+                        fxLayout="column"
+                        fxLayoutAlign="start"
+                        fxFlex="100"
+                        name="form"
+                    >
+
+                        <div fxLayout="column">
+
+                            <div fxFlex="1 0 auto" fxLayout="column">
+                                <mat-form-field>
+                                    <input matInput placeholder="{{'Code' | translate}}" formControlName="security_code"/>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayout="row wrap" fxFlex="100"  class="mt-24" fxLayoutAlign="end center" fxLayoutGap="20px">
+                                <button
+                                        type="submit"
+                                        mat-raised-button
+                                        color="accent"
+                                        [projectWaitingButton]="formService.loading$ | async"
+                                        (click)="verify()">
+                                    <mat-icon aria-label="phone">phone</mat-icon>
+                                    {{'Verify' | translate}}
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

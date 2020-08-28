@@ -1,0 +1,50 @@
+<div fxLayout="column" fxLayoutAlign="center">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <ng-content select="[paginated-table-search-form]"></ng-content>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+
+            <button mat-button (click)="export.exportAsXLSX()" *ngIf="export">
+                <mat-icon aria-label="export" class="mr-8">cloud_download</mat-icon>
+                <span>Export xls</span>
+            </button>
+
+            <mat-spinner *ngIf="loading" class="paginator-spinner" [diameter]="16"></mat-spinner>
+            <mat-paginator
+                    [ngClass]="{'hide': paginatorConfig === 'bottom' || paginatorConfig === 'none'}"
+                    class="topPaginator"
+                    #topPaginator
+                    [length]="resultsCount"
+                    [pageSize]="pageSizeOptions[1]"
+                    [pageSizeOptions]="pageSizeOptions"
+                    (page)="syncPaginators($event)"
+                    [hidePageSize]="pageSizeOptions.length == 1"
+                    fxHide.lt-md>
+            </mat-paginator>
+        </div>
+
+
+    </div>
+
+    <div style="overflow: auto">
+        <ng-content select="[paginated-table-table]"></ng-content>
+    </div>
+
+    <app-no-results [messageType]="styleConfig" *ngIf="!loading && resultsCount === 0"></app-no-results>
+
+    <app-fake-loading *ngIf="loading && resultsCount === 0" [type]="'list'"></app-fake-loading>
+
+    <mat-paginator
+            [ngClass]="{'hide': paginatorConfig === 'top' || paginatorConfig === 'none' }"
+            #bottomPaginator
+            [length]="resultsCount"
+            [pageSize]="pageSizeOptions[1]"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="syncPaginators($event)"
+            [hidePageSize]="pageSizeOptions.length == 1">
+    </mat-paginator>
+
+</div>
+
+

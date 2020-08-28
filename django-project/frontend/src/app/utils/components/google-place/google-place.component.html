@@ -1,0 +1,19 @@
+<fieldset [formGroup]="placeform" class="p-0 m-0" style="border: 0">
+    <mat-form-field fxFlex="1 1 100%">
+<!--        <mat-label>{{label}}</mat-label>-->
+        <input matInput
+               class="google-place-input"
+               [formControlName]="fControlName"
+               (blur)="checkPlace()"
+               #googleInput
+               [placeholder]="placeholder"
+               [value]="value"
+               [required]="required" />
+        <mat-error *ngIf="placeform.get(fControlName).hasError('required')">
+            {{'Required' | translate}}
+        </mat-error>
+        <mat-error *ngIf="placeform.get(fControlName).hasError('noPlaceSelected')">
+            {{'Fill with a valid address' | translate}}
+        </mat-error>
+    </mat-form-field>
+</fieldset>

@@ -1,0 +1,27 @@
+#translate-input {
+
+  position: relative;
+
+  ::ng-deep .mat-tab-header {
+    border-bottom: 0px;
+    position: absolute;
+    right: 0;
+    z-index:5;
+  }
+
+  ::ng-deep .mat-tab-label {
+    height: 30px;
+    min-width: 40px !important;
+  }
+
+  ::ng-deep .mat-error{
+    font-size: 75%;
+    margin-top: -14px;
+    background: #fff;
+  }
+
+  .scale{
+    transform: scale(0.7);
+  }
+
+}

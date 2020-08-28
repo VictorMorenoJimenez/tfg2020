@@ -1,0 +1,6 @@
+<span *ngIf="control && control.hasError('required')">{{'This field is required' | translate}}</span>
+<span *ngIf="control && control.hasError('maxlength')" translate>El texto debe ser inferior a {{control.errors['maxlength'].requiredLength}} caracteres</span>
+<span *ngIf="!control || (control && control.hasError('serverError'))">
+    <span *ngFor="let error of serverErrors">{{error}}</span>
+</span>
+

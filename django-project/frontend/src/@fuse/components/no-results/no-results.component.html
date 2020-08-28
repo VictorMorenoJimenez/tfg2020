@@ -1,0 +1,12 @@
+<div *ngIf="messageType == 'big'" fxLayout="column" fxLayoutAlign="center center" class="p-16 mt-48 primary-100-fg">
+  <mat-icon class="primary-50-fg s-150" aria-label="Without results">wb_sunny</mat-icon>
+  <span class="mat-display-1">Without results</span>
+</div>
+
+<div *ngIf="messageType == 'medium'" fxLayout="column" fxLayoutAlign="center center" class="p-16 mt-8 primary-100-fg">
+  <span class="mat-display-1">Without results</span>
+</div>
+
+<div *ngIf="messageType == 'small'" fxLayout="column" class="p-16 primary-100-fg">
+  <span>Without results</span>
+</div>

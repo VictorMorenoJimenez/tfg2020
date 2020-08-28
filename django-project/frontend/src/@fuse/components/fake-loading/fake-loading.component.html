@@ -1,0 +1,38 @@
+<div>
+  <ngx-content-loading *ngIf="type=='line'" [width]="500" [height]="300" [preserveAspectRatio]="'none'">
+    <svg:g ngx-rect x="0" y="21" rx="5" ry="5" width="100%" height="40" />
+  </ngx-content-loading>
+
+  <ngx-content-loading *ngIf="type=='list'" [width]="500" [height]="300" [preserveAspectRatio]="'none'">
+    <svg:g ngx-rect x="0" y="21" rx="5" ry="5" width="100%" height="40" />
+    <svg:g ngx-rect x="0" y="72" rx="5" ry="5" width="100%" height="40" />
+    <svg:g ngx-rect x="0" y="123" rx="5" ry="5" width="100%" height="40" />
+    <svg:g ngx-rect x="0" y="174" rx="5" ry="5" width="100%" height="40" />
+  </ngx-content-loading>
+
+  <ngx-content-loading *ngIf="type=='simple-form'" [width]="500" [height]="300" [preserveAspectRatio]="'none'">
+    <svg:g ngx-rect x="0" y="21" rx="5" ry="5" width="285" height="40" />
+    <svg:g ngx-rect x="295" y="21" rx="5" ry="5" width="205" height="40" />
+
+    <svg:g ngx-rect x="0" y="71" rx="5" ry="5" width="100%" height="80" />
+
+    <svg:g ngx-rect x="0" y="161" rx="5" ry="5" width="150" height="40" />
+  </ngx-content-loading>
+
+  <ngx-content-loading *ngIf="type=='complex-form'" [width]="500" [height]="351" [preserveAspectRatio]="'none'">
+    <svg:g ngx-rect x="0" y="21" rx="5" ry="5" width="205" height="40" />
+    <svg:g ngx-rect x="215" y="21" rx="5" ry="5" width="285" height="40" />
+
+    <svg:g ngx-rect x="0" y="71" rx="5" ry="5" width="100%" height="40" />
+
+    <svg:g ngx-rect x="0" y="121" rx="5" ry="5" width="285" height="40" />
+    <svg:g ngx-rect x="295" y="121" rx="5" ry="5" width="205" height="40" />
+
+    <svg:g ngx-rect x="0" y="171" rx="5" ry="5" width="100%" height="80" />
+
+    <svg:g ngx-rect x="0" y="261" rx="5" ry="5" width="100%" height="40" />
+
+    <svg:g ngx-rect x="0" y="311" rx="5" ry="5" width="150" height="40" />
+    <svg:g ngx-rect x="160" y="311" rx="5" ry="5" width="340" height="40" />
+  </ngx-content-loading>
+</div>

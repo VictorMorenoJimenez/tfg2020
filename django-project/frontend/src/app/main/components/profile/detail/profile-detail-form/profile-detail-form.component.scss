@@ -1,0 +1,27 @@
+.content-image {
+  position: relative;
+  border: 2px solid #eef2f3;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+
+  .absolute-image {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.addPhoto {
+    background-size: auto;
+    background-position: center 20px;
+  }
+
+  .delete {
+    width: 112px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

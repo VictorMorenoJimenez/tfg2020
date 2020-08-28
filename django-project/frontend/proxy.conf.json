@@ -1,0 +1,10 @@
+{
+    "/api/" : {
+        "target": "http://backend:8000",
+        "secure": false
+    },
+    "/media/v1" : {
+        "target": "http://backend:8000",
+        "secure": false
+    }
+}

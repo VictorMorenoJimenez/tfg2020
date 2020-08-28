@@ -1,0 +1,424 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// regular style toast
+@import "~ngx-toastr/toastr.css";
+
+// Import app.theme.scss
+@import "app/app.theme";
+
+.page-layout {
+    .header {
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #888;
+            font-size: 14px;
+            padding: 0;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+}
+
+/** Fullscreen dialogs */
+.cdk-overlay-pane.fullScreen {
+    // important is used because MatDialog applies css to the elements
+    max-width: none !important;
+    max-height: none !important;
+
+    width: calc(100% - 2em) !important;
+    height: calc(100% - 5em) !important;
+
+    mat-dialog-container {
+        padding: 0 !important;
+    }
+}
+
+.cdk-overlay-pane.noPadding {
+    mat-dialog-container {
+        padding: 0 !important;
+    }
+}
+
+/** Styles for event status */
+.status-label {
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    padding: 2px 8px;
+    display: inline-block;
+
+    &.status-draft {
+        background-color: #999;
+    }
+
+    &.status-published {
+        background-color: #4caf50;
+    }
+
+    &.status-expired {
+        background-color: #b26a00;
+    }
+
+    &.status-revision {
+        background-color: #ff9800;
+    }
+
+    &.status-deleted {
+        background-color: #f44336;
+    }
+}
+
+/** Make tabs smaller */
+.mat-tab-label {
+    min-width: 130px !important;
+}
+
+/** Fix ng-select styles */
+.ng-select-error {
+    color: #f44336;
+}
+
+.ng-select-error-message {
+    color: #f44336;
+    margin-top: -1.5em;
+    font-size: 85%;
+}
+
+.ng-select {
+    font-size: 16px;
+
+    &.ng-select-error {
+        .ng-select-container {
+            &:after {
+                border-color: #f44336 !important;
+            }
+
+            .ng-value-container .ng-placeholder {
+                color: #f44336 !important;
+            }
+        }
+    }
+
+    .ng-select-container {
+        min-height: 49.9px !important;
+
+        &:after {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.24) !important;
+        }
+    }
+
+    &.ng-select-multiple {
+        .ng-select-container {
+            min-height: 51.5px !important;
+        }
+    }
+
+    &.ng-select-single .ng-select-container .ng-clear-wrapper {
+        bottom: 6px !important;
+    }
+
+    &.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+        background: black !important;
+    }
+
+    &.ng-select-focused {
+        .ng-select-container {
+            .ng-value-container {
+                padding-top: 0.27em;
+
+                .ng-value {
+                    //background-color: black !important;
+                }
+
+                .ng-placeholder {
+                    color: black !important;
+                }
+            }
+
+            .ng-arrow-wrapper .ng-arrow {
+                color: black !important;
+            }
+
+            &:after {
+                border-color: black !important;
+            }
+        }
+    }
+
+    .ng-spinner-loader {
+        position: absolute !important;
+        right: 42px;
+        top: 22px;
+    }
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items {
+    ng-optgroup.ng-option-selected {
+        color: black !important;
+    }
+
+    .ng-option.ng-option-selected {
+        color: black !important;
+    }
+}
+
+ng-select {
+    width: -webkit-fill-available;
+
+    .ng-dropdown-panel {
+        width: auto !important;
+        max-width: 550px;
+        min-width: -webkit-fill-available;
+    }
+}
+
+/** Mat select styles */
+mat-select.highlight .mat-select-value-text {
+    background-color: #ddd;
+    padding: 4px 13px;
+    border-radius: 5px;
+}
+
+mat-form-field button .mat-button-wrapper {
+    line-height: 1.6em;
+}
+
+/* Fix mat error overlap input fields */
+mat-form-field {
+    &.ng-valid {
+        .mat-form-field-wrapper {
+            padding-bottom: 1.25em;
+        }
+    }
+
+    &.ng-invalid,
+    &.mat-form-field-invalid {
+        .mat-form-field-wrapper {
+            padding-bottom: 7px;
+        }
+    }
+
+    &.ng-untouched {
+        .mat-form-field-wrapper {
+            padding-bottom: 1.25em;
+        }
+    }
+
+    .mat-form-field {
+        &-underline {
+            position: static;
+        }
+
+        &-subscript-wrapper {
+            position: static;
+        }
+    }
+}
+
+/** Disable page-size from top paginators */
+.topPaginator .mat-paginator-page-size {
+    display: none;
+}
+
+/** Paginator no wrap */
+.mat-paginator-range-label {
+    white-space: nowrap;
+}
+
+/** Quill editor styles */
+.quill {
+    label {
+        color: rgba(0, 0, 0, 0.54);
+        margin-bottom: 6px;
+    }
+
+    margin-bottom: 20px;
+
+    .ql-toolbar.ql-snow + .ql-container.ql-snow {
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .ql-toolbar.ql-snow {
+        border: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .ql-editor {
+        padding: 12px 0;
+    }
+}
+
+/** Info and warnings */
+.info-text {
+    background: #dedede;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.warn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px dashed #ccc;
+    padding: 20px;
+}
+
+/* Table hover styles */
+.list-table {
+    tr.mat-row:hover {
+        background: #f5f5f5;
+        cursor: pointer;
+    }
+}
+table td.mat-cell {
+    padding-right: 20px;
+}
+
+/** View common styles */
+.view {
+    width: 100%;
+
+    .view-row {
+        margin-bottom: 30px;
+        flex-direction: row;
+        box-sizing: border-box;
+        display: flex;
+    }
+
+    .view-column {
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        flex: 1 1 100%;
+
+        .content {
+            display: block;
+            font-size: 16px;
+        }
+
+        .fieldname {
+            font-size: 14px;
+            color: #888;
+            display: block;
+        }
+
+        .groupname {
+            font-size: 15px;
+            color: #888;
+            display: block;
+        }
+    }
+}
+
+mat-grid-tile.imgContent.mat-grid-tile.ng-star-inserted figure {
+    display: initial;
+}
+
+/** Error snackbar */
+body .mat-snack-bar-container.error {
+    background: map-get($mat-red, 700);
+
+    .mat-button-wrapper {
+        color: white;
+    }
+}
+
+/** Label */
+.list-label {
+    background: #ddd;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 3px;
+    padding: 3px 8px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.label {
+    border-radius: 3px;
+    padding: 4px 8px;
+    color: white;
+
+    &.label-mini {
+        margin-right: 5px;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+    }
+
+    &.event {
+        background: #27ae60;
+    }
+
+    &.place {
+        background: #9b59b6;
+    }
+
+    &.entity {
+        background: #e67e22;
+    }
+}
+
+app-paginated-table > div {
+    background: #fff;
+}
+
+// Modern Style
+body.theme-default.theme-default {
+    background: #fff;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.label {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    padding: 4px 8px;
+    width: fit-content;
+
+    .label-color {
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        border-radius: 50%;
+    }
+
+    .label-title {
+        color: rgba(0, 0, 0, 0.54);
+
+        mat-icon {
+            font-size: 20px;
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+.image-cell {
+    overflow: hidden;
+    width: 56px;
+    min-width: 56px;
+    max-width: 56px;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
+    border-radius: 4px;
+    padding: 4px 0px;
+
+    img {
+        height: 100%;
+        width: auto;
+        max-width: none;
+    }
+}

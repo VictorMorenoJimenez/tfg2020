@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content fxLayout="column">
+  <p>{{data.text}}</p>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+      <mat-form-field fxFlex="100">
+        <textarea #description matTextareaAutosize matInput placeholder="Descripció"></textarea>
+      </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions class="text-right" fxLayoutAlign="end center">
+  <button mat-button [mat-dialog-close]="false">Cancel·lar </button>
+  <button mat-button [mat-dialog-close]="description.value" mat-raised-button color="accent" cdkFocusInitial>Acceptar</button>
+</div>

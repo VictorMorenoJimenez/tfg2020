@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <p>{{data.text}}</p>
+</div>
+<div mat-dialog-actions class="text-right" fxLayoutAlign="end center">
+  <button mat-button [mat-dialog-close]="false">{{'Cancel' | translate}} </button>
+  <button mat-button [mat-dialog-close]="true" id="dialog_confirm" mat-raised-button color="accent" cdkFocusInitial>{{'Confirm' | translate}}</button>
+</div>

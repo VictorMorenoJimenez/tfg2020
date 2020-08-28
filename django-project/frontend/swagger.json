@@ -1,0 +1,3673 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Journeylone",
+    "description": "Behold My Awesome Project in Intelligenia",
+    "termsOfService": "intelligenia.com",
+    "contact": {
+      "name": "Juan Miguel Castro Guerrero",
+      "email": "juan.castro@intelligenia.com"
+    },
+    "version": "0.1.120"
+  },
+  "host": "localhost:8080",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "paths": {
+    "/auth/login/": {
+      "post": {
+        "operationId": "auth_login_create",
+        "description": "Check the credentials and return the REST Token\nif the credentials are valid and authenticated.\nCalls Django Auth login method to register User ID\nin Django session framework\n\nAccept the following POST parameters: username, password\nReturn the REST Framework Token Object's key.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/logout/": {
+      "get": {
+        "operationId": "auth_logout_list",
+        "summary": "Calls Django logout method and delete the Token object\nassigned to the current User object.",
+        "description": "Accepts/Returns nothing.",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "post": {
+        "operationId": "auth_logout_create",
+        "summary": "Calls Django logout method and delete the Token object\nassigned to the current User object.",
+        "description": "Accepts/Returns nothing.",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/password/change/": {
+      "post": {
+        "operationId": "auth_password_change_create",
+        "summary": "Calls Django Auth SetPasswordForm save method.",
+        "description": "Accepts the following POST parameters: new_password1, new_password2\nReturns the success/fail message.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PasswordChange"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PasswordChange"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/password/reset/": {
+      "post": {
+        "operationId": "auth_password_reset_create",
+        "summary": "Calls Django Auth PasswordResetForm save method.",
+        "description": "Accepts the following POST parameters: email\nReturns the success/fail message.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomPasswordReset"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomPasswordReset"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/password/reset/confirm/": {
+      "post": {
+        "operationId": "auth_password_reset_confirm_create",
+        "summary": "Password reset e-mail link is confirmed, therefore\nthis resets the user's password.",
+        "description": "Accepts the following POST parameters: token, uid,\n new_password1, new_password2\nReturns the success/fail message.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PasswordResetConfirm"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PasswordResetConfirm"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/signup/": {
+      "post": {
+        "operationId": "auth_signup_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/signup/account-confirm-email/{key}/": {
+      "get": {
+        "operationId": "auth_signup_account-confirm-email_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "post": {
+        "operationId": "auth_signup_account-confirm-email_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/auth/user/": {
+      "get": {
+        "operationId": "auth_user_read",
+        "summary": "Reads and updates UserModel fields\nAccepts GET, PUT, PATCH methods.",
+        "description": "Default accepted fields: username, first_name, last_name\nDefault display fields: pk, username, email, first_name, last_name\nRead-only fields: pk, email\n\nReturns UserModel fields.",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "put": {
+        "operationId": "auth_user_update",
+        "summary": "Reads and updates UserModel fields\nAccepts GET, PUT, PATCH methods.",
+        "description": "Default accepted fields: username, first_name, last_name\nDefault display fields: pk, username, email, first_name, last_name\nRead-only fields: pk, email\n\nReturns UserModel fields.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "patch": {
+        "operationId": "auth_user_partial_update",
+        "summary": "Reads and updates UserModel fields\nAccepts GET, PUT, PATCH methods.",
+        "description": "Default accepted fields: username, first_name, last_name\nDefault display fields: pk, username, email, first_name, last_name\nRead-only fields: pk, email\n\nReturns UserModel fields.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      },
+      "parameters": []
+    },
+    "/comments/": {
+      "get": {
+        "operationId": "comments_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "traveler",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "plan",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Comment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "post": {
+        "operationId": "comments_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "parameters": []
+    },
+    "/comments/replies/": {
+      "get": {
+        "operationId": "comments_replies_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Reply"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "post": {
+        "operationId": "comments_replies_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "parameters": []
+    },
+    "/comments/replies/{id}/": {
+      "get": {
+        "operationId": "comments_replies_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "put": {
+        "operationId": "comments_replies_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "patch": {
+        "operationId": "comments_replies_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Reply"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "delete": {
+        "operationId": "comments_replies_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this comment.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/comments/{id}/": {
+      "get": {
+        "operationId": "comments_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "put": {
+        "operationId": "comments_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "patch": {
+        "operationId": "comments_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "delete": {
+        "operationId": "comments_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this comment.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/core/content_type/": {
+      "get": {
+        "operationId": "core_content_type_list",
+        "description": "Vista de permisos",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ContentType"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": []
+    },
+    "/core/content_type/{id}/": {
+      "get": {
+        "operationId": "core_content_type_read",
+        "description": "Vista de permisos",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContentType"
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this content type.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/core/permission/": {
+      "get": {
+        "operationId": "core_permission_list",
+        "description": "Vista de permisos",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Permission"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": []
+    },
+    "/core/permission/send_error/": {
+      "get": {
+        "operationId": "core_permission_send_error",
+        "description": "Vista de permisos",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Permission"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": []
+    },
+    "/core/permission/{id}/": {
+      "get": {
+        "operationId": "core_permission_read",
+        "description": "Vista de permisos",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Permission"
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this permission.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/core/phone/register/": {
+      "post": {
+        "operationId": "core_phone_register",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Phone"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Phone"
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": []
+    },
+    "/core/phone/verify/": {
+      "post": {
+        "operationId": "core_phone_verify",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SMSVerification"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SMSVerification"
+            }
+          }
+        },
+        "tags": [
+          "core"
+        ]
+      },
+      "parameters": []
+    },
+    "/dashboard/": {
+      "get": {
+        "operationId": "dashboard_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DashboardSummary"
+              }
+            }
+          }
+        },
+        "tags": [
+          "dashboard"
+        ]
+      },
+      "parameters": []
+    },
+    "/destinations/": {
+      "get": {
+        "operationId": "destinations_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Destination"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "post": {
+        "operationId": "destinations_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "parameters": []
+    },
+    "/destinations/{id}/": {
+      "get": {
+        "operationId": "destinations_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "put": {
+        "operationId": "destinations_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "patch": {
+        "operationId": "destinations_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Destination"
+            }
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "delete": {
+        "operationId": "destinations_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "destinations"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this destination.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/plans/": {
+      "get": {
+        "operationId": "plans_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "traveler",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Plan"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "post": {
+        "operationId": "plans_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "parameters": []
+    },
+    "/plans/{id}/": {
+      "get": {
+        "operationId": "plans_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "put": {
+        "operationId": "plans_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "patch": {
+        "operationId": "plans_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Plan"
+            }
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "delete": {
+        "operationId": "plans_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "plans"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this plan.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/pydrfpermissions/": {
+      "get": {
+        "operationId": "pydrfpermissions_list",
+        "description": "Returns a permissions list",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PermissionDRF"
+            }
+          }
+        },
+        "tags": [
+          "pydrfpermissions"
+        ]
+      },
+      "parameters": []
+    },
+    "/travelers/": {
+      "get": {
+        "operationId": "travelers_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Traveler"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "post": {
+        "operationId": "travelers_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TravelerCreate"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TravelerCreate"
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "parameters": []
+    },
+    "/travelers/signup/": {
+      "post": {
+        "operationId": "travelers_signup",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TravelerCreate"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TravelerCreate"
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "parameters": []
+    },
+    "/travelers/{id}/": {
+      "get": {
+        "operationId": "travelers_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Traveler"
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "put": {
+        "operationId": "travelers_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Traveler"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Traveler"
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "patch": {
+        "operationId": "travelers_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Traveler"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Traveler"
+            }
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "delete": {
+        "operationId": "travelers_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "travelers"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this user.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/trips/": {
+      "get": {
+        "operationId": "trips_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "traveler",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "departure_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "return_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Trip"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "post": {
+        "operationId": "trips_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "parameters": []
+    },
+    "/trips/{id}/": {
+      "get": {
+        "operationId": "trips_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "put": {
+        "operationId": "trips_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "patch": {
+        "operationId": "trips_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Trip"
+            }
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "delete": {
+        "operationId": "trips_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "trips"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this trip.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/users/": {
+      "get": {
+        "operationId": "users_list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The initial index from which to return the results.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "required": [
+                "count",
+                "results"
+              ],
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "next": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "previous": {
+                  "type": "string",
+                  "format": "uri",
+                  "x-nullable": true
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "post": {
+        "operationId": "users_create",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "parameters": []
+    },
+    "/users/{id}/": {
+      "get": {
+        "operationId": "users_read",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "put": {
+        "operationId": "users_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "patch": {
+        "operationId": "users_partial_update",
+        "description": "",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "delete": {
+        "operationId": "users_delete",
+        "description": "",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "List of fields",
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "List of nested objects",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this user.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Login": {
+      "required": [
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email"
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "PasswordChange": {
+      "required": [
+        "old_password",
+        "new_password1",
+        "new_password2"
+      ],
+      "type": "object",
+      "properties": {
+        "old_password": {
+          "title": "Old password",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "new_password1": {
+          "title": "New password1",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "new_password2": {
+          "title": "New password2",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        }
+      }
+    },
+    "CustomPasswordReset": {
+      "required": [
+        "email"
+      ],
+      "type": "object",
+      "properties": {
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email",
+          "minLength": 1
+        }
+      }
+    },
+    "PasswordResetConfirm": {
+      "required": [
+        "new_password1",
+        "new_password2",
+        "uid",
+        "token"
+      ],
+      "type": "object",
+      "properties": {
+        "new_password1": {
+          "title": "New password1",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "new_password2": {
+          "title": "New password2",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "uid": {
+          "title": "Uid",
+          "type": "string",
+          "minLength": 1
+        },
+        "token": {
+          "title": "Token",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Register": {
+      "required": [
+        "username",
+        "email",
+        "password1",
+        "password2"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email",
+          "minLength": 1
+        },
+        "password1": {
+          "title": "Password1",
+          "type": "string",
+          "minLength": 1
+        },
+        "password2": {
+          "title": "Password2",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Address": {
+      "title": "Address",
+      "type": "object",
+      "properties": {
+        "country": {
+          "title": "Country",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "formatted_address": {
+          "title": "Formatted address",
+          "type": "string",
+          "maxLength": 1024,
+          "x-nullable": true
+        },
+        "latitude": {
+          "title": "Latitude",
+          "type": "number",
+          "x-nullable": true
+        },
+        "locality": {
+          "title": "Locality",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "longitude": {
+          "title": "Longitude",
+          "type": "number",
+          "x-nullable": true
+        },
+        "place_id": {
+          "title": "Place id",
+          "type": "string",
+          "maxLength": 512,
+          "x-nullable": true
+        },
+        "postal_code": {
+          "title": "Postal code",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "province": {
+          "title": "Province",
+          "type": "string",
+          "maxLength": 255,
+          "x-nullable": true
+        },
+        "street": {
+          "title": "Street",
+          "type": "string",
+          "maxLength": 1024,
+          "x-nullable": true
+        },
+        "street_number": {
+          "title": "Street number",
+          "type": "integer",
+          "maximum": 4294967295,
+          "minimum": 0,
+          "x-nullable": true
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "password",
+        "email",
+        "username",
+        "address"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "first_name": {
+          "title": "First name",
+          "type": "string",
+          "maxLength": 30
+        },
+        "last_name": {
+          "title": "Last name",
+          "type": "string",
+          "maxLength": 150
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "date_joined": {
+          "title": "Date joined",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "user_type": {
+          "title": "User type",
+          "type": "string",
+          "enum": [
+            "admin",
+            "traveler",
+            "undefined"
+          ],
+          "readOnly": true
+        },
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "mobile_phone": {
+          "title": "Mobile phone",
+          "type": "string"
+        },
+        "is_locked": {
+          "title": "Is locked to access this user?",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "identification": {
+          "title": "Identification",
+          "type": "string",
+          "maxLength": 16,
+          "x-nullable": true
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "language": {
+          "title": "Language",
+          "type": "string",
+          "enum": [
+            "en",
+            "es",
+            "fr"
+          ]
+        },
+        "email_is_verified": {
+          "title": "Email is verified",
+          "type": "string",
+          "readOnly": true
+        },
+        "mobile_is_verified": {
+          "title": "Mobile is verified",
+          "type": "string",
+          "readOnly": true
+        },
+        "is_verified": {
+          "title": "Is verified",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Traveler": {
+      "title": "Traveler data",
+      "required": [
+        "code",
+        "password",
+        "confirm_password",
+        "email",
+        "username",
+        "address"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "code": {
+          "title": "Code",
+          "type": "string",
+          "maxLength": 32,
+          "minLength": 1
+        },
+        "accepted_lopd": {
+          "title": "Lopd",
+          "type": "boolean"
+        },
+        "first_name": {
+          "title": "First name",
+          "type": "string",
+          "maxLength": 30
+        },
+        "last_name": {
+          "title": "Last name",
+          "type": "string",
+          "maxLength": 150
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        },
+        "confirm_password": {
+          "title": "Confirm password",
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "title": "Language",
+          "type": "string",
+          "enum": [
+            "en",
+            "es",
+            "fr"
+          ]
+        },
+        "user_type": {
+          "title": "User type",
+          "type": "string",
+          "enum": [
+            "admin",
+            "traveler",
+            "undefined"
+          ]
+        },
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "mobile_phone": {
+          "title": "Mobile phone",
+          "type": "string"
+        },
+        "is_locked": {
+          "title": "Is locked to access this user?",
+          "type": "boolean"
+        },
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "identification": {
+          "title": "Identification",
+          "type": "string",
+          "maxLength": 16,
+          "x-nullable": true
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "Destination": {
+      "title": "Destination data",
+      "required": [
+        "name",
+        "description",
+        "address"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "Plan": {
+      "title": "Plan data",
+      "required": [
+        "name",
+        "description",
+        "start_time",
+        "traveler",
+        "destination"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "start_time": {
+          "title": "Start time",
+          "type": "string",
+          "format": "date-time"
+        },
+        "price": {
+          "title": "Price",
+          "type": "number",
+          "x-nullable": true
+        },
+        "duration": {
+          "title": "Duration",
+          "type": "string",
+          "maxLength": 16,
+          "x-nullable": true
+        },
+        "capacity": {
+          "title": "Capacity",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648
+        },
+        "traveler": {
+          "title": "Traveler",
+          "type": "string"
+        },
+        "traveler_data": {
+          "$ref": "#/definitions/Traveler"
+        },
+        "destination": {
+          "title": "Destination",
+          "type": "integer"
+        },
+        "destination_data": {
+          "$ref": "#/definitions/Destination"
+        }
+      }
+    },
+    "Comment": {
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "text": {
+          "title": "Text",
+          "type": "string",
+          "minLength": 1
+        },
+        "traveler_data": {
+          "$ref": "#/definitions/Traveler"
+        },
+        "plan_data": {
+          "$ref": "#/definitions/Plan"
+        }
+      }
+    },
+    "Reply": {
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "text": {
+          "title": "Text",
+          "type": "string",
+          "minLength": 1
+        },
+        "comment_data": {
+          "$ref": "#/definitions/Comment"
+        }
+      }
+    },
+    "ContentType": {
+      "required": [
+        "app_label",
+        "model"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "app_label": {
+          "title": "App label",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "model": {
+          "title": "Python model class name",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "permissions": {
+          "title": "Permissions",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Permission": {
+      "required": [
+        "name",
+        "codename",
+        "content_type",
+        "model_name"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "codename": {
+          "title": "Codename",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "content_type": {
+          "title": "Content type",
+          "type": "integer"
+        },
+        "model_name": {
+          "title": "Model name",
+          "type": "string",
+          "minLength": 1
+        },
+        "name_es": {
+          "title": "Name es",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Phone": {
+      "required": [
+        "phone_number"
+      ],
+      "type": "object",
+      "properties": {
+        "phone_number": {
+          "title": "Phone number",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "SMSVerification": {
+      "required": [
+        "phone_number",
+        "session_token",
+        "security_code"
+      ],
+      "type": "object",
+      "properties": {
+        "phone_number": {
+          "title": "Phone number",
+          "type": "string",
+          "minLength": 1
+        },
+        "session_token": {
+          "title": "Session token",
+          "type": "string",
+          "minLength": 1
+        },
+        "security_code": {
+          "title": "Security code",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "DashboardSummary": {
+      "required": [
+        "id",
+        "model",
+        "count"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string",
+          "minLength": 1
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        }
+      }
+    },
+    "PermissionDRF": {
+      "required": [
+        "url",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "title": "Action",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "TravelerCreate": {
+      "required": [
+        "password",
+        "confirm_password",
+        "email",
+        "username",
+        "address",
+        "code"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "first_name": {
+          "title": "First name",
+          "type": "string",
+          "maxLength": 30
+        },
+        "last_name": {
+          "title": "Last name",
+          "type": "string",
+          "maxLength": 150
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "title": "Language",
+          "type": "string",
+          "enum": [
+            "en",
+            "es",
+            "fr"
+          ]
+        },
+        "date_joined": {
+          "title": "Date joined",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "confirm_password": {
+          "title": "Confirm password",
+          "type": "string",
+          "minLength": 1
+        },
+        "mobile_phone": {
+          "title": "Mobile phone",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string",
+          "format": "email",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "pattern": "^[\\w.@+-]+$",
+          "maxLength": 150,
+          "minLength": 1
+        },
+        "accepted_lopd": {
+          "title": "Lopd",
+          "type": "boolean"
+        },
+        "identification": {
+          "title": "Identification",
+          "type": "string",
+          "maxLength": 16,
+          "x-nullable": true
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string",
+          "maxLength": 32,
+          "minLength": 1
+        }
+      }
+    },
+    "Trip": {
+      "required": [
+        "name",
+        "description",
+        "departure_date",
+        "return_date",
+        "traveler"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 256,
+          "minLength": 1
+        },
+        "departure_date": {
+          "title": "Departure date",
+          "type": "string",
+          "format": "date"
+        },
+        "return_date": {
+          "title": "Return date",
+          "type": "string",
+          "format": "date"
+        },
+        "traveler": {
+          "title": "Traveler",
+          "type": "string"
+        },
+        "traveler_data": {
+          "$ref": "#/definitions/Traveler"
+        },
+        "destinations": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "x-nullable": true
+          },
+          "uniqueItems": true
+        },
+        "destinations_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Destination"
+          },
+          "readOnly": true
+        }
+      }
+    }
+  }
+}

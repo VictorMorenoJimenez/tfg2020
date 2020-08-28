@@ -1,0 +1,154 @@
+<div class="page-layout simple full-width" ngClass.xs="p-8" ngClass.gt-xs="p-20" *ngIf="user; else: loading">
+    <!-- HEADER -->
+    <div class="header" fxLayout="row" fxLayoutAlign="space-between top">
+        <div class="hero-text">
+            <h3 fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="mr-8">account_circle</mat-icon>
+                <span>{{'My profile' | translate}}</span>
+            </h3>
+            <h1>{{ user?.username }}</h1>
+        </div>
+
+        <div class="actions" fxLayout="row wrap" fxLayoutGap="10px">
+            <div>
+                <button mat-raised-button color="primary"
+                        (click)="cancelEdit($event)"
+                        fxLayout="row" fxLayoutAlign="start center"
+                        [projectWaitingButton]="formService.loading$ | async">
+                    <mat-icon aria-label="back" class="mr-4">arrow_back</mat-icon>
+                    {{'Cancel' | translate}}
+                </button>
+            </div>
+            <div>
+                <button
+                        type="submit"
+                        mat-raised-button
+                        color="accent"
+                        fxLayout="row" fxLayoutAlign="start center"
+                        [projectWaitingButton]="formService.loading$ | async"
+                        (click)="submit()">
+                    <mat-icon aria-label="save" class="mr-4">save</mat-icon>
+                    {{'Save' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content pt-16">
+        <form
+            #formElement
+            [formGroup]="form.get('data')"
+            fxLayout="column"
+            fxLayoutAlign="start"
+            fxFlex="100"
+            name="form"
+        >
+
+            <div fxLayout="column" fxFlex="100">
+
+                <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxFlex="100">
+
+                    <div fxLayout="column" fxFlex="30" fxFlex.lt-md="100">
+                        <p class="font-size-16 accent-bg fuse-white-fg p-8">{{'General data' | translate}}</p>
+
+
+                        <mat-form-field>
+                            <input matInput placeholder="{{'Username' | translate}}" formControlName="username" required/>
+                            <mat-error>
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.username"
+                                        [control]="form.get('data.username')"
+                                ></app-project-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="{{'Email' | translate}}" formControlName="email" required/>
+                            <mat-error>
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.email"
+                                        [control]="form.get('data.email')"
+                                ></app-project-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="{{'First name' | translate}}" formControlName="first_name"/>
+                            <mat-error>
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.first_name"
+                                        [control]="form.get('data.first_name')"
+                                ></app-project-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="{{'Last name' | translate}}" formControlName="last_name"/>
+                            <mat-error>
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.last_name"
+                                        [control]="form.get('data.last_name')"
+                                ></app-project-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="{{'Identification' | translate}}" formControlName="identification"/>
+                            <mat-error>
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.identification"
+                                        [control]="form.get('data.identification')"
+                                ></app-project-error>
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div fxLayout="column" fxFlex="30" fxFlex.lt-md="100">
+                        <p class="font-size-16 accent-bg fuse-white-fg p-8">{{'Address' | translate}}</p>
+
+                        <app-google-place [placeholder]="'Address' | translate" [placeform]="formService.form['controls']['data']['controls']['address']">
+                        </app-google-place>
+                    </div>
+
+                    <div fxLayout="column" fxFlex="30" fxFlex.lt-md="100">
+                        <p class="font-size-16 accent-bg fuse-white-fg p-8">{{'Contact info' | translate}}</p>
+
+                        <div>
+                            <app-phone-input formControlName="telephone" [placeholder]="'Phone' | translate"></app-phone-input>
+                            <mat-error *ngIf="serverErrors?.user?.telephone">
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.user?.telephone"
+                                        [control]="form.get('data.user.telephone')"
+                                ></app-project-error>
+                            </mat-error>
+                        </div>
+
+                        <div>
+                            <app-phone-input formControlName="mobile_phone" [placeholder]="'Mobile phone' | translate"></app-phone-input>
+                            <mat-error *ngIf="serverErrors?.user?.mobile_phone">
+                                <app-project-error
+                                        [serverErrors]="serverErrors?.user?.mobile_phone"
+                                        [control]="form.get('data.user.mobile_phone')"
+                                ></app-project-error>
+                            </mat-error>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<ng-template #loading>
+    <!-- Error loading event -->
+    <p *ngIf="error" class="alert alert-danger p-20">
+        <strong>{{'Error' | translate}}:</strong> {{'An error has occurred while loading the profile' | translate}}
+    </p>
+
+    <app-fake-loading *ngIf="!error" [type]="'simple-form'" class="page-layout simple full-width p-20"></app-fake-loading>
+</ng-template>

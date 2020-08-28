@@ -1,0 +1,18 @@
+FROM node:12.0.0
+
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+
+RUN npm install npm@6.9.0
+RUN npm install -g @angular/cli@9.1.3
+
+COPY ./compose/entrypoint.sh /entrypoint
+RUN sed -i 's/\r//' /entrypoint
+RUN chmod +x /entrypoint
+
+ENTRYPOINT ["/entrypoint"]
+
+CMD ["ng", "serve", "--proxy-config", "proxy.conf.json", "--source-map=false", "--no-progress", "--host", "0.0.0.0", "--configuration", "hmr", "--hmr-warning=false"]
+
+

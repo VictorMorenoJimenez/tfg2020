@@ -1,0 +1,14 @@
+.mat-step-label .serverErrors.error,
+.mat-tab-label .serverErrors.error {
+  color: red;
+}
+
+.mat-step-label .serverErrors mat-icon,
+.mat-tab-label .serverErrors mat-icon {
+  display: none;
+}
+
+.mat-tab-label .serverErrors.error mat-icon {
+  margin-left: 10px;
+  display: inline-block;
+}
