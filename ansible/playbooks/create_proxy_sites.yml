@@ -1,0 +1,41 @@
+---
+
+    - hosts: webproxy-01   
+      gather_facts: no
+      become: yes
+      become_user: root
+        
+      vars:
+        install_nginx_opt: 'yes'
+        apply_config_opt: 'yes'
+        create_site_opt: 'yes'
+        install_certbot_opt: 'yes'
+        create_ssl_cert_opt: 'yes'
+        certbot_admin_email: 'victor.moreno@intelligenia.com'
+        #servername: 'tfg-virtualmin.intelligenia.com'
+        #servername: 'tfg-cephadmin.intelligenia.com'
+
+        servername_list:
+          - name: Virtualmin 
+            domain: tfg-virtualmin.intelligenia.com
+            proxy_pass: 'https://10.6.100.90:10000/'
+
+          - name: Ceph 
+            domain: tfg-cephadmin.intelligenia.com
+            proxy_pass: https://10.6.100.30:8443
+
+          - name: GitLab
+            domain: tfg-gitlab.intelligenia.com 
+            proxy_pass: http://10.6.100.50
+
+          - name: Icinga 
+            domain: tfg-icinga.intelligenia.com
+            proxy_pass: http://10.6.100.60
+
+          - name: RabbitMQ 
+            domain: tfg-rabbitmq.intelligenia.com 
+            proxy_pass: http://10.6.100.80
+
+      roles:
+        - webproxy
+
