@@ -6,7 +6,6 @@
 
 ## LATEX
 *.bak
-*.pdf
 *.aux
 *.glo
 *.idx
