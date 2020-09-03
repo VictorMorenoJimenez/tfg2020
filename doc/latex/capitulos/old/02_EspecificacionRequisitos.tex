@@ -1,0 +1,461 @@
+\chapter {Análisis del sistema}
+
+\section{Casuísticas que se dan y como se resuelve cada una}
+		\begin{itemize}
+			\item \textbf{Problema 1}: \textit{Recreación ante fallo total o réplica de infraestructura}. Ante un fallo total de la infraestructura o replicación para propósitos de testing, con los sistemas actuales sería imposible, ya que dada la configuración manual de cada uno de los servidores, sería imposible replicar al 100\% el estado de los servidores. 
+			
+			\item \textbf {Solución 1}: Al adoptar IaaC, la infraestructura estará codificada en ficheros de configuración bajo control de versiones. Pudiendo recrear la infraestructura bajo demanda en cualquier momento y asegurándonos de que sea la misma al 100%.
+			
+			\item \textbf{Problema 2}: \textit{Diferencias entre servidor de desarrollo y producción}. Al desarrollar en local, los desarrolladores no tienen una réplica de los servidores de producción para poder probar sus cambios. Esto hace que haya discrepancias entre Sistemas y desarrolladores puesto que puede funcionar en local con una configuración dada pero no en producción. 
+			
+			\item \textbf {Solución 2}: Al estar la infraestructura de cada aplicación codificada y bajo control de versiones, será sencillo replicar el entorno de producción en un entorno test para el desarrollo de aplicaciones.
+			
+			\item \textbf{Problema 3}: \textit{Petición de subidas a producción}. Al no existir cauces de integración o despliegue, no se tiene un conocimiento exacto de qué comportamiento va a tener la aplicación en producción. Esto y la necesidad de hacer peticiones al equipo de sistemas para subir nuevas versiones a producción ralentizan el desarrollo del software.
+			
+			\item \textbf{Solución 3:} Al tener el desarrollador un servidor réplica de producción para desplegar las aplicaciones, sabe perfectamente el comportamiento que va a tener en producción, puesto que son entornos idénticos. Esto y los cauces CI-CD solucionan el problema.
+			
+			\item \textbf{Problema 4}: \textit{Desconocimiento estado infraestructura o servicios}. Al configurarse los servidores de forma manual, parche tras parche, es imposible conocer en qué estado se encuentra la infraestructura. También dificulta la replicación de esta para procesos de pruebas.
+			
+			\item \textbf{Solución 4:} Misma solución que Problema 1. Al adoptar IaaC, la infraestructura estará codificada en ficheros de configuración bajo control de versiones. Esto facilita saber qué paquetes hay instalados en el sistema y qué configuración se ha desplegado para cada servicio.	
+		\end{itemize}
+
+
+\section{Subjetivos, requisitos funcionales, restricciones e issues}
+	\begin{text}
+		En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en Milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
+	\end{text}
+
+	\subsection{Subobjetivos}
+		\begin{text}
+			Vamos a analizar cada uno de los objetivos principales con el fin de desgranarlos en subobjetivos que se traduzcan en tareas realizables. 
+			\begin{itemize}
+				\item \textbf{Objetivo 1}. Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios.
+				\begin{itemize}
+					\item \textbf{Subobjetivo 1.1}. Automatización despliegue infraestructura sobre bare metal (tanto este subobjetivo como sus tareas se deben realizar de forma automática con alguna herramienta de automatización).
+					\begin{itemize}
+						\item Instalar ISO sobre bare metal.
+						\item Configuración sistema.
+						\item Instalar servicio de virtualización.
+						\item Configurar servicio virtualización.
+						\item Crear cluster usando el servicio de virtualización.
+						\item Agregar los nodos al cluster.
+						\item Configurar sistemas de almacenamiento en cluster.
+					\end{itemize}
+				\end{itemize}
+				\item \textbf{Objetivo 2}. Replicar la infraestructura asegurando bajos tiempos de creación. El objetivo 1 cubre las necesidades del objetivo 2. Al crear la infraestructura con herramientas de automatización y estando la infraestructura codificada en ficheros de configuración bajo control de versiones, aseguramos poder replicar la infraestructura en cualquier momento. Al automatizarlo aseguramos mejores tiempos que de forma manual.
+				
+				\item \textbf{Objetivo 3}. Crear servicios necesarios para una empresa de aplicaciones web asegurando bajos tiempos de creación.
+				\begin{itemize}
+					\item \textbf{Subobjetivo 3.1}. Automatización despliegue servicios en infraestructura (tanto este subobjetivo como sus tareas se deben realizar de forma automática con alguna herramienta de automatización).
+					\begin{itemize}
+						\item Desplegar firewall redundante.
+						\item Desplegar servicio de control de versiones.
+						\item Desplegar servicio de almacenamiento estático.
+						\item Desplegar servicio gestión aplicaciones.
+						\item Desplegar servicio orquestación contenedores.
+						\item Desplegar servicio de servidor web.
+						\item Desplegar servicio de base de datos.
+						\item Desplegar servicio de monitorización.
+						\item Desplegar servicio gestor de colas.
+					\end{itemize}
+				\end{itemize}
+				\item \textbf{Objetivo 4}. Replicar cualquier servicio alojado en la infraestructura de una empresa en la infraestructura de forma rápida. Al igual que pasa con los objetivos 1 y 2, los objetivos 3 y 4 están relacionados y si se cumple 3 se cumple 4. Si conseguimos automatizar la creación de los servicios con ficheros de configuración bajo control de versiones, aseguramos el poder replicarlos en cualquier momento.
+				\item \textbf{Objetivo 5}. Crear cauces rápidos y seguros para la creación de nuevo software.
+				\begin{itemize}
+					\item \textbf{Subobjetivo 5.1}. Automatización despliegue aplicaciones con integración continua.
+					\begin{itemize}
+						\item Instalación y configuración servicio CI + CD.
+						\item Adaptación proyecto a CI/CD (tests).
+						\item Creación de los cauces en servicio elegido.
+					\end{itemize}
+				\end{itemize}
+			\end{itemize}
+		\end{text}
+	
+	\subsection{Requisitos funcionales}
+	\begin{itemize}
+		\item \textbf{RF 0.} El sistema permitirá la automatizar la configuración del equipo del sistema que va a utilizar el proyecto para la configuración de sistemas remotos. \label{RF0}
+		\item \textbf{RF 1.} El sistema permitirá la automatizar la creación de la infraestructura. \label{RF1}
+		\begin{itemize}
+			\item \textbf{RF 1.1}. El sistema permitirá automatizar ĺa instalación de una ISO elegida sobre el servidor.
+			\item \textbf{RF 1.2}. El sistema permitirá automatizar ĺa instalación de una ISO elegida sobre el servidor.
+			\item \textbf{RF 1.3}. El sistema permitirá la instalación de un servicio de virtualización. 
+			\item \textbf{RF 1.4}. El sistema permitirá la configuración de un servicio de virtualización.
+			\item \textbf{RF 1.5}. El sistema permitirá la creación de un cluster sobre el servicio de virtualización.
+			\item \textbf{RF 1.6}. El sistema permitirá añadir nuevos nodos al cluster.
+			\item \textbf{RF 1.7}. El sistema permitirá configurar los sistemas de almacenamiento utilizados por el cluster.
+		\end{itemize}
+		\item \textbf{RF 2.} El sistema permitirá la replicación de la infraestructura. \label{RF2}
+		\item \textbf{RF 3.} El sistema permitirá la creación de los servicios necesarios para una empresa de desarrollo web. \label{RF3}
+		\begin{itemize}
+			\item \textbf{RF 3.1}. El sistema permitirá la creación de un servicio de firewall en el cluster. (RNF 4)
+			\item \textbf{RF 3.2}. El sistema permitirá la creación de un servicio de control de versiones en el cluster.
+			\item \textbf{RF 3.3}. El sistema permitirá la creación de un servicio de almacenamiento estático en el cluster.
+			\item \textbf{RF 3.4}. El sistema permitirá la creación de un servicio de gestión de aplicaciones Wordpress en el cluster.
+			\item \textbf{RF 3.5}. El sistema permitirá la creación de un servicio de orquestación de contenedores en el cluster. (RNF 4)
+			\item \textbf{RF 3.6}. El sistema permitirá la creación de un servicio de servidor web en el cluster.
+			\item \textbf{RF 3.7}. El sistema permitirá la creación de un servicio de monitorización en el cluster.
+			\item \textbf{RF 3.8}. El sistema permitirá la creación de un servicio de base de datos en el cluster. (RNF 3)
+			\item \textbf{RF 3.9}. El sistema permitirá la creación de un servicio de gestión de colas.
+		\end{itemize}
+	
+	\item \textbf{RF 4}. El sistema permitirá la recreación de infraestructura en un tiempo bajo. \label{RF4}
+	
+	\item \textbf{RF 5}. El sistema permitirá el despliegue automatizados en un cluster seguro. \label{RF5}
+	\end{itemize}
+
+	\subsection{Requisitos no funcionales}
+	\begin{itemize}
+		\item \textbf{RNF 1}. El sistema debe garantizar la automatización de los procesos de creación de infraestructura.
+		\item \textbf{RNF 2}. El sistema debe garantizar la automatización de los procesos de creación de servicios en la infraestructura.
+		\item \textbf{RNF 3}. El sistema debe garantizar la alta disponibilidad de el servicio de base de datos.
+		\item \textbf{RNF 4}. El sistema debe garantizar la alta disponibilidad de las aplicaciones.
+	\end{itemize}
+
+	\subsection{Restricciones}
+	\label{restricciones}
+	\begin{text}
+		Este proyecto se ha desarrollado para una empresa en concreto y se realiza sobre una base. Esto conlleva restricciones a la hora de elegir las tecnologías a utilizar para satisfacer los objetivos. A continuación se listan las restricciones tecnológicas que presenta este proyecto.
+		
+		\begin{itemize}
+			\item \textbf{Restricción 1.} El uso de las siguientes tecnologías será necesario para la correcta adaptación del proyecto a la empresa:
+			\begin{itemize}
+				\item Bases de datos: MySQL
+				\item Almacenamiento estático: Ceph cluster
+				\item Servicio virtualización: Proxmox
+				\item Servido web: Nginx
+				\item Contenedores: Docker
+				\item Firewall: pfSense
+				\item Control de versiones: GitLab
+				\item Proyectos: Django + Angular \& Wordpress
+			\end{itemize}
+		\end{itemize}
+	\end{text}
+
+\clearpage
+\section{Casos de uso}
+	\subsection{CU 0. Configurar entorno proyecto}
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/11?closed=1}{Issues en Github}.
+	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
+		\addrow{Descripción}{Configura el equipo donde se van a lanzar las tareas del proyecto.}
+		
+		\addrow{Actores}{Administrador/Desarrollador}
+		
+		\addrow{Precondición}{El usuario dispone de un equipo con una ISO instalada de la familia Debian.}
+		
+		\addrow{Postcondición}{El equipo del usuario queda preparado para la ejecución de tareas del proyecto.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El usuario clona el proyecto
+			\item El usuario configura las va- \\
+			riables necesarias para ejecutar el \\ 
+			playbook
+			\item El usuario ejecuta el playbook \\ \textbf{configure\_development\_\\environment} 
+			\item El sistema ejecuta las tareas en el \\
+			equipo local
+			\item El sistema informa al usuario \\
+			del resultado de la ejecución}
+		\hline
+	\end{usecase}
+
+	\hyperref[RF0]{Requisito funcional 0}
+	\clearpage
+	
+	\subsection{CU 1. Crear infraestructura}
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
+	\begin{usecase}{Crear infraestructura << CU.1 >>}
+		\addrow{Descripción}{Permite crear la infraestructura sobre los nodos.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario administrador ha clonado el proyecto y ha configurado correctamente los ficheros hosts.yml, asignado valor a las variables de los roles hetzner y proxmox\_nodes y ejecutado caso de uso 0}
+		
+		\addrow{Postcondición}{Los nodos están configurados con la ISO elegida instalada y el servicio de virtualización Proxmox desplegado. Creado y configurado cluster Proxmox.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador clona el proyecto
+			\item El administrador configura las va- \\
+				riables necesarias para ejecutar el \\ 
+				playbook
+			\item El administrador ejecuta el play- \\
+			book \textbf{configure\_proxmox\_nodes} 
+			\item El sistema ejecuta las tareas en los \\
+				nodos 
+			\item El sistema informa al administrador \\
+				  del resultado de la ejecución}
+			  \hline
+	\end{usecase}
+
+	\hyperref[RF1]{Requisito funcional 1}
+	\clearpage
+	\subsection{CU.2. Replicar infraestructura}
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
+
+	\begin{usecase}{Replicar infraestructura << CU.2 >>}
+		\addrow{Descripción}{Permite replicar la infraestructura sobre los nodos.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario administrador ha clonado el proyecto y ha configurado correctamente el fichero hosts.yml con los nuevos nodos donde replicar la infraestructura, asignado valor a las variables de los roles hetzner y proxmox\_nodes y ejecutado caso de uso 0}
+		
+		\addrow{Postcondición}{La infraestructura desplegada en << CU.1 >> queda replicada en los nodos elegidos.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador clona el proyecto
+			\item El administrador configura las va- \\
+			riables necesarias para ejecutar el \\ 
+			playbook
+			\item El administrador ejecuta el play- \\
+			book \textbf{configure\_proxmox\_nodes} 
+			\item El sistema ejecuta las tareas en los \\
+			nodos 
+			\item El sistema informa al administrador \\
+			del resultado de la ejecución}
+ 
+		\hline
+	\end{usecase}
+
+	\hyperref[RF2]{Requisito funcional 2}
+
+	\clearpage
+	
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/7}{Issues en Github}
+	\subsection{CU.3. Crear servicio firewall}
+	
+	\begin{usecase}{Crear servicio firewall << CU.3 >>}
+		\addrow{Descripción}{Permite crear un servicio de firewall en el cluster.}
+		
+		\addrow{Actores}{Administrador}
+		
+		\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >>}
+		
+		\addrow{Postcondición}{Se ha creado el servicio de firewall pfSense en el cluster.}
+		
+		\addmulrow{Secuencia principal (P)}{
+			\item El administrador ejecuta \\ correctamente << CU.0 >>
+			\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+			o << CU.2 >>.
+			\item El administrador configura \\ variables 
+			de role \textbf{pfsense} 
+			\item El administrador ejecuta playbook \\  
+				\textbf{deploy\_pfsense\_firewall}
+			\item El sistema ejecuta las tareas en los \\
+			nodos. 
+			\item El sistema informa al administrador \\
+			del resultado de la ejecución}
+		\hline
+	\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+\clearpage
+\subsection{CU.4. Crear servicio almacenamiento estático}
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/133}{Github Issue}
+\begin{usecase}{Crear servicio almacenamiento estático << CU.4 >>}
+	\addrow{Descripción}{Permite crear un servicio de almacenamiento estático en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de almacenamiento estático \textbf{Ceph cluster} en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{pfsense} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{deploy\_pfsense\_firewall}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+\clearpage
+
+\subsection{CU.5. Crear servicio de gestión de aplicaciones Wordpress}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/135}{Github Issue}
+\begin{usecase}{Crear servicio de gestión de aplicaciones Wordpress << CU.5 >>}
+	\addrow{Descripción}{Permite crear un servicio de gestión de aplicaciones Wordpress en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de gestión de aplicaciones Wordpress en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{virtualmin} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_virtualmin}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+\clearpage 
+\subsection{CU.6. Crear servicio de orquestación de contenedores en el cluster}
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/136}{Github Issue}
+
+\begin{usecase}{Crear servicio de orquestación de contenedores en el cluster << CU.6 >>}
+	\addrow{Descripción}{Permite crear un servicio de orquestación de contenedores en el cluster en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de orquestación de contenedores en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{kubernetes} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_kubernetes\_cluster}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+
+\clearpage
+\subsection{CU.7. Crear servicio de monitorización en el cluster}
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/58}{Github Issue}
+\begin{usecase}{Crear servicio de monitorización en el cluster << CU.7 >>}
+	\addrow{Descripción}{Permite crear un servicio de monitorización en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de monitorización en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{icinga2}.
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_icinga2}.
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+\clearpage
+\subsection{CU.8. Crear servicio de bases de datos}
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/134}{Github Issue}
+\begin{usecase}{Crear servicio de bases de datos << CU.8 >>}
+	\addrow{Descripción}{Permite crear un servicio bases de datos en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de bases de datos en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{icinga2} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_galera\_cluster}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+
+\clearpage 
+\subsection{CU.10. Crear servicio de gestión de colas}
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/137}{Github Issue}
+\begin{usecase}{Crear servicio de gestión de colas << CU.10 >>}
+	\addrow{Descripción}{Permite crear un servicio gestión de colas en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >>}
+	
+	\addrow{Postcondición}{Se ha creado el servicio de gestión de colas en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El administrador configura \\ variables 
+		de role \textbf{rabbitmq} 
+		\item El administrador ejecuta playbook \\  
+		\textbf{create\_rabbitmq}
+		\item El sistema ejecuta las tareas en los \\
+		nodos. 
+		\item El sistema informa al administrador \\
+		del resultado de la ejecución}
+	\hline
+\end{usecase}
+
+\hyperref[RF3]{Requisito funcional 3}
+
+\clearpage
+
+\subsection{CU.11. Desplegar aplicación en cluster}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/12}{Github Issues}.
+
+\begin{usecase}{Desplegar aplicación << CU.12 >>}
+	\addrow{Descripción}{Permite desplegar la aplicación en el cluster.}
+	
+	\addrow{Actores}{Administrador}
+	
+	\addrow{Precondición}{El usuario ha ejecutado correctamente << CU.0 >> y  << CU.1 >> o << CU.2 >> y << CU.3 >> y el cluster está desplegado}.
+	
+	\addrow{Postcondición}{La aplicación queda desplegada en el cluster.}
+	
+	\addmulrow{Secuencia principal (P)}{
+		\item El administrador ejecuta \\ correctamente << CU.0 >>
+		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
+		o << CU.2 >> y << CU.3 >>.
+		\item El usuario sube cambios al sistema de control de versiones. \\
+		\item El sistema ejecuta el cauce para compilar la aplicación. \\  
+		\item El sistema ejecuta el cauce para desplegar la nueva versión en el docker swarm.}
+	\hline
+\end{usecase}
+
+\hyperref[RF5]{Requisito funcional 5}
+
+\clearpage
+
+	
+	
+	

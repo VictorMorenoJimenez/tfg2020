@@ -26,6 +26,7 @@
 	\end{text}
 
 	\subsection{Subobjetivos}
+	\label{subobjetivos}
 		\begin{text}
 			Vamos a analizar cada uno de los objetivos principales con el fin de desgranarlos en subobjetivos que se traduzcan en tareas realizables. 
 			\begin{itemize}
@@ -73,6 +74,7 @@
 		\end{text}
 	
 	\subsection{Requisitos funcionales}
+	\label{requisitosfuncionales}
 	\begin{itemize}
 		\item \textbf{RF 0.} El sistema permitirá la automatizar la configuración del equipo del sistema que va a utilizar el proyecto para la configuración de sistemas remotos. \label{RF0}
 		\item \textbf{RF 1.} El sistema permitirá la automatizar la creación de la infraestructura. \label{RF1}
@@ -97,6 +99,7 @@
 			\item \textbf{RF 3.7}. El sistema permitirá la creación de un servicio de monitorización en el cluster.
 			\item \textbf{RF 3.8}. El sistema permitirá la creación de un servicio de base de datos en el cluster. (RNF 3)
 			\item \textbf{RF 3.9}. El sistema permitirá la creación de un servicio de gestión de colas.
+			\item \textbf{RF 3.10}. El sistema permitirá la creación de un servicio de orquestación de contenedores.
 		\end{itemize}
 	
 	\item \textbf{RF 4}. El sistema permitirá la recreación de infraestructura en un tiempo bajo. \label{RF4}
@@ -132,8 +135,8 @@
 		\end{itemize}
 	\end{text}
 
-\clearpage
 \section{Casos de uso}
+\label{casosdeuso}
 	\subsection{CU 0. Configurar entorno proyecto}
 	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/11?closed=1}{Issues en Github}.
 	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
@@ -219,8 +222,8 @@
 
 	\clearpage
 	
-	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/7}{Issues en Github}
 	\subsection{CU.3. Crear servicio firewall}
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/7}{Issues en Github}
 	
 	\begin{usecase}{Crear servicio firewall << CU.3 >>}
 		\addrow{Descripción}{Permite crear un servicio de firewall en el cluster.}
@@ -446,9 +449,9 @@
 		\item El administrador ejecuta \\ correctamente << CU.0 >>
 		\item El administrador ejecuta \\ correctamente  << CU.1 >> \\
 		o << CU.2 >> y << CU.3 >>.
-		\item El usuario sube cambios al sistema de control de versiones. \\
-		\item El sistema ejecuta el cauce para compilar la aplicación. \\  
-		\item El sistema ejecuta el cauce para desplegar la nueva versión en el docker swarm.}
+		\item El usuario sube cambios al \\ sistema de control de versiones. 
+		\item El sistema ejecuta el cauce para \\ compilar la aplicación.   
+		\item El sistema ejecuta el cauce \\ para desplegar la nueva \\ versión en el docker swarm.}
 	\hline
 \end{usecase}
 

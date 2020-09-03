@@ -1,0 +1,110 @@
+\chapter {Conclusiones}
+
+\section{Grado de cumplimiento de los objetivos propuestos}
+\begin{itemize}
+        \item \textbf{Objetivo 1}. Asegurar unos tiempos bajos en la creación de infraestructura para proveer servicios. Gracias a los playbooks de Ansible hemos conseguido crear la infraestructura base donde desplegar los servicios necesarios con un solo playbook. En la subsección \nameref{analisis_tiempos} hacemos una comparativa de los tiempos antes y después de este proyecto para confirmar que, efectivamente se ha logrado el objetivo.
+        \item \textbf{Objetivo 1.1}. Infraestructura segura frente ataques. Gracias a los firewall pfSense, conseguimos un cluster seguro, donde bloqueamos todo el tráfico menos el tráfico dentro de la red LAN. 
+        \item \textbf{Objetivo 2}. Replicar infraestructura asegurando bajos tiempos de creación. Como hemos visto, el Objetivo 1 se ha conseguido utilizando un playbook de Ansible. Esto hace que inmediatamente se cumpla el objetivo 2, ya que este playbook nos va a permitir replicar la infraestructura en nuevos nodos. De nuevo en la sección \nameref{analisis_tiempos} podemos confirmar que hemos mejorado sustancialmente los tiempos de creación de infraestructura.
+        \item \textbf{Objetivo 3}. Crear y desplegar servicios necesarios para una empresa de aplicaciones web asegurando bajos tiempos de creación. Todos los servicios necesarios para este proyecto, han sido desplegados y configurados con playbooks de Ansible. Esto permite crear y recrear los servicios en cualquier momento, asegurando un estado definido de cada servicio. El análisis de los tiempos se efectúa en la sección \nameref{analisis_tiempos}.
+        \item \textbf{Objetivo 4}. Crear cauces rápidos y seguros para la creación de nuevo software. Con la ayuda de GitLab CI/CD y Docker, hemos conseguido crear un cauce de integración continua y despliegue continuo donde desplegar de forma segura los nuevos cambios en las aplicaciones. También se efectúa un análisis de la mejora en tiempos respecto a antes del proyecto en la sección \nameref{analisis_tiempos}.
+\end{itemize}
+
+\section{Análisis mejora tiempos}
+\label{analisis_tiempos} 
+\subsection{Tiempo estimado creación infraestructura antes del proyecto}
+\begin{text}
+        Como ya hemos comentado antes de este proyecto toda la infraestructura de la empresa se configuraba de forma manual, con lo cual llevaba un tiempo. A continuación se hace una estimación en horas de trabajo de un ingeniero junior del tiempo necesario para cubrir el \textbf{RF 1}.
+
+        Gracias a que personalmente he recreado la infraestructura de la empresa de forma manual, puedo hacer estimaciones bastante correctas.
+
+        \begin{itemize}
+                \item Automatizar la creación de la infraestructura. Esto implica la configuración de los servidores contratados en Hetzner bare metal, la instalación y configuración del servicio de virtualización en cada uno de los nodos y la creación del cluster.  \textbf{20 horas}.
+        \end{itemize}
+
+
+\end{text}
+
+\subsection{Tiempo estimado creación infraestructura después del proyecto}
+\begin{text}
+        Gracias a los playbooks de Ansible, podemos crear la infraestructura en el tiempo que tarda en ejecutarse el playbook. Esta primera parte es la más costosa ya que tiene que instalar una ISO en los servidores y el servicio Proxmox que instala bastantes paquetes, la duración del playbook es de \textbf{29 minutos}. Esto supone una mejora sustancial en los tiempos, hemos pasado de \textbf{20 horas} de configuración manual a \textbf{29 minutos}.
+\end{text}
+
+\subsection{Tiempo estimado creación servicios antes del proyecto}
+        \begin{text}
+                Se va a realizar una estimación en la creación de forma manual de cada uno de los servicios desplegados en el cluster. Al haber realizado esta tarea en el pasado personalmente, la estimación será bastante acertada.
+                \clearpage
+                \begin{itemize}
+                        \item Firewall pfSense. Despliegue y configuración firewall: \textbf{8 horas}.
+                        \item GitLab. Despliegue y configuración control de versiones: \textbf{4 horas}.
+                        \item Icinga2. Despliegue y configuración monitor sistema: \textbf{5 horas}.
+                        \item Virtualmin: Despliegue y configuración gestor de aplicaciones Wordpress \item{8 horas}.
+                        \item Kubernetes cluster.Despliegue cluster de orquestación \item{4 horas}.
+                        \item RabbitMQ: Despliegue gestor de colas \item{3 horas}.
+                        \item Docker swarm: Despliegue y configuración cluster orquestación: \item{3 horas}.
+                        \item Nginx: Despliegue y configuración servidor web Nginx \item{3 horas}.
+                        \item Ceph cluster: Despliegue y configuración cluster Ceph \textbf{6 horas}.
+                        \item Galera cluster: Despliegue y configuración cluster Galera \textbf{4 horas}.
+                \end{itemize}
+        Esto hace un total de \textbf{44 horas} en desplegar y configurar los servicios.
+        \end{text}
+
+\subsection{Tiempo estimado creación servicios después del proyecto}
+\begin{text}
+        El despliegue y creación de cada uno de los servicios que componen el cluster, se ha acelerado de forma sustancial gracias a la creación de playbooks de Ansible:
+        \begin{itemize}
+                \item Firewall pfSense. Despliegue y configuración firewall: \textbf{6 minutos}.
+                \item GitLab. Despliegue y configuración control de versiones: \textbf{5 minutos}.
+                \item Icinga2. Despliegue y configuración monitor sistema: \textbf{14 minutos}.
+                \item Virtualmin: Despliegue y configuración gestor de aplicaciones Wordpress \item{12 minutos}.
+                \item Kubernetes cluster.Despliegue cluster de orquestación \item{13 minutos}.
+                \item RabbitMQ: Despliegue gestor de colas \item{8 minutos}.
+                \item Docker swarm: Despliegue y configuración cluster orquestación: \item{10 minutos}.
+                \item Nginx: Despliegue y configuración servidor web Nginx \item{4 minutos}.
+                \item Ceph cluster: Despliegue y configuración cluster Ceph \textbf{15 minutos}.
+                \item Galera cluster: Despliegue y configuración cluster Galera \textbf{11 minutos}.
+        \end{itemize}
+
+        Esto hace un total de \textbf{98 minutos}. Sin embargo nada nos impide ejecutar los playbooks de forma paralela exceptuando el primero (Fireall pfSense) que se debe ejecutar por separado y el primero. Si ejecutamos los playbooks en paralelo en distintas sesiones de terminal, la duración total sería la de la tarea más larga más el despliegue del firewall con lo cual: \textbf{6 minutos} + \textbf{15 minutos} = \textbf{21 minutos}.
+
+        Hemos pasado de un tiempo con configuración manaul de \textbf{44 horas} a un tiempo de \textbf{21 minutos}.
+\end{text}
+\subsection{Tiempo estimado integración nuevos cambios en aplicación antes del proyecto}
+\begin{text}
+        El funcionamiento normal de la empresa que no tiene cauces de despliegue definidos es:
+        \begin{itemize}
+                \item 1. Subir cambios a repositorio.
+                \item 2. Hacer petición a equipo de sistemas para integrar cambios en servidor.
+                \item 3. Solucionar cualquier problema tras el feedback del equipo de sistemas.
+        \end{itemize}
+
+        El desarrollador depende del equipo de sistemas para saber qué ha ocurrido con el despliegue y para realizar el despliegue. En nuestra compañía este tiempo podría variar desde 1 hora hasta más de un día dependiendo de las tareas del equipo de sistemas.
+\end{text}
+\subsection{Tiempo estimado integración nuevos cambios en aplicación después del proyecto}
+\begin{text}
+        Una vez implementados los cauces de despliegue de aplicaciones en la compañía, los pasos descritos en la sección anterior cambian:
+        \begin{itemize}
+                \item 1. Subir cambios a repositorio.
+                \item 2. Se ejecuta automáticamente el cauce definido en el proyecto. Este cauce se encarga de construir y desplegar la aplicación en el servidor.
+                \item 3. Acceso a los logs del servidor a través de una tarea del cauce.
+        \end{itemize}
+
+        Al ejecutarse el cauce inmediatamente tras subir un cambio al repositorio, el tiempo estimado de despliegue de la aplicación tras incorporar cambios al repositorio es el mismo que tarde el runner en cuestión en ejecutar las tareas de construcción y despliegue. Tras hacer varias pruebas se han estimado los siguientes tiempos:
+        \begin{itemize}
+                \item Backend: 2 minutos.
+                \item Frontend: 10 minutos.
+        \end{itemize}
+\end{text}
+\section{Futuro del proyecto}
+\begin{text}
+        A continuación se hace un pequeño análisis de cómo puede evolucionar el proyecto en un futuro. De tener éxito y intentar aplicarlo a empresas, hay muchos aspectos del proyecto que se pueden mejorar o añadir. 
+\end{text}
+\subsection{Adaptación proyecto distintas plataformas}
+\begin{text}
+        Una de las principales desventajas que tiene este proyecto, es que está limitado su instalación y uso al sistema operativo Debian 10 buster. Se podría ampliar a otros entornos basados en debian pero actualmente, únicamente está comprobado y probado que funciona en Debian 10 buster. \\
+        En caso de que el proyecto prospere, se debería ampliar la compatibilidad con distintas distribuciones de Linux como Ubuntu o CentOS que son de las más usadas. De esta forma se podría llegar a más público y hacer más atractivo el proyecto.
+\end{text}
+\subsection{Creación WUI para el despliegue de playbooks}
+\begin{text}
+        Dado el carácter técnico del proyecto, un usuario normal que utilizara este proyecto como servicio, tendría que aprender como funcionan los playbooks de Ansible en los que están basados este proyecto... Esto no es muy atractivo para posibles usuarios, ya que tendrían que tener conocimiento de cómo funcionan los playbooks, los roles... Para solventar el problema anterior, se sugiere la implementación de una interfaz de usuario, mediante la cual poder elegir que tareas ejecutar. Por ejemplo, se podrían crear formularios para insertar las variables necesarias y un selector donde elegir la tarea a desplegar. De esta forma el usuario no tendría que conocer como funcionan los playbooks o los roles de Ansible, simplemente mediante una interfaz intuitiva sabría que hace cada uno pero no como lo hacen. \\
+        Esta parte del futuro del proyecto me parece especialmente interesante ya que una interfaz de usuario hace muy atractivo el producto. A continuación se muestra una posible interfaz
+\end{text}
