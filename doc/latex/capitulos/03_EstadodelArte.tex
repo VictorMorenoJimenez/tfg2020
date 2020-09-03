@@ -1,6 +1,6 @@
 \chapter{Estado del arte}
 	\begin{text}
-		En esta sección se va a comentar el estado actual de tecnologías existentes que ofrezcan servicios similares a los de este proyecto. También para entender el problema que soluciona, se hace una pequeña reseña histórica de la evolución del tratamiento de la infraestructura en las empresas. Se incorpora un análisis del estado actual del mercado laboral para perfiles DevOps. Seguidamente es necesario hacer una comparación entre los principales proveedores cloud para resaltar el ahorro económico que supone aplicar este proyecto en lugar de otras alternativas cloud. Y por último se hace un análisis de las tecnologías existentes que pueden resolver el problema de diseño del proyecto.
+		En esta sección se va a comentar el estado actual de tecnologías existentes que ofrezcan servicios similares a los de este proyecto. También para entender el problema que soluciona, se hace una pequeña reseña histórica de la evolución del tratamiento de la infraestructura en las empresas. Se incorpora un análisis del estado actual del mercado laboral para perfiles DevOps. Seguidamente es necesario hacer una comparación entre los principales proveedores cloud para resaltar el ahorro económico que supone aplicar este proyecto en lugar de otras alternativas cloud. Y por último, un análisis de las tecnologías existentes que pueden resolver el problema de diseño del proyecto.
 	\end{text}
 
 	\subsection{Introducción}
@@ -20,59 +20,58 @@
 			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
 		\end{text}
 	
+	\subsection{Servidores Bare Metal}
+	\label{servidores_bare_metal}
+	
+	\begin{text}
+		Se han contratado tres servidores en el proveedor Hetzner. Éstos son tres servidores físicos que cuentan con las siguientes características hardware:
+		
+		\begin{itemize}
+			\item \textbf{tfg.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 8 cores.
+				\item \textbf{RAM}: 64GB 
+				\item \textbf{Almacenamiento}: 2 NvMe 500GB Raid 1.
+				\item \textbf{Red}: 1000Mb/s
+				\item \textbf{Tráfico}: Ilimitado
+				\item \textbf{Coste mes}: 38,6555 \euro
+				\item \textbf{Coste anual}: 502,521 \euro
+			\end{itemize}
+			
+			\item \textbf{tfg2.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 8 cores.
+				\item \textbf{RAM}: 16GB 
+				\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
+				\item \textbf{Red}: 1000Mb/s
+				\item \textbf{Tráfico}: Ilimitado
+				\item \textbf{Coste mes}: 22.6891 \euro
+				\item \textbf{Coste anual}: 272,9692 \euro
+			\end{itemize}
+			
+			\item \textbf{tfg3.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
+			
+			\begin{itemize}
+				\item \textbf{CPU}: 8 cores.
+				\item \textbf{RAM}: 16GB 
+				\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
+				\item \textbf{Red}: 1000Mb/s
+				\item \textbf{Tráfico}: Ilimitado
+				\item \textbf{Coste mes}: 22.6891 \euro
+				\item \textbf{Coste anual}: 272,9692 \euro 
+			\end{itemize}
+		\end{itemize}
+		
+		Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{1047,75} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
+		
+	\end{text}
 	\subsection{Proveedores Cloud}
 		\begin{text}
 			A continuación se va a hacer un análisis de los principales proveedores Cloud, ya que no se ha encontrado nada similar a lo que pretende este proyecto. Sin embargo los proveedores Cloud sí ofrecen dichas soluciones, contratando sus servicios. \\
 			En estudio vamos a comparar los servicios Cloud y su coste con los servicios contratados para este proyecto (Servidores Bare metal) \\
 		\end{text}
-	
-		\subsubsection{Servidores Bare Metal}
-			\label{servidores_bare_metal}
-
-			\begin{text}
-				Se han contratado tres servidores en el proveedor Hetzner. Éstos son tres servidores físicos que cuentan con las siguientes características hardware:
-				
-				\begin{itemize}
-					\item \textbf{tfg.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
-					
-					\begin{itemize}
-						\item \textbf{CPU}: 8 cores.
-						\item \textbf{RAM}: 64GB 
-						\item \textbf{Almacenamiento}: 2 NvMe 500GB Raid 1.
-						\item \textbf{Red}: 1000Mb/s
-						\item \textbf{Tráfico}: Ilimitado
-						\item \textbf{Coste mes}: 38,6555 \euro
-						\item \textbf{Coste anual}: 502,521 \euro
-					\end{itemize}
-				
-					\item \textbf{tfg2.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
-					
-					\begin{itemize}
-						\item \textbf{CPU}: 8 cores.
-						\item \textbf{RAM}: 16GB 
-						\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
-						\item \textbf{Red}: 1000Mb/s
-						\item \textbf{Tráfico}: Ilimitado
-						\item \textbf{Coste mes}: 22.6891 \euro
-						\item \textbf{Coste anual}: 272,9692 \euro
-					\end{itemize}
-
-					\item \textbf{tfg3.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
-
-					\begin{itemize}
-						\item \textbf{CPU}: 8 cores.
-						\item \textbf{RAM}: 16GB 
-						\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
-						\item \textbf{Red}: 1000Mb/s
-						\item \textbf{Tráfico}: Ilimitado
-						\item \textbf{Coste mes}: 22.6891 \euro
-						\item \textbf{Coste anual}: 272,9692 \euro 
-					\end{itemize}
-				\end{itemize}
-			
-			Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{1047,75} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
-			
-			\end{text}
 		
 		\subsubsection{AWS}
 			\begin{text}
@@ -150,7 +149,8 @@
 			Utilizando la calculadora de precios que ofrece Google Cloud \cite{googlecloudcalculadora:online} y haciendo una estimación de los recuross necesarios , obtenemos un presupuesto anual de \textbf{7480} \euro.
 			\end{text}
 		
-		\subsubsection{Comparación precios}
+		\subsection{Comparación precios}
+		\label{comparacion_precios}
 			\begin{text}
 				Tras un análisis de la infraestructura necesaria para este proyecto y la correspondiente investigación en los principales proveedores cloud, ha dado como resultado la siguiente relación de precios (coste anual).
 				\begin{itemize}

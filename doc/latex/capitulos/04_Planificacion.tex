@@ -10,7 +10,7 @@
 \subsection{¿Qué es un Milestone?}
 \label{milestones}
 \begin{text}
-	Los Milestones o Hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un Milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración GitHub.
+	Los milestones o hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración GitHub.
 	
 	\begin{figure}[!hbt]
 		\centering
@@ -34,13 +34,13 @@
 	
 	Y así seguiríamos creando issues según creamos que van a ser necesarios para completar el hito en cuestión. \\
 	En la sección  \nameref{milestones} hemos hablado que los issues tienen etiquetas. En la lista anterior por ejemplo, únicamente tenemos dos etiquetas que nos indican en este caso si son issues imprescindibles para el hito o simplemente mejoras. Gracias a estas etiquetas, podemos distinguir entre distintos tipos de issues y asignar mayor o menos prioridad por etiqueta. También gracias a Github, cada issue puede ser asignado a un desarrollador del proyecto. A continuación se muestra un ejemplo del panel de Github para mostrar los issues, etiquetas y hitos. \\
-	Como se puede comprobar, el sistema de etiquetas y asignación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / Milestone. 
+	Como se puede comprobar, el sistema de etiquetas y asignación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / milestone. 
 	
 \end{text}
 
 \subsection{Milestones, Issues y SCRUM}
 \begin{text}
-	Como ya sabemos, SCRUM es una metodología de trabajo que permite agilizar la creación y la entrega del software. Pero, ¿cómo encaja la metodología SCRUM en nuestra forma de trabajar con Milestones e Issues? Muy sencillo. Vamos a tratar cada Milestone del proyecto como si fuese un sprint SCRUM y cada issue del proyecto como si fuese una tarea a asignar y realizar. Por lo tanto cada sprint finalizará con un MVP (Minimum Viable Product) y cuando se complete un sprint se pasará al siguiente.
+	Como ya sabemos, SCRUM es una metodología de trabajo que permite agilizar la creación y la entrega del software. Pero, ¿Cómo encaja la metodología SCRUM en nuestra forma de trabajar con milestones e issues? Muy sencillo. Vamos a tratar cada milestone del proyecto como si fuese un sprint SCRUM y cada issue del proyecto como si fuese una tarea a asignar y realizar. Por lo tanto cada sprint finalizará con un MVP (Minimum Viable Product) y cuando se complete un sprint se pasará al siguiente.
 	
 	\begin{figure}[!hbt]
 		\centering
@@ -62,24 +62,24 @@
 
 \section{Milestones e issues}
 \begin{text}
-	En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en Milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
+	En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
 \end{text}
 
 \subsection{Milestones}
 \label{Milestones}
 \begin{text}
-	Los Milestones son estados deseados del proyecto que queremos avanzar para completarlo. Cada Milestone termina un MVP (Minimum Viable Product) y cubre las necesidades de algún objetivo. A continuación se definen los Milestones y se agrupan por objetivos.
+	Los milestones son estados deseados del proyecto que queremos avanzar para completarlo. Cada milestone termina un MVP (Minimum Viable Product) y cubre las necesidades de algún objetivo. A continuación se definen los milestones y se agrupan por objetivos.
 	
 	\begin{itemize}
 		\item \textbf{Milestone 0:}. Preparar entorno de desarrollo. Antes de comenzar el proyecto, se debe configurar el equipo que se va a utilizar para trabajar, instalando y configurando el software necesario. 
 		\item \textbf{Milestone 1:} Servicio de virtualización desplegado. 
-		\item \textbf{Milestone 2:} Cluster seguro.
-		\item \textbf{Milestone 3:} Control de versiones en cluster.
+		\item \textbf{Milestone 2:} Firewall desplegado en cluster.
+		\item \textbf{Milestone 3:} Control de versiones desplegado en cluster.
 		\item \textbf{Milestone 4:} Cluster monitorizado.
 		\item \textbf{Milestone 5:} Cluster preparado para desplegar aplicaciones.
 		\item \textbf{Milestone 6:} Despliegue automático de aplicaciones.
 	\end{itemize}
-	A continuación se relaciona cada objetivo definido en la sección \nameref{objetivos_primarios} con su Milestone.
+	A continuación se relaciona cada objetivo definido en la sección \nameref{objetivos_primarios} con su milestone.
 	
 	
 	\begin{table}[!hbt]
@@ -94,14 +94,14 @@
 		\end{tabular}
 	\end{table}
 	
-	Los Milestones 1,2 están relacionados con la creación y replicación de la infraestructura base, mientras que los Milestones 3,4 y 5 con los servicios desplegados en la infraestructura. Milestone 6 asegura que existen cauces de integración continua y despliegue automático de aplicaciones.
+	Los milestones 1,2 están relacionados con la creación y replicación de la infraestructura base, mientras que los milestones 3,4 y 5 con los servicios desplegados en la infraestructura. milestone 6 asegura que existen cauces de integración continua y despliegue automático de aplicaciones.
 	
 \end{text}
 
 \subsection{Issues}
 \label{issues}
 \begin{text}
-	A continuación se van a redactar los issues necesarios para cumplir con los requisitos funcionales. Se van a agrupar estos issues en Milestones. Los issues que mencionan la automatización de un servicio serán automatizados con la herramienta elegida en la sección \nameref{tecnologias_elegidas}.
+	A continuación se van a redactar los issues necesarios para cumplir con los requisitos funcionales. Se van a agrupar estos issues en milestones. Los issues que mencionan la automatización de un servicio serán automatizados con la herramienta elegida en la sección \nameref{tecnologias_elegidas}.
 	
 	\begin{itemize}
 		\item \textbf{Milestone 0:} Entorno de desarrollo. 
@@ -122,14 +122,14 @@
 			\item \textbf{Issue 1.9}. Automatizar la creación del cluster Proxmox.
 			\item \textbf{Issue 1.10}. Automatizar la adición de nuevos nodos al cluster.
 		\end{itemize}
-		\item \textbf{Milestone 2:} Cluster seguro.
+		\item \textbf{Milestone 2:} Firewall desplegado en cluster.
 		\begin{itemize}
 			\item \textbf{Issue 2.1}. Automatizar creación de máquina virtual pfSense en servicio de virtualización Proxmox.
 			\item \textbf{Issue 2.2}. Modificar puerto SSH para poder ejecutar playbook sobre pfSense.
 			\item \textbf{Issue 2.3}. Automatizar la configuración del firewall pfSense.
 			\item \textbf{Issue 2.4}. Permitir la modificación de la configuración pfSense a través de un playbook de Ansible.
 		\end{itemize}
-		\item \textbf{Milestone 3:} Control de versiones en cluster.
+		\item \textbf{Milestone 3:} Control de versiones desplegado en cluster.
 		\begin{itemize}
 			\item \textbf{Issue 3.1}. Automatizar la creación de máquina virtual en cluster donde instalar GitLab.
 			\item \textbf{Issue 3.2}. Automatizar instalación GitLab en máquina virtual Proxmox.
@@ -183,8 +183,8 @@
 \clearpage
 \subsection{Presupuesto}
         \begin{text}
-                Para realizar este presupuesto, se ha partido del sueldo base de un graduado en Ingeniería Informática. Recalcar que en esta partida, se incluyen horas extra para formación en las tecnologías elegidas. Este presupuesto es lo que costaría el desarrollo del proyecto.
-                Por otra parte se ha incluido en el presupuesto el coste de mantenimiento de la infraestructura.
+            Para realizar este presupuesto, se ha partido del sueldo base de un graduado en Ingeniería Informática. Recalcar que en esta partida, se incluyen horas extra para formación en las tecnologías elegidas. Este presupuesto es lo que costaría el desarrollo del proyecto.
+            Por otra parte se ha incluido en el presupuesto el coste de mantenimiento de la infraestructura.
         \end{text}
         \\
         \begin{table}[ht]

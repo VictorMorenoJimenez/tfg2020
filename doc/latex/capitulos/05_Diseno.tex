@@ -1,13 +1,13 @@
 \chapter {Diseño}
-
 \section{Arquitectura objetivo}
 \subsection{Servidores Físicos}
 \begin{text}
 	Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto. Las características técnicas de los servidores se pueden consultar en \nameref{servidores_bare_metal}.
 \end{text}
 \subsection{Infraestructura objetivo}
+\label{infraestructura_objetivo}
 \begin{text}
-	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web.  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que está no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16}.
+	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web, todo esto está descrito en la sección \nameref{objetivos_primarios}.  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que está no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16}.
 	
 	\clearpage
 	
@@ -42,7 +42,7 @@
 \subsection{Diagrama Cluster}
 
 \begin{text}
-	La siguiente figura muestra el cluster con un nivel de abstracción más bajo. Se muestran los distintos servicios que ofrece el cluster y la relación entre ellos. Cada servicio desplegado contribuye a la realización de uno o más requisitos funcionales descritos en la sección \nameref{requisitosfuncionales} cucho propósito es lograr los objetivos definidos en \nameref{subobjetivos}. \\
+	La siguiente figura muestra el cluster con un nivel de abstracción más bajo. Se muestran los distintos servicios que ofrece y la relación entre ellos. Cada servicio desplegado contribuye a la realización de uno o más requisitos funcionales descritos en la sección \nameref{requisitosfuncionales} cucho propósito es lograr los objetivos definidos en \nameref{subobjetivos}. \\
 	El cluster de servicios está interconectado entre sí en la red \textbf{10.6.100.0/24}.
 \end{text}
 \begin{figure}[!hbt]
@@ -54,14 +54,9 @@
 
 \subsection{Servicios en cluster}
 
-\subsubsection{Proveedor Infraestructura}
-\begin{text}
-	La infraestructura necesaria para formar el ecosistema que cumpla con los objetivos de este proyecto, se ha de alojar en servidores físicos. Para cumplir esta necesidad se ha elegido el proveedor Hetzner \cite{hetzner:online}, uno de los proveedores de servidores bare metal más conocidos en Europa. \\
-\end{text}
-
 \subsubsection{Servicio Virtualización}
 \begin{text}
-	Para poder ofrecer todos los servicios descritos en \nameref{objetivos_primarios} y cumplir con la arquitectura objetivo \nameref{Infraestructura_objetivo}, se hace necesario añadir una capa de virtualización a los servidores contratados. Estos 3 servidores físicos, servirán para desplegar los servicios descritos, sin embargo es necesario separar estos servicios en distintas máquinas. El servicio de virtualización nos permitirá crear tantas máquinas virtuales como servicios, virtualizando el hardware del servidor físico y aportando entornos cerrados, virtualizados y fácilmente recreables. \\
+	Para poder ofrecer todos los servicios descritos en \nameref{objetivos_primarios} y cumplir con la arquitectura objetivo \nameref{infraestructura_objetivo}, se hace necesario añadir una capa de virtualización a los servidores contratados. Estos 3 servidores físicos, servirán para desplegar los servicios descritos, sin embargo es necesario separar estos servicios en distintas máquinas. El servicio de virtualización nos permitirá crear tantas máquinas virtuales como servicios, virtualizando el hardware del servidor físico y aportando entornos cerrados, virtualizados y fácilmente recreables. \\
 	El servicio de virtualización elegido ha sido Proxmox VE \cite{proxmox:online}, basado en KVM (Kernel-based Virtual Machine) y de código abierto. Se ha elegido este servicio de virtualización ya que es un requisito impuesto por la empresa.
 \end{text}
 
