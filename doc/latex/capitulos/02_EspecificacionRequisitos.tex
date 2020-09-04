@@ -109,8 +109,8 @@
 
 	\subsection{Requisitos no funcionales}
 	\begin{itemize}
-		\item \textbf{RNF 1}. El sistema debe garantizar la automatización de los procesos de creación de infraestructura.
-		\item \textbf{RNF 2}. El sistema debe garantizar la automatización de los procesos de creación de servicios en la infraestructura.
+		\item \textbf{RNF 1}. El sistema debe garantizar la automatización de los procesos de creación de infraestructura asegurando unos tiempos bajos.
+		\item \textbf{RNF 2}. El sistema debe garantizar la automatización de los procesos de creación de servicios en la infraestructura asegurando unos tiempos bajos.
 		\item \textbf{RNF 3}. El sistema debe garantizar la alta disponibilidad de el servicio de base de datos.
 		\item \textbf{RNF 4}. El sistema debe garantizar la alta disponibilidad de las aplicaciones.
 	\end{itemize}
@@ -118,19 +118,20 @@
 	\subsection{Restricciones}
 	\label{restricciones}
 	\begin{text}
-		Este proyecto se ha desarrollado para una empresa en concreto y se realiza sobre una base. Esto conlleva restricciones a la hora de elegir las tecnologías a utilizar para satisfacer los objetivos. A continuación se listan las restricciones tecnológicas que presenta este proyecto.
+		Este proyecto se ha desarrollado para una empresa en concreto y se realiza sobre una base. Esto conlleva restricciones a la hora de elegir las tecnologías a utilizar para satisfacer los objetivos. A continuación se listan las restricciones tecnológicas que presenta este proyecto. Cabe destacar que la mayoría de tecnologías a utilizar son impuestas ya que la infraestructura ya existe y el objetivo de este proyecto es la automatización de la misma.
 		
 		\begin{itemize}
 			\item \textbf{Restricción 1.} El uso de las siguientes tecnologías será necesario para la correcta adaptación del proyecto a la empresa:
 			\begin{itemize}
-				\item Bases de datos: MySQL
-				\item Almacenamiento estático: Ceph cluster
-				\item Servicio virtualización: Proxmox
-				\item Servido web: Nginx
-				\item Contenedores: Docker
-				\item Firewall: pfSense
-				\item Control de versiones: GitLab
-				\item Proyectos: Django + Angular \& Wordpress
+				\item \textbf{RS 1.1}. Bases de datos: MySQL
+				\item \textbf{RS 1.2}. Almacenamiento estático: Ceph cluster
+				\item \textbf{RS 1.3}. Servicio virtualización: Proxmox
+				\item \textbf{RS 1.4}. Servido web: Nginx
+				\item \textbf{RS 1.5}. Contenedores: Docker
+				\item \textbf{RS 1.6}. Firewall: pfSense
+				\item \textbf{RS 1.7}. Control de versiones: GitLab
+				\item \textbf{RS 1.8}. Proyectos: Django + Angular \& Wordpress
+				\item \textbf{RS 1.9}. Contenedores: Docker
 			\end{itemize}
 		\end{itemize}
 	\end{text}
