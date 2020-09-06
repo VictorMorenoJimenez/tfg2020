@@ -1,6 +1,6 @@
 \chapter{Estado del arte}
 	\begin{text}
-		En esta sección se va a comentar el estado actual de tecnologías existentes que ofrezcan servicios similares a los de este proyecto. También para entender el problema que soluciona, se hace una pequeña reseña histórica de la evolución del tratamiento de la infraestructura en las empresas. Se incorpora un análisis del estado actual del mercado laboral para perfiles DevOps. Seguidamente es necesario hacer una comparación entre los principales proveedores cloud para resaltar el ahorro económico que supone aplicar este proyecto en lugar de otras alternativas cloud. Y por último, un análisis de las tecnologías existentes que pueden resolver el problema de diseño del proyecto.
+		En esta sección se va a comentar el estado actual de tecnologías existentes que ofrezcan servicios similares a los de este proyecto. También para entender el problema que soluciona, se hace una pequeña reseña histórica de la evolución del tratamiento de la infraestructura en las empresas. Se incorpora un análisis del estado actual del mercado laboral para perfiles DevOps. Seguidamente es necesario hacer una comparación entre los principales proveedores cloud para resaltar el ahorro económico que supone aplicar este proyecto en lugar de otras alternativas cloud para solucionar el problema de la infraestructura. Por último, se añade un análisis de las tecnologías existentes que pueden resolver el problema de diseño del proyecto.
 	\end{text}
 
 	\subsection{Introducción}
@@ -15,8 +15,8 @@
 	
 	\subsubsection{Mercado actual}
 		\begin{text}
-			Es una realidad que cada día más las empresas optan por soluciones Cloud y es bastante sencillo para un programador medio crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores Cloud y convertirse en todo un auténtico DevOps. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
-			Sin embargo, no todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener. \\
+			Es una realidad que cada día más las empresas optan por soluciones Cloud y es bastante sencillo para un programador medio crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores y convertirse en todo un auténtico DevOps. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
+			No todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener \ref{comparacion_precios}. \\
 			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
 		\end{text}
 	
@@ -31,46 +31,45 @@
 			
 			\begin{itemize}
 				\item \textbf{CPU}: 8 cores.
-				\item \textbf{RAM}: 64GB 
+				\item \textbf{RAM}: 64GB.
 				\item \textbf{Almacenamiento}: 2 NvMe 500GB Raid 1.
-				\item \textbf{Red}: 1000Mb/s
-				\item \textbf{Tráfico}: Ilimitado
-				\item \textbf{Coste mes}: 38,6555 \euro
-				\item \textbf{Coste anual}: 502,521 \euro
+				\item \textbf{Red}: 1000Mb/s.
+				\item \textbf{Tráfico}: Ilimitado.
+				\item \textbf{Coste mes}: 38,6555 \euro.
+				\item \textbf{Coste anual}: 502,521 \euro.
 			\end{itemize}
 			
 			\item \textbf{tfg2.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
 			
 			\begin{itemize}
 				\item \textbf{CPU}: 8 cores.
-				\item \textbf{RAM}: 16GB 
+				\item \textbf{RAM}: 16GB.
 				\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
-				\item \textbf{Red}: 1000Mb/s
-				\item \textbf{Tráfico}: Ilimitado
-				\item \textbf{Coste mes}: 22.6891 \euro
-				\item \textbf{Coste anual}: 272,9692 \euro
+				\item \textbf{Red}: 1000Mb/s.
+				\item \textbf{Tráfico}: Ilimitado.
+				\item \textbf{Coste mes}: 22.6891 \euro.
+				\item \textbf{Coste anual}: 272,9692 \euro.
 			\end{itemize}
 			
 			\item \textbf{tfg3.intelligenia.com}: El servidor cuenta con las siguientes características hardware:
 			
 			\begin{itemize}
 				\item \textbf{CPU}: 8 cores.
-				\item \textbf{RAM}: 16GB 
+				\item \textbf{RAM}: 16GB.
 				\item \textbf{Almacenamiento}: 2 SSD 2TB Raid 1.
-				\item \textbf{Red}: 1000Mb/s
-				\item \textbf{Tráfico}: Ilimitado
-				\item \textbf{Coste mes}: 22.6891 \euro
-				\item \textbf{Coste anual}: 272,9692 \euro 
+				\item \textbf{Red}: 1000Mb/s.
+				\item \textbf{Tráfico}: Ilimitado.
+				\item \textbf{Coste mes}: 22.6891 \euro.
+				\item \textbf{Coste anual}: 272,9692 \euro .
 			\end{itemize}
 		\end{itemize}
 		
-		Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{1047,75} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
+		Sumando ambos costes, tendríamos un coste anual de infraestructura de \textbf{1047,75} euros. Destacar que este sería el coste únicamente de la infraestructura donde se va alojar todo el proyecto. Más adelante \ref{presupuesto} se detallará el coste en recursos humanos que ha supuesto configurar estos servidores para que ofrezcan servicios parecidos a los que ofrecen los grandes proveedores de Cloud.
 		
 	\end{text}
 	\subsection{Proveedores Cloud}
 		\begin{text}
-			A continuación se va a hacer un análisis de los principales proveedores Cloud, ya que no se ha encontrado nada similar a lo que pretende este proyecto. Sin embargo los proveedores Cloud sí ofrecen dichas soluciones, contratando sus servicios. \\
-			En estudio vamos a comparar los servicios Cloud y su coste con los servicios contratados para este proyecto (Servidores Bare metal) \\
+			A continuación se va a hacer un análisis de los principales proveedores Cloud, ya que no se ha encontrado nada similar a lo que pretende este proyecto. Sin embargo los proveedores Cloud sí ofrecen dichas soluciones, contratando sus servicios. Pese a ofrecer servicios parecidos a DevOps, el cálculo de el coste de estos servicios se hace muy complejo, es por eso que, para este estudio se va a contratar únicamente cómputo en la nube. Hay que tener en cuenta que el precio real de servicios similares a los que ofrece este proyecto serían mayores que los calculados en este documento. No obstante, nos sirve como orientación para comprobar si hay alguna mejora en cuanto a costes.\\
 		\end{text}
 		
 		\subsubsection{AWS}
@@ -81,13 +80,13 @@
 				
 				\clearpage
 				\begin{itemize}
-					\item IaC
-					\item AWS OpWorks
-					\item AWS CodeDeploy	
-					\item AWS CodePipeline
-					\item AWS CodeCommit
-					\item AWS Elastic Beanstalk
-					\item Security
+					\item IaC.
+					\item AWS OpWorks.
+					\item AWS CodeDeploy.	
+					\item AWS CodePipeline.
+					\item AWS CodeCommit.
+					\item AWS Elastic Beanstalk.
+					\item Security.
 				\end{itemize}
 			
 			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
@@ -98,7 +97,7 @@
 				\item \textbf{Almacenamiento}: 100GB SSD.
 			\end{itemize}
 			
-			Tras utilizar la calculadora de precios de Amazon \cite{amazoncalculadora:online} y hacer un cálculo aproximado de las máquinas virtuales que vamos a necesitar hemos obtenido el presupuesto de: \textbf{489} \euro \space  mensuales, lo que hace un total de \textbf{5868} \euro \space anuales
+			Tras utilizar la calculadora de precios de Amazon \cite{amazoncalculadora:online} y hacer un cálculo aproximado de las máquinas virtuales que vamos a necesitar hemos obtenido el presupuesto de: \textbf{489} \euro \space  mensuales, lo que hace un total de \textbf{5868} \euro \space anuales.
 				
 			\end{text}
 		
@@ -106,11 +105,11 @@
 			\begin{text}
 				Azure es la gran competidora de AWS, ofreciendo múltiples servicios en la nube. También disponen de servicios DevOps \cite{AzureDev63:online} para empresas, una solución integral y muy completa. Sin embargo deberíamos contratar el hosting para las aplicaciones a parte, ya que este servicio únicamente es para ejecutar cauces de CI/CD. Una vez más la única limitación es el poder adquisitivo de una empresa, que en caso de pequeñas compañías no lo pueden afrontar. Azure DevOps ofrece:
 				\begin{itemize}
-					\item Azure Boards
-					\item Azure Pipelines
-					\item Azure Repos
-					\item Azure Atifacts (CI/CD)
-					\item Azure test plans
+					\item Azure Boards.
+					\item Azure Pipelines.
+					\item Azure Repos.
+					\item Azure Atifacts (CI/CD).
+					\item Azure test plans.
 				\end{itemize}
 			
 			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
@@ -129,13 +128,13 @@
 			\begin{text}
 				Al igual que las dos anteriores, Google Cloud ofrece servicios DevOps para empresas a precios similares \cite{GoogleCloud:online}. De igual manera el servicio de hosting para las aplicaciones va a parte y ofrece servicios como:
 				\begin{itemize}
-					\item Control de versiones
-					\item CI
-					\item Automatización de implementación
-					\item Desarrollo basado en troncales
-					\item Automatización de pruebas
-					\item Arquitectura
-					\item Seguridad
+					\item Control de versiones.
+					\item CI.
+					\item Automatización de implementación.
+					\item Desarrollo basado en troncales.
+					\item Automatización de pruebas.
+					\item Arquitectura.
+					\item Seguridad.
 				\end{itemize}
 			
 			Pese a ofrecer todos estos servicios, únicamente hemos decidido contratar máquinas virtuales con las siguientes características:
@@ -165,7 +164,7 @@
 	\subsection{Tecnologías elegidas}
 	\label{tecnologias_elegidas}
 		\begin{text}
-			Las tecnologías que se van a utilizar en la infraestructura y los servicios de el proyecto están bien definidas y son una restricción impuesta por la empresa (véase la sección \nameref{restricciones}), sin embargo para lograr el objetivo de este proyecto, hace falta elegir la herramienta de automatización. A continuación se va a hacer un análisis de las principales herramientas disponibles, pros y contras de cada una y el por qué se ha elegido la tecnología utilizada. \cite{comparadorAnsibleChefPuppet:online}
+			Las tecnologías que se van a utilizar en la infraestructura y los servicios de el proyecto están bien definidas y son una restricción impuesta por la empresa (véase la sección \nameref{restricciones}), sin embargo para lograr uno de los objetivos de este proyecto (automatización de procesos de despliegue de infraestructura y servicios), hace falta elegir la herramienta de automatización. A continuación se va a hacer un análisis de las principales herramientas disponibles, pros y contras de cada una y el por qué se ha elegido la tecnología utilizada. \cite{comparadorAnsibleChefPuppet:online}
 		\end{text}
 	\subsubsection{Puppet}
 		\begin{text}

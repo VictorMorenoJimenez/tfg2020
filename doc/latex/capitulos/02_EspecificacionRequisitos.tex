@@ -1,5 +1,6 @@
 \chapter {Análisis del sistema}
 
+\label{capitulo2}
 %\section{Casuísticas que se dan y como se resuelve cada una}
 %		\begin{itemize}
 %			\item \textbf{Problema 1}: \textit{Recreación ante fallo total o réplica de infraestructura}. Ante un fallo total de la infraestructura o replicación para propósitos de testing, con los sistemas actuales sería imposible, ya que dada la configuración manual de cada uno de los servidores, sería imposible replicar al 100\% el estado de los servidores. 
@@ -81,35 +82,35 @@
 	\subsection{Requisitos funcionales}
 	\label{requisitosfuncionales}
 	\begin{itemize}
-		\item \textbf{RF 0.} El sistema permitirá la automatizar la configuración del equipo del sistema que va a utilizar el proyecto para la configuración de sistemas remotos. \label{RF0}
-		\item \textbf{RF 1.} El sistema permitirá la automatizar la creación de la infraestructura. \label{RF1}
+		\item \textbf{RF 0.} El sistema permitirá automatizar la configuración del equipo donde se va a ejecutar el proyecto. \label{RF0}
+		\item \textbf{RF 1.} El sistema permitirá automatizar la creación de la infraestructura. \label{RF1}
 		\begin{itemize}
 			\item \textbf{RF 1.1}. El sistema permitirá automatizar ĺa instalación de una ISO elegida sobre el servidor.
 			\item \textbf{RF 1.2}. El sistema permitirá automatizar ĺa instalación de una ISO elegida sobre el servidor.
-			\item \textbf{RF 1.3}. El sistema permitirá la instalación de un servicio de virtualización. 
-			\item \textbf{RF 1.4}. El sistema permitirá la configuración de un servicio de virtualización.
-			\item \textbf{RF 1.5}. El sistema permitirá la creación de un cluster sobre el servicio de virtualización.
-			\item \textbf{RF 1.6}. El sistema permitirá añadir nuevos nodos al cluster.
-			\item \textbf{RF 1.7}. El sistema permitirá configurar los sistemas de almacenamiento utilizados por el cluster.
+			\item \textbf{RF 1.3}. El sistema permitirá automatizar la instalación de un servicio de virtualización. 
+			\item \textbf{RF 1.4}. El sistema permitirá automatizar la configuración de un servicio de virtualización.
+			\item \textbf{RF 1.5}. El sistema permitirá automatizar la creación de un cluster sobre el servicio de virtualización.
+			\item \textbf{RF 1.6}. El sistema permitirá añadir nuevos nodos al cluster de forma automática.
+			\item \textbf{RF 1.7}. El sistema permitirá configurar los sistemas de almacenamiento utilizados por el cluster de forma automática.
 		\end{itemize}
-		\item \textbf{RF 2.} El sistema permitirá la replicación de la infraestructura. \label{RF2}
-		\item \textbf{RF 3.} El sistema permitirá la creación de los servicios necesarios para una empresa de desarrollo web. \label{RF3}
+		\item \textbf{RF 2.} El sistema permitirá la replicación de la infraestructura de forma automática. \label{RF2}
+		\item \textbf{RF 3.} El sistema permitirá la creación de los servicios necesarios para una empresa de desarrollo web de forma automática. \label{RF3}
 		\begin{itemize}
-			\item \textbf{RF 3.1}. El sistema permitirá la creación de un servicio de firewall en el cluster. (RNF 4)
-			\item \textbf{RF 3.2}. El sistema permitirá la creación de un servicio de control de versiones en el cluster.
-			\item \textbf{RF 3.3}. El sistema permitirá la creación de un servicio de almacenamiento estático en el cluster.
-			\item \textbf{RF 3.4}. El sistema permitirá la creación de un servicio de gestión de aplicaciones Wordpress en el cluster.
-			\item \textbf{RF 3.5}. El sistema permitirá la creación de un servicio de orquestación de contenedores en el cluster. (RNF 4)
-			\item \textbf{RF 3.6}. El sistema permitirá la creación de un servicio de servidor web en el cluster.
-			\item \textbf{RF 3.7}. El sistema permitirá la creación de un servicio de monitorización en el cluster.
-			\item \textbf{RF 3.8}. El sistema permitirá la creación de un servicio de base de datos en el cluster. (RNF 3)
-			\item \textbf{RF 3.9}. El sistema permitirá la creación de un servicio de gestión de colas.
-			\item \textbf{RF 3.10}. El sistema permitirá la creación de un servicio de orquestación de contenedores.
+			\item \textbf{RF 3.1}. El sistema permitirá automatizar la creación de un servicio de firewall en el cluster. (RNF 4)
+			\item \textbf{RF 3.2}. El sistema permitirá automatizar la creación de un servicio de control de versiones en el cluster.
+			\item \textbf{RF 3.3}. El sistema permitirá automatizar la creación de un servicio de almacenamiento estático en el cluster.
+			\item \textbf{RF 3.4}. El sistema permitirá automatizar la creación de un servicio de gestión de aplicaciones Wordpress en el cluster.
+			\item \textbf{RF 3.5}. El sistema permitirá automatizar la creación de un servicio de orquestación de contenedores en el cluster. (RNF 4)
+			\item \textbf{RF 3.6}. El sistema permitirá automatizar la creación de un servicio de servidor web en el cluster.
+			\item \textbf{RF 3.7}. El sistema permitirá automatizar la creación de un servicio de monitorización en el cluster.
+			\item \textbf{RF 3.8}. El sistema permitirá automatizar la creación de un servicio de base de datos en el cluster. (RNF 3)
+			\item \textbf{RF 3.9}. El sistema permitirá automatizar la creación de un servicio de gestión de colas.
+			\item \textbf{RF 3.10}. El sistema permitirá automatizar la creación de un servicio de orquestación de contenedores.
 		\end{itemize}
 	
 	\item \textbf{RF 4}. El sistema permitirá la recreación de infraestructura en un tiempo bajo. \label{RF4}
 	
-	\item \textbf{RF 5}. El sistema permitirá el despliegue automatizados en un cluster seguro. \label{RF5}
+	\item \textbf{RF 5}. El sistema permitirá el despliegue automatizado en un cluster seguro. \label{RF5}
 	\end{itemize}
 
 	\subsection{Requisitos no funcionales}
@@ -137,6 +138,7 @@
 				\item \textbf{RS 1.7}. Control de versiones: GitLab
 				\item \textbf{RS 1.8}. Proyectos: Django + Angular \& Wordpress
 				\item \textbf{RS 1.9}. Contenedores: Docker
+				\item \textbf{RS 1.10}. Orquestación: Docker Swarm
 			\end{itemize}
 		\end{itemize}
 	\end{text}
@@ -144,11 +146,12 @@
 \section{Casos de uso}
 \label{casosdeuso}
 	\subsection{CU 0. Configurar entorno proyecto}
-	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/11?closed=1}{Issues en Github}.
 	
 	\begin{text}
 		Caso de uso 0. Define los pasos a seguir para configurar el entorno donde se va a ejecutar el proyecto. Las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 	\end{text}
+
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/11?closed=1}{Issues en Github}.
 
 	\begin{usecase}{Configurar entorno proyecto << CU.0 >>}
 		\addrow{Descripción}{Configura el equipo donde se van a lanzar las tareas del proyecto.}
@@ -176,11 +179,12 @@
 	\clearpage
 	
 	\subsection{CU 1. Crear infraestructura}
-	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
 	
 	\begin{text}
 		Caso de uso 1. Define los pasos a seguir para crear la infraestructura, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 	\end{text}
+
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
 
 	\begin{usecase}{Crear infraestructura << CU.1 >>}
 		\addrow{Descripción}{Permite crear la infraestructura sobre los nodos.}
@@ -208,11 +212,11 @@
 	\hyperref[RF1]{Requisito funcional 1}
 	\clearpage
 	\subsection{CU.2. Replicar infraestructura}
-	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
-
+	
 	\begin{text}
 		Caso de uso 2. Define los pasos a seguir para replicar la infraestructura, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 	\end{text}
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/6}{Issues en Github}.
 
 	\begin{usecase}{Replicar infraestructura << CU.2 >>}
 		\addrow{Descripción}{Permite replicar la infraestructura sobre los nodos.}
@@ -243,11 +247,12 @@
 	\clearpage
 	
 	\subsection{CU.3. Crear servicio firewall}
-	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/7}{Issues en Github}
 	
 	\begin{text}
 		Caso de uso 3. Define los pasos a seguir para crear un servicio de firewall en la infraestructura, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 	\end{text}
+
+	\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/7}{Issues en Github}
 
 	\begin{usecase}{Crear servicio firewall << CU.3 >>}
 		\addrow{Descripción}{Permite crear un servicio de firewall en el cluster.}
@@ -282,6 +287,7 @@
 \begin{text}
 	Caso de uso 4. Define los pasos a seguir para crear un servicio de almacenamiento estático, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
 \begin{usecase}{Crear servicio almacenamiento estático << CU.4 >>}
 	\addrow{Descripción}{Permite crear un servicio de almacenamiento estático en el cluster.}
 	
@@ -312,11 +318,11 @@
 
 \subsection{CU.5. Crear servicio de gestión de aplicaciones Wordpress}
 
-\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/135}{Github Issue}
-
 \begin{text}
 	Caso de uso 5. Define los pasos a seguir para crear un servicio de gestión de aplicaciones Wordpress, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/135}{Github Issue}
 
 \begin{usecase}{Crear servicio de gestión de aplicaciones Wordpress << CU.5 >>}
 	\addrow{Descripción}{Permite crear un servicio de gestión de aplicaciones Wordpress en el cluster.}
@@ -346,11 +352,12 @@
 
 \clearpage 
 \subsection{CU.6. Crear servicio de orquestación de contenedores en el cluster}
-\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/136}{Github Issue}
 
 \begin{text}
 	Caso de uso 6. Define los pasos a seguir para crear un servicio orquetación de contenedores, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/136}{Github Issue}
 
 \begin{usecase}{Crear servicio de orquestación de contenedores en el cluster << CU.6 >>}
 	\addrow{Descripción}{Permite crear un servicio de orquestación de contenedores en el cluster en el cluster.}
@@ -378,14 +385,14 @@
 
 \hyperref[RF3]{Requisito funcional 3}
 
-
 \clearpage
 \subsection{CU.7. Crear servicio de monitorización en el cluster}
-\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/58}{Github Issue}
 
 \begin{text}
 	Caso de uso 7. Define los pasos a seguir para crear un servicio de monitorización del cluster, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/58}{Github Issue}
 
 \begin{usecase}{Crear servicio de monitorización en el cluster << CU.7 >>}
 	\addrow{Descripción}{Permite crear un servicio de monitorización en el cluster.}
@@ -415,11 +422,12 @@
 
 \clearpage
 \subsection{CU.8. Crear servicio de bases de datos}
-\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/134}{Github Issue}
 
 \begin{text}
 	Caso de uso 8. Define los pasos a seguir para crear un servicio de base de datos en el cluster, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/134}{Github Issue}
 
 \begin{usecase}{Crear servicio de bases de datos << CU.8 >>}
 	\addrow{Descripción}{Permite crear un servicio bases de datos en el cluster.}
@@ -447,14 +455,14 @@
 
 \hyperref[RF3]{Requisito funcional 3}
 
-
 \clearpage 
 \subsection{CU.10. Crear servicio de gestión de colas}
-\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/137}{Github Issue}
 
 \begin{text}
 	Caso de uso 10. Define los pasos a seguir para crear un servicio de gestión de colas en el cluster, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/issues/137}{Github Issue}
 
 \begin{usecase}{Crear servicio de gestión de colas << CU.10 >>}
 	\addrow{Descripción}{Permite crear un servicio gestión de colas en el cluster.}
@@ -486,11 +494,11 @@
 
 \subsection{CU.11. Desplegar aplicación en cluster}
 
-\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/12}{Github Issues}.
-
 \begin{text}
 	Caso de uso 11. Define los pasos a seguir para desplegar una aplicación en el cluster, las condiciones que se deben cumplir para que se de el caso de uso y el estado final tras ejecutar el caso de uso.
 \end{text}
+
+\href{https://github.com/VictorMorenoJimenez/tfg2020/milestone/12}{Github Issues}.
 
 \begin{usecase}{Desplegar aplicación << CU.12 >>}
 	\addrow{Descripción}{Permite desplegar la aplicación en el cluster.}

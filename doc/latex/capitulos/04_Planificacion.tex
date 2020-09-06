@@ -3,7 +3,7 @@
 \section{Metodología de desarrollo}
 \begin{text}
 	Todo proyecto software debe tener una organización y unas etapas de desarrollo bien definidas. En esta sección se pretende explicar la metodología de desarrollo elegida para realizar este proyecto. \\
-	Se ha tratado este proyecto como cualquier otro proyecto software. Para la organización y el control de versiones se ha elegido Github, un software basado en git originalmente creado para el control de versiones. Actualmente, GitHub ofrece múltiples servicios, como almacenamiento, gestión de paneles de trabajo, registry, integración con múltiples tecnologías... \\
+	Se ha tratado este proyecto como cualquier otro proyecto software. Para la organización y el control de versiones se ha elegido Github, un software basado en git originalmente creado para el control de versiones. \\
 	En cuanto a la metodología de desarrollo, se ha optado por utilizar la metodología SCRUM. A continuación se explican con mayor detalle estos conceptos.
 \end{text}
 
@@ -11,6 +11,8 @@
 \label{milestones}
 \begin{text}
 	Los milestones o hitos en castellano, corresponden con estados finales deseados de la aplicación. Sabiendo esto, podríamos crear un milestone por ejemplo: "Servidores configurados a través de ficheros de configuración Ansible". Esto será un estado final deseado para nuestra aplicación o proyecto. Para que un hito quede totalmente realizado, deben estar completos todos los issues marcados como esenciales para el hito. Un hito está compuesto por issues. A continuación se muestran algunos milestones creados en este proyecto, en el panel de administración GitHub.
+	
+	\clearpage
 	
 	\begin{figure}[!hbt]
 		\centering
@@ -33,7 +35,7 @@
 	\end{itemize}
 	
 	Y así seguiríamos creando issues según creamos que van a ser necesarios para completar el hito en cuestión. \\
-	En la sección  \nameref{milestones} hemos hablado que los issues tienen etiquetas. En la lista anterior por ejemplo, únicamente tenemos dos etiquetas que nos indican en este caso si son issues imprescindibles para el hito o simplemente mejoras. Gracias a estas etiquetas, podemos distinguir entre distintos tipos de issues y asignar mayor o menos prioridad por etiqueta. También gracias a Github, cada issue puede ser asignado a un desarrollador del proyecto. A continuación se muestra un ejemplo del panel de Github para mostrar los issues, etiquetas y hitos. \\
+	En la sección "\nameref{milestones}" hemos hablado que los issues tienen etiquetas. En la lista anterior por ejemplo, únicamente tenemos dos etiquetas que nos indican en este caso si son issues imprescindibles para el hito o simplemente mejoras. Gracias a estas etiquetas, podemos distinguir entre distintos tipos de issues y asignar mayor o menos prioridad por etiqueta. También gracias a Github, cada issue puede ser asignado a un desarrollador del proyecto. A continuación se muestra un ejemplo del panel de Github para mostrar los issues, etiquetas y hitos. \\
 	Como se puede comprobar, el sistema de etiquetas y asignación de issues a desarrolladores, es más que suficiente para manejar proyectos. Permite asignar prioridades, agrupar issues en hitos y escribir comentarios en cada issue / milestone. 
 	
 \end{text}
@@ -62,7 +64,7 @@
 
 \section{Milestones e issues}
 \begin{text}
-	En el capítulo 1, introducción se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. En esta sección vamos a traducir los objetivos principales del proyecto en milestones, desgranar los objetivos en subobjetivos y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
+	En el capítulo "\nameref{capitulo1}", se definen y detallan los objetivos que este proyecto pretende alcanzar. Sin embargo, estos objetivos presentan un alto grado de abstracción y es difícil trasladarlos a tareas concretas que se traducirán en issues del proyecto. Es por esto que en el capítulo "\nameref{capitulo2}" se desgranan estos objetivos en subobjetivos. En esta sección vamos a traducir los objetivos principales del proyecto en milestones, y traducir cada subobjetivo a un requisito funcional que se convertirá en un issue en el proyecto.
 \end{text}
 
 \subsection{Milestones}
@@ -79,7 +81,7 @@
 		\item \textbf{Milestone 5:} Cluster preparado para desplegar aplicaciones.
 		\item \textbf{Milestone 6:} Despliegue automático de aplicaciones.
 	\end{itemize}
-	A continuación se relaciona cada objetivo definido en la sección \nameref{objetivos_primarios} con su milestone.
+	A continuación se relaciona cada objetivo definido en la sección "\nameref{objetivos_primarios}" con su milestone.
 	
 	
 	\begin{table}[!hbt]
@@ -101,7 +103,7 @@
 \subsection{Issues}
 \label{issues}
 \begin{text}
-	A continuación se van a redactar los issues necesarios para cumplir con los requisitos funcionales. Se van a agrupar estos issues en milestones. Los issues que mencionan la automatización de un servicio serán automatizados con la herramienta elegida en la sección \nameref{tecnologias_elegidas}.
+	A continuación se van a redactar los issues necesarios para cumplir con los requisitos funcionales. Se van a agrupar estos issues en milestones. Los issues que mencionan la automatización de un servicio serán automatizados con la herramienta elegida en la sección "\nameref{tecnologias_elegidas}".
 	
 	\begin{itemize}
 		\item \textbf{Milestone 0:} Entorno de desarrollo. 
@@ -169,7 +171,7 @@
 \end{text}
 \subsection{Estimación temporal}
 \begin{text}
-        Para dar una estimación del tiempo requerido para el proyecto, vamos a utilizar un diagrama de Gantt, en el que incluiremos los principales hitos del proyecto y una estimación en semanas de la duración del mismo. Una estimación inicial ha sido de 24 semanas en total. Cabe destacar que se ha utilizado la metodología de desarrollo SCRUM, cada uno de los hitos se ha traducido en un sprint. Cada hito ofrece un MVP (Minimum Viable Product) con unas funcionalidades bien definidas. Ver la seccción \nameref{Milestones}. A continuación se muestra el diagrama de Gantt con la planificación pensaba para este proyecto.
+        Para dar una estimación del tiempo requerido para el proyecto, vamos a utilizar un diagrama de Gantt, en el que incluiremos los principales hitos del proyecto y una estimación en semanas de la duración del mismo. Una estimación inicial ha sido de 23 semanas en total. Cabe destacar que se ha utilizado la metodología de desarrollo SCRUM, cada uno de los hitos se ha traducido en un sprint. Cada hito ofrece un MVP (Minimum Viable Product) con unas funcionalidades bien definidas. Ver la seccción "\nameref{Milestones}". A continuación se muestra el diagrama de Gantt con la planificación pensaba para este proyecto. Se ha pensado este diagrama para una jornada de trabajo de 5 horas diarias 5 días a la semana, es decir una jornada de 25 horas semanales.
 \end{text}
 
 \newpage
@@ -182,6 +184,7 @@
         \end{figure}
 \clearpage
 \subsection{Presupuesto}
+\label{presupuesto}
         \begin{text}
             Para realizar este presupuesto, se ha partido del sueldo base de un graduado en Ingeniería Informática. Recalcar que en esta partida, se incluyen horas extra para formación en las tecnologías elegidas. Este presupuesto es lo que costaría el desarrollo del proyecto.
             Por otra parte se ha incluido en el presupuesto el coste de mantenimiento de la infraestructura.
@@ -192,7 +195,7 @@
                 \begin{tabular}[!hbt]{SSSSSSSS} \toprule
                         {Concepto} &  {Precio / mes \euro} & {Importe Total \euro} \\ \midrule
                         {\textbf{Partida Personal}} \\ \midrule
-                        {Sueldo DevOps Junior}  & {1.800} & {5.400}  \\
+                        {Sueldo DevOps Junior}  & {1.800} & {3.600}  \\
                     \midrule
                         {\textbf{Partida Inventariable}} \\ \midrule
                         {Coste infraestructura}  & {61,34}  & {368,04}   \\
@@ -209,7 +212,7 @@
                         {\textbf{Partida de otros}} \\ \midrule
                         {Incluido}  & {Incluido}  & {0} \\
                         \midrule
-                        {\textbf{Total}}  & {1861,34}  & {5.768,04} \\
+                        {\textbf{Total}}  & {1861,34 \euro}  & {3.968,04 \euro} \\
                         \\ \midrule
                  \\ \bottomrule
                 \end{tabular}
