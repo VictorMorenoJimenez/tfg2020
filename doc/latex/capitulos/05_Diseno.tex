@@ -2,12 +2,12 @@
 \section{Arquitectura objetivo}
 \subsection{Servidores Físicos}
 \begin{text}
-	Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto. Las características técnicas de los servidores se pueden consultar en "\nameref{servidores_bare_metal}".
+	Al trabajar en una empresa de hosting, he tenido la suerte de contar con 3 servidores bare metal para el desarrollo de este proyecto. Las características técnicas de los servidores se pueden consultar en ``\nameref{servidores_bare_metal}''.
 \end{text}
 \subsection{Infraestructura objetivo}
 \label{infraestructura_objetivo}
 \begin{text}
-	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web, todo esto está descrito en la sección "\nameref{objetivos_primarios}".  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que está no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16}.
+	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web, todo esto está descrito en la sección ``\nameref{objetivos_primarios}''.  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que está no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16}.
 	
 	\clearpage
 	
@@ -23,7 +23,7 @@
 
 \subsection{Diseño Failover}
 \begin{text}
-	Como se puede apreciar en el diagrama "\nameref{InfraestructuraObjetivo}", los dos nodos principales del cluster (los que tienen el firewall) están bajo una \textbf{IP failover}. La IP failover es un tipo especial de IP que puede ir cambiando la IP destino a la que apunta. Esto es imprescindible en un cluster de alta disponibilidad, en nuestro caso si por algún motivo el nodo 1 (tfg.intelligenia.com) al cual apunta la ip failover en un principio sufriera una caída, se activaría un script en el nodo 2 que modificaría el destino de la ip failover y crearía las rutas pertinentes en el nodo 2 para poder recibir todo el tráfico de la IP failover.
+	Como se puede apreciar en el diagrama ``\nameref{InfraestructuraObjetivo}'', los dos nodos principales del cluster (los que tienen el firewall) están bajo una \textbf{IP failover}. La IP failover es un tipo especial de IP que puede ir cambiando la IP destino a la que apunta. Esto es imprescindible en un cluster de alta disponibilidad, en nuestro caso si por algún motivo el nodo 1 (tfg.intelligenia.com) al cual apunta la ip failover en un principio sufriera una caída, se activaría un script en el nodo 2 que modificaría el destino de la ip failover y crearía las rutas pertinentes en el nodo 2 para poder recibir todo el tráfico de la IP failover.
 	
 	Para conseguir esto se ha instalado un pequeño script en los firewall que comprueban constantemente el estado del \textbf{CARP} (Common Address Redundancy Protocol). Esto es lo que permite que a nivel de firewall, haya un maestro y un esclavo. En el momento que el maestro pasa a esclavo o el esclavo pasa a maestro, se ejecuta un script que, utilizando la API de Hetzner modificar el destino de la IP failover.
 	
@@ -59,7 +59,7 @@
 \subsection{Diagrama Cluster}
 
 \begin{text}
-	La siguiente figura muestra el cluster con un nivel de abstracción más bajo. Se muestran los distintos servicios que ofrece y la relación entre ellos. Cada servicio desplegado contribuye a la realización de uno o más requisitos funcionales descritos en la sección "\nameref{requisitosfuncionales}" cucho propósito es lograr los objetivos definidos en "\nameref{subobjetivos}". \\
+	La siguiente figura muestra el cluster con un nivel de abstracción más bajo. Se muestran los distintos servicios que ofrece y la relación entre ellos. Cada servicio desplegado contribuye a la realización de uno o más requisitos funcionales descritos en la sección ``\nameref{requisitosfuncionales}'' cucho propósito es lograr los objetivos definidos en ``\nameref{subobjetivos}''. \\
 	El cluster de servicios está interconectado entre sí en la red \textbf{10.6.100.0/24}.
 \end{text}
 \begin{figure}[!hbt]
@@ -137,12 +137,12 @@
 
 \section{Diseño de la solución basado en Ansible}
 \begin{text}
-	Como se ha discutido en la sección "\nameref{tecnologias_elegidas}" hemos elegido Ansible para cumplir los objetivos de este proyecto. Ansible nos permite automatizar el proceso de creación y configuración de la infraestructura. En la siguiente sección se hace un análisis de como se ha ido construyendo la solución utilizando Ansible en términos de metodología y forma de estructura el proyecto.
+	Como se ha discutido en la sección ``\nameref{tecnologias_elegidas}'' hemos elegido Ansible para cumplir los objetivos de este proyecto. Ansible nos permite automatizar el proceso de creación y configuración de la infraestructura. En la siguiente sección se hace un análisis de como se ha ido construyendo la solución utilizando Ansible en términos de metodología y forma de estructura el proyecto.
 \end{text}
 
 \subsection{Estructura, modularización y metodología}
 \begin{text}
-	Para diseñar la estructura y la metodología a seguir en el desarrollo se ha partido de los "\nameref{requisitosfuncionales}". Para entender la metodología utilizada hay que conocer como funciona Ansible.
+	Para diseñar la estructura y la metodología a seguir en el desarrollo se ha partido de los ``\nameref{requisitosfuncionales}''. Para entender la metodología utilizada hay que conocer como funciona Ansible.
 	
 	\subsubsection{Ansible}
 	\label{ansible_}
@@ -154,7 +154,7 @@
 			\item \textbf{Roles:}: un role nos permite agrupar múltiples tareas bajo un mismo nombre. Por ejemplo, podríamos crear un role llamado firewall en el cual definiríamos todas las tareas que involucren al firewall. Ésto hace que el proyecto sea más legible y ayuda al futuro desarrollo.
 		\end{itemize}
 	
-	Para cada caso de uso definido en "\nameref{casosdeuso}" se ha creado un playbook. En nuestro caso, hemos creado un role para cada servicio desplegado en el cluster. Estos roles harán los playbooks más legibles. \\
+	Para cada caso de uso definido en ``\nameref{casosdeuso}'' se ha creado un playbook. En nuestro caso, hemos creado un role para cada servicio desplegado en el cluster. Estos roles harán los playbooks más legibles. \\
 	En cada role se definen una serie de variables para decidir qué tareas se van a lanzar. Para explicar esto pongamos el ejemplo del role \textbf{webproxy}. Este role tiene varias tareas:
 	\begin{itemize}
 		\item \textbf{apply\_config.yml}
@@ -165,11 +165,11 @@
 	\end{itemize}
 
 	Podría darse el caso que quisieramos crear un sitio en nginx sin certificado SSL. Para esto se han definido unas variables que se han de definir en cada playbook para elegir qué tareas lanzar de cada role. \\
-	Cada tarea definida en los role, corresponde con un issue definido en "\nameref{issues}".
+	Cada tarea definida en los role, corresponde con un issue definido en ``\nameref{issues}''.
 	
 	\clearpage
 	
-	A continuación se listan los distintos playbooks definidos y se relacionan con sus correspondientes \nameref{requisitosfuncionales} e \nameref{issues}.
+	A continuación se listan los distintos playbooks definidos y se relacionan con sus correspondientes ``\nameref{requisitosfuncionales}'' e ``\nameref{issues}''.
 	
 	\begin{itemize}
 		\item \textbf{configure\_local\_environment.yml}. \hyperref[RF0]{RF0}.
@@ -250,7 +250,7 @@
 \subsection{Cumplimiento requisitos funcionales}
 \begin{text}
 	Al haber estructurado el proyecto creando un playbook o más por cada requisito funcional, y al tener cada role definidos una serie de test, si se cumple el objetivo de cada playbook, se cumplirán los requisitos funcionales. \\
-	Como hemos comentado en la sección "\nameref{ansible_}", Ansible se encarga de ejecutar las tareas definidas en los roles y en los playbooks de forma secuencial. Cada tarea de Ansible tiene un objetivo el cual si no se cumple, se lanza una excepción en forma de error abortando la ejecución del playbook. Esta forma de funcionar nos asegura que, si un playbook de los definidos en este proyecto termina su ejecución con éxito, los issues a los que está asociado dicho playbook van a quedar resueltos.
+	Como hemos comentado en la sección ``\nameref{ansible_}'', Ansible se encarga de ejecutar las tareas definidas en los roles y en los playbooks de forma secuencial. Cada tarea de Ansible tiene un objetivo el cual si no se cumple, se lanza una excepción en forma de error abortando la ejecución del playbook. Esta forma de funcionar nos asegura que, si un playbook de los definidos en este proyecto termina su ejecución con éxito, los issues a los que está asociado dicho playbook van a quedar resueltos.
 \end{text}
 
 
@@ -275,11 +275,9 @@
 	Esto es posible gracias a la sección DevOps que trae GitLab incorporad que nos ofrece un registry donde almacenar las imágenes y la posiblidad de, mediante un fichero de configuración crear unas directivas para decidir qué va a ocurrir cada vez que se hace un push de una nueva versión al repositorio.
 \end{text}
 
-
-
 \section{Posibles mejoras}
         \begin{text}
-                El proyecto que describe este documento, es una solución integral para resolver el problema de infraestructura en una pequeña empresa. Si hablamos de posibles mejoras, ya que siempre se puede mejorar, hablaríamos de hacer más eficientes los playbooks de Ansible o estructurarlos de forma que sean más comprensibles si cabe. Cabe destacar que en el diseño del cluster se incluye un cluster de Kubernetes, el cual está justamente para mejorar el cluster de docker-swarm. \\
-                Un punto importante de mejora sería implementar las técnicas de integración continua y entrega continua a las aplicaciones Wordpress de Virtualmin, ya que en este proyecto únicamente se abordan los proyectos Django + Angular de la empresa. \\
-                A grandes rasgos y exceptuando pequeñas mejoras en la calidad del código o la documentación, pienso que el proyecto es muy ambicioso y está bien diseñado a nivel de infraestructura, no necesitando grandes cambios en un futuro próximo.
+            El proyecto que describe este documento, es una solución integral para resolver el problema de infraestructura en una pequeña empresa. Si hablamos de posibles mejoras, ya que siempre se puede mejorar, hablaríamos de hacer más eficientes los playbooks de Ansible o estructurarlos de forma que sean más comprensibles si cabe. Cabe destacar que en el diseño del cluster se incluye un cluster de Kubernetes, el cual está justamente para mejorar el cluster de docker-swarm. \\
+            Un punto importante de mejora sería implementar las técnicas de integración continua y entrega continua a las aplicaciones Wordpress de Virtualmin, ya que en este proyecto únicamente se abordan los proyectos Django + Angular de la empresa. \\
+            A grandes rasgos y exceptuando pequeñas mejoras en la calidad del código o la documentación, pienso que el proyecto es muy ambicioso y está bien diseñado a nivel de infraestructura, no necesitando grandes cambios en un futuro próximo.
         \end{text}
