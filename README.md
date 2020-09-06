@@ -21,7 +21,7 @@ installing and configuring the virtualization service proxmox. For more detail f
 ### How to
 
 * Activate rescue mode on the nodes on Hetzner panel.
-* Create your hosts.yml file. As an example if you want to execute first part of the project a hosts.yml file should look like:
+* Create your `hosts.yml` file. As an example if you want to execute first part of the project a `hosts.yml` file should look like:
 
 ```yml
 ---
