@@ -116,8 +116,8 @@ This container will expose our Angular app with nginx.
 
 ## Compile and upload image to registry.
 To deploy our application in a orquestation tool, we need the container images to be accesible.
-That's why, we need to configure Gitlab registry. See [create_gitlab](https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/playbooks/create_gitlab.md).
-Once we have our registry up and running we can use the `Makefile` on `frontend` and `backend` folders:
+That's why, we need to configure Gitlab registry. See [create_gitlab](https://github.com/VictorMorenoJimenez/tfg2020/blob/master/doc/playbooks/create_gitlab.md). It's very important to separate backend and frontend in two GitLab repositories in order to have the images isolated. We recommend using github submodules to create the repositories.
+Once we have our registry up and running and our repositories on GitLab ready, we can use the `Makefile` on `frontend` and `backend`.
 
 ```cat backend/Makefile```
 ```Makefile
