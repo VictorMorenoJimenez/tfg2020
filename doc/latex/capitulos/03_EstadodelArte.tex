@@ -15,9 +15,9 @@
 	
 	\subsubsection{Mercado actual}
 		\begin{text}
-			Es una realidad que cada día más las empresas optan por soluciones Cloud y es bastante sencillo para un programador medio crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores y convertirse en todo un auténtico DevOps. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
+			Es una realidad que cada día más las empresas optan por soluciones Cloud. Es bastante sencillo para un programador medio, crear cauces de desarrollo y despliegue para sus aplicaciones en éstos proveedores. Se ha hablado mucho de la muerte de la figura del Administrador de Sistemas con el auge de este tipo de tecnologías, sin embargo, siempre es buena idea tener un perfil de Sistemas en los equipos DevOps ya que aportan una visión distinta y su experiencia configurando servidores, se convierte en un gran capital para un equipo DevOps. \\ 
 			No todas las empresas pueden permitirse los costes de este tipo de proveedores Cloud, que si bien son muy cómodos y es una muy buena solución para la infraestructura, son bastante costosos de mantener \ref{comparacion_precios}. \\
-			Uno de los objetivos de este proyecto es aportar una solución integral tanto para la infraestructura donde se van a alojar los proyectos software, como la infraestructura que aloja dicha infraestructura, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
+			Uno de los objetivos de este proyecto es aportar una solución integral tanto para los servicios necesarios para desplegar proyectos software, como para la infraestructura que aloja dichos servicios, dando una solución directa a empresas con bajo presupuesto que no pueden permitirse soluciones Cloud. \\
 		\end{text}
 	
 	\subsection{Servidores Bare Metal}
@@ -108,7 +108,7 @@
 					\item Azure Boards.
 					\item Azure Pipelines.
 					\item Azure Repos.
-					\item Azure Atifacts (CI/CD).
+					\item Azure Artifacts (CI/CD).
 					\item Azure test plans.
 				\end{itemize}
 			
@@ -158,13 +158,13 @@
 					\item \textbf{AWS}: 5.868 \euro.
 					\item \textbf{Hetzner + Proxmox}: 1.047,75 \euro.
 				\end{itemize}	
-			Como se puede observar, la solución propuesta por este proyecto supone un ahorro en costes sustancial. Cabe destacar que los precios anteriores son únicamente de infraestructura (máquinas linux) sin configurar, a ese precio habrá que añadirle el coste de diseñar y desplegar el proyecto.
+			Como se puede observar, la solución propuesta por este proyecto supone un ahorro en costes sustancial. Cabe destacar que los precios anteriores son únicamente de infraestructura (máquinas linux) sin configurar, a ese precio habría que añadirle el coste de diseñar y desplegar el proyecto.
 			\end{text}
 		
 	\subsection{Tecnologías elegidas}
 	\label{tecnologias_elegidas}
 		\begin{text}
-			Las tecnologías que se van a utilizar en la infraestructura y los servicios de el proyecto están bien definidas y son una restricción impuesta por la empresa (véase la sección ``\nameref{restricciones}''), sin embargo para lograr uno de los objetivos de este proyecto (automatización de procesos de despliegue de infraestructura y servicios), hace falta elegir la herramienta de automatización. A continuación se va a hacer un análisis de las principales herramientas disponibles, pros y contras de cada una y el por qué se ha elegido la tecnología utilizada. \cite{comparadorAnsibleChefPuppet:online}
+			Las tecnologías que se van a utilizar en la infraestructura y los servicios de el proyecto están bien definidas y son una restricción impuesta por la empresa (véase la sección ``\nameref{restricciones}''), sin embargo para lograr uno de los objetivos de este proyecto (automatización de procesos de despliegue de infraestructura y servicios), hace falta elegir la herramienta de automatización. Se va a hacer un análisis de las principales herramientas disponibles, pros y contras de cada una y el por qué se ha elegido la tecnología utilizada. \cite{comparadorAnsibleChefPuppet:online}
 		\end{text}
 	\subsubsection{Puppet}
 		\begin{text}
@@ -177,6 +177,6 @@
 		\end{text}
 		\subsubsection{Ansible}
 			\begin{text}
-				Por último la elegida, Ansible. Ansible está basado en python y también es software libre. La gran ventaja de Ansible frente a Chef o Puppet es que no necesitamos generar ninguna estructura específica dentro del sistema para ejecutar tareas de Ansible. Simplemente instalar Ansible y los módulos necesarios según nuestras necesidades. También aprender Ansible es bastante asequible ya que los playbooks o ficheros de configuración Ansible son ficheros .yml. Los playbooks se ejecutan en orden secuencial lo que facilita mucho su comprensión. Es por todo esto que hemos elegido Ansible como herramienta de automatización para cumplir con los objetivos de este proyecto. \cite{ansible:online}
+				Por último la elegida, Ansible. Ansible está basado en python y también es software libre. La gran ventaja de Ansible frente a Chef o Puppet es que no necesitamos generar ninguna estructura específica dentro del sistema para ejecutar tareas de Ansible. Simplemente instalar Ansible y los módulos necesarios según nuestras necesidades. También aprender Ansible es bastante asequible ya que los playbooks o ficheros de configuración Ansible son ficheros .yml. Los playbooks se ejecutan en orden secuencial lo que facilita mucho su comprensión. Es por todo esto que hemos elegido Ansible \cite{ansible:online} como herramienta de automatización para cumplir con los \hyperref[objetivos_primarios]{objetivos} de este proyecto. 
 			\end{text}
 		

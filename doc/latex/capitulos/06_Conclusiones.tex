@@ -16,7 +16,7 @@
 \label{analisis_tiempos} 
 \subsection{Tiempo estimado creación infraestructura antes del proyecto}
 \begin{text}
-        Como ya hemos comentado antes de este proyecto toda la infraestructura de la empresa se configuraba de forma manual, con lo cual llevaba un tiempo. A continuación se hace una estimación en horas de trabajo de un ingeniero junior del tiempo necesario para cubrir el ``\hyperref[RF1]{RF1}''.
+        Como ya hemos comentado antes de este proyecto toda la infraestructura de la empresa se configuraba de forma manual, con lo cual llevaba un tiempo notable y esfuerzos por parte del equipo de sistemas. A continuación se hace una estimación en horas de trabajo de un ingeniero junior del tiempo necesario para cubrir el ``\hyperref[RF1]{RF1}''.
 
         Gracias a que personalmente he recreado la infraestructura de la empresa de forma manual, puedo hacer estimaciones bastante correctas.
 
@@ -26,7 +26,7 @@
 
 \end{text}
 
-\subsection{Tiempo estimado creación infraestructura después del proyecto}
+\subsection{Tiempo estimado en crear la infraestructura después del proyecto}
 \begin{text}
         Gracias a los playbooks de Ansible, podemos crear la infraestructura en el tiempo que tarda en ejecutarse el playbook. Esta primera parte es la más costosa ya que tiene que instalar una ISO en los servidores y el servicio Proxmox que instala bastantes paquetes, la duración del playbook es de \textbf{29 minutos}. Esto supone una mejora sustancial en los tiempos, hemos pasado de \textbf{20 horas} de configuración manual a \textbf{29 minutos}.
 \end{text}
@@ -136,5 +136,5 @@
 \subsection{Creación WUI para el despliegue de playbooks}
 \begin{text}
         Dado el carácter técnico del proyecto, un usuario normal que utilizara este proyecto como servicio, tendría que aprender como funcionan los playbooks de Ansible en los que están basados este proyecto... Esto no es muy atractivo para posibles usuarios, ya que tendrían que tener conocimiento de cómo funcionan los playbooks, los roles... Para solventar el problema anterior, se sugiere la implementación de una interfaz de usuario, mediante la cual poder elegir que tareas ejecutar. Por ejemplo, se podrían crear formularios para insertar las variables necesarias y un selector donde elegir la tarea a desplegar. De esta forma el usuario no tendría que conocer como funcionan los playbooks o los roles de Ansible, simplemente mediante una interfaz intuitiva sabría que hace cada uno pero no como lo hacen. \\
-        Esta parte del futuro del proyecto me parece especialmente interesante ya que una interfaz de usuario hace muy atractivo el producto. A continuación se muestra una posible interfaz
+        Esta parte del futuro del proyecto me parece especialmente interesante ya que una interfaz de usuario hace muy atractivo el producto.
 \end{text}

@@ -7,7 +7,7 @@
 \subsection{Infraestructura objetivo}
 \label{infraestructura_objetivo}
 \begin{text}
-	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcional alta disponibilidad en las aplicaciones web, todo esto está descrito en la sección ``\nameref{objetivos_primarios}''.  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que está no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16}.
+	Este proyecto pretende crear una infraestructura para una pequeña empresa que se dedique al desarrollo del software. Esta infraestructura debe ser segura, con lo que ha de proporcionar firewalls redundantes y algún mecanismo para proporcionar alta disponibilidad en las aplicaciones web, todo esto está descrito en la sección ``\nameref{objetivos_primarios}''.  A continuación se muestra la infraestructura objetivo. Cabe destacar que las Ips y la información que se muestra en la figura es únicamente de este proyecto con los dominios e IPs contratadas. Sin embargo, la red LAN dentro del cluster sí que se mantendría en otros despliegues del cluster, ya que esta no depende de servicios externos. La siguiente figura muestra la estructura general de la infraestructura. Sin embargo, es necesario un nivel de abstracción más bajo para conocer los distintos servicios desplegados en el cluster bajo la red \textbf{10.6.0.0/16} tal y como se detalla en la sección ``\nameref{diagrama_cluster_}''.
 	
 	\clearpage
 	
@@ -57,6 +57,7 @@
 \clearpage
 
 \subsection{Diagrama Cluster}
+\label{diagrama_cluster_}
 
 \begin{text}
 	La siguiente figura muestra el cluster con un nivel de abstracción más bajo. Se muestran los distintos servicios que ofrece y la relación entre ellos. Cada servicio desplegado contribuye a la realización de uno o más requisitos funcionales descritos en la sección ``\nameref{requisitosfuncionales}'' cucho propósito es lograr los objetivos definidos en ``\nameref{subobjetivos}''. \\
