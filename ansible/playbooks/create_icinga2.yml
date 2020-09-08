@@ -89,27 +89,27 @@
        - gnupg
 
      # Install director icinga vars Change them
-     # director_db: director 
-     # director_db_user: director 
-     # director_db_password: director
+      director_db: director 
+      director_db_user: director 
+      director_db_password: director
      
-     # mysql_root_password: intel2010..
-     # icingaweb2_db_user: icingaweb2 
-     # mysql_root_password: dummypasword
+      mysql_root_password: intel2010..
+      icingaweb2_db_user: icingaweb2 
+      mysql_root_password: dummypasword
 
      # Install icinga vars. Change them
 
-     # icinga_db_user: icinga
-     # icinga_db_password: icinga  
-     # icinga_db: icinga
+      icinga_db_user: icinga
+      icinga_db_password: icinga  
+      icinga_db: icinga
 
-     # api_users:
-     # - name: Root
-     #   user: root
-     #   password: dummypassword
-     # - name: admin 
-     #   user: admin
-     #   password: dummypassword
+      api_users:
+      - name: Root
+        user: root
+        password: dummypassword
+      - name: admin 
+        user: admin
+        password: dummypassword
  
    roles:
      - proxmox_kvm
