@@ -79,7 +79,7 @@
     "intl-tel-input": "14.1.0",
     "jquery": "^3.4.1",
     "lodash": "4.17.19",
-    "moment": "2.23.0",
+    "moment": "2.29.4",
     "nan": "^2.14.1",
     "ng2-charts": "2.0.0",
     "ngrx-store-freeze": "0.2.4",
